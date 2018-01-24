@@ -6,3 +6,123 @@ rupture.scale-names = 'xs' 's' 'm' 'l' 'xl' 'hd'
 
 typographic()
 t-present(1)
+
+
+/*
+   Just copy these `.navbar-offcanvas` classes
+   to your SCSS/LESS file and style away
+
+   I have included simple styling below as `.navbar-blue`
+*/
+.navbar-offcanvas .navbar-toggle .icon-bar {
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 300ms cubic-bezier(0.55, 0, 0.1, 1), opacity 300ms cubic-bezier(0.55, 0, 0.1, 1);
+  will-change: transform, opacity;
+}
+.navbar-offcanvas .navbar-toggle .icon-bar:nth-child(2) {
+  transform: rotate(45deg) translateY(5px) translateX(4px);
+}
+.navbar-offcanvas .navbar-toggle .icon-bar:nth-child(3) {
+  opacity: 0;
+}
+.navbar-offcanvas .navbar-toggle .icon-bar:nth-child(4) {
+  transform: rotate(-45deg) translateY(-5px) translateX(3px);
+}
+.navbar-offcanvas .navbar-toggle.collapsed .icon-bar {
+  opacity: 1;
+  transform: rotate(0) translateY(0) translateX(0);
+}
+.navbar-offcanvas .navbar-collapse {
+  background: #fff;
+  border-right: 1px solid;
+  border: none;
+  display: block !important;
+  height: calc(100vh - 50px) !important;
+  position: fixed;
+  width: 80%;
+  max-width: 350px;
+  z-index: 1;
+  transform: translate(0, 0);
+  transition: transform 300ms cubic-bezier(0.55, 0, 0.1, 1);
+  will-change: transform;
+}
+.navbar-offcanvas .navbar-collapse, .navbar-offcanvas .navbar-collapse[aria-expanded="false"] {
+  transform: translate(-100%, 0);
+}
+.navbar-offcanvas .navbar-collapse[aria-expanded="true"] {
+  transform: translate(0, 0);
+}
+
+.navbar-blue {
+  background: #1E88E5;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+}
+.navbar-blue .navbar-brand {
+  color: #fff !important;
+}
+.navbar-blue .navbar-nav a {
+  color: #333;
+}
+
+.navbar-black {
+  background: #252623;
+  border: none;
+  border-radius: 0;
+  color: #fff !important;
+}
+.navbar-black .navbar-brand {
+  color: #fff !important;
+}
+.navbar-black .navbar-nav a {
+  color: #fff !important;
+}
+
+
+.mobile-header
+  float right
+  ul
+    margin 0
+    padding 0
+    
+    li
+      float: left
+
+      a
+        color #fff
+  
+
+
+body {
+  background: #ddd;
+}
+
+@media (min-width: 768px) {
+  .navbar-offcanvas .navbar-collapse {
+    background: transparent;
+    height: auto !important;
+    width: auto;
+    max-width: none;
+    position: static;
+    transform: translate(0, 0) !important;
+  }
+
+  .navbar-blue .navbar-nav > li > a {
+    color: #000;
+  }
+  .navbar-blue .navbar-nav > li.open > a,
+  .navbar-blue .navbar-nav > li > a:hover {
+    color: #333;
+  }
+
+  .navbar-black .navbar-nav > li > a {
+    color: #000;
+  }
+  .navbar-black .navbar-nav > li.open > a,
+  .navbar-black .navbar-nav > li > a:hover {
+    color: #000;
+  }
+}

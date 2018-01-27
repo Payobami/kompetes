@@ -8,12 +8,12 @@ typographic()
 t-present(1)
 
 
-/*
-   Just copy these `.navbar-offcanvas` classes
-   to your SCSS/LESS file and style away
+.siteName
+  font-weight 700 !important;
 
-   I have included simple styling below as `.navbar-blue`
-*/
+/*
+  Navigation Bar and offcanvas menu begins from here
+ */
 .navbar-offcanvas .navbar-toggle .icon-bar {
   background-color: #fff;
   margin-left: auto;
@@ -90,11 +90,19 @@ t-present(1)
     
     li
       float: left
+      display block
+      min-width 45px
+      margin-right 7px
+      padding 15px 5px 0 3px
+      background #f00
+      min-height 50px
+
 
       a
         color #fff
   
-
+.signUpBg
+  background #f00
 
 body {
   background: #ddd;
@@ -126,3 +134,100 @@ body {
     color: #000;
   }
 }
+
+  
+#bg_row
+  height 550px;
+  background linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/bg6.jpg")
+  background-image linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/bg6.jpg")
+  margin-top -17px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position relative
+
+
+.welcome_text
+  margin auto
+  padding-top 100px
+
+  h1
+    color #fff
+    text-align center
+
+
+.row_2
+  background: #f6f7f8;
+  min-height: 400px;
+
+  h1
+    font-family 'lato', sans-serif
+
+
+  p
+    font-size 24px
+    color #747372
+
+
+.row_3
+  height 300px;
+  background linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg")
+  background-image linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg")
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position relative
+
+
+.row_4
+  height 300px
+
+  p
+    font-size:  23px;
+    line-height 40px
+
+
+.row_5
+  height 300px;
+  background linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/bg3.jpg")
+  background-image linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/bg3.jpg")
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position relative
+
+
+
+.row_6
+  min-height 300px
+  padding-top 30px
+
+  p
+    font-size:  23px;
+    line-height 40px
+
+
+.row_7
+  height 300px;
+  background linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg")
+  background-image linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg")
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position relative
+
+
+.row_8
+  min-height 400px
+
+
+.row_9
+  height 300px;
+  background linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg")
+  background-image linear-gradient(66deg, rgba(0,0,0, 0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg")
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position relative

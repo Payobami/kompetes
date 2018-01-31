@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/kompetes.css">
 
     <link rel="icon" href="img/ico.png">
@@ -41,19 +42,21 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="login.html">Login</a></li>
+                <li class="dropdown signUpBg">
+                    <a href="register.html">Signup</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="#">Contests</a></li>
                 <li><a href="#">Photos</a></li>
                 <li><a href="#">Videos</a></li>
                 <li><a href="#">Votes</a></li>
 
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
-                <li class="dropdown signUpBg">
-                    <a href="#">Signup</a>
-                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -63,37 +66,41 @@
 
 <section class="content">
     <div class="container-fluid" style="min-height: 400px">
-        <div class="row">
 
-            <div id="bg_row">
+        <div>
+            <ul class="cb-slideshow">
+                <li style="display: block"><span></span><div> </div></li>
+                <li style="display: block"><span></span><div> </div></li>
+                <li style="display: block"><span></span><div> </div></li>
+                <li style="display: block"><span></span><div> </div></li>
+                <li style="display: block"><span></span><div> </div></li>
+                <li style="display: block"><span></span><div> </div></li>
+            </ul>
 
-                <div class="welcome_text">
-                    <h1>Immerse yourself inthe world's <br> most amazing photo contest community</h1>
+            <div class="welcome_text"  style="margin-top: -600px !important;">
+                <h1>Immerse yourself inthe world's <br> most amazing photo contest community</h1>
 
-                    <div class="col-sm-6 col-sm-offset-3 text-center" style="margin-top: 40px;">
+                <div class="col-sm-6 col-sm-offset-3 text-center">
 
-
-
-                            <a href="" class="btn btn-primary btn-lg" style="width: 250px;">
-                                <i class="fa-fb"></i>
-                                Connect With Facebook
-                            </a>
-
+                    <br>
+                    <a href="" class="btn btn-primary btn-lg" style="width: 250px;margin-bottom: 10px">
+                        <i class="fa-fb"></i>
+                        Connect With Facebook
+                    </a>
 
 
-                            <a href="" class="btn btn-danger btn-lg" style="width: 250px">
-                                <i class="fa-fb"></i>
-                                Sign Up For Free
-                            </a>
-                    </div>
+
+                    <a href="" class="btn btn-danger btn-lg" style="width: 250px; margin-bottom: 10px">
+                        <i class="fa-fb"></i>
+                        Sign Up For Free
+                    </a>
                 </div>
-
             </div>
 
-
-
-
         </div>
+
+
+
 
     </div>
 
@@ -151,7 +158,16 @@
                 </div>
 
                 <div class="col-sm-6">
+                    <div class="row" style="padding-top: 60px">
+                        <div class="col-xs-4"></div>
+                        <div class="col-xs-4">
+                            <img src="img/icons/gift.png" width="" class="">
+                        </div>
+                        <div class="col-xs-4"></div>
 
+
+
+                    </div>
                 </div>
 
             </div>
@@ -164,6 +180,25 @@
 
 
     <div class="row_5">
+
+        <div class="container">
+
+            <div class="col-sm-6">
+
+                <img src="img/video_frame_play.png" width="100%">
+
+            </div>
+
+            <div class="col-sm-6">
+
+                <h2 style="color: #fff" class="text-center">Share Amazing Videos For Contest</h2>
+                <p class="text-center" style="">
+                    Win amazing price by sharing  your videos for contest
+                </p>
+
+            </div>
+        </div>
+
 
     </div>
 
@@ -207,7 +242,7 @@
 
             </div>
             <div class="col-sm-4">
-                <img src="img/bg/3-10.png" width="100%" height="730">
+                <img src="img/bg/3-10.png" width="100%" height="620">
             </div>
             <div class="col-sm-4">
 
@@ -237,7 +272,44 @@
     </div>
 
     <div class="row_9">
+        <div class="container">
+                <div style="margin-top: 70px; color: #fff" class="text-center">
 
+                    <h3 style="color: #fff">Sign up now. It's free!</h3>
+                    <br>
+                    <a href="" class="btn btn-primary btn-lg" style="width: 250px;">
+                        <i class="fa-fb"></i>
+                        Connect With Facebook
+                    </a>
+
+                    <a href="" class="btn btn-danger btn-lg" style="width: 250px">
+                        <i class="fa-fb"></i>
+                        Sign Up For Free
+                    </a>
+                </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="col-sm-12">
+
+                <ul>
+                    <li><a>About Us</a></li>
+                    <li><a>Support</a></li>
+                    <li><a>Privacy</a></li>
+                    <li><a>Terms</a></li>
+                    <li><a>Judges</a></li>
+                    <li><a>Facebook</a></li>
+                    <li><a><i class=""></i> Twitter</a></li>
+                    <li><a>Instagram</a></li>
+                    <li><a>Google+</a></li>
+                </ul>
+
+            </div>
+
+        </div>
     </div>
 </section>
 

@@ -1117,9 +1117,32 @@ body {
         color #7e7e7e
         font-family: 'Raleway', sans-serif;
 
-
-
-
 /* photo  page */
 
+.photo_wrapper {
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 15px;
+}
 
+
+
+.photo_row
+  width 32.8%
+  max-width 600px
+  float none
+  margin-bottom 0.3%
+  display inline-block
+  overflow visible
+  margin-left 0.5%
+
+  img
+    width 100% !important
+
+
+
+
+
+
++below('s')
+  .photo_row
+    width 49.5% !important

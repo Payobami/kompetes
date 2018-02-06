@@ -1901,6 +1901,27 @@ z-index
   font-family: 'Raleway', sans-serif;
 }
 /* photo  page */
+.photo_wrapper {
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 15px;
+}
+.photo_row {
+  width: 32.8%;
+  max-width: 600px;
+  float: none;
+  margin-bottom: 0.3%;
+  display: inline-block;
+  overflow: visible;
+  margin-left: 0.5%;
+}
+.photo_row img {
+  width: 100% !important;
+}
+@media only screen and (max-width: 650px) {
+  .photo_row {
+    width: 49.5% !important;
+  }
+}
 @-moz-keyframes imageAnimation {
   0% {
     opacity: 0;

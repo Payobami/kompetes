@@ -1119,11 +1119,8 @@ body {
 
 /* photo  page */
 
-.photo_wrapper {
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-gap: 15px;
-}
-
+.photo_wrapper
+  margin-top 50px
 
 
 .photo_row
@@ -1140,6 +1137,158 @@ body {
 
 
 
+div.show-image {
+
+}
+div.show-image:hover img{
+  width: 100%;
+}
+div.show-image:hover label{
+  display: block;
+  height: 40px;
+  width: 50px;
+}
+
+div.show-image label {
+  position:absolute;
+  display:none;
+  border-radius 0 !important
+}
+
+
+div.show-image label.award {
+  top:0;
+  left:0;
+  height 40px
+  width 50px
+  font-size 23px
+  margin-top 10px
+  margin-left 10px
+}
+div.show-image label.star {
+  top:0;
+  height 40px
+  width 50px
+  margin-left 70px
+  font-size 23px
+  margin-top 10px
+
+}
+
+
+.like-rate i
+  height 35px !important;
+  width 35px !important;
+  text-align center !important;
+  color #fff
+  font-size 30px
+
+
+.photo_share_row
+  width 100%
+  min-height 60px
+  margin-top -15px !important
+  padding-top 30px
+
+  ul
+    margin 0
+    padding 0
+
+    li
+      display block
+      float left
+      min-width 50px
+      padding-top 5px
+      text-align center
+      border 1px solid #0b80c8
+      background #fff
+      margin-right 10px
+
+
+      a
+        font-size 18px
+
+
+
+.reviewRow {
+  margin-bottom: 20px !important;
+  margin-top: 20px;
+  border-bottom: 1px solid #e8e8e8;
+  min-height: 100px;
+}
+
+.reviewerField {
+  float: left;
+  min-height: 80px;
+  width: 20%;
+  margin-right: 2%;
+  margin-bottom: 20px;
+}
+.reviewerContent {
+  float: left;
+  width: 75%;
+  border: 5px solid #f1f1f1;
+  border-radius: 5px;
+  margin-left: 2%;
+  min-height: 100px;
+  margin-bottom: 20px;
+}
+.reviwerPic {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  background: #f4f4f4;
+}
+.reviwerPic img {
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
+  margin: auto !important;
+  border: 4px solid #dedede;
+}
+.innerBubble {
+  background: #fff;
+  border: 1px solid #d2d2d2;
+  padding-top: 0px;
+}
+.innerBubble span {
+  margin-left: 10px;
+  margin-top: -20px !important;
+  margin-bottom: 30px !important;
+  color: #767676;
+  font-size: 11px;
+}
+.innerBubble h5 {
+  font-size: 20px;
+  padding-left: 10px;
+  color: #060;
+  margin-top: -25px;
+  margin-bottom: -10px !important;
+}
+.reviewerContent .innerBubble p {
+  padding: 13px;
+  font-size: 12px;
+  font: Georgia, "Times New Roman", "Century Schoolbook L", serif;
+  margin-top: 0px !important;
+  color: #323232;
+  word-wrap: break-word;
+}
+.questn {
+  color: #069 !important;
+  font-size: 1rem !important;
+  font-style: italic !important;
+}
+.innerBubble:before {
+  display: block;
+  position: relative;
+  top: 25px;
+  left: -15px;
+  width: 0;
+  border-style: solid;
+  border-color: rgba(255,255,255,0) #e3e3e3;
+  border-width: 13px 15px 13px 0;
+  content: "";
+}
 
 
 

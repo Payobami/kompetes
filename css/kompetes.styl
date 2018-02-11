@@ -115,6 +115,13 @@ t-present(1)
 .signUpBg
   background #f00
 
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: none !important;
+  background: none !important
+  border-bottom 3px solid #f00
+}
+
 body {
   background: #ddd;
 }
@@ -160,6 +167,7 @@ body {
   .navbar-blue .navbar-nav > li.open > a,
   .navbar-blue .navbar-nav > li > a:hover {
     color: #333;
+    backgorund: none !important
   }
 
   .navbar-black .navbar-nav > li > a {
@@ -1259,9 +1267,9 @@ div.show-image label.star {
   font-size: 11px;
 }
 .innerBubble h5 {
-  font-size: 20px;
+  font-size: 16px;
   padding-left: 10px;
-  color: #060;
+  color: red;
   margin-top: -25px;
   margin-bottom: -10px !important;
 }
@@ -1289,6 +1297,277 @@ div.show-image label.star {
   border-width: 13px 15px 13px 0;
   content: "";
 }
+
+.more_feature
+  width 100%
+
+  img
+    height 75px
+    width 75px
+
+  .comment_date
+    width 100%
+
+    .top-info
+      float left
+      width 30%
+
+      h4
+        font-size 18px
+        margin-bottom -3px
+
+
+.tag-style li {
+  display:inline-block !important;
+}
+.tag-style li.hide_belongs {
+  display:none !important;
+}
+.tag-style li a {
+  color:#555555;
+  line-height:21px;
+  padding:0 6px;
+  display:inline-block;
+  font-size:12px;
+  font-weight:400;
+  border:solid 1px #555555;
+  margin-bottom:5px;
+  margin-right:2px;
+}
+.tag-style li a:hover, .tag-style li a:active {
+  text-decoration:none;
+  background:rgba(0, 0, 0, 0.1);
+}
+.tag-style li.more_belongs a {
+  background:rgba(0, 0, 0, 0.1);
+}
+.tag-style li.more_belongs a:hover {
+  background:rgba(0, 0, 0, 0.2);
+}
+
+#photo-info .extra h3 {
+  color: #262626;
+  font-weight: 200;
+}
+#photo-info h3 {
+  font-family: helvetica neue,helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+
+#photo-info .extra.overflow {
+  margin-top: 30px !important;
+  margin-bottom: -20px;
+}
+
+.block.award {
+  background-color: #f2f2f2 !important;
+  border-radius: 0;
+  width: 254px;
+  color: #555555;
+  margin-bottom: 10px
+}
+
+.award-date {
+  font-size: 11px;
+  color: #999;
+  display: block;
+  width: 100%;
+  padding-left: 3px;
+}
+
+.block {
+  margin-bottom: 10px;
+}
+
+.sidebar .block {
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 15px;
+}
+.awards .award {
+  margin-top: -5px;
+}
+.awards .award {
+  background: url(../img/icons/only_award.png) no-repeat scroll 7px 8px #d2d2d2;
+  border-bottom: 0 none;
+  padding: 10px 10px 10px 33px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+
+item.peer-recognition {
+  border: 0;
+  color: #333 !important;
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 2px;
+  color: #333 !important;
+}
+items item {
+  overflow: hidden;
+  padding: 0 0 5px;
+  margin: 0 0 7px;
+}
+
+
+.peer-user {
+  min-height: 45px;
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 45px;
+  background: #FFF;
+  padding: 0;
+}
+
+.peer-recognition .peer-user a {
+  font-weight: 200;
+  display: block;
+  width: 100%;
+  height: 45px;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.peer-recognition img {
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.peer-recognition img {
+  width: 45px !important;
+  height: 45px !important;
+}
+
+
+.peer-recognition a.avatar_membership {
+  background: #5C5C5C;
+  text-align: center;
+  float: left;
+  margin-top: -13px;
+  margin-left: 0;
+  color: #FFF !important;
+  font-size: 9px;
+  height: 13px;
+  line-height: 13px;
+  font-weight: 200;
+  border-radius: 0 !important;
+}
+
+
+.peer-left {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.peer-left a:link, .peer-left a:visited, .peer-left a:hover, .peer-left a:active {
+  min-width: 35px;
+  height: 45px;
+  color: #FFF !important;
+  text-decoration: none;
+  padding: 0 5px 0 5px;
+  background: #9C9EA7;
+  display: inline-block;
+  float: left;
+  line-height: 45px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 200 !important;
+}
+
+
+.block.tags {
+  margin-top: 20px;
+}
+
+.block-mini {
+  margin-bottom: 5px;
+}
+
+.sidebar .tags a {
+  display: inline-block;
+  margin: 0 7px 5px 0;
+}
+
+.sidebar .tags a {
+  color: #999;
+  font-weight: 200;
+  font-size: 13px;
+}
+
+.title-contain {
+
+  border-bottom: 1px solid #DDD;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  margin-top 80px !important
+}
+
+.title-contain h3 {
+  color: #333;
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: inherit;
+  margin-bottom: 0;
+  margin-top 30px !important
+}
+
+.block.metadata {
+  font-size: 14px !important;
+  color: #999 !important;
+}
+
+.metadata .item {
+  line-height: 20px;
+  padding-left: 0!important;
+}
+
+.metadata .item span {
+  color: #555555;
+}
+
+.share-follow-row
+  margin-bottom 55px
+
+
+.photo_display_container
+  min-height 500px;
+  margin-top 30px;
+
+
+
+  .photo_display
+    margin auto
+    max-width:919.9945578231292px;
+    width:auto;
+    height:674.1734795613161px;
+
+  img
+    max-width:919.9945578231292px;
+    width:auto;
+    height:674.1734795613161px;
+    max-height:1300px;
+
+
+
+  .left_prev
+    width 100px
+    float left
+    border 1px solid #f00
+    height 100px
+
+  .right_next
+    width 100px
+    border 1px solid #f00
+    height 100px
+    float right
+
+
 
 
 

@@ -2,15 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>..:: Kompetes - Upload::..</title>
+    <title>..:: Welcome  - Kompetes ::..</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/kompetes.css">
-    <link rel="stylesheet" type="text/css" href="css/dropzone.css">
-
     <link rel="stylesheet" type="text/css" media="screen" href="css/masonry.css"/>
 
     <link rel="icon" href="img/ico.png">
@@ -106,7 +104,7 @@
                             <div class="userDropInfo">
                                 <ul style="padding: 0;">
                                     <li class="no-bg width-100" style="min-height: 55px !important;padding-bottom: 5px!important;">
-                                        <a href="#" style="color: #333333 !important;">
+                                        <a href="myProfile.html" style="color: #333333 !important;">
                                             <img src="users_photo/avatar.png" width="40" height="40">
                                             <name>
                                                 Yusuf Ayobami
@@ -224,178 +222,150 @@
                 <li class="nav-active"><a href="upload.html">+ Upload</a></li>
                 <li><a href="upgrade.html"> Upgrade</a></li>
 
+                <li class="visible-xs" style="min-height: 400px"></li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
+<section class="content" style="margin-top: 40px;padding: 0;">
+
+    <div class="userProfileBg" style="background: url('photo/baby.jpg')">
 
 
-<section  class="content" style="margin-top: 90px;padding: 0;">
+    </div>
 
-    <div class="container-fluid no-margin-xs no-padding-xs" style="">
-
-        <div class="col-sm-10 col-sm-offset-1 no-margin-xs no-padding-xs">
-
-            <div class="drop-zone-upload">
-
-                <form action="upload.html" class="dropzone" id="myDropzone">
-                    <div class="fallback">
-                        <input name="file" type="file" multiple />
+    <div class="userProile-row2" style="">
+        <div class="container-fluid">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="userProfileBlock">
+                    <div class="text-center" style="margin-top: -50px;">
+                        <img src="users_photo/avatar.png" class="img-circle img-thumbnail">
                     </div>
-                </form>
 
+                    <h4 class="text-center userName">Prudent</h4>
+
+                    <div class="profile-edit-link text-center">
+                        <a href="profile_settings.html" class="text-center">
+                            Profile Settings
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="user_profile_menu text-center no-padding-xs">
+
+                    <ul>
+                        <li><a href="myProfile.html">5 Photos</a></li>
+                        <li><a href="myProfile_award.html#award" class="">9 Awards</a></li>
+                        <li><a href="myProfile_contest.html#contest">1 Contest</a></li>
+                        <li class="hidden-xs"><a href="myProfile_challenges.html#challenges" class="active">0 Challenges</a></li>
+                        <li class="hidden-xs"><a href="myProfile_follower.html#followers">4 Followers</a></li>
+                        <li class="hidden-xs"><a href="myProfile_following.html#following">Following 32</a></li>
+                        <li class="hidden-xs"><a href="myProfile_about.html#about">About</a></li>
+                        <li class="dropdown visible-xs">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-ellipsis-h fa-1x"></i></a>
+
+                            <ul class="dropdown-menu no-border-radius" style="margin-left: -120px">
+                                <li class="width-100" style=""><a class="" href="myProfile_challenges.html#challenges">0 Challenges</a></li>
+                                <li class="width-100"><a href="myProfile_follower.html#follower">4 Followers</a></li>
+                                <li class="width-100"><a href="myProfile_following.html#following">Following 32</a></li>
+                                <li class="width-100"><a href="myProfile_about.html#about">About</a></li>
+                            </ul>
+
+
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-
-            <div class="upload-info no-padding-xs" style="margin-top: 50px; background:#fff;padding:20px;">
-
-                <div class="uploaded-picture">
-
-
-
-                </div>
-
-
-                <div class="form-group col-sm-6">
-                    <label>Title</label>
-                    <input type="text" class="form-control no-border-radius" name="title" placeholder="title">
-                </div>
-
-
-                <div class="form-group col-sm-6" style="min-height: 50px">
-                    <label>Adult Content</label>
-
-                    <div class="toggleWrapper" style="width: 100%; margin-top: 25px;position: relative">
-                        <input class="dn" type="checkbox" id="dn"/>
-                        <label class="toggle" for="dn"><span class="toggle__handler"></span></label>
-                    </div>
-                </div>
-
-                <div class="form-group col-sm-6">
-
-                    <label>Description</label>
-                    <textarea class="form-control no-border-radius" name="discription"></textarea>
-                </div>
-
-
-                <div class="form-group col-sm-6">
-
-                    <label>Tags</label>
-                    <input class="form-control no-border-radius" name="tags" placeholder="Tag the picture separate by comma">
-                </div>
-
-
-                <div class="form-group col-sm-12">
-                    <label>Select Category(s)</label>
-
-                    <div class="photo-cat">
-
-                        <div class="select-cat">
-                            <input id="active1" type="checkbox" class="check">
-                            <label for="active1" class="check">Action</label>
-                        </div>
-
-                        <div class="select-cat">
-                            <input id="active2" type="checkbox" class="check">
-                            <label for="active2" class="check">Black and White</label>
-                        </div>
-
-                        <div class="select-cat">
-                            <input id="active3" type="checkbox" class="check">
-                            <label for="active3" class="check">Abstract</label>
-                        </div>
-
-                        <div class="select-cat">
-                            <input id="active4" type="checkbox" class="check">
-                            <label for="active4" class="check">Food</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active5" type="checkbox" class="check">
-                            <label for="active5" class="check">Sexy</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active6" type="checkbox" class="check">
-                            <label for="active6" class="check">Fashion</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active7" type="checkbox" class="check">
-                            <label for="active7" class="check">City</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active8" type="checkbox" class="check">
-                            <label for="active8" class="check">Architecture</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active9" type="checkbox" class="check">
-                            <label for="active9" class="check">Night</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active10" type="checkbox" class="check">
-                            <label for="active10" class="check">Nature</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active11" type="checkbox" class="check">
-                            <label for="active11" class="check">Transportation</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active12" type="checkbox" class="check">
-                            <label for="active12" class="check">Animal</label>
-                        </div>
-
-
-                        <div class="select-cat">
-                            <input id="active13" type="checkbox" class="check">
-                            <label for="active13" class="check">People</label>
-                        </div>
-
-
-
-                        <div class="select-cat">
-                            <input id="active14" type="checkbox" class="check">
-                            <label for="active14" class="check">Landscape</label>
-                        </div>
-
-
-                        <div class="clearfix"></div>
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="col-sm-6 col-sm-offset-3">
-
-                    <button class="btn btn-success no-border-radius btn-lg" style="width: 100%">SUBMIT</button>
-
-                </div>
-
-                <div class="clearfix"></div>
-
-            </div>
-
-
-
         </div>
     </div>
+
+
+
+    <div class="container-fluid" id="contest" style="min-height: 550px; margin-top:">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="profile-grid-block">
+                    <a href="friendship_contests.html">
+                        <div class="grid-image">
+                            <img src=" photo/food_2.jpg" width="100%">
+                        </div>
+                        <div class="grid-user-content">
+                            <div class="grid-user-picture">
+                                <img src="users_photo/74043847_280x280.jpg" class="img-circle img-thumbnail" width="100">
+                            </div>
+
+
+                            <h5 class="text-center">Vegetable & Fruit</h5>
+                            <div class="text-center">
+                                <a class="btn btn-primary no-border-radius">
+                                    Open
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="profile-grid-block">
+                    <a href="friendship_contests.html">
+                        <div class="grid-image">
+                            <img src=" photo/caracica.jpg" width="100%">
+                        </div>
+                        <div class="grid-user-content">
+                            <div class="grid-user-picture">
+                                <img src="users_photo/76778887_280x280.jpg" class="img-circle img-thumbnail" width="100">
+                            </div>
+
+
+                            <h5 class="text-center">Friendship Contest</h5>
+                            <div class="text-center">
+                                <a class="btn btn-danger no-border-radius">
+                                    closed
+                                </a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- pagination start here -->
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <ul class="pagination pagination-centered no-border-radius">
+                    <li class="no-border-radius"><a href="#">First</a></li>
+                    <li><a href="#">Previous</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">Next</a></li>
+                    <li><a href="#">Last</a></li>
+                    <li class="no-border-radius"><a href="#">Goto</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
 </section>
+
+
 
 <!-- mobile search modal begins here -->
 
@@ -418,26 +388,26 @@
 </div>
 
 
+
+
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-<script src='js/dropzone.js'></script>
-
-
+<script src="js/jquery.masonry.js"></script>
 <script>
+    $(function(){
 
+        var $container = $('#photo_wrapper');
 
-    $("div#myDropzone").dropzone({
-
-        url: "upload.html",
-
+        $container.imagesLoaded( function(){
+            $container.masonry({
+                itemSelector : '.photo_row'
+            });
+        });
 
     });
 
-    Dropzone.options.myDropZone = false;
-</script>
 
+</script>
 </body>
 </html>
 
-
-</body>

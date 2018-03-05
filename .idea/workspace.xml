@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5923c42d-179b-44ce-b765-51c1d34ac271" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vote_information.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/kompetes.css" afterPath="$PROJECT_DIR$/css/kompetes.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/kompetes.styl" afterPath="$PROJECT_DIR$/css/kompetes.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/min_css/kompetes.css" afterPath="$PROJECT_DIR$/min_css/kompetes.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/votes.html" afterPath="$PROJECT_DIR$/votes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vote_start.html" afterPath="$PROJECT_DIR$/vote_start.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -77,8 +74,8 @@
           <file leaf-file-name="vote_start.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/vote_start.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="166" column="65" lean-forward="false" selection-start-line="166" selection-start-column="65" selection-end-line="166" selection-end-column="65" />
+                <state relative-caret-position="106">
+                  <caret line="156" column="101" lean-forward="false" selection-start-line="156" selection-start-column="101" selection-end-line="156" selection-end-column="101" />
                   <folding>
                     <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -122,8 +119,8 @@
           <file leaf-file-name="kompetes.styl" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/kompetes.styl">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="3059" column="18" lean-forward="false" selection-start-line="3059" selection-start-column="18" selection-end-line="3059" selection-end-column="18" />
+                <state relative-caret-position="221">
+                  <caret line="2958" column="32" lean-forward="false" selection-start-line="2958" selection-start-column="32" selection-end-line="2958" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -398,7 +395,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146470000" />
+    <option name="totallyTimeSpent" value="147740000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -913,16 +910,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/kompetes.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="3059" column="18" lean-forward="false" selection-start-line="3059" selection-start-column="18" selection-end-line="3059" selection-end-column="18" />
+        <state relative-caret-position="221">
+          <caret line="2958" column="32" lean-forward="false" selection-start-line="2958" selection-start-column="32" selection-end-line="2958" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vote_start.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="166" column="65" lean-forward="false" selection-start-line="166" selection-start-column="65" selection-end-line="166" selection-end-column="65" />
+        <state relative-caret-position="106">
+          <caret line="156" column="101" lean-forward="false" selection-start-line="156" selection-start-column="101" selection-end-line="156" selection-end-column="101" />
           <folding>
             <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />

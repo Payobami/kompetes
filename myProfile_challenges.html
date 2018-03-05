@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>..:: Welcome  - Kompetes ::..</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/kompetes.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/masonry.css"/>
+
+    <link rel="icon" href="img/ico.png">
+
+
+    <style>
+        .photo_share_row{
+            padding: 10px;
+            margin-top: 50px !important;
+        }
+
+        .photo_share_row ul li{
+            margin-right: 3px !important;
+            margin-bottom: 5px !important;
+        }
+
+        .photo_share_row ul li a{
+
+            color: #318ed8;
+        }
+    </style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="100" style="padding: 0">
+
+<nav class="navbar navbar-black navbar-offcanvas navbar-fixed-top navbar-border">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-right: -20px">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="home.html">
+                <span style="float: right" class="siteName" style="margin-right: 20px;">&ensp; Kompetes</span>
+                <img src="img/logo2.png" width="35" style="margin-top: -5px;">
+            </a>
+
+
+            <div class="visible-xs mobile-header">
+                <ul>
+                    <li style="background: none">
+
+
+                        <a href="#" class="text-center" data-toggle="modal" data-target="#mobileSearch">
+                            <i class="fa fa-search text-center"></i>
+                        </a>
+                    </li>
+
+
+
+                    <li class="dropdown" style="background: none">
+                        <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <i class="fa fa-bell text-center"></i>
+
+                            <div class="notificatio_count" style="margin-top: -20px">
+                                <b>2</b>
+                            </div>
+                        </a>
+
+
+                        <ul class="dropdown-menu no-border-radius" style="min-height: 250px; margin-left: -155px">
+                            <div class="notification_drop">
+                                <ul>
+                                    <li style="background: none">
+                                        <a href="#" style="color: #2c2c2c !important;">
+                                            Your notification appears here
+                                        </a>
+                                    </li>
+
+                                    <li style="background: none">
+                                        <a href="#" style="color: #2c2c2c !important;">
+                                            Your notification appears here
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </li>
+
+                    <li style="background: none" class="dropdown">
+                        <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <div class="userPhotoDP" style="">
+                                <img src="users_photo/avatar.png">
+                            </div>
+                        </a>
+
+                        <ul class="dropdown-menu no-border-radius" style="min-height: 300px;color: #000;margin-left: -155px">
+
+                            <div class="userDropInfo">
+                                <ul style="padding: 0;">
+                                    <li class="no-bg width-100" style="min-height: 55px !important;padding-bottom: 5px!important;">
+                                        <a href="myProfile.html" style="color: #333333 !important;">
+                                            <img src="users_photo/avatar.png" width="40" height="40">
+                                            <name>
+                                                Yusuf Ayobami
+                                                <br>
+                                                <small class="text-center">View Profile</small>
+                                            </name>
+                                        </a>
+                                    </li>
+
+                                    <li class="width-100 bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                    <li class="no-bg width-100" ><a href="#" style="color: #333333 !important;">My Stats</a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Inbox </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">My points </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Meet Photographers </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Account Settings </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Logout </a></li>
+                                </ul>
+                            </div>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="search hidden-xs">
+                    <input type="search" class="" placeholder="Search">
+                </li>
+
+                <li class="dropdown hidden-xs">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                        <div class="notificatio_count">
+                            <b>2</b>
+                        </div>
+                    </a>
+
+                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+                        <div class="notification_drop">
+                            <ul>
+                                <li>
+                                    <a href="#" style="color: #2c2c2c !important;">
+                                        Your notification appears here
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" style="color: #2c2c2c !important;">
+                                        Your notification appears here
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+
+
+                </li>
+
+
+                <li class="dropdown hidden-xs">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <div class="userPhotoDP" style="">
+                            <img src="users_photo/avatar.png">
+
+                        </div>
+                    </a>
+
+                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+
+                        <div class="userDropInfo">
+                            <ul style="padding: 0;">
+                                <li style="min-height: 55px !important;padding-bottom: 5px!important;">
+                                    <a href="#" style="color: #333333 !important;">
+                                        <img src="users_photo/avatar.png" width="40" height="40">
+                                        <name>
+                                            Yusuf Ayobami
+                                            <br>
+                                            <small class="text-center">View Profile</small>
+                                        </name>
+                                    </a>
+                                </li>
+
+                                <li class="bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">My Stats</a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Inbox </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">My points </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Meet Photographers </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Account Settings </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Logout </a></li>
+                            </ul>
+                        </div>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown hidden-xs">
+                    <a class=""><i class="fa fa-ellipsis-v"></i> </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="home.html">Timeline</a></li>
+                <li class="active"><a href="contests.html">Contests</a></li>
+                <li><a href="photos.html">Photos</a></li>
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="votes.html">Votes</a></li>
+                <li class="nav-active"><a href="upload.html">+ Upload</a></li>
+                <li><a href="upgrade.html"> Upgrade</a></li>
+
+                <li class="visible-xs" style="min-height: 400px"></li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<section class="content" style="margin-top: 40px;padding: 0;">
+
+    <div class="userProfileBg" style="background: url('photo/baby.jpg')">
+
+
+    </div>
+
+    <div class="userProile-row2" style="">
+        <div class="container-fluid">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="userProfileBlock">
+                    <div class="text-center" style="margin-top: -50px;">
+                        <img src="users_photo/avatar.png" class="img-circle img-thumbnail">
+                    </div>
+
+                    <h4 class="text-center userName">Prudent</h4>
+
+                    <div class="profile-edit-link text-center">
+                        <a href="profile_settings.html" class="text-center">
+                            Profile Settings
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="user_profile_menu text-center no-padding-xs">
+
+                    <ul>
+                        <li><a href="myProfile.html">5 Photos</a></li>
+                        <li><a href="myProfile_award.html#award" class="">9 Awards</a></li>
+                        <li><a href="myProfile_contest.html#contest">1 Contest</a></li>
+                        <li class="hidden-xs"><a href="myProfile_challenges.html#challenges" class="active">0 Challenges</a></li>
+                        <li class="hidden-xs"><a href="myProfile_follower.html#followers">4 Followers</a></li>
+                        <li class="hidden-xs"><a href="myProfile_following.html#following">Following 32</a></li>
+                        <li class="hidden-xs"><a href="myProfile_about.html#about">About</a></li>
+                        <li class="dropdown visible-xs">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-ellipsis-h fa-1x"></i></a>
+
+                            <ul class="dropdown-menu no-border-radius" style="margin-left: -120px">
+                                <li class="width-100" style=""><a class="" href="myProfile_challenges.html#challenges">0 Challenges</a></li>
+                                <li class="width-100"><a href="myProfile_follower.html#follower">4 Followers</a></li>
+                                <li class="width-100"><a href="myProfile_following.html#following">Following 32</a></li>
+                                <li class="width-100"><a href="myProfile_about.html#about">About</a></li>
+                            </ul>
+
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid" id="contest" style="min-height: 550px; margin-top:">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="profile-grid-block">
+                    <a href="friendship_contests.html">
+                        <div class="grid-image">
+                            <img src=" photo/food_2.jpg" width="100%">
+                        </div>
+                        <div class="grid-user-content">
+                            <div class="grid-user-picture">
+                                <img src="users_photo/74043847_280x280.jpg" class="img-circle img-thumbnail" width="100">
+                            </div>
+
+
+                            <h5 class="text-center">Vegetable & Fruit</h5>
+                            <div class="text-center">
+                                <a class="btn btn-primary no-border-radius">
+                                    Open
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="profile-grid-block">
+                    <a href="friendship_contests.html">
+                        <div class="grid-image">
+                            <img src=" photo/caracica.jpg" width="100%">
+                        </div>
+                        <div class="grid-user-content">
+                            <div class="grid-user-picture">
+                                <img src="users_photo/76778887_280x280.jpg" class="img-circle img-thumbnail" width="100">
+                            </div>
+
+
+                            <h5 class="text-center">Friendship Contest</h5>
+                            <div class="text-center">
+                                <a class="btn btn-danger no-border-radius">
+                                    closed
+                                </a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- pagination start here -->
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <ul class="pagination pagination-centered no-border-radius">
+                    <li class="no-border-radius"><a href="#">First</a></li>
+                    <li><a href="#">Previous</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">Next</a></li>
+                    <li><a href="#">Last</a></li>
+                    <li class="no-border-radius"><a href="#">Goto</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</section>
+
+
+
+<!-- mobile search modal begins here -->
+
+<div id="mobileSearch" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="margin-top: 200px">
+
+        <!-- Modal content-->
+        <div class="modal-content no-border-radius">
+
+            <div class="modal-body">
+                <div class="searchZippr">
+                    <h4>Type your search and hit enter</h4>
+                    <div class="form-group no-margin-xs">
+                        <input class="width-100 search-control" placeholder="Username, Competition, Photo title here" type="search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src="js/jquery.masonry.js"></script>
+<script>
+    $(function(){
+
+        var $container = $('#photo_wrapper');
+
+        $container.imagesLoaded( function(){
+            $container.masonry({
+                itemSelector : '.photo_row'
+            });
+        });
+
+    });
+
+
+</script>
+</body>
+</html>
+

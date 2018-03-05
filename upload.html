@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>..:: Kompetes - Upload::..</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/kompetes.css">
+    <link rel="stylesheet" type="text/css" href="css/dropzone.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/masonry.css"/>
+
+    <link rel="icon" href="img/ico.png">
+
+
+    <style>
+        .photo_share_row{
+            padding: 10px;
+            margin-top: 50px !important;
+        }
+
+        .photo_share_row ul li{
+            margin-right: 3px !important;
+            margin-bottom: 5px !important;
+        }
+
+        .photo_share_row ul li a{
+
+            color: #318ed8;
+        }
+    </style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="100" style="padding: 0">
+
+<nav class="navbar navbar-black navbar-offcanvas navbar-fixed-top navbar-border">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-right: -20px">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="home.html">
+                <span style="float: right" class="siteName" style="margin-right: 20px;">&ensp; Kompetes</span>
+                <img src="img/logo2.png" width="35" style="margin-top: -5px;">
+            </a>
+
+
+            <div class="visible-xs mobile-header">
+                <ul>
+                    <li style="background: none">
+
+
+                        <a href="#" class="text-center" data-toggle="modal" data-target="#mobileSearch">
+                            <i class="fa fa-search text-center"></i>
+                        </a>
+                    </li>
+
+
+
+                    <li class="dropdown" style="background: none">
+                        <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <i class="fa fa-bell text-center"></i>
+
+                            <div class="notificatio_count" style="margin-top: -20px">
+                                <b>2</b>
+                            </div>
+                        </a>
+
+
+                        <ul class="dropdown-menu no-border-radius" style="min-height: 250px; margin-left: -155px">
+                            <div class="notification_drop">
+                                <ul>
+                                    <li style="background: none">
+                                        <a href="#" style="color: #2c2c2c !important;">
+                                            Your notification appears here
+                                        </a>
+                                    </li>
+
+                                    <li style="background: none">
+                                        <a href="#" style="color: #2c2c2c !important;">
+                                            Your notification appears here
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </li>
+
+                    <li style="background: none" class="dropdown">
+                        <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <div class="userPhotoDP" style="">
+                                <img src="users_photo/avatar.png">
+                            </div>
+                        </a>
+
+                        <ul class="dropdown-menu no-border-radius" style="min-height: 300px;color: #000;margin-left: -155px">
+
+                            <div class="userDropInfo">
+                                <ul style="padding: 0;">
+                                    <li class="no-bg width-100" style="min-height: 55px !important;padding-bottom: 5px!important;">
+                                        <a href="#" style="color: #333333 !important;">
+                                            <img src="users_photo/avatar.png" width="40" height="40">
+                                            <name>
+                                                Yusuf Ayobami
+                                                <br>
+                                                <small class="text-center">View Profile</small>
+                                            </name>
+                                        </a>
+                                    </li>
+
+                                    <li class="width-100 bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                    <li class="no-bg width-100" ><a href="#" style="color: #333333 !important;">My Stats</a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Inbox </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">My points </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Meet Photographers </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Account Settings </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Logout </a></li>
+                                </ul>
+                            </div>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="search hidden-xs">
+                    <input type="search" class="" placeholder="Search">
+                </li>
+
+                <li class="dropdown hidden-xs">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                        <div class="notificatio_count">
+                            <b>2</b>
+                        </div>
+                    </a>
+
+                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+                        <div class="notification_drop">
+                            <ul>
+                                <li>
+                                    <a href="#" style="color: #2c2c2c !important;">
+                                        Your notification appears here
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" style="color: #2c2c2c !important;">
+                                        Your notification appears here
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+
+
+                </li>
+
+
+                <li class="dropdown hidden-xs">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <div class="userPhotoDP" style="">
+                            <img src="users_photo/avatar.png">
+
+                        </div>
+                    </a>
+
+                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+
+                        <div class="userDropInfo">
+                            <ul style="padding: 0;">
+                                <li style="min-height: 55px !important;padding-bottom: 5px!important;">
+                                    <a href="#" style="color: #333333 !important;">
+                                        <img src="users_photo/avatar.png" width="40" height="40">
+                                        <name>
+                                            Yusuf Ayobami
+                                            <br>
+                                            <small class="text-center">View Profile</small>
+                                        </name>
+                                    </a>
+                                </li>
+
+                                <li class="bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">My Stats</a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Inbox </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">My points </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Meet Photographers </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Account Settings </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Logout </a></li>
+                            </ul>
+                        </div>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown hidden-xs">
+                    <a class=""><i class="fa fa-ellipsis-v"></i> </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="home.html">Timeline</a></li>
+                <li class="active"><a href="contests.html">Contests</a></li>
+                <li><a href="photos.html">Photos</a></li>
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="votes.html">Votes</a></li>
+                <li class="nav-active"><a href="upload.html">+ Upload</a></li>
+                <li><a href="upgrade.html"> Upgrade</a></li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<section  class="content" style="margin-top: 90px;padding: 0;">
+
+    <div class="container-fluid no-margin-xs no-padding-xs" style="">
+
+        <div class="col-sm-10 col-sm-offset-1 no-margin-xs no-padding-xs">
+
+            <div class="drop-zone-upload">
+
+                <form action="upload.html" class="dropzone" id="myDropzone">
+                    <div class="fallback">
+                        <input name="file" type="file" multiple />
+                    </div>
+                </form>
+
+            </div>
+
+
+            <div class="upload-info no-padding-xs" style="margin-top: 50px; background:#fff;padding:20px;">
+
+                <div class="uploaded-picture">
+
+
+
+                </div>
+
+
+                <div class="form-group col-sm-6">
+                    <label>Title</label>
+                    <input type="text" class="form-control no-border-radius" name="title" placeholder="title">
+                </div>
+
+
+                <div class="form-group col-sm-6" style="min-height: 50px">
+                    <label>Adult Content</label>
+
+                    <div class="toggleWrapper" style="width: 100%; margin-top: 25px;position: relative">
+                        <input class="dn" type="checkbox" id="dn"/>
+                        <label class="toggle" for="dn"><span class="toggle__handler"></span></label>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-6">
+
+                    <label>Description</label>
+                    <textarea class="form-control no-border-radius" name="discription"></textarea>
+                </div>
+
+
+                <div class="form-group col-sm-6">
+
+                    <label>Tags</label>
+                    <input class="form-control no-border-radius" name="tags" placeholder="Tag the picture separate by comma">
+                </div>
+
+
+                <div class="form-group col-sm-12">
+                    <label>Select Category(s)</label>
+
+                    <div class="photo-cat">
+
+                        <div class="select-cat">
+                            <input id="active1" type="checkbox" class="check">
+                            <label for="active1" class="check">Action</label>
+                        </div>
+
+                        <div class="select-cat">
+                            <input id="active2" type="checkbox" class="check">
+                            <label for="active2" class="check">Black and White</label>
+                        </div>
+
+                        <div class="select-cat">
+                            <input id="active3" type="checkbox" class="check">
+                            <label for="active3" class="check">Abstract</label>
+                        </div>
+
+                        <div class="select-cat">
+                            <input id="active4" type="checkbox" class="check">
+                            <label for="active4" class="check">Food</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active5" type="checkbox" class="check">
+                            <label for="active5" class="check">Sexy</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active6" type="checkbox" class="check">
+                            <label for="active6" class="check">Fashion</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active7" type="checkbox" class="check">
+                            <label for="active7" class="check">City</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active8" type="checkbox" class="check">
+                            <label for="active8" class="check">Architecture</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active9" type="checkbox" class="check">
+                            <label for="active9" class="check">Night</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active10" type="checkbox" class="check">
+                            <label for="active10" class="check">Nature</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active11" type="checkbox" class="check">
+                            <label for="active11" class="check">Transportation</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active12" type="checkbox" class="check">
+                            <label for="active12" class="check">Animal</label>
+                        </div>
+
+
+                        <div class="select-cat">
+                            <input id="active13" type="checkbox" class="check">
+                            <label for="active13" class="check">People</label>
+                        </div>
+
+
+
+                        <div class="select-cat">
+                            <input id="active14" type="checkbox" class="check">
+                            <label for="active14" class="check">Landscape</label>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-sm-6 col-sm-offset-3">
+
+                    <button class="btn btn-success no-border-radius btn-lg" style="width: 100%">SUBMIT</button>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
+<!-- mobile search modal begins here -->
+
+<div id="mobileSearch" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="margin-top: 200px">
+
+        <!-- Modal content-->
+        <div class="modal-content no-border-radius">
+
+            <div class="modal-body">
+                <div class="searchZippr">
+                    <h4>Type your search and hit enter</h4>
+                    <div class="form-group no-margin-xs">
+                        <input class="width-100 search-control" placeholder="Username, Competition, Photo title here" type="search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='js/dropzone.js'></script>
+
+
+<script>
+
+
+    $("div#myDropzone").dropzone({
+
+        url: "upload.html",
+
+
+    });
+
+    Dropzone.options.myDropZone = false;
+</script>
+
+</body>
+</html>
+
+
+</body>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>..:: Welcome  - Kompetes ::..</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/kompetes.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/masonry.css"/>
+
+    <link rel="icon" href="img/ico.png">
+
+
+    <style>
+        .photo_share_row{
+            padding: 10px;
+            margin-top: 50px !important;
+        }
+
+        .photo_share_row ul li{
+            margin-right: 3px !important;
+            margin-bottom: 5px !important;
+        }
+
+        .photo_share_row ul li a{
+
+            color: #318ed8;
+        }
+    </style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="100" style="padding: 0">
+
+<nav class="navbar navbar-black navbar-offcanvas navbar-fixed-top navbar-border">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-right: -20px">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="home.html">
+                <span style="float: right" class="siteName" style="margin-right: 20px;">&ensp; Kompetes</span>
+                <img src="img/logo2.png" width="35" style="margin-top: -5px;">
+            </a>
+
+
+            <div class="visible-xs mobile-header">
+                <ul>
+                    <li style="background: none">
+
+
+                        <a href="#" class="text-center" data-toggle="modal" data-target="#mobileSearch">
+                            <i class="fa fa-search text-center"></i>
+                        </a>
+                    </li>
+
+
+
+                    <li class="dropdown" style="background: none">
+                        <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <i class="fa fa-bell text-center"></i>
+
+                            <div class="notificatio_count" style="margin-top: -20px">
+                                <b>2</b>
+                            </div>
+                        </a>
+
+
+                        <ul class="dropdown-menu no-border-radius" style="min-height: 250px; margin-left: -155px">
+                            <div class="notification_drop">
+                                <ul>
+                                    <li style="background: none">
+                                        <a href="#" style="color: #2c2c2c !important;">
+                                            Your notification appears here
+                                        </a>
+                                    </li>
+
+                                    <li style="background: none">
+                                        <a href="#" style="color: #2c2c2c !important;">
+                                            Your notification appears here
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </li>
+
+                    <li style="background: none" class="dropdown">
+                        <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <div class="userPhotoDP" style="">
+                                <img src="users_photo/avatar.png">
+                            </div>
+                        </a>
+
+                        <ul class="dropdown-menu no-border-radius" style="min-height: 300px;color: #000;margin-left: -155px">
+
+                            <div class="userDropInfo">
+                                <ul style="padding: 0;">
+                                    <li class="no-bg width-100" style="min-height: 55px !important;padding-bottom: 5px!important;">
+                                        <a href="myProfile.html" style="color: #333333 !important;">
+                                            <img src="users_photo/avatar.png" width="40" height="40">
+                                            <name>
+                                                Yusuf Ayobami
+                                                <br>
+                                                <small class="text-center">View Profile</small>
+                                            </name>
+                                        </a>
+                                    </li>
+
+                                    <li class="width-100 bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                    <li class="no-bg width-100" ><a href="#" style="color: #333333 !important;">My Stats</a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Inbox </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">My points </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Meet Photographers </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Account Settings </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Logout </a></li>
+                                </ul>
+                            </div>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="search hidden-xs">
+                    <input type="search" class="" placeholder="Search">
+                </li>
+
+                <li class="dropdown hidden-xs">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                        <div class="notificatio_count">
+                            <b>2</b>
+                        </div>
+                    </a>
+
+                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+                        <div class="notification_drop">
+                            <ul>
+                                <li>
+                                    <a href="#" style="color: #2c2c2c !important;">
+                                        Your notification appears here
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" style="color: #2c2c2c !important;">
+                                        Your notification appears here
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+
+
+                </li>
+
+
+                <li class="dropdown hidden-xs">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <div class="userPhotoDP" style="">
+                            <img src="users_photo/avatar.png">
+
+                        </div>
+                    </a>
+
+                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+
+                        <div class="userDropInfo">
+                            <ul style="padding: 0;">
+                                <li style="min-height: 55px !important;padding-bottom: 5px!important;">
+                                    <a href="myProfile.html" style="color: #333333 !important;">
+                                        <img src="users_photo/avatar.png" width="40" height="40">
+                                        <name>
+                                            Yusuf Ayobami
+                                            <br>
+                                            <small class="text-center">View Profile</small>
+                                        </name>
+                                    </a>
+                                </li>
+
+                                <li class="bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">My Stats</a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Inbox </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">My points </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Meet Photographers </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Account Settings </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Logout </a></li>
+                            </ul>
+                        </div>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown hidden-xs">
+                    <a class=""><i class="fa fa-ellipsis-v"></i> </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="home.html">Timeline</a></li>
+                <li class="active"><a href="contests.html">Contests</a></li>
+                <li><a href="photos.html">Photos</a></li>
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="votes.html">Votes</a></li>
+                <li class="nav-active"><a href="upload.html">+ Upload</a></li>
+                <li><a href="upgrade.html"> Upgrade</a></li>
+
+                <li class="visible-xs" style="min-height: 400px"></li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<section class="content" style="margin-top: 40px;padding: 0;">
+    <div class="container-fluid no-margin-xs">
+
+        <div class="mobile-rec visible-xs">
+            <ul>
+                <li class="active"><a>Following</a></li>
+                <li class="no-border"><a>Recommended</a></li>
+            </ul>
+        </div>
+
+        <div class="col-sm-7 no-padding-xs">
+            <div class="photos_wall" style="min-height: 1700px;padding-top: 30px">
+
+                <!-- photorow start here -->
+                <div class="photos_row" style="">
+                    <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
+                        <div class="logoPhoto" style="padding-top: 5px">
+                            <img src="img/logo.png" width="30" height="30">
+                            <span> Recommend for you by <a href=""> Prudent2012</a></span>
+                        </div>
+                    </div>
+                   <div class="likeRow">
+                        <div>
+                            <ul>
+                                <li><a href="#war"><i class="fa fa-star fa-2x"></i></a></li>
+                                <li><a href="#like"><i class="fa fa-heart fa-2x"></i></a></li>
+                            </ul>
+                        </div>
+                   </div>
+                    <div class="photos_content hidden-xs" style="">
+                        <a href="#myModal" data-toggle="modal">
+                            <img src="photo/war.jpg" width="100%" style="margin-top:; z-index: -1">
+                        </a>
+                    </div>
+
+                    <div class="photos_content photos_content_xs visible-xs" style="">
+                        <a href="photo_page.html">
+                            <img src="photo/war.jpg" width="100%" style="margin-top:; z-index: -1">
+                        </a>
+                    </div>
+                </div>
+                <!-- photorow Ends Here -->
+
+
+
+                <!-- row for video -->
+
+                <div class="photos_row video-col" style="margin-bottom: 50px">
+                    <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
+                        <div class="logoPhoto" style="padding-top: 5px">
+                            <img src="img/logo.png" width="30" height="30">
+                            <span> Recommend for you by <a href=""> Prudent2012</a></span>
+                        </div>
+                    </div>
+                    <div class="likeRow">
+                        <div>
+                            <ul>
+                                <li><a><i class="fa fa-star fa-2x"></i></a></li>
+                                <li><a><i class="fa fa-heart fa-2x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="photos_content video_content" style="margin-top: -40px">
+
+                        <video poster="" controls crossorigin style="width:100%;height: 500px">
+                            <!-- Video files -->
+                            <source src="video/Hero%20Slideshow.MP4" type="video/mp4" style="width: 100%">
+                            <!--<source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.webm" type="video/webm">-->
+
+                            <!-- Text track file -->
+                            <!--<track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+                                default>-->
+
+                            <!-- Fallback for browsers that don't support the <video> element -->
+                            <!--<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.mp4" download>Download</a>-->
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Video Row Ends Here -->
+
+                <!-- Row for photo -->
+                <div class="photos_row" style="">
+                    <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
+                        <div class="logoPhoto" style="padding-top: 5px">
+                            <img src="img/logo.png" width="30" height="30">
+                            <span> Recommend for you by <a href=""> Prudent2012</a></span>
+                        </div>
+                    </div>
+                    <div class="likeRow">
+                        <div>
+                            <ul>
+                                <li><a><i class="fa fa-star fa-2x"></i></a></li>
+                                <li><a><i class="fa fa-heart fa-2x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="photos_content hidden-xs" style="">
+                        <a href="#myModal" data-toggle="modal">
+                            <img src="photo/food_2.jpg" width="100%" style="margin-top:; z-index: -1">
+                        </a>
+                    </div>
+
+                    <div class="photos_content photo_content_xs visible-xs" style="">
+                        <a href="photo_page.html">
+                            <img src="photo/food_2.jpg" width="100%" style="margin-top:; z-index: -1">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- open contest -->
+                <div class="photos_row" style="">
+                    <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
+                        <div class="logoPhoto" style="padding-top: 5px">
+                            <img src="img/logo.png" width="30" height="30">
+                            <span> Recommend for you <a href="friendship_contests.html"> Frendship contest</a></span>
+                        </div>
+                    </div>
+
+                    <div class="photos_content photo_contest" style="">
+                        <a href="friendship_contests.html">
+                            <img src="photo/caracica.jpg" width="100%" style="">
+                        </a>
+
+                        <div class="photo_contest_info" style="">
+
+                            <h2 class="text-center">Friendship and Relationship Contest</h2>
+                            <h6 class="text-center">Win Cannon Camera Lens</h6>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <!-- the modal goes here -->
+                <div id="myModal" class="modal" role="dialog" aria-labelledby="myModalLabel">
+
+                    <div class="modal-dialog modal-lg" style="min-width:1200px !important;">
+                        <div class="modal-content no-border-radius">
+
+                            <div class="modal-body" style="padding: 0">
+
+                                <div class="col-sm-9" style="padding: 0">
+                                    <div class="modal-photo" style="">
+                                        <img src="photo/war.jpg" style="" class="">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-3" style="padding: 0">
+                                    <div class="modal-photo-info" style="">
+
+                                        <div class="modal-user-photo" style="">
+                                            <img src="users_photo/avatar.png" width="40" height="40" class="img-circle">
+                                            <span>Prudent2012</span>
+
+                                            <a class="btn btn-danger pull-right btn-xs" data-dismiss="modal">Close</a>
+                                            <a class="btn btn-warning pull-right btn-xs">Follow</a>
+                                        </div>
+
+                                        <div style="margin-bottom: 10px">
+                                            <div class="modal-block" style="">
+                                                <i class="fa fa-heart fa-2x"></i>
+                                            </div>
+
+                                            <div class="modal-block" style="">
+                                                <i class="fa fa-star fa-2x"></i>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="photo_share_row" style="margin-top: 10px">
+                                            <small>Share Photo</small>
+
+                                            <ul>
+                                                <li><a href=""><i class="fa fa-star"></i></a></li>
+                                                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                                                <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href=""><i class="fa fa-pinterest"></i></a></li>
+                                                <li><a href=""><i class="fa fa-envelope"></i></a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div style="margin-top: 60px">
+                                            <ul class="nav nav-tabs" style="">
+                                                <li class="active"><a data-toggle="tab" href="#details">Details</a></li>
+                                               <!-- <li><a data-toggle="tab" href="#actives">Activities</a></li>-->
+                                            </ul>
+                                        </div>
+
+
+
+                                        <div class="tab-content">
+
+                                            <div class="modal-details">
+
+                                                <div id="details" class="tab-pane fade in active more_feature" style="padding-left: 20px">
+
+                                                    <h6 class="text-center" style="margin: 0">War Man</h6>
+
+                                                    <div class="comment_date" style="margin-bottom: 20px">
+                                                        <div class="top-info">
+                                                            <h4>13</h4>
+                                                            <span class="info-title">Comments</span>
+                                                        </div>
+
+                                                        <div class="top-info">
+                                                            <h4>1432</h4>
+                                                            <span class="info-title">views</span>
+                                                        </div>
+
+                                                        <div class="top-info">
+                                                            <h4>Jan, 2018</h4>
+                                                            <span class="info-title">Uploaded</span>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+
+                                                    <div class="sidebar" style="">
+                                                        <div class="block tags">
+                                                            <br><br>
+                                                            <div class="block-mini">Tags</div>
+                                                            <a href="/search/tags/horns">#horns</a>
+                                                            <a href="/search/tags/drink">#drink</a>
+                                                        </div>
+
+
+
+                                                        <div class="block metadata">
+                                                            <div class="block-mini"></div>
+                                                            <div class="item camera">Camera: <span><a href="/search/camera/canon+eos+6d">Canon EOS 6D</a></span></div>
+                                                            <div class="item aperture">Aperture: <span>f/8</span></div>
+                                                            <div class="item iso_film">ISO: <span>100</span></div>
+                                                            <div class="item exposure_time">Shutter Speed: <span>1/250</span></div>
+                                                            <div class="item exposure_time">Focal Length: <span>70/1</span></div>
+                                                        </div>
+
+
+                                                        <div class="photo_contest">
+                                                            <h6>Photo Contest Submission</h6>
+                                                            <ul class="tag-style">
+                                                                <li>
+                                                                    <a href="">Fashion Statement</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="col-sm-4 hidden-xs" style="min-height: 650px;">
+            <div class="right_var" style="z-index: -1">
+                <div class="divider-horizontal"></div>
+
+                <div class="row_contest">
+                    <a href="#">
+                        <div class="contest_thumb_image">
+                            <img src="photo/war.jpg" class="img-circle" width="35" height="35">
+                        </div>
+                        <div class="contest_info_row">
+                            <h5 class="contest_heading">Male Portrait Contest</h5>
+                            <p>Win GoPro Camera</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+
+
+                <div class="row_contest">
+                    <a href="">
+                        <div class="contest_thumb_image">
+                            <img src="photo/70592508_widepreview400.jpg" class="img-circle" width="35" height="35">
+                        </div>
+                        <div class="contest_info_row">
+                            <h5 class="contest_heading">Female Portrait Contest</h5>
+                            <p>Win GoPro Camera</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+
+
+                <div class="row_contest">
+                    <a href="">
+                        <div class="contest_thumb_image">
+                            <img src="photo/thumbnail/74223413_75x75.jpg" class="img-circle" width="35" height="35">
+                        </div>
+                        <div class="contest_info_row">
+                            <h5 class="contest_heading">Adventure Contest</h5>
+                            <p>Win GoPro Camera</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+
+
+                <div>
+                    <div class=""  style="margin-bottom: -30px; margin-top: 40px">
+
+                        <small>Who to Follow</small>
+                    </div>
+                    <div class="divider-horizontal"></div>
+
+
+                    <div class="follow_row">
+                        <img src="users_photo/avatar.png" width="30" height="30">
+                        <a href="#"> Prudent2018</a>
+                        <span class="right">
+                        <a href="" class="btn btn-success btn-xs">Follow</a>
+                    </span>
+                    </div>
+
+
+                    <div class="follow_row">
+                        <img src="users_photo/avatar.png" width="30" height="30">
+                        <a href="#"> Prudent2018</a>
+                        <span class="right">
+                        <a href="" class="btn btn-success btn-xs">Follow</a>
+                    </span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class=""  style="margin-bottom: -30px; margin-top: 40px">
+
+                        <small>Ongoing Voting</small>
+                    </div>
+
+                    <div class="divider-horizontal"></div>
+
+
+                    <div class="ongoing_voting_row">
+                        <img src="users_photo/avatar.png" width="30" height="30">
+                        <a href="#"> Prudent2018</a>
+                    </div>
+
+                </div>
+
+
+                <div>
+                    <div class=""  style="margin-bottom: -30px; margin-top: 40px">
+
+                        <small>Invite more Friends</small>
+                    </div>
+
+                    <div class="divider-horizontal"></div>
+
+                    <div class="invite_row">
+                        <img src="img/icons/Facebook.png">
+                        Invite using Facebook
+                    </div>
+
+
+                    <div class="invite_row">
+                        <img src="img/icons/Twitter.png">
+                        Invite using Twitter
+                    </div>
+
+                    <div class="invite_row">
+                        <img src="img/icons/Google-+.png">
+                        Invite using Google+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- mobile search modal begins here -->
+
+<div id="mobileSearch" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="margin-top: 200px">
+
+        <!-- Modal content-->
+        <div class="modal-content no-border-radius">
+
+            <div class="modal-body">
+                <div class="searchZippr">
+                    <h4>Type your search and hit enter</h4>
+                    <div class="form-group no-margin-xs">
+                        <input class="width-100 search-control" placeholder="Username, Competition, Photo title here" type="search">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+</body>
+</html>

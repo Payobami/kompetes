@@ -3758,6 +3758,11 @@ margin-top
     width: 100%;
   }
 }
+.form-row-challenge {
+  min-height: 150px;
+  border: 1px solid #d2d2d2;
+  background: #fff;
+}
 /* badges selection */
 .selectBadge {
   width: 100%;
@@ -3862,6 +3867,107 @@ margin-top
   padding-top: 30px;
 }
 .selectBadge :checked + label img {
+/*transform: scale(0.9);*/
+/*box-shadow: 0 0 5px #333;*/
+  z-index: -1;
+}
+/*  .submit photo   */
+.submit-photo {
+  text-decoration: none;
+  width: 130px;
+  height: 130px;
+  float: left;
+  margin-right: 5px;
+  background: #d2d2d2;
+}
+.submit-photo input[type="radio"][id^="cb"] {
+  display: none;
+}
+.submit-photo label {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.submit-photo label:before {
+  background-color: #fff;
+  color: #fff;
+  content: " ";
+  display: block;
+/*border: 1px solid grey;*/
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  line-height: 28px;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -ms-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  margin: auto;
+}
+.submit-photo label img {
+  height: 100%;
+  width: 100%;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+.submit-photo :hover + label:before {
+  content: " ✓ ";
+  background-color: #ec591c;
+  opacity: 0.55;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=55)";
+  filter: alpha(opacity=55);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  width: 100%;
+  height: 100%;
+  font-size: 35px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding-top: 30px;
+}
+.submit-photo :checked + label:before {
+  content: " ✓ ";
+  background-color: #ec591c;
+  opacity: 0.55;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=55)";
+  filter: alpha(opacity=55);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding-top: 30px;
+}
+.submit-photo :checked + label img {
 /*transform: scale(0.9);*/
 /*box-shadow: 0 0 5px #333;*/
   z-index: -1;

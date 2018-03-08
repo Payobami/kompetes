@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>..:: Start Challenges - Kompetes ::..</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/kompetes.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/masonry.css"/>
+    <link rel="icon" href="img/ico.png">
+</head>
+<body>
+<nav class="navbar navbar-black navbar-offcanvas navbar-fixed-top navbar-border">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-right: -20px">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="home.html">
+                <span style="float: right" class="siteName" style="margin-right: 20px;">&ensp; Kompetes</span>
+                <img src="img/logo2.png" width="35" style="margin-top: -5px;">
+            </a>
+
+
+            <div class="visible-xs mobile-header">
+                <ul>
+                    <li style="background: none">
+
+
+                        <a href="#" class="text-center" data-toggle="modal" data-target="#mobileSearch">
+                            <i class="fa fa-search text-center"></i>
+                        </a>
+                    </li>
+
+
+
+                    <li class="dropdown" style="background: none">
+                        <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <i class="fa fa-bell text-center"></i>
+
+                            <div class="notificatio_count" style="margin-top: -20px">
+                                <b>2</b>
+                            </div>
+                        </a>
+
+
+                        <ul class="dropdown-menu no-border-radius" style="min-height: 250px; margin-left: -155px">
+                            <div class="notification_drop">
+                                <ul>
+                                    <li style="background: none">
+                                        <a href="#" style="color: #2c2c2c !important;">
+                                            Your notification appears here
+                                        </a>
+                                    </li>
+
+                                    <li style="background: none">
+                                        <a href="#" style="color: #2c2c2c !important;">
+                                            Your notification appears here
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </li>
+
+                    <li style="background: none" class="dropdown">
+                        <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <div class="userPhotoDP" style="">
+                                <img src="users_photo/avatar.png">
+                            </div>
+                        </a>
+
+                        <ul class="dropdown-menu no-border-radius" style="min-height: 300px;color: #000;margin-left: -155px">
+
+                            <div class="userDropInfo">
+                                <ul style="padding: 0;">
+                                    <li class="no-bg width-100" style="min-height: 55px !important;padding-bottom: 5px!important;">
+                                        <a href="myProfile.html" style="color: #333333 !important;">
+                                            <img src="users_photo/avatar.png" width="40" height="40">
+                                            <name>
+                                                Yusuf Ayobami
+                                                <br>
+                                                <small class="text-center">View Profile</small>
+                                            </name>
+                                        </a>
+                                    </li>
+
+                                    <li class="width-100 bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                    <li class="no-bg width-100" ><a href="#" style="color: #333333 !important;">My Stats</a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Inbox </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">My points </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Meet Photographers </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Account Settings </a></li>
+                                    <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Logout </a></li>
+                                </ul>
+                            </div>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="search hidden-xs">
+                    <input type="search" class="" placeholder="Search">
+                </li>
+
+                <li class="dropdown hidden-xs">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                        <div class="notificatio_count">
+                            <b>2</b>
+                        </div>
+                    </a>
+
+                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+                        <div class="notification_drop">
+                            <ul>
+                                <li>
+                                    <a href="#" style="color: #2c2c2c !important;">
+                                        Your notification appears here
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" style="color: #2c2c2c !important;">
+                                        Your notification appears here
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+
+
+                </li>
+
+
+                <li class="dropdown hidden-xs">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <div class="userPhotoDP" style="">
+                            <img src="users_photo/avatar.png">
+
+                        </div>
+                    </a>
+
+                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+
+                        <div class="userDropInfo">
+                            <ul style="padding: 0;">
+                                <li style="min-height: 55px !important;padding-bottom: 5px!important;">
+                                    <a href="#" style="color: #333333 !important;">
+                                        <img src="users_photo/avatar.png" width="40" height="40">
+                                        <name>
+                                            Yusuf Ayobami
+                                            <br>
+                                            <small class="text-center">View Profile</small>
+                                        </name>
+                                    </a>
+                                </li>
+
+                                <li class="bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">My Stats</a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Inbox </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">My points </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Meet Photographers </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Account Settings </a></li>
+                                <li class=""><a href="#" style="color: #333333 !important;">Logout </a></li>
+                            </ul>
+                        </div>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown hidden-xs">
+                    <a class=""><i class="fa fa-ellipsis-v"></i> </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="home.html">Timeline</a></li>
+                <li class="active"><a href="contests.html">Contests</a></li>
+                <li><a href="photos.html">Photos</a></li>
+                <li><a href="challenges.html">Challenges</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="votes.html">Votes</a></li>
+                <li class="nav-active"><a href="upload.html">+ Upload</a></li>
+                <li><a href="upgrade.html"> Upgrade</a></li>
+
+                <li class="visible-xs" style="min-height: 400px"></li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<section class="content" style="margin-top: 40px;padding: 0;">
+
+    <div class="challenge_start">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h3 class="f-raleway text-white f-w-700 text-center p-b-20">Start your own new challenge!</h3>
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label class="text-white">
+                    Name for the challenge
+                </label>
+                <input type="text" name="challenge_name" class="form-control">
+            </div>
+
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label class="text-white">
+                    Select Challenge Category
+                </label>
+                <select name="categroy" class="form-control m-b-15">
+                    <option value="Abstract">Abstract</option>
+                    <option value="Action">Action</option>
+                    <option value="Animal">Animal</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Black and White">Black and White</option>
+                    <option value="Colors">Colors</option>
+                    <option value="City">City</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Fine Nudes">Fine Nudes</option>
+                    <option value="Food">Food</option>
+                    <option value="Macro">Manipulation</option>
+                    <option value="Object">Objects</option>
+                    <option value="People">People</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Water">Water</option>
+                    <option value="Wedding">Wedding</option>
+                </select>
+            </div>
+
+
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label class="text-white">
+                    How many Photo/Video allow per perticipant
+                </label>
+                <select name="categroy" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label class="text-white">
+                    Type of Challenge
+                </label>
+                <select name="challenge_type" class="form-control">
+                    <option value="">Select Type</option>
+                    <option value="Photo">Photo</option>
+                    <option value="Video">Video</option>
+                </select>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
+
+    <div class="challenge-row-text">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="p-l-10 p-r-10 m-t-15" style="min-height: 150px;border: 1px solid #d2d2d2;background: #fff">
+                <div class="form-group m-t-40">
+                    <label>Choose a Challenge Banner <small>(JPG for photo or MP4 for video)</small></label><br>
+                    <input type="file" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="p-l-10 p-r-10 m-t-15" style="min-height: 150px;border: 1px solid #d2d2d2;background: #fff">
+                <div class="form-group m-t-40">
+                    <label>Write a description about your challenge</label><br>
+                    <textarea class="form-control"></textarea>
+                </div>
+            </div>
+
+
+            <div class="p-l-10 p-r-10 m-t-15" style="min-height: 150px;border: 1px solid #d2d2d2;background: #fff">
+                <div class="form-group m-t-40">
+                    <label>Select the award for your Winner's Selection<small> (You choose the winner)</small></label><br>
+
+                    <div class="row p-l-10">
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center p-t-40" style="background: none;">
+                                <label class="p-b-30">Badges</label>
+                                <div class="rewardPrice">Reward Point </div>
+                            </div>
+                        </div>
+                        <!-- end col-sm-2 -->
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                             <div class="selectBadge text-center">
+                                    <input type="radio" name="reward" id="cb1" />
+                                    <label for="cb1"><img src="img/badges/png256/014-badge-7.png" /></label>
+
+                                    <div class="rewardPrice"> 100 RP </div>
+                             </div>
+                        </div>
+
+
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb2" />
+                                <label for="cb2"><img src="img/badges/png256/015-badge-6.png" /></label>
+
+
+                                <div class="rewardPrice"> 200 RP </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb3" />
+                                <label for="cb3"><img src="img/badges/png256/016-badge-5.png" /></label>
+
+
+                                <div class="rewardPrice"> 300 RP </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb4" />
+                                <label for="cb4"><img src="img/badges/png256/017-medal-2.png" /></label>
+
+                                <div class="rewardPrice"> 400 RP</div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-sm-2 col-xs-6 p-r-10 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb5" />
+                                <label for="cb5"><img src="img/badges/png256/023-badge-1.png" /></label>
+
+
+                                <div class="rewardPrice"> 500 RP </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="p-l-10 p-r-10 m-t-15" style="min-height: 150px;border: 1px solid #d2d2d2;background: #fff">
+                <div class="form-group m-t-40">
+                    <label>Select the award for the People's Choice <small> (The winner is selected by voting)</small></label><br>
+
+                    <div class="row p-l-10">
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center p-t-40" style="background: none;">
+
+                                <label class="p-b-30">Badges</label>
+
+
+                                <div class="rewardPrice">Reward Point </div>
+                            </div>
+                        </div>
+                        <!-- end col-sm-2 -->
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb6" />
+                                <label for="cb6"><img src="img/badges/png256/014-badge-7.png" /></label>
+
+                                <div class="rewardPrice"> 100 RP </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb7" />
+                                <label for="cb7"><img src="img/badges/png256/015-badge-6.png" /></label>
+
+
+                                <div class="rewardPrice"> 200 RP </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb8" />
+                                <label for="cb8"><img src="img/badges/png256/016-badge-5.png" /></label>
+
+
+                                <div class="rewardPrice"> 300 RP </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb9" />
+                                <label for="cb9"><img src="img/badges/png256/017-medal-2.png" /></label>
+
+                                <div class="rewardPrice"> 400 RP</div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-sm-2 col-xs-6 p-r-10 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="reward" id="cb10" />
+                                <label for="cb10"><img src="img/badges/png256/023-badge-1.png" /></label>
+                                <div class="rewardPrice"> 500 RP </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="text-center">
+                        <div class="m-t-30 text-center" style="margin-top: 50px">
+                            <button class="btn btn-success" type="submit">Submit and Upload</button>
+                            <button class="btn btn-warning" type="submit">Preview</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="challenge-row-text" style="background: #fafafa">
+
+
+
+
+    </div>
+
+
+
+</section>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+</body>
+</html>

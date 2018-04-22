@@ -8,12 +8,17 @@ class Welcome extends CI_Controller {
 
 		$this->load->helper(array('url','form'));
 		$this->load->library(array('session','form_validation'));
+		$this->load->database();
 	}
 
 
 	public function index()
 	{
-		$data['title']="";
+		$data['title']="Welcome";
+		if(isset($_SESSION['userLogginID'])){
+
+			require_once('action/fetch_user.php');
+		}
 		$this->load->view('template/header', $data);
 		$this->load->view('index', $data);
 		$this->load->view('template/footer', $data);

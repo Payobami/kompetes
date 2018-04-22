@@ -16,7 +16,7 @@
     foreach($getUser as $user);
     $data['username'] = $user->username;
     $data['userEmail'] = $user->email;
-    $userRegDate = $user->date;
+    $data['userRegDate'] = $user->date;
     $userRegType = $user->reg_type;
     $data['userFirstName'] = $user->firstname;
     $data['userLastname'] = $user->lastname;

@@ -238,7 +238,7 @@ class Upload extends CI_Controller{
                     'date'=>date('Y-m-d H:i:s'),
                 );
 
-                $this->db->insert("Uploads", $insertPicture);
+                $this->db->insert("uploads", $insertPicture);
 
                 //set the is into session
                 $sessionRAnd = $groupId;
@@ -253,9 +253,7 @@ class Upload extends CI_Controller{
                 redirect(base_url());
 
             }
-
         }
-
 
         //$this->db->insert();
         print_r('Image Uploaded Successfully.');

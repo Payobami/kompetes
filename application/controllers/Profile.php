@@ -182,7 +182,7 @@ class Profile extends CI_Controller{
                         //die('Uploaded');
 
                         $data['success'] = "<div class='alert alert-success text-white no-border-radius'><a class='close' data-dismiss='alert'>X</a> Picture Uploaded Successfully.... </div>";
-                        $this->load->view('template/header');
+                        $this->load->view('template/header',$data);
                         $this->load->view('profile_settings', $data);
                     }
 
@@ -408,6 +408,7 @@ class Profile extends CI_Controller{
         else{
 
             require_once('action/fetch_user.php');
+            require_once('action/time_function.php');
             $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);
             $this->load->view('myProfile_about', $data);

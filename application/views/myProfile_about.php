@@ -6,8 +6,8 @@
                 <div class="m-t-20" style="min-height: 200px;background: #fff;">
                     <h6 class="f-s-14 text-center" style="border-bottom: 1px solid #d2d2d2">Info</h6>
                     <div class="p-20">
-                        <b>Username:</b> Prudent Ayobami <br>
-                        <b>Country:</b> Nigeria <br>
+                        <b>Username:</b> <?php if(!empty($userFirstName)){echo $userFirstName .' '. $userLastname;}else{echo $username;}?> <br>
+                        <b>Country:</b> <?php echo $userCountry;?> <br>
                     </div>
                 </div>
             </div>
@@ -18,11 +18,7 @@
 
 
                     <p class="p-20 f-s-15 t-c-ash f-Roboto-Condensed">
-                        Hi, I am a biologist who has been passionate about photography since I was 7 years old. What I like the most is to photograph nature and everything that implies in that, that is, animals and plants, mountains and valleys, in large landscapes or micro details.
-                        Most of my photos were made with mobile devices - IPod Touch, IPad and Galaxy S7, and on those devices I am able to use pro (non-automatic) mode. I also use a Canon PowerShot S5 IS which I like much but I'm still clamping to use out of the automatic.
-                        At this point, I think I can make some really good photos and I can start migrating from amateur to professional. This website is the beginning, I hope you like it ... and if you like it, please share it!
-
-                        Ah - sorry, I'm still creating my logo as a photographer
+                       <?php echo $userAbout; ?>
                     </p>
 
                     <div class="socialList">
@@ -36,7 +32,7 @@
             <div class="col-sm-3">
                 <div class="m-t-20" style="background: #fff; min-height: 200px">
                     <h6 class="f-s-14 text-center" style="border-bottom: 1px solid #d2d2d2">Membership</h6>
-                    <h6 class="f-s-15 text-center">Joined 23 February, 2018</h6>
+                    <h6 class="f-s-15 text-center">Joined <?php echo time_elapsed_string($userRegDate) ?></h6>
 
                 </div>
 

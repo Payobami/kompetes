@@ -136,8 +136,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
                 <li><a href="<?php echo base_url()?>photos">Photos</a></li>
-                <li><a href="<?php echo base_url()?>videos.html">Videos</a></li>
-                <li><a href="<?php echo base_url()?>votes.html">Votes</a></li>
+                <li><a href="<?php echo base_url()?>">Videos</a></li>
+                <li><a href="<?php echo base_url()?>">Votes</a></li>
 
             </ul>
         </div>
@@ -226,10 +226,10 @@
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
                 <li><a href="<?php echo base_url()?>photos">Photos</a></li>
                 <li><a href="<?php echo base_url('challenges')?>">Challenges</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="votes.html">Votes</a></li>
-                <li class="nav-active"><a href="<?php echo base_url('upload')?>">+ Upload</a></li>
-                <li><a href="upgrade.html"> Upgrade</a></li>
+                <li><a href="">Videos</a></li>
+                <li><a href="">Votes</a></li>
+                <!--<li class="nav-active"><a href="<?php /*echo base_url('upload')*/?>">+ Upload</a></li>-->
+                <li><a href=""> Upgrade</a></li>
 
                 <li class="visible-xs" style="min-height: 400px"></li>
 

@@ -54,7 +54,7 @@
 
             <div class="col-sm-6 col-xs-7">
                 <ul class="">
-                    <li style="" class="pull-right"><a href="<?php base_url('challenges/entry/all')?>"> Entries </a> </li>
+                    <li style="" class="pull-right"><a href="<?php echo base_url('challenges/entries/'.$chanllengex->challenge_id)?>"> Entries </a> </li>
                     <li style="" class="pull-right"><a href="#rules"> Rules &ensp; </a></li>
                     <li style="" class="pull-right active-bottom hidden-xs"><a href=""> Details </a> </li>
                 </ul>

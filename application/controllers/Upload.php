@@ -244,7 +244,7 @@ class Upload extends CI_Controller{
 
                 $insertPost = array(
 
-                    'post_id' => rand(11111111111222222222222222, 999999999999999999999999999999),
+                    'post_id' => substr(str_shuffle("0123456789"), 0, 10),
                     'poster_name' => $data['username'],
                     'poster_id' => $this->session->userLogginID,
                     'post_type' => 'photo',

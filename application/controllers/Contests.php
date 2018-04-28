@@ -59,7 +59,6 @@ class Contests extends CI_Controller{
         }
 
         //get category
-
         $this->db->where("status='0'");
         $data['getCategory'] = $this->db->get('category')->result_array();
 
@@ -220,7 +219,6 @@ class Contests extends CI_Controller{
                         'user_id' => $userID,
                         'status'=>0,
                         'submited_date'=>date('Y-m-d H:i:s')
-
                     );
 
                     $this->db->insert('entries_submited', $insertPhoto);

@@ -39,7 +39,7 @@
                 <div class="profile-grid-block">
                     <a href="<?php echo base_url("")?>">
                         <div class="grid-image">
-                            <img src="<?php echo base_url('uploads/small_thumb/'.$itemCover->picture_small_name); ?>" style="height: 250px" width="100%">
+                            <img src="<?php if(!empty($itemCover->picture_small_name)){echo base_url('uploads/small_thumb/'.$itemCover->picture_small_name);}else{echo base_url('users_photo/user_caption/caption.jpg'); }; ?>" style="height: 250px" width="100%">
                         </div>
                         <div class="grid-user-content">
                             <div class="grid-user-picture">

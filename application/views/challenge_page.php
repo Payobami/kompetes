@@ -277,7 +277,7 @@
                         <div class="m-b-10 p-l-20" style="">
                             <div class="pull-left">
                                 <div class="">
-                                    <input type="hidden" name="entry_type" value="contest">
+                                    <input type="hidden" name="entry_type" value="challenge">
                                     <input type="submit" value="Submit" class="btn btn-success btn-sm no-border-radius">Submit</input>
 
                                     By entering this challenge you accept ViewBug's Terms of Use

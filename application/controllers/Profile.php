@@ -28,9 +28,11 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+
+            redirect(base_url('login?redirect=profile'));
+            //$this->load->view('template/header',$data);
+            //$this->load->view('login?redirect=profile',$data);
+            //$this->load->view('template/footer',$data);
         }
 
         else{
@@ -50,9 +52,10 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+            redirect(base_url('login?redirect=profile/update'));
+            /*$this->load->view('template/header',$data);
+            $this->load->view('login?redirect=profile/update',$data);
+            $this->load->view('template/footer',$data);*/
         }
 
         else {
@@ -136,9 +139,11 @@ class Profile extends CI_Controller{
 
             $data['title'] = 'Login';
             $data['success'] = "<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header', $data);
-            $this->load->view('login', $data);
-            $this->load->view('template/footer', $data);
+
+            redirect(base_url('login?redirect=profile/update_dp'));
+            /*$this->load->view('template/header', $data);
+            $this->load->view('login?redirect=profile/update_dp', $data);
+            $this->load->view('template/footer', $data);*/
         } else {
 
             require_once('action/fetch_user.php');
@@ -216,9 +221,11 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+
+            redirect(base_url('login?redirect=profile/change_password'));
+            /*$this->load->view('template/header',$data);
+            $this->load->view('login?redirect=profile/change_password',$data);
+            $this->load->view('template/footer',$data);*/
         }
         else {
 
@@ -275,9 +282,12 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+            redirect(base_url('login?redirect=profile/vote'));
+
+
+            /*$this->load->view('template/header',$data);
+            $this->load->view('login?redirect=profile/vote',$data);
+            $this->load->view('template/footer',$data);*/
         }
 
         else{
@@ -301,14 +311,30 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+
+            redirect(base_url('login?redirect=profile/contest'));
+
+            /*$this->load->view('template/header',$data);
+            $this->load->view('login?redirect=profile/contest',$data);
+            $this->load->view('template/footer',$data);*/
         }
 
         else{
 
             require_once('action/fetch_user.php');
+
+
+
+            //Entry submitted
+            $userID = $_SESSION['userLogginID'];
+
+            $this->db->where("user_id='$userID' AND entry_type='contest'");
+            $data['contestEntry'] = $this->db->get("entries_submited")->result_array();
+
+            $this->db->where("user_id='$userID' AND entry_type='contest'");
+            $data['countContest'] = $this->db->count_all_results("entries_submited");
+
+
             $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);
             $this->load->view('myProfile_contest', $data);
@@ -327,14 +353,26 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+
+            redirect(base_url('login?redirect=profile/challenges'));
+           /* $this->load->view('template/header',$data);
+            $this->load->view('login?redirect=profile/challenges',$data);
+            $this->load->view('template/footer',$data);*/
         }
 
         else{
 
             require_once('action/fetch_user.php');
+
+            $userID = $_SESSION['userLogginID'];
+            $this->db->where("user_id = '$userID' and entry_type='challenge'");
+            $data['contestEntry'] = $this->db->get("entries_submited")->result_array();
+
+            $this->db->where("user_id = '$userID' and entry_type='challenge'");
+            $data['countChallenge'] = $this->db->count_all_results("entries_submited");
+
+
+
             $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);
             $this->load->view('myProfile_challenges', $data);
@@ -353,14 +391,23 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+            //redirect to login page
+            redirect(base_url('login?redirect=profile/followers'));
         }
 
         else{
 
+            //add user information fetched from database
             require_once('action/fetch_user.php');
+
+            //get all the followers
+            $this->db->where("user_id = '$UserID'");
+            $data['getFollowers'] = $this->db->get("followingx")->result_array();
+
+
+
+
+
             $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);
             $this->load->view('myProfile_follower', $data);
@@ -376,14 +423,24 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+
+            redirect(base_url('login?redirect=profile/following'));
+
+            /*$this->load->view('template/header',$data);
+            $this->load->view('login?redirect=profile/following',$data);
+            $this->load->view('template/footer',$data);*/
         }
 
         else{
 
             require_once('action/fetch_user.php');
+
+
+
+            $this->db->where("follower_id = '$UserID'");
+            $data['getFollowingx'] = $this->db->get("followingx")->result_array();
+
+
             $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);
             $this->load->view('myProfile_following', $data);
@@ -400,9 +457,12 @@ class Profile extends CI_Controller{
 
             $data['title']='Login';
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header',$data);
-            $this->load->view('login',$data);
-            $this->load->view('template/footer',$data);
+
+
+            redirect(base_url('login?redirect=profile/about'));
+            /*$this->load->view('template/header',$data);
+            $this->load->view('login?redirect=profile/about',$data);
+            $this->load->view('template/footer',$data);*/
         }
 
         else{

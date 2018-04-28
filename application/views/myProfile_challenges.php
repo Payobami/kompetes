@@ -1,22 +1,52 @@
     <div class="container-fluid" id="contest" style="min-height: 550px; margin-top:">
         <div class="row">
+
+            <?php foreach($contestEntry as $challenges):?>
+
+            <?php
+            $EntryID= $challenges['entry_id'];
+            $this->db->where("challenge_id='$EntryID'");
+            $getEntryDetail = $this->db->get('challenges')->result();
+
+            foreach($getEntryDetail as $entryUSer);
+
+            ?>
+
+
+
             <div class="col-sm-3">
                 <div class="profile-grid-block">
-                    <a href="<?php echo base_url()?>friendship_contests.html">
+                    <a href="<?php echo base_url('challenges/check/'.$EntryID)?>" target="_new">
                         <div class="grid-image">
-                            <img src="<?php echo base_url()?>photo/food_2.jpg" width="100%">
+                            <img src="<?php echo base_url('uploads/challenges/'.$entryUSer->challenge_banner)?>" width="100%">
                         </div>
                         <div class="grid-user-content">
                             <div class="grid-user-picture">
-                                <img src="<?php echo base_url()?>users_photo/74043847_280x280.jpg" class="img-circle img-thumbnail" width="100">
+                                <img src="<?php echo base_url("uploads/medium_thumb/".$challenges['picture_name'])?>" class="img-thumbnail" width="100">
                             </div>
 
-
-                            <h5 class="text-center">Vegetable & Fruit</h5>
+                            <h5 class="text-center"><?php echo $entryUSer->challenge_name ?></h5>
                             <div class="text-center">
-                                <a class="btn btn-primary no-border-radius">
-                                    Open
+                                <?php
+                                $voteStart = $entryUSer->challenge_start_date;
+                                $voteEnd = $entryUSer->challenge_close_date;
+                                if($voteStart >= date('Y-m-d') && $voteEnd <= date('Y-m-d')){?>
+                                <a class="btn btn-warning no-border-radius">
+                                    Vote
                                 </a>
+
+                                <?php }elseif($voteStart >= date('Y-m-d') && $voteEnd >= date('Y-m-d') ){?>
+
+                                    <a class="btn btn-success no-border-radius">
+                                        Enter for Free <?php //echo $entryUSer-> ?>
+                                    </a>
+
+                                <?php }else{?>
+                                    <a class="btn btn-danger no-border-radius">
+                                        Closed
+                                    </a>
+
+                                <?php }?>
                             </div>
 
 
@@ -26,32 +56,14 @@
             </div>
 
 
-            <div class="col-sm-3">
-                <div class="profile-grid-block">
-                    <a href="friendship_contests.html">
-                        <div class="grid-image">
-                            <img src="<?php echo base_url()?>photo/caracica.jpg" width="100%">
-                        </div>
-                        <div class="grid-user-content">
-                            <div class="grid-user-picture">
-                                <img src="<?php echo base_url()?>users_photo/76778887_280x280.jpg" class="img-circle img-thumbnail" width="100">
-                            </div>
+
+            <?php endforeach ?>
 
 
-                            <h5 class="text-center">Friendship Contest</h5>
-                            <div class="text-center">
-                                <a class="btn btn-danger no-border-radius">
-                                    closed
-                                </a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
 
         <div class="row">
-            <!-- pagination start here -->
+            <!-- pagination start here
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <ul class="pagination pagination-centered no-border-radius">
                     <li class="no-border-radius"><a href="#">First</a></li>
@@ -67,7 +79,7 @@
                     <li><a href="#">Last</a></li>
                     <li class="no-border-radius"><a href="#">Goto</a></li>
                 </ul>
-            </div>
+            </div>-->
 
         </div>
 

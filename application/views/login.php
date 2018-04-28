@@ -1,13 +1,15 @@
-<section class="content login-bg" style="margin-top: -16px">
+
+<?php if(isset($_GET['redirect'])){$action_link = 'login?redirect='.$_GET['redirect'];}else{ $action_link ='login';}?>
+<section class="content login-bg" style="margin-top: 45px">
     <div class="container-fluid" style="min-height: 520px">
 
         <div class="col-sm-4 col-sm-offset-4 col-xs-12 col-xs-offset-0">
-
+            <?php //echo $_GET['redirect']?>
 
             <div class="form-style" style="">
                 <div style="z-index: 10000;">
                     <h3 style="color: #fff;margin-bottom: 20px" class="">Login Here !!!</h3>
-                    <?php echo form_open(base_url('login')) ?>
+                    <?php echo form_open(base_url($action_link)) ?>
                     <?php echo $success ?>
                         <div class="form-group">
                             <!--<label>Username</label>-->

@@ -29,6 +29,7 @@ class Authentication extends CI_Controller{
 
         $this->form_validation->set_rules('username','Username','required|trim');
         $this->form_validation->set_rules('password','Password','required|trim');
+        $this->form_validation->set_error_delimiters("<div class='alert alert-danger no-border-radius text-white'><a class='close' data-dismiss='alert'>&times;</a>", "</div>");
 
         if($this->form_validation->run() == false){
 
@@ -79,7 +80,12 @@ class Authentication extends CI_Controller{
                 $userID =  $user->user_id;
                 $this->session->userLogginID = $userID;
 
-                if($user->admin == false){
+                if(isset($_GET['redirect']))
+                {
+                    redirect(base_url($_GET['redirect']));
+                }
+
+                elseif($user->admin == false){
 
                     redirect(base_url('user/home'));
                 }

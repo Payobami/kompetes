@@ -1,23 +1,23 @@
 <?php
 session_start();
-   /* if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        print_r($_FILES);
+/* if($_SERVER['REQUEST_METHOD'] == 'POST'){
+     print_r($_FILES);
 
-        die('jsdsdjjs');
+     die('jsdsdjjs');
 
-        if(!empty($_FILES)){
+     if(!empty($_FILES)){
 
 
-        }
-    }*/
+     }
+ }*/
 
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-   //die('wel done');
+    //die('wel done');
 
-   // die($_FILES['file']['name']);
+    // die($_FILES['file']['name']);
 
     $ds = DIRECTORY_SEPARATOR;  //1
 
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         for($i; $i<$countPicture; $i++){
 
-           $_SESSION['uploadedName'] = $_FILES['file']['name'][$i];
+            $_SESSION['uploadedName'] = $_FILES['file']['name'][$i];
 
         }
 

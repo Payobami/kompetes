@@ -4,33 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/application/views/contests_view.php" line="226" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d4837b0-45a0-4f17-855b-b9e32a2f10b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Authentication.php" afterPath="$PROJECT_DIR$/application/controllers/Authentication.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Challenges.php" afterPath="$PROJECT_DIR$/application/controllers/Challenges.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Photos.php" afterPath="$PROJECT_DIR$/application/controllers/Photos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Profile.php" afterPath="$PROJECT_DIR$/application/controllers/Profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/User.php" afterPath="$PROJECT_DIR$/application/controllers/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/action/fetch_user.php" afterPath="$PROJECT_DIR$/application/controllers/action/fetch_user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/challenge_page.php" afterPath="$PROJECT_DIR$/application/views/challenge_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/home.php" afterPath="$PROJECT_DIR$/application/views/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/login.php" afterPath="$PROJECT_DIR$/application/views/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/myProfile_challenges.php" afterPath="$PROJECT_DIR$/application/views/myProfile_challenges.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/myProfile_contest.php" afterPath="$PROJECT_DIR$/application/views/myProfile_contest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/myProfile_follower.php" afterPath="$PROJECT_DIR$/application/views/myProfile_follower.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/myProfile_following.php" afterPath="$PROJECT_DIR$/application/views/myProfile_following.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/photo_page.php" afterPath="$PROJECT_DIR$/application/views/photo_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/template/header.php" afterPath="$PROJECT_DIR$/application/views/template/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/template/myprofile_middle_page.php" afterPath="$PROJECT_DIR$/application/views/template/myprofile_middle_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/vote_information.php" afterPath="$PROJECT_DIR$/application/views/vote_information.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/vote_start.php" afterPath="$PROJECT_DIR$/application/views/vote_start.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/votes.php" afterPath="$PROJECT_DIR$/application/views/votes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/kompetes.css" afterPath="$PROJECT_DIR$/css/kompetes.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/kompetes.styl" afterPath="$PROJECT_DIR$/css/kompetes.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/min_css/kompetes.css" afterPath="$PROJECT_DIR$/min_css/kompetes.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/upload.php" afterPath="$PROJECT_DIR$/upload.php" />
-    </list>
+    <list default="true" id="1d4837b0-45a0-4f17-855b-b9e32a2f10b9" name="Default" comment="" />
     <ignored path="kompete_dev.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />

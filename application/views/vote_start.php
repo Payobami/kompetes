@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>..:: Votes - Kompetes ::..</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php //echo $_SESSION['realSession'] ?>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/kompetes.css">
-    <link rel="stylesheet" type="text/css" href="css/circle.css">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="css/masonry.css"/>
-
-    <link rel="icon" href="img/ico.png">
-
+<section class="content" style="margin-top: 55px;padding: 0;">
     <style>
         .c100:after {
             background: none !important;
@@ -28,149 +14,102 @@
             z-index: 9999 !important;
         }
 
+
+        @media only screen and (max-width: 650px){
+            .col-xs-6{
+                width: 49.5% !important;
+            }
+
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-4{
+                width: 30.8% !important;
+            }
+        }
+
     </style>
-</head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="">
-
-<nav class="navbar navbar-black navbar-offcanvas">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-right: -20px">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="index.html">
-                <span style="float: right" class="siteName" style="margin-right: 20px;">&ensp; Kompetes</span>
-                <img src="img/logo2.png" width="35" style="margin-top: -5px;">
-            </a>
+    <?php echo form_open_multipart('vote/submit/'.$this->uri->segment(3),array('id'=>'myform', 'name'=>'myform'))?>
+        <div class="container-fluid no-padding-xs" style="min-height: 550px; padding: 0;">
 
 
-            <div class="visible-xs mobile-header">
-                <ul>
-                    <li style="background: none"><a href="login.html">Login</a></li>
-                    <li style="margin-right: 0"><a href="register.html">Register</a></li>
-                </ul>
+            <div class="col-sm-12 p-r-10 no-padding-xs" style="margin: 0;background: #fff">
 
-            </div>
-        </div>
+                <h4 class="m-5 f-raleway">Choose your first favorite and your second favorite</h4>
+                <!--<form action="" id="myform" class="form" enctype="multipart/form-data">-->
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div id="photo_wrapper" class="photo_wrapper m-t-10" style="border:">
+                        <?php
+                            $countV1 = 1; $countV2 =1;
+                            foreach($getPhotoVote as $getVote):?>
+                                <div class="vote_picture no-padding-xs" style="">
+                                    <div class="photo_row_voting no-padding-xs">
+                                        <input type="checkbox" class="single-checkbox" name="photos[]" value="<?php echo $getVote['picture_id']?>" id="cb<?php echo $countV1++?>" />
+                                        <label for="cb<?php echo $countV2++ ?>" class="no-padding-xs" data-vote="" style="">
+                                            <img src="<?php echo base_url('uploads/medium_thumb/'.$getVote['picture_name'])?>" class="no-padding-xs" width="926" />
+                                        </label>
+                                    </div>
+                                </div>
+                            <?php endforeach
+                        ?>
 
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html">Login</a></li>
-                <li class="dropdown signUpBg">
-                    <a href="register.html">Signup</a>
-                </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="contests.html">Contests</a></li>
-                <li><a href="photos.html">Photos</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="votes.html">Votes</a></li>
-
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
-<section class="content" style="margin-top: -15px;padding: 0;">
-    <div class="container-fluid no-padding-xs" style="min-height: 550px; padding: 0;">
-
-
-        <div class="col-sm-12 p-r-10 no-padding-xs" style="margin: 0;background: #fff">
-
-            <h4 class="m-5 f-raleway">Choose your first favorite and your second favorite</h4>
-
-            <div id="photo_wrapper" class="photo_wrapper m-t-10" style="">
-
-                <div class="vote_picture no-padding-xs">
-                    <div class="photo_row_voting no-padding-xs">
-                        <input type="checkbox" class="single-checkbox" id="cb1" />
-                        <label for="cb1" class="no-padding-xs" data-vote="" title="Femi" style="">
-                            <img src="photo/73495276_large.jpg" class="no-padding-xs" width="926" />
-                        </label>
                     </div>
-                </div>
 
-                <div class="vote_picture no-padding-xs">
-                    <div class="photo_row_voting no-padding-xs">
-                        <input type="checkbox" class="single-checkbox" id="cb2" />
-                        <label for="cb2" class="no-padding-xs" style="">
-                            <img src="photo/75467389_large.jpg" class="no-padding-xs" />
-                        </label>
-                    </div>
-                </div>
-
-
-                <div class="vote_picture no-padding-xs">
-                    <div class="photo_row_voting no-padding-xs">
-                        <input type="checkbox" class="single-checkbox" id="cb3" />
-                        <label for="cb3" class="no-padding-xs" style="">
-                            <img src="photo/76682994_large.jpg" class="no-padding-xs" />
-                        </label>
-                    </div>
-                </div>
-
-
-
-                <div class="vote_picture no-padding-xs">
-                    <div class="photo_row_voting no-padding-xs">
-                        <input type="checkbox" class="single-checkbox" id="cb4" />
-                        <label for="cb4" class="no-padding-xs" style="">
-                            <img src="photo/76862822_large.jpg" class="no-padding-xs" />
-                        </label>
+                <div id="myModal" class="modal fade" role="dialog" style="z-index: 999999999999999999 !important;background: #000;opacity: .9">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content no-border-radius" style="margin-top: 280px">
+                            <div class="modal-body text-center p-t-0">
+                                <button type="submit" value="Submit and Proceed" class="btn btn-success no-border-radius m-t-20">Submit and Proceed</button>
+                                <button type="reset" data-dismiss="modal" class="btn btn-warning no-border-radius m-t-20">Reset</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
-
         </div>
 
-        <div class="col-sm-1 p-0 hidden" style="margin-top: -1px" hidden>
-            <nav class="pull-right p-t-20 voteRightView navbar navbar-default navbar-fixed-top" style="position: relative" id="">
-                <div class="userPhotoDP" style="width: 60px;height: 60px;">
-                    <img src="users_photo/77577639_280x280.jpg" class="no-padding-xs">
-                </div>
+            <div class="col-sm-1 p-0 hidden" style="margin-top: -1px" hidden>
+                <nav class="pull-right p-t-20 voteRightView navbar navbar-default navbar-fixed-top" style="position: relative" id="">
+                    <div class="userPhotoDP" style="width: 60px;height: 60px;">
+                        <img src="<?php echo base_url()?>users_photo/77577639_280x280.jpg" class="no-padding-xs">
+                    </div>
 
-                <div class="m-t-25">
-                    Beautiful Baby Girl Photo Contest
-                </div>
+                    <div class="m-t-25">
+                        <?php echo $contestInfo->contest_name ?> Photo Contest
+                    </div>
 
 
-                <div class="" style="margin-left: -10px;margin-top: 100px">
-                    <a href="" class="btn btn-primary btn-xs no-border-radius">Skip to Next</a>
-                </div>
-            </nav>
+                    <div class="" style="margin-left: -10px;margin-top: 100px">
+                        <a href="" class="btn btn-primary btn-xs no-border-radius">Skip to Next</a>
+                    </div>
+                </nav>
+            </div>
         </div>
+    <?php form_close()?>
 
-    </div>
 
 
-    <div class="visible">
+
+    <div class="visible hidden">
         <nav class="navbar navbar-default navbar-fixed-bottom voteBottomView" style="background: #fff">
-            <div class="container">
+            <div class="container p-b-20">
                 <div id="MobileHMenuStick" style="background: #fff">
                     <div class="m-b-10" style="">
                         <div class="userPhotoDP pull-left m-t-5" style="width: 50px;height: 50px;">
-                            <img src="users_photo/77577639_280x280.jpg" class="">
+                            <img src="<?php echo base_url()?>users_photo/77577639_280x280.jpg" class="">
                         </div>
                         <div class="pull-left m-l-10">
-                            Beautiful Baby Contest
+                            <?php echo $contestInfo->contest_name ?> Contest
                             <div class="">
-                                <a href="friendship_contests.html" class="btn btn-warning btn-xs no-border-radius">Browse Gallery</a>
+                                <a href="<?php echo base_url('vote/start/'.$contestInfo->contest_id)?>" class="btn btn-warning btn-xs no-border-radius">Browse Gallery</a>
                             </div>
                         </div>
 
 
                         <div class="pull-right">
-                            <a href="" class="btn-danger btn btn-xs no-border-radius m-t-m_20">Go to the next image set</a>
+                            <a href="<?php echo base_url('vote/start/'.$contestInfo->contest_id)?>" class="btn-danger btn btn-xs no-border-radius m-t-m_20">Go to the next image set</a>
                         </div>
                     </div>
                 </div>
@@ -184,7 +123,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 
-<script src="js/jquery.masonry.js"></script>
+<script src="<?php echo base_url()?>js/jquery.masonry.js"></script>
 <script>
     $(function(){
 
@@ -205,16 +144,33 @@
         }
     });*/
 
+    function formAutoSubmit(){
+
+        var frm = document.getElementById("form_submit");
+
+        frm.submit();
+    }
+
     $('input[type=checkbox]').change(function(e){
         if ($('input[type=checkbox]:checked').length == 2) {
             $(this).prop('checked', true);
 
+            //$("#myform").submit();
+            $("#myModal").modal();
 
+            //document.forms[0].action="vote/submit";
+            //document.getElementById("myform").action = "";
 
-            window.location.href = 'vote_start.html'
+            //alert('Welcome');
+
+            //document.getElementById("myform").submit();
+
+            //window.location.href = '<?php //echo base_url('vote/start/'.$contestInfo->contest_id)?>';
             //window.location('vote_start.html')
         }
-    })
+    });
+
+
 
     $(document).ajaxStart(function() {
 //only add progress bar if added yet.

@@ -240,6 +240,21 @@ class Upload extends CI_Controller{
 
                 $this->db->insert("uploads", $insertPicture);
 
+                //insert into post table
+
+                $insertPost = array(
+
+                    'post_id' => rand(11111111111222222222222222, 999999999999999999999999999999),
+                    'poster_name' => $data['username'],
+                    'poster_id' => $this->session->userLogginID,
+                    'post_type' => 'photo',
+                    'media_id' => $randomstr,
+                    'status' => 0,
+                    'date'=> date('Y-m-d H:i:s'),
+                );
+
+                $this->db->insert("post_timeline", $insertPost);
+
                 //set the is into session
                 $sessionRAnd = $groupId;
 

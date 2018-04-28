@@ -34,23 +34,33 @@
     $data['userPhoto'] = $user->picture;
     $data['userPassword'] = $user->passwordx;
 
-
-
-
 //get the numbers of pictures uploaded by the user
 
-$whereID;
+ $this->db->where("user_id = '$UserID'");
 $data['countUploadPicture'] = $this->db->count_all_results('uploads');
 
 //get the picture
-$whereID;
+$this->db->where("user_id = '$UserID'");
 $data['getUploadedPhotos'] = $this->db->get('uploads')->result_array();
 
 
 //get user credit unit
-$whereID;
+//$this->db->where("user_id = '$UserID'");
 $getUserCredit = $this->db->get('credit_subscription')->result();
 
 foreach($getUserCredit as $userCredit);
 $data['creditUnit'] = $userCredit->credit;
 
+/*//get the no of follower
+
+$this->db->where("user_id = '$UserID'");
+$data['countFollowers'] = $this->db->count_all_results('followingx');
+
+
+//get the no of following
+$this->db->where("follower_id = '$UserID'");
+$data['countFollowings'] = $this->db->count_all_results('followingx');
+
+//get all the followings
+$this->db->where("user_id = '$UserID'");
+$data['getFollowings'] = $this->db->get("followingx")->result_array();*/

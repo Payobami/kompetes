@@ -1,103 +1,75 @@
     <div class="container-fluid" id="followers" style="min-height: 550px; margin-top:">
         <div class="row">
+
+            <?php foreach($getFollowers as $followers):?>
+
+                <?php
+
+                    $followerID = $followers['follower_id'];
+                    $followersName = $followers['follower_name'];
+
+                //get follower's photo
+                $this->db->select('picture');
+                $this->db->where("user_id = '$followerID'");
+                $getFollowerPic = $this->db->get('userz')->result();
+                foreach($getFollowerPic as $followerPhoto);
+
+                //get photos uploaded by followers
+                $this->db->where("user_id = '$followerID'");
+                $getFollowerCover = $this->db->get('uploads')->result();
+                foreach ($getFollowerCover as $itemCover);
+
+                //check if the user is following back
+                $userID = $_SESSION['userLogginID'];
+                //$this->db->select("follower_id");
+
+                $this->db->where("user_id ='$userID'");
+                $this->db->limit(1);
+                $getFollowingBack = $this->db->get('followingx')->result();
+
+
+
+
+                ?>
+
             <div class="col-sm-3">
                 <div class="profile-grid-block">
-                    <a href="friendship_contests.html">
+                    <a href="<?php echo base_url('user/profile/'.$followerID);?>">
                         <div class="grid-image">
-                            <img src="<?php echo base_url() ?>users_photo/user_caption/77531822_280x280.jpg" style="height:320px;" width="100%">
+                            <img src="<?php echo base_url('uploads/small_thumb/'.$itemCover->picture_small_name); ?>" style="height:250px;" width="100%">
                         </div>
                         <div class="grid-user-content">
                             <div class="grid-user-picture">
-                                <img src="<?php echo base_url() ?>users_photo/77577639_280x280.jpg" class="img-circle img-thumbnail" width="100">
+                                <img src="<?php if(!empty($followerPhoto->picture)){echo base_url('users_photo/'.$followerPhoto->picture);}else{echo base_url('users_photo/avatar.png');} ?>" class="img-circle img-thumbnail" width="100">
                             </div>
-                            <h5 class="text-center f-raleway f-s-18">Lola899</h5>
+                            <h5 class="text-center f-raleway f-s-18"><?php echo $followersName ?></h5>
 
                             <div class="text-center">
-                                <a class="btn btn-warning no-border-radius">
-                                    Follow
+
+                                <?php
+                                foreach($getFollowingBack as $followBack):
+                                if($followBack->follower_id == $followerID){?>
+                                <a href="" class="btn btn-success no-border-radius">
+                                    Unfollow
                                 </a>
+                                <?php }else{?>
+                                    <a href="" class="btn btn-warning no-border-radius">
+                                        Follow
+                                    </a>
+                                <?php }
+                                endforeach ?>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
 
+            <?php endforeach ?>
 
-            <div class="col-sm-3">
-                <div class="profile-grid-block">
-                    <a href="friendship_contests.html">
-                        <div class="grid-image">
-                            <img src="<?php echo base_url() ?>users_photo/user_caption/77638050_280x280.jpg" style="height: 320px" width="100%">
-                        </div>
-                        <div class="grid-user-content">
-                            <div class="grid-user-picture">
-                                <img src="<?php echo base_url() ?>users_photo/56698805_280x280.jpg" class="img-circle img-thumbnail" width="100">
-                            </div>
-
-                            <h5 class="text-center f-raleway f-s-18">Walcot</h5>
-
-
-                            <div class="text-center">
-                                <a class="btn btn-success no-border-radius">
-                                    Follow
-                                </a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="col-sm-3">
-                <div class="profile-grid-block">
-                    <a href="friendship_contests.html">
-                        <div class="grid-image">
-                            <img src="<?php echo base_url() ?>users_photo/user_caption/77613560_280x280.jpg" style="height: 320px" width="100%">
-                        </div>
-                        <div class="grid-user-content">
-                            <div class="grid-user-picture">
-                                <img src="users_photo/60195737_280x280.jpg" class="img-circle img-thumbnail" width="100">
-                            </div>
-                            <h5 class="text-center f-raleway f-s-18">FemiLodge</h5>
-
-                            <div class="text-center">
-                                <a class="btn btn-success no-border-radius">
-                                    Following
-                                </a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-
-
-            <div class="col-sm-3">
-                <div class="profile-grid-block">
-                    <a href="friendship_contests.html">
-                        <div class="grid-image">
-                            <img src="<?php echo base_url() ?>users_photo/user_caption/77639455_280x280.jpg" style="height: 320px" width="100%">
-                        </div>
-                        <div class="grid-user-content">
-                            <div class="grid-user-picture">
-                                <img src="<?php echo base_url() ?>users_photo/77420655_280x280.jpg" class="img-circle img-thumbnail" width="100">
-                            </div>
-                            <h5 class="text-center f-raleway f-s-18">JanetGate</h5>
-
-
-                            <div class="text-center">
-                                <a class="btn btn-success no-border-radius">
-                                    Followed
-                                </a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
 
-        <div class="row" style="margin-top: 50px">
-            <!-- pagination start here -->
+        <!--<div class="row" style="margin-top: 50px">
+            <!-- pagination start here
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <ul class="pagination pagination-centered no-border-radius">
                     <li class="no-border-radius"><a href="#">First</a></li>
@@ -114,8 +86,7 @@
                     <li class="no-border-radius"><a href="#">Goto</a></li>
                 </ul>
             </div>
-
-        </div>
+        </div>-->
 
     </div>
 

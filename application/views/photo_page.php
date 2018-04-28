@@ -1,100 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>..:: Photo Title Goes Here - Kompetes ::..</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/carousel_photo.css')?>">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/kompetes.css">
+<?php foreach($getPhoto as $select_photo)?>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="css/masonry.css"/>
+<?php
+//get ownerInformation
 
-    <link rel="icon" href="img/ico.png">
-
-</head>
-<body>
-
-<nav class="navbar navbar-black navbar-offcanvas">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-right: -20px">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="index.html">
-                <span style="float: right" class="siteName" style="margin-right: 20px;">&ensp; Kompetes</span>
-                <img src="img/logo2.png" width="35" style="margin-top: -5px;">
-            </a>
+    $ownerId = $select_photo->user_id;
+    $this->db->where("user_id='$ownerId'");
+    $ownerInfo = $this->db->get("userz")->result();
+    foreach($ownerInfo as $ownerInfo)
 
 
-            <div class="visible-xs mobile-header">
-                <ul>
-                    <li style="background: none"><a href="login.html">Login</a></li>
-                    <li style="margin-right: 0"><a href="register.html">Register</a></li>
-                </ul>
 
-            </div>
-        </div>
+?>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html">Login</a></li>
-                <li class="dropdown signUpBg">
-                    <a href="register.html">Signup</a>
-                </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="contests.html">Contests</a></li>
-                <li><a href="photos.html">Photos</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="votes.html">Votes</a></li>
-
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
-<section class="content" style="margin-top: -25px;padding: 0;">
+<section class="content" style="margin-top: 50px;padding: 0;">
 
         <div class="container-fluid">
 
             <!-- sharing link and follow button -->
             <div class="share-follow-row">
-                <div class="col-sm-6">
-                    <div class="photo_share_row">
+                <div class="col-sm-6 col-xs-5">
+                    <div class="photo_share_row" style="margin-left: -20px">
                         <ul>
                             <li><a href=""><i class="fa fa-star"></i></a></li>
-                            <li><a href=""><i class="fa fa-heart"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href=""><i class="fa fa-envelope"></i></a></li>
+                            <li class="pull-right visible-xs" style="margin-right: -5px !important;"><a href="" class="text-red"><i class="fa fa-thumbs-up"></i></a></li>
+                            <li class="hidden-xs" style=""><a href="" class="text-red"><i class="fa fa-thumbs-up"></i></a></li>
+                            <li class="hidden-xs"><a href="" class="text-red"><i class="fa fa-twitter"></i></a></li>
+                            <li class="hidden-xs"><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li class="hidden-xs"><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            <li class="hidden-xs"><a href="" class="text-red"><i class="fa fa-pinterest"></i></a></li>
+                            <li class="hidden-xs"><a href=""><i class="fa fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
 
 
-                <div class="col-sm-6">
-                    <div class="pull-right" style="margin-top: 20px">
-                        <div class="left" style="float: left; margin-right: 10px">
-                            <img src="users_photo/avatar.png" width="50" class="img-circle">
+                <div class="col-sm-6 col-xs-7">
+                    <div class="pull-right" style="margin-top: 10px">
+                        <div class="left p-t-5" style="float: left; margin-right: 10px">
+                            <img src="<?php if(empty($ownerInfo->picture)){echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$ownerInfo->picture);}?>" width="40" style="height: 40px;width: 40px" class="img-circle">
                         </div>
                         <div class="right"style="float: right">
-                            <span class="userName"><b>Prudent</b></span>
+                            <span class="userName"><b><?php echo $ownerInfo->username ?></b></span>
                             <br>
-                            <a href="#"><label class="label label-default">Follow</label></a>
+                            <a href="<?php echo base_url('follow/following/'.$ownerId) ?>"><label class="label label-default">Follow</label></a>
                         </div>
                     </div>
                 </div>
@@ -105,17 +56,35 @@
             <div class="row">
                 <div class="photo_display_container" style="">
 
-                    <!--<a href="" class="left_prev">
+                    <div class="carousel">
+                        <div class="itemsNext">
+                            <div class="itm text-center">
+                                <img src="<?php echo base_url('uploads/medium_thumb/'.$select_photo->picture_medium_name)?>" class="text-center">
+                            </div>
 
-                    </a>-->
+                        </div>
+                            <?php
+                            $this->db->where("user_id ='$ownerId'");
+                            $this->db->order_by('id','RANDOM');
+                            $getNextPhoto = $this->db->get('uploads')->result();
 
-                    <div class="photo_display">
-                        <img src="photo/60722357_large1300.jpg">
+                            foreach($getNextPhoto as $nextPhoto)
+
+                            ;?>
+                            <a href="<?php echo base_url('photos/check/'.$nextPhoto->picture_id); ?>" style="height: 30px;" class="text-black">
+                                <div class="next arrow"></div>
+                            </a>
+
+                            <a  href="<?php echo base_url('photos/check/'.$nextPhoto->picture_id); ?>">
+                                <div class="previous arrow" data-disabled=""></div>
+                            </a>
                     </div>
 
-                    <!--<a href="" class="right_next">
 
-                    </a>-->
+                  <!-- <div class="photo_display">
+                        <img src="<?php /*echo base_url()*/?>photo/60722357_large1300.jpg">
+                    </div>-->
+
                 </div>
             </div>
         </div>
@@ -125,180 +94,152 @@
     <div class="" style="background: #fff">
         <div class="container-fluid">
             <div class="commentAward_row" style="min-height: 300px;margin-top: 20px">
-                <div class="col-sm-6">
 
-                    <!-- text-area for commenting -->
-                    <div class="reviewRow">
-                        <div class="reviewerField">
-                            <div class="reviwerPic">
-                                <img src="users_photo/avatar.png">
-                            </div>
-
-
-
-                        </div>
-                        <div class="reviewerContent">
-                            <div class="innerBubble" style="">
-                                <div style="padding: 10px;">
-                                    <textarea class="form-control" rows="4">Write your comment here not more than 200</textarea>
-
-                                    <input type="button" class="btn btn-primary" value="Post Comment">
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-                    <!-- User comment area -->
-
-                    <div class="reviewRow">
-                        <div class="reviewerField">
-                            <div class="reviwerPic">
-                                <img src="users_photo/avatar.png">
-                            </div>
-                            <div class="rname">Badmus_photo</div>
-                        </div>
-                        <div class="reviewerContent">
-                            <div class="innerBubble">
-                                <h5>Badmus Akbar</h5>
-                                <span><i class=" glyphicon glyphicon-clock"></i> 2 weeks ago</span>
-                                <p>Harmony Hostel is very good but at the moment of writing this review we are suffering for water and its due to the problem of electricity and fuel scarcity.</p>
-
-                                <div style="padding: 10px">
-                                    <a href="#"><label class="label label-danger">Reply</label> </a>
-                                </div>
-
-
-                                <!-- reply comment starts from here -->
-
-                                <div class="" style="margin-left: 5px; border-top: 1px dotted #d2d2d2;padding-top: 10px">
-                                  <div class="col-sm-8">
-                                      <input type="text" class="form-control" name="" style="border-radius: 0">
-                                  </div>
-                                  <div class="col-sm-4" style="padding-top: 5px">
-                                      <button type="submit" class="btn btn-success btn-xs" value="Reply">Submit</button>
-                                      <button type="submit" class="btn btn-warning btn-xs" value="Reply">Reply</button>
-                                  </div>
-                                </div>
-
-                                <div class="clearfix"></div>
-
-                            </div>
-
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
-
-
-                </div>
-                <div class="col-sm-4 col-sm-offset-2">
+                <div class="col-sm-4 col-sm-offset-1">
 
                     <div id="photo-info" class="more_feature sidebar">
-                        <a href="">
-                            <img src="photo/thumbnail/74465466_75x75.jpg">
-                        </a>
-                        <a href="#">
-                            <img src="photo/thumbnail/73854390_75x75.jpg">
-                        </a>
+                        <?php
 
-                        <a href="#">
-                            <img src="photo/thumbnail/74100406_75x75.jpg">
-                        </a>
+                        //get other picture from same user
+                        $ownerId = $select_photo->user_id;
 
-                        <a href="#">
-                            <img src="photo/thumbnail/74223413_75x75.jpg">
-                        </a>
+                        $this->db->where("user_id ='$ownerId'");
+                        $getMore = $this->db->get('uploads')->result();
 
-                        <a href="#">
-                            <img src="photo/thumbnail/74223413_75x75.jpg">
-                        </a>
+                        foreach($getMore as $morePhotos):?>
+
+
+                            <a href="<?php echo base_url('photos/check/'.$morePhotos->picture_id)?>">
+                                <img src="<?php echo base_url("uploads/small_thumb/".$morePhotos->picture_small_name)?>">
+                            </a>
+
+                        <?php endforeach ?>
 
                         <div class="">
-                            <small>More from PhotoOwner</small>
+                            <small> More from <?php echo $ownerInfo->username; ?> </small>
                         </div>
 
                         <div class="comment_date">
                             <div class="top-info">
-                                <h4>13</h4>
+                                <h4><?php echo $countComment; ?></h4>
                                 <span class="info-title">Comments</span>
                             </div>
 
                             <div class="top-info">
-                                <h4>1432</h4>
+                                <h4><?php if(empty($select_photo->view)){echo 0;}else{echo $select_photo->view;}?></h4>
                                 <span class="info-title">views</span>
                             </div>
 
                             <div class="top-info">
-                                <h4>Jan, 2018</h4>
+                                <h4><?php echo time_elapsed_string($morePhotos->date);?></h4>
                                 <span class="info-title">Uploaded</span>
                             </div>
                         </div>
 
                         <br>
                         <div class="title-contain">
-                            <h3>Drinking.. with bae</h3>
+                            <h3><?php echo $select_photo->title;?></h3>
                         </div>
 
 
                         <div class="photo_discription">
-                            <p>Photo taken with my new canon camera </p>
+                            <p><?php echo $select_photo->description; ?></p>
                         </div>
 
                         <div class="block tags">
                             <div class="block-mini">Tags</div>
-                            <a href="/search/tags/horns">#horns</a>
-                            <a href="/search/tags/drink">#drink</a>
+                            <?php
+
+                            $tags = explode(',', $select_photo->tags);
+
+                            foreach($tags as $tag):
+
+                            ?>
+
+
+                            <a href="">#<?php echo str_replace(' ','',$tag) ?></a>
+                            <!--<a href="/search/tags/drink">#drink</a>-->
+
+                            <?php endforeach ?>
                         </div>
 
-                        <div class="block metadata">
+
+                        <div class="block tags">
+                            <div class="block-mini">Categories</div>
+                            <?php
+
+                            $tags = explode(',', $select_photo->category);
+
+                            foreach($tags as $tag):
+
+                                ?>
+
+
+                                <a href="">#<?php echo str_replace(' ','',$tag) ?></a>
+                                <!--<a href="/search/tags/drink">#drink</a>-->
+
+                            <?php endforeach ?>
+                        </div>
+
+                      <!--  <div class="block metadata">
                             <div class="block-mini"></div>
                             <div class="item camera">Camera: <span><a href="/search/camera/canon+eos+6d">Canon EOS 6D</a></span></div>
                             <div class="item aperture">Aperture: <span>f/8</span></div>
                             <div class="item iso_film">ISO: <span>100</span></div>
                             <div class="item exposure_time">Shutter Speed: <span>1/250</span></div>
                             <div class="item exposure_time">Focal Length: <span>70/1</span></div>
-                        </div>
+                        </div>-->
 
 
                         <div class="photo_contest">
-                            <h6>Photo Contest Submission</h6>
+                            <h6>Photo Contest & Challenges Submission</h6>
 
 
                             <ul class="tag-style">
+
+                                <?php
+
+                                foreach($getEntry as $entry){
+
+                                     $entryName = $entry['entry_name'];
+
+
+
+                                ?>
+
                                 <li>
-                                    <a href="">Fashion Statement</a>
+                                    <a href="<?php echo base_url($entry['entry_type'].'s/check/'.$entry['entry_id'])?>"><?php echo $entryName ?></a>
                                 </li>
+
+                                <?php } ?>
                             </ul>
                         </div>
 
 
-                        <div class="extra block awards overflow">
-                            <h3>Awards</h3>
-                            <div class="block award type-default">
-                                Won People's Choice in COWS Photo Challenge<span class="award-date">June, 2017</span>
-                            </div>
+                        <!--<div class="extra block awards overflow">
+                                <h3>Awards</h3>
+                                <div class="block award type-default">
+                                    Won People's Choice in COWS Photo Challenge<span class="award-date">June, 2017</span>
+                                </div>
 
-                            <div class="block award type-default">
-                                Winner in African Animals Photo Challenge<span class="award-date">March, 2017</span>
-                            </div>
+                                <div class="block award type-default">
+                                    Winner in African Animals Photo Challenge<span class="award-date">March, 2017</span>
+                                </div>
 
-                            <div class="block award type-contestf">
-                                Won Contest Finalist in Visions Of Africa Photo Contest<span class="award-date">February, 2017</span>
-                            </div>
+                                <div class="block award type-contestf">
+                                    Won Contest Finalist in Visions Of Africa Photo Contest<span class="award-date">February, 2017</span>
+                                </div>
 
-                            <div class="block award type-default">
-                                Won People's Choice in Life Photo Challenge<span class="award-date">August, 2016</span>
-                            </div>
+                                <div class="block award type-default">
+                                    Won People's Choice in Life Photo Challenge<span class="award-date">August, 2016</span>
+                                </div>
 
-                            <div class="block award type-default">
-                                Won People's Choice in Tell me a story Photo Challenge<span class="award-date">January, 2016</span>
-                            </div>
+                                <div class="block award type-default">
+                                    Won People's Choice in Tell me a story Photo Challenge<span class="award-date">January, 2016</span>
+                                </div>
+                            </div>-->
 
-                        </div>
-
-                        <div class="extra sidebar overflow" style="">
+                        <!--<div class="extra sidebar overflow" style="">
                             <h3>Likes</h3>
                             <items class="block belongs" style="">
                                 <item class="peer-recognition" style="">
@@ -316,9 +257,9 @@
                                     </div>
                                 </item>
                             </items>
-                        </div>
+                        </div>-->
 
-                        <div class="extra overflow">
+                        <!--<div class="extra overflow">
                             <h3>Peer Award</h3>
                             <items class="block belongs">
                                 <item class="peer-recognition">
@@ -364,15 +305,15 @@
                                         <span class="peer-user">
                                             <a href="#" target="_parent">
                                                 <img src="https://photo-viewbug.s3.amazonaws.com/media/mediafiles/2017/11/08/76047879_75x75.jpg" class="delayed" width="45" data-og="45" data-ow="45" style="height: 45px; opacity: 1;"></a>                                                    		<a href="/member/brownmoyondizvo" class="avatar_membership" target="_parent">
-                                            PRO
+                                                PRO
                                             </a>
                                         </span>
 
                                         <span class="peer-user">
                                             <a href="#" target="_parent">
                                                 <img src="https://photo-viewbug.s3.amazonaws.com/media/mediafiles/2012/06/06/1892173_75x75.jpg" class="delayed" width="45" data-og="45" data-ow="45" style="height: 45px; opacity: 1;"></a>                                                    		<a href="/member/maryhale9534" class="avatar_membership" target="_parent">
-                                            PRO
-                                        </a>
+                                                PRO
+                                            </a>
                                         </span>
 
                                         <span class="peer-left">
@@ -384,15 +325,85 @@
                                 </item>
                                 <div style="min-height: 100px"></div>
                             </items>
-                        </div>
+                        </div>-->
 
                         <div class="clearfix"></div>
-
-
-
-
                     </div>
 
+                </div>
+                <div class="col-sm-6 col-sm-offset-1" style="border-left: 1px solid #d2d2d2;background: #f6f6f6;margin-top: -16px">
+                    <?php echo $success ?>
+                    <!-- text-area for commenting -->
+                    <div class="reviewRow">
+                        <div class="reviewerField">
+                            <div class="reviwerPic">
+                                <img src="<?php if(!empty($userPhoto)){echo base_url('users_photo/'.$userPhoto);}else{ echo base_url('users_photo/avatar.png');}?>">
+                            </div>
+                        </div>
+                        <div class="reviewerContent" id="comment">
+                            <?php echo form_error('comment')?>
+                            <?php echo form_open()?>
+                            <div class="innerBubble" style="">
+                                <div style="padding: 10px;">
+                                    <textarea class="form-control no-border-radius" name="comment" rows="4" placeholder="Write your comment here not more than 200"></textarea>
+
+                                    <?php if(isset($_SESSION['userLogginID'])){?>
+                                    <input type="submit" class="btn btn-primary no-border-radius" value="Post Comment">
+                                    <?php }else{?>
+
+                                        <a href="<?php echo base_url('login?redirect=photos/check/'.$select_photo->picture_id.'#comment')?>" class="btn btn-danger">Login to Comment </a>
+
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <?php form_close()?>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <!-- User comment area -->
+                    <?php if($countComment >=1):?>
+                        <?php foreach($getComment as $comment):?>
+                            <?php //echo $countComment ?>
+                            <div class="reviewRow">
+                                <div class="reviewerField">
+                                    <div class="reviwerPic">
+                                        <img src="<?php if(!empty($comment['picture'])){echo base_url('users_photo/'.$comment['picture']);}else{ echo base_url('users_photo/avatar.png');}?>">
+                                    </div>
+                                    <div class="rname"><?php echo $comment['username']?></div>
+                                </div>
+                                <div class="reviewerContent">
+                                    <div class="innerBubble">
+                                        <h5><?php echo $comment['username'] ?></h5>
+                                        <span><i class=" glyphicon glyphicon-clock"></i> <?php echo time_elapsed_string($comment['date']);?></span>
+                                        <p><?php echo $comment['comment']?></p>
+
+                                        <!--<div style="padding: 10px">
+                                            <a href="#"><label class="label label-danger no-border-radius">Reply</label> </a>
+                                        </div>
+-->
+
+                                        <!-- reply comment starts from here -->
+
+                                       <!-- <div class="" style="margin-left: 5px; border-top: 1px dotted #d2d2d2;padding-top: 10px">
+                                          <div class="col-sm-8">
+                                              <input type="text" class="form-control" name="" style="border-radius: 0">
+                                          </div>
+                                          <div class="col-sm-4" style="padding-top: 5px">
+                                              <button type="submit" class="btn btn-success btn-xs no-border-radius" value="Reply">Submit</button>
+                                              <button type="submit" class="btn btn-warning btn-xs no-border-radius" value="Reply">Reply</button>
+                                          </div>
+                                        </div>-->
+
+                                        <div class="clearfix"></div>
+
+                                    </div>
+
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        <?php endforeach ?>
+                    <?php endif ?>
 
 
                 </div>
@@ -407,9 +418,11 @@
 
 </section>
 
+<script src='<?php echo base_url('js/photo/index.js')?>'></script>
+<script src='<?php echo base_url('js/photo/photo_ca.js')?>'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 
 </body>
 </html>

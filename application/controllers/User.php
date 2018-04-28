@@ -20,6 +20,7 @@ class User extends CI_Controller{
 
 
     public function home(){
+        empty($data['success']);
 
         if(!isset($this->session->userLogginID)){
 
@@ -32,14 +33,64 @@ class User extends CI_Controller{
 
         else{
 
+
             $UserID = $this->session->userLogginID;
             require_once('action/fetch_user.php');
-            $data['title'] = 'Welcome home';
+            $data['title'] = $data['username'] .' Welcome home';
+            $currentDate = date('Y-m-d');
+
+            //get avalaible contest list
+            $this->db->where("contest_status='0' AND contest_start_date >='$currentDate'");
+            $this->db->order_by("id",'RANDOM');
+            $data['getContestAvail'] = $this->db->get('contests')->result_array();
+
+            //get ongoing voting
+            $this->db->where("contest_status='0' AND contest_start_date <='$currentDate' AND contest_close_date >='$currentDate'");
+            $this->db->order_by("id",'RANDOM');
+            $data['getOngoingVoting'] = $this->db->get('contests')->result_array();
+
+            //count my following user
+            $this->db->where("follower_id = '$UserID'");
+            $data['countMyFollowing'] = $this->db->count_all_results('followingx');
+
+            //get my following user
+            $this->db->where("follower_id = '$UserID'");
+            $data["getMyFollowing"] = $this->db->get("followingx")->result_array();
+
+            foreach($data['getMyFollowing'] as $myFollowing){
+
+                //get people to follow
+                $myFollowingID = $myFollowing['user_id'];
+                $this->db->where("user_id !='$myFollowingID' AND user_id !='$UserID'");
+                $data['getMoreFollow'] = $this->db->get("userz")->result_array();
+
+
+                //get post from my following users
+
+                $this->db->where("poster_id = '$myFollowingID' || poster_id='Admin'");
+                $this->db->order_by('date','DESC');
+                $data['getPost'] = $this->db->get('post_timeline')->result_array();
+
+
+
+            }
 
             $this->load->view('template/header', $data);
             $this->load->view('home', $data);
+
+
             //$this->load->view('template/footer', $data);
         }
+
+
+    }
+
+
+
+    public function profile($id){
+
+
+
 
 
     }

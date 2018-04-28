@@ -92,7 +92,95 @@ class Photos extends CI_Controller{
 
     public function check($id){
 
-        //echo $id;
+        $data['success'] = "";
+        $data['title'] = "Photos";
 
+        require_once('action/time_function.php');
+
+        //get user information if logged in
+
+        if(isset($_SESSION['userLogginID'])) {
+            //get user information if logged in
+            require_once('action/fetch_user.php');
+        }
+
+
+        //get the picture information
+
+        $this->db->where("picture_id='$id'");
+        $countPID = $this->db->count_all_results('uploads');
+
+        if($countPID <=0){
+
+            die('Error!!!.. Page Not Found');
+
+        }
+        else {
+            $this->db->where("picture_id='$id'");
+            $data['getPhoto'] = $this->db->get("uploads")->result();
+            foreach($data['getPhoto'] as $get_photo);
+
+            $getView = $get_photo->view;
+            if(empty($getView)){
+                $getView = 0;
+            }
+
+            //update number of view
+            $plus_1 = $getView + 1;
+            $this->db->where("picture_id ='$id'");
+            $this->db->update('uploads', array('view'=>$plus_1));
+
+
+
+
+            //get the entry picture has been submitted for
+            $this->db->where("picture_id ='$id'");
+            $data['countEntry'] = $this->db->count_all_results("entries_submited");
+
+            //get all comment on the photo
+
+            $this->db->where("content_uid='$id'");
+            $data['countComment'] = $this->db->count_all_results('commentx');
+
+            $this->db->where("content_uid='$id'");
+            $data['getComment'] = $this->db->get('commentx')->result_array();
+
+
+            $this->db->where("picture_id ='$id'");
+            $data['getEntry'] = $this->db->get("entries_submited")->result_array();
+
+            //validate comment
+            $this->form_validation->set_rules('comment','Comment','required','required|trim|max_length[250]');
+            $this->form_validation->set_error_delimiters("<div class='alert alert-danger no-border-radius text-white'><a class='close' data-dismiss='alert'>&times;</a>", "</div>");
+
+            if($this->form_validation->run() == false){
+
+                $this->load->view('template/header', $data);
+                $this->load->view('photo_page', $data);
+
+            }
+
+            else{
+
+                //get insert input
+
+                $insertComment = array(
+                    'content_uid'=>$id,
+                    'comment'=> $this->input->post('comment'),
+                    'comment_id'=> rand(0000, 9999999999999999999999),
+                    'picture'=> $data['userPhoto'],
+                    'username'=> $data['username'],
+                    'date'=> date("Y-m-d H:i:s"),
+                );
+
+                $this->db->insert('commentx', $insertComment);
+
+                redirect(base_url('photos/check/'.$id.'#comment'));
+
+            }
+
+
+            //$this->load->view('template/footer', $data);
+        }
     }
 }

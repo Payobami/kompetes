@@ -101,7 +101,7 @@
                                             </a>
                                         </li>
 
-                                        <li class="width-100 bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                        <li class="width-100 bg bg-green"><a href="<?php echo base_url("upgrade")?>" style="color: #333333 !important;">Upgrade</a></li>
                                         <li class="no-bg width-100" ><a href="#" style="color: #333333 !important;">My Stats</a></li>
                                         <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Inbox </a></li>
                                         <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">My points </a></li>
@@ -204,7 +204,7 @@
                                     </a>
                                 </li>
 
-                                <li class="bg bg-green"><a href="#" style="color: #333333 !important;">Upgrade</a></li>
+                                <li class="bg bg-green"><a href="<?php echo base_url("upgrade") ?>" style="color: #333333 !important;">Upgrade</a></li>
                                 <li class=""><a href="#" style="color: #333333 !important;">My Stats</a></li>
                                 <li class=""><a href="#" style="color: #333333 !important;">Inbox </a></li>
                                 <li class=""><a href="#" style="color: #333333 !important;">My points </a></li>
@@ -229,7 +229,7 @@
                 <li><a href="">Videos</a></li>
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
                 <!--<li class="nav-active"><a href="<?php /*echo base_url('upload')*/?>">+ Upload</a></li>-->
-                <li><a href=""> Upgrade</a></li>
+                <li><a href="<?php echo base_url("upgrade")?>"> Upgrade</a></li>
 
                 <li class="visible-xs" style="min-height: 400px"></li>
 

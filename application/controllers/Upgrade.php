@@ -24,9 +24,6 @@ class Upgrade extends CI_Controller{
 
         if(!isset($_SESSION['userLogginID'])){
             redirect(base_url('login?redirect=upgrade'));
-
-
-
         }
 
         else{
@@ -39,8 +36,27 @@ class Upgrade extends CI_Controller{
 
             $this->load->view("template/header",$data);
             $this->load->view("upgrade", $data);
+            $this->load->view("template/footer",$data);
+
         }
     }
 
+
+    public function checkout(){
+
+        if(isset($_SERVER['REQUEST_METHOD']) == 'POST'){
+
+            die("credit");
+
+
+
+
+        }
+
+
+
+
+
+    }
 
 }

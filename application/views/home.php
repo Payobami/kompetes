@@ -96,6 +96,46 @@
                     <!-- Video Row Ends Here -->
                     <?php endif?>
 
+
+
+                    <?php if($postType =='challenge'): ?>
+
+                        <?php
+
+                        $this->db->where("challenge_id = '$postMediaID'");
+                        $getChallengeFile = $this->db->get("challenges")->result();
+
+                        foreach($getChallengeFile as $getChallenge):
+
+                            ?>
+
+                            <!-- open contest -->
+                            <div class="photos_row" style="">
+                                <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
+                                    <div class="logoPhoto" style="padding-top: 5px">
+                                        <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
+                                        <span> Recommend for you <a href="<?php echo base_url("")?>"><?php echo $getChallenge->challenge_name; ?> Challenge</a> By <a href="" class="text-center"> <?php echo $getChallenge->username?></a> </span>
+                                    </div>
+                                </div>
+
+                                <div class="photos_content photo_contest" style="">
+                                    <a href="<?php echo base_url('')?>">
+                                        <img src="<?php echo base_url("uploads/challenges/".$getChallenge->challenge_banner)?>" width="100%" style="">
+                                    </a>
+
+                                </div>
+                                <div class="photo_contest_info" style="margin-bottom: 170px !important; ; ">
+
+                                    <h2 class="text-center"><?php echo $getChallenge->challenge_name; ?> Challenge</h2>
+                                    <h6 class="text-center"><?php //echo $getContest->contest_grand_price; ?></h6>
+                                </div>
+                            </div>
+
+                        <?php endforeach ?>
+                    <?php endif ?>
+
+
+
                     <?php if($postType =='contest'): ?>
 
                         <?php
@@ -107,7 +147,7 @@
 
                         ?>
                         <!-- open contest -->
-                         <div class="photos_row" style="margin-bottom: 50px;position:;">
+                         <div class="photos_row" style="margin:0px !important !important;">
                             <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
                                 <div class="logoPhoto" style="padding-top: 5px">
                                     <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
@@ -120,54 +160,18 @@
                                     <img src="<?php echo base_url("uploads/contests/".$getContest->contest_picture)?>" width="100%" style="">
                                 </a>
 
-                                <div class="photo_contest_info" style="">
-
+                                <div class="photo_contest_info" style="margin-bottom: 100px !important;">
                                     <h2 class="text-center"><?php echo $getContest->contest_name; ?> Contest</h2>
                                     <h6 class="text-center"><?php echo $getContest->contest_grand_price; ?></h6>
                                 </div>
-
                             </div>
+
                         </div>
 
 
                         <?php endforeach ?>
                     <?php endif ?>
 
-                    <?php if($postType =='challenge'): ?>
-
-                        <?php
-
-                        $this->db->where("challenge_id = '$postMediaID'");
-                        $getChallengeFile = $this->db->get("challenges")->result();
-
-                        foreach($getChallengeFile as $getChallenge):
-
-                            ?>
-                            <!-- open contest -->
-                            <div class="photos_row" style="margin-bottom: 50px;margin-top: 30px;position: relative">
-                                <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
-                                    <div class="logoPhoto" style="padding-top: 5px">
-                                        <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
-                                        <span> Recommend for you <a href="<?php echo base_url("")?>"><?php echo $getChallenge->challenge_name; ?> Contest</a></span>
-                                    </div>
-                                </div>
-
-                                <div class="photos_content photo_contest" style="">
-                                    <a href="<?php echo base_url('')?>">
-                                        <img src="<?php echo base_url("uploads/challenges/".$getChallenge->challenge_banner)?>" width="100%" style="">
-                                    </a>
-
-                                    <div class="photo_contest_info" style="">
-
-                                        <h2 class="text-center"><?php echo $getChallenge->challenge_name; ?> Challenge</h2>
-                                        <h6 class="text-center"><?php //echo $getContest->contest_grand_price; ?></h6>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        <?php endforeach ?>
-                    <?php endif ?>
                 <?php endforeach ?>
 
             </div>

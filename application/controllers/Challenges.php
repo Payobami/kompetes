@@ -154,6 +154,8 @@ class Challenges extends CI_Controller
                                 'challenge_banner' => $fileData['file_name'],
                                 'winner_selection' => $winnerPrice,
                                 'people_choice' => $peopleChoice,
+                                'username'=>$data['username'],
+                                'user_id'=>$_SESSION['userLogginID'],
                                 'date' => date('Y-m-d H:i:s'),
                             );
 
@@ -180,6 +182,26 @@ class Challenges extends CI_Controller
 
                             );
                             $this->db->insert("credit_submitted", $submitCredit);
+
+
+                            //insert into timeline post
+
+                            //insert into post table
+                            $insertPost = array(
+
+                                'post_id' => substr(str_shuffle("0123456789"), 0, 10),
+                                'poster_name' => $data['username'],
+                                'poster_id' => $this->session->userLogginID,
+                                'post_type' => 'challenge',
+                                'media_id' => $challengeID,
+                                'status' => 0,
+                                'date'=> date('Y-m-d H:i:s'),
+                            );
+
+                            $this->db->insert("post_timeline", $insertPost);
+
+
+
 
                             redirect(base_url("success_upload/success_challenge"));
                         }
@@ -218,9 +240,12 @@ class Challenges extends CI_Controller
 
             $data['title'] = 'Login';
             $data['success'] = "<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            $this->load->view('template/header', $data);
+
+            redirect(base_url('login?redirect=challenges/check/'.$id));
+
+            /*$this->load->view('template/header', $data);
             $this->load->view('login', $data);
-            $this->load->view('template/footer', $data);
+            $this->load->view('template/footer', $data);*/
         }
         else {
 
@@ -309,22 +334,98 @@ class Challenges extends CI_Controller
     public function explore($id){
 
 
+        if(!isset($_SESSION['userLogginID'])){
+
+            redirect(base_url('login?redirect=challenges/explore/'.$id));
+
+
+        } else{
+            $data['success'] = "";
+            $data['title'] = $id;
+
+
+            //get category
+            $this->db->where("status='0'");
+            $data['getCategory'] = $this->db->get('category')->result_array();
+
+
+            //get all the challenges out
+
+            $this->db->where("status = '0'");
+            $data['getChallenge'] = $this->db->get('challenges')->result_array();
 
 
 
+            require_once('action/fetch_user.php');
+            $this->load->view("template/header",$data);
+            $this->load->view("challenges_explore", $data);
+
+        }
     }
 
 
     public function entries($id){
 
+        $data['success'] ="";
 
+        if (!isset($this->session->userLogginID)) {
+
+            $data['title'] = 'Login';
+            $data['success'] = "<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
+
+            redirect(base_url('login?redirect=challenges/check/'.$id));
+
+            /*$this->load->view('template/header', $data);
+            $this->load->view('login', $data);
+            $this->load->view('template/footer', $data);*/
+        }
+        else{
+
+            $data['title'] = 'Entries';
+
+            require_once('action/fetch_user.php');
+
+            $this->db->where("challenge_id='$id'");
+            $checkChallenge = $this->db->count_all_results("challenges");
+
+            if($checkChallenge >=1){
+
+                //get challenges information
+                $this->db->where("challenge_id='$id'");
+                $getChallenge = $this->db->get("challenges")->result();
+
+                foreach($getChallenge as $data['getChallenge'])
+
+                    //get entries
+
+                    $challengeEntryID = $data['getChallenge']->challenge_id;
+
+                    $this->db->where("entry_id='$challengeEntryID' AND entry_type='challenge'");
+                    $data['getChallengeEntry'] = $this->db->get('entries_submited')->result_array();
+
+                $this->load->view("template/header", $data);
+                $this->load->view("challenges_entry", $data);
+
+
+            }
+
+            else{
+
+
+                die('Challenge does not exist');
+            }
+
+
+
+
+        }
 
 
 
     }
 
     public function submit_entry($id){
-
+        $data['success']="";
         if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['userLogginID'])){
 
 
@@ -340,16 +441,43 @@ class Challenges extends CI_Controller
             $countContest = $this->db->count_all_results('challenges');
 
 
-            if($countContest >=1){
+
+
+            if($countContest >= 1){
+
+
+                //get challenges information
+                $this->db->where("challenge_id='$id'");
+                $getChallenge = $this->db->get("challenges")->result();
+
+                foreach($getChallenge as $data['getChallenge']);
+
+                    //get entries
+                    $challengeEntryID = $data['getChallenge']->challenge_id;
+                    $allowUpload = $data['getChallenge']->allow_upload;
+
+                //die($allowUpload);
 
                 //count the contest entries check if the user has already submitted photo for this entry
                 $this->db->where("entry_id='$id' AND user_id='$userID'");
                 $countEntries = $this->db->count_all_results('entries_submited');
 
-                if($countEntries >=1){
+                if($countEntries >= $allowUpload){
 
                     //user already submitted the
-                    die('You have already submitted photo for this contest ');
+                    //die('');
+
+                    $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a> You have reached the maximum upload limit for this challenge</div>";
+                    $data['title'] ='Entries ';
+                    foreach($getChallenge as $data['getChallenge'])
+                        //get entries
+                        $challengeEntryID = $data['getChallenge']->challenge_id;
+
+                    $this->db->where("entry_id='$challengeEntryID' AND entry_type='challenge'");
+                    $data['getChallengeEntry'] = $this->db->get('entries_submited')->result_array();
+
+                    $this->load->view("template/header", $data);
+                    $this->load->view("challenges_entry", $data);
 
 
                 }
@@ -382,20 +510,27 @@ class Challenges extends CI_Controller
 
                     $this->db->insert('entries_submited', $insertPhoto);
 
-                    die("uploaded successful");
+                    //die("uploaded successful");
 
-                    //get the contest information out
-                    $this->db->where("contest_id='$id'");
-                    $data['getContest'] = $this->db->get("contests")->result();
+                    //get challenges information
+                    $this->db->where("challenge_id='$id'");
+                    $getChallenge = $this->db->get("challenges")->result();
 
-                    //get all the pictures submited for the contest entry
-                    $this->db->where("entry_id='$id' AND entry_type='contest'");
-                    $data['getContestEntry'] = $this->db->get("entries_submited")->result_array();
+                    $data['success'] = "<div class='alert alert-success text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Entry Submitted Successfully!</div>";
+                    $data['title'] ='Entries ';
+                    foreach($getChallenge as $data['getChallenge'])
+
+                        //get entries
 
 
 
-//                $this->load->view('template/header', $data);
-//                $this->load->view('contest_entry', $data);
+                        $challengeEntryID = $data['getChallenge']->challenge_id;
+
+                    $this->db->where("entry_id='$challengeEntryID' AND entry_type='challenge'");
+                    $data['getChallengeEntry'] = $this->db->get('entries_submited')->result_array();
+
+                    $this->load->view("template/header", $data);
+                    $this->load->view("challenges_entry", $data);
 
                 }
 

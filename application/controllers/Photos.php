@@ -167,7 +167,7 @@ class Photos extends CI_Controller{
                 $insertComment = array(
                     'content_uid'=>$id,
                     'comment'=> $this->input->post('comment'),
-                    'comment_id'=> rand(0000, 9999999999999999999999),
+                    'comment_id'=> substr(str_shuffle("0123456789"), 0, 10),
                     'picture'=> $data['userPhoto'],
                     'username'=> $data['username'],
                     'date'=> date("Y-m-d H:i:s"),

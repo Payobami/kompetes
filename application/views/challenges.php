@@ -40,18 +40,18 @@
 
                                 $uploadUserID= $challenges['user_id'];
                                 $this->db->where("user_id='$uploadUserID'");
-                                $userInfo = $this->db->get('userz')->result();
+                                $userInfo = $this->db->get('userz')->result_array();
 
                                 foreach($userInfo as $userInfo):
 
                                 ?>
 
                                 <div class="grid-user-picture">
-                                    <img src="<?php echo base_url('users_photo/'.$userInfo->picture)?>" class="img-circle img-thumbnail" width="100">
+                                    <img src="<?php echo base_url('users_photo/'.$userInfo['picture'])?>" class="img-circle img-thumbnail" width="100">
                                 </div>
                                 <h5 class="text-center"><?php echo $challenges['challenge_name']?></h5>
                                 <p class="m-0 text-center" style="color: #919191">
-                                    <small>By <?php echo $userInfo->username; ?> </small>
+                                    <small>By <?php echo $userInfo['username']; ?> </small>
                                 </p>
 
                                     <?php endforeach ?>

@@ -142,19 +142,29 @@
 
     <div class="container-fluid">
 
+
+
+        <div class="col-sm-6 m-t-40 no-padding-xs text-left">
+            <div style="min-height: 300px; background: rgba(223,223,233, 0.7)">
+                <h3 class="text-center text-red f-bitter"> <img src="<?php echo base_url('img/icons/credit-card-red.png')?>">  Why Credits </h3>
+
+                <p class="f-s-18 p-20 f-ubuntu"> It’s up to you how you want to use credits – buy just enough for the photo contests and challenges you want to enter – the more you buy, the less they cost.  </p>
+            </div>
+        </div>
+
         <div class="col-sm-5 col-sm-offset-1 m-t-5  no-padding-xs">
 
             <div class="" style="min-height: 500px;background: #fff">
-                <div class="bg-blue-gradient text-center" style="height: 70px;">
+                <div class="bg-black-gradient text-center" style="height: 70px;">
                     <h6 class="text-white m-b-0 p-b-0 f-s-20 f-bitter" style="margin-bottom: -10px !important;">Credits</h6>
                     <p class="text-white m-t-0 p-t-0 f-bitter"> Get access to competes for any photo contests</p>
                 </div>
 
                 <?php echo form_open("upgrade/checkout", array('id'=>'upgrade'))?>
-                    <div class="p-l-10 p-r-10">
+                <div class="p-l-10 p-r-10">
 
-                        <div class="unit_price">
-                            <label class="p-t-10">
+                    <div class="unit_price">
+                        <label class="p-t-10">
                             <div class="col-xs-6">
                                 <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="1">
                                 1 <span> credits </span>
@@ -168,27 +178,27 @@
                             </div>
                             <div class="clearfix"></div>
                         </label>
-                        </div>
+                    </div>
 
 
-                        <div class="unit_price">
-                            <label class="p-t-10">
-                                <div class="col-xs-6">
-                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="3">
-                                    3 <span> credits </span>
+                    <div class="unit_price">
+                        <label class="p-t-10">
+                            <div class="col-xs-6">
+                                <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="3">
+                                3 <span> credits </span>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                £33 <span>GBP</span>
+                                <br>
+                                <div style="margin-top:-13px">
+                                    <small>£11/credit</small>
                                 </div>
-                                <div class="col-xs-6 text-right">
-                                    £33 <span>GBP</span>
-                                    <br>
-                                    <div style="margin-top:-13px">
-                                        <small>£11/credit</small>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </label>
-                        </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </label>
+                    </div>
 
-                        <div class="unit_price">
+                    <div class="unit_price">
                         <label class="p-t-10">
                             <div class="col-xs-6">
                                 <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="6">
@@ -205,7 +215,7 @@
                         </label>
                     </div>
 
-                        <div class="unit_price">
+                    <div class="unit_price">
                         <label class="p-t-10">
                             <div class="col-xs-6">
                                 <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="12">
@@ -222,7 +232,7 @@
                         </label>
                     </div>
 
-                        <div class="unit_price">
+                    <div class="unit_price">
                         <label class="p-t-10">
                             <div class="col-xs-6">
                                 <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="18">
@@ -257,110 +267,104 @@
                         </label>
                     </div>
 
-                        <div class="text-center m-t-20" id="hide">
-                            <a onclick="revealMore()" >Check for more</a>
+                    <div class="text-center m-t-20" id="hide">
+                        <a onclick="revealMore()" >Check for more</a>
+                    </div>
+
+                    <div class="" hidden id="reveal">
+
+
+                        <div class="unit_price">
+                            <label class="p-t-10">
+                                <div class="col-xs-6">
+                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="36">
+                                    36 <span> credits </span>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    £216 <span>GBP</span>
+                                    <br>
+                                    <div style="margin-top:-13px">
+                                        <small>£6/credit</small>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </label>
                         </div>
-                        
-                        <div class="" hidden id="reveal">
 
 
-                            <div class="unit_price">
-                                <label class="p-t-10">
-                                    <div class="col-xs-6">
-                                        <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="36">
-                                         36 <span> credits </span>
+                        <div class="unit_price">
+                            <label class="p-t-10">
+                                <div class="col-xs-6">
+                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="60">
+                                    60 <span> credits </span>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    £360 <span>GBP</span>
+                                    <br>
+                                    <div style="margin-top:-13px">
+                                        <small>£6/credit</small>
                                     </div>
-                                    <div class="col-xs-6 text-right">
-                                        £216 <span>GBP</span>
-                                        <br>
-                                        <div style="margin-top:-13px">
-                                            <small>£6/credit</small>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </label>
-                            </div>
-
-
-                            <div class="unit_price">
-                                <label class="p-t-10">
-                                    <div class="col-xs-6">
-                                        <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="60">
-                                        60 <span> credits </span>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        £360 <span>GBP</span>
-                                        <br>
-                                        <div style="margin-top:-13px">
-                                            <small>£6/credit</small>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </label>
-                            </div>
-
-
-
-                            <div class="unit_price">
-                                <label class="p-t-10">
-                                    <div class="col-xs-6">
-                                        <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="150">
-                                        150 <span> credits </span>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        £870 <span>GBP</span>
-                                        <br>
-                                        <div style="margin-top:-13px">
-                                            <small>£5.8/credit</small>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </label>
-                            </div>
-
-
-                            <div class="unit_price">
-                                <label class="p-t-10">
-                                    <div class="col-xs-6">
-                                        <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="300">
-                                        300 <span> credits </span>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        £1,650 <span>GBP</span>
-                                        <br>
-                                        <div style="margin-top:-13px">
-                                            <small>£5.5/credit</small>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </label>
-                            </div>
-
-
-                            <div class="unit_price">
-                                <label class="p-t-10">
-                                    <div class="col-xs-6">
-                                        <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="500">
-                                        500 <span> credits </span>
-                                    </div>
-                                    <div class="col-xs-6 text-right">
-                                        £2,500 <span>GBP</span>
-                                        <br>
-                                        <div style="margin-top:-13px">
-                                            <small>£5/credit</small>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </label>
-                            </div>
-
-
-
-
-
-
-
+                                </div>
+                                <div class="clearfix"></div>
+                            </label>
                         </div>
+
+
+
+                        <div class="unit_price">
+                            <label class="p-t-10">
+                                <div class="col-xs-6">
+                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="150">
+                                    150 <span> credits </span>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    £870 <span>GBP</span>
+                                    <br>
+                                    <div style="margin-top:-13px">
+                                        <small>£5.8/credit</small>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </label>
+                        </div>
+
+
+                        <div class="unit_price">
+                            <label class="p-t-10">
+                                <div class="col-xs-6">
+                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="300">
+                                    300 <span> credits </span>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    £1,650 <span>GBP</span>
+                                    <br>
+                                    <div style="margin-top:-13px">
+                                        <small>£5.5/credit</small>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </label>
+                        </div>
+
+
+                        <div class="unit_price">
+                            <label class="p-t-10">
+                                <div class="col-xs-6">
+                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="500">
+                                    500 <span> credits </span>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    £2,500 <span>GBP</span>
+                                    <br>
+                                    <div style="margin-top:-13px">
+                                        <small>£5/credit</small>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </label>
+                        </div>
+
+                    </div>
 
 
                     <div class="form-group text-center m-t-25 p-b-20">
@@ -375,16 +379,6 @@
 
 
             </div>
-        </div>
-
-        <div class="col-sm-6 m-t-40 no-padding-xs text-left">
-            <div style="min-height: 300px; background: rgba(223,223,233, 0.7)">
-                <h3 class="text-center text-red f-bitter"> <img src="<?php echo base_url('img/icons/credit-card-red.png')?>">  Why Credits </h3>
-
-                <p class="f-s-18 p-20 f-ubuntu"> It’s up to you how you want to use credits – buy just enough for the photo contests and challenges you want to enter – the more you buy, the less they cost.  </p>
-            </div>
-
-
         </div>
 
 

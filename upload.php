@@ -1,116 +1,67 @@
 <?php
-session_start();
-/* if($_SERVER['REQUEST_METHOD'] == 'POST'){
-     print_r($_FILES);
+require_once 'braintree-php-2.30.0/lib/Braintree.php';
 
-     die('jsdsdjjs');
+Braintree_Configuration::environment('sandbox');
+Braintree_Configuration::merchantId('-----------');
+Braintree_Configuration::publicKey('-----------');
+Braintree_Configuration::privateKey('-----------');
+if(isset($_POST['submit'])){
+    /* process transaction */
+    $result = Braintree_Transaction::sale(array(
+        'amount' => '100.00',
+        'creditCard' => array(
+            'number' => '5454545454545454',
+            'expirationDate' => '08/19'
+        )
+    ));
 
-     if(!empty($_FILES)){
-
-
-     }
- }*/
-
-
-
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    //die('wel done');
-
-    // die($_FILES['file']['name']);
-
-    $ds = DIRECTORY_SEPARATOR;  //1
-
-    $storeFolder = 'uploads';   //2
-
-    if (!empty($_FILES)) {
-
-
-
-
-        $tempFile = $_FILES['file']['tmp_name'];          //3
-
-        $targetPath = dirname(__FILE__) . $ds . $storeFolder . $ds;  //4
-
-        $targetFile = $targetPath . $_FILES['file']['name'];  //5
-
-
-        $countPicture = count($_FILES['file']['name']);
-
-        for($i; $i<$countPicture; $i++){
-
-            $_SESSION['uploadedName'] = $_FILES['file']['name'][$i];
-
-        }
-
-
-        //$_SESSION['uploadedName'] = $_FILES['file']['name'];
-
-        $moveupload = move_uploaded_file($tempFile, $targetFile); //6
-
-        die(count($_FILES['file']['name']));
-
-    }
-
-    else{
-
-
-        echo $_SESSION['uploadedName'];
-        //header('Location: index.html');
-
-        //die('Error Uploading');
+    if ($result->success) {
+        print_r("success!: " . $result->transaction->id);
+    } else if ($result->transaction) {
+        print_r("Error processing transaction:");
+        print_r("\n  code: " . $result->transaction->processorResponseCode);
+        print_r("\n  text: " . $result->transaction->processorResponseText);
+    } else {
+        print_r("Validation errors: \n");
+        print_r($result->errors->deepAll());
     }
 }
+
+$clientToken = Braintree_ClientToken::generate();
+
 ?>
 
-
-
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>..:: Kompetes || ::..</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap_3.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/kompetes.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/masonry.css"/>
-
-    <link rel="icon" href="img/ico.png">
-
-    <link rel="stylesheet" type="text/css" href="css/dropzone.css">
 </head>
 <body>
-<div class="drop-zone-upload">
-    <form action="upload.php" enctype="multipart/form-data" method="post" class="dropzone" id="myDropzone">
-        <div class="dropzon">
-            <div class="fallback">
-                <input name="file" type="file" multiple />
-            </div>
-        </div>
-
-
-        <input type="submit" class="btn btn-success">
-
-
+<div id="checkout" method="post" action="/checkout">
+    <div id="dropin"></div>
+    <input data-braintree-name="number" value="4111111111111111">
+    <input data-braintree-name="expiration_date" value="10/20">
+    <input type="submit" id="submit" value="Pay">
+    <div id="paypal-button"></div>
 </div>
 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-<script src='js/dropzone.js'></script>
-
-
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 <script>
-
-
-    $("div#myDropzone").dropzone({
-
-        acceptedFiles: ".jpeg,.jpg,.png,.gif"
-
+    braintree.setup(clientToken, "dropin", {
+        container: "payment-form",
+        form: jQuery("#checkout") ,
+        paypal: {
+            container: "payment-form",
+            singleUse: false,
+        },
+        dataCollector: {
+            paypal: true
+        },
+        paymentMethodNonceReceived: function (event, nonce) {
+            // do something
+        }
     });
-
-    //Dropzone.options.myDropZone = false;
 </script>
+
 </body>
 </html>

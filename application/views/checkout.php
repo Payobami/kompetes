@@ -13,25 +13,10 @@ $gateway = new Braintree\Gateway([
     'publicKey' => 'x74r6tx4npf4m6gn',
     'privateKey' => '2518f4aac1e4ac5ed89bd7f9b7c436bf'
 ]);
-
-
-
 ?>
 
-<!--<html>
-<head>
-    <meta charset="UTF-8">
-    <title>BraintreePHPExample</title>
-    <link rel=stylesheet type=text/css href="<?php /*//echo base_url('css/app.css')*/?>">
-    <link rel=stylesheet type=text/css href="<?php /*//echo base_url('css/overrides.css')*/?>">
-</head>
 
-
-
-<?php //require_once("./includes/head.php"); ?>
 <body>
--->
-
 
 <section class="content" style="margin-top: 55px;padding: 0; background: url(<?php echo base_url('img/bg/money-bank.jpg')?>) no-repeat; background-size: cover">
 

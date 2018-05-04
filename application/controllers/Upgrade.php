@@ -67,6 +67,7 @@ class Upgrade extends CI_Controller{
                 //require_once("./includes/braintree_init.php");
                 $data['title'] =  "Checkout ". $data['creditPrice'];
                 $data['successs'] = "";
+                $data['error'] = "";
 
 
                 if($this->form_validation->run() == false) {

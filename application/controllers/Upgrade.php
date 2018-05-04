@@ -72,6 +72,7 @@ class Upgrade extends CI_Controller{
 
                 if($this->form_validation->run() == false) {
                     $this->load->view("template/header", $data);
+                    $this->load->view("checkpay", $data);
                     //$this->load->view("checkout", $data);
                     $this->load->view("template/footer", $data);
                 }

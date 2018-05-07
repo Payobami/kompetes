@@ -33,6 +33,7 @@
     $data['userAbout'] = $user->about;
     $data['userPhoto'] = $user->picture;
     $data['userPassword'] = $user->passwordx;
+    $data['adminStatus'] = $user->admin;
 
 //get the numbers of pictures uploaded by the user
 

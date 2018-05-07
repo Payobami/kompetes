@@ -136,7 +136,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
                 <li><a href="<?php echo base_url()?>photos">Photos</a></li>
-                <li><a href="<?php echo base_url()?>">Videos</a></li>
+                <li><a href="<?php echo base_url('video')?>">Videos</a></li>
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
 
             </ul>
@@ -204,11 +204,14 @@
                                     </a>
                                 </li>
 
-                                <li class="bg bg-green"><a href="<?php echo base_url("upgrade") ?>" style="color: #333333 !important;">Upgrade</a></li>
+                                <li class="bg bg-green text-white"><a href="<?php echo base_url("upgrade") ?>" style="color: #fff !important;">Upgrade</a></li>
                                 <li class=""><a href="#" style="color: #333333 !important;">My Stats</a></li>
                                 <li class=""><a href="#" style="color: #333333 !important;">Inbox </a></li>
                                 <li class=""><a href="#" style="color: #333333 !important;">My points </a></li>
                                 <li class=""><a href="<?php echo base_url('profile/update')?>" style="color: #333333 !important;">Account Settings </a></li>
+                                <?php if($adminStatus == 1){?>
+                                <li class="bg-red text-white"><a href="<?php echo base_url('admin/home')?>" style="color: #fff !important;">Switch to Admin </a></li>
+                               <?php } ?>
                                 <li class=""><a href="<?php echo base_url('authentication/logout')?>" style="color: #333333 !important;">Logout </a></li>
                             </ul>
                         </div>
@@ -226,7 +229,7 @@
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
                 <li><a href="<?php echo base_url()?>photos">Photos</a></li>
                 <li><a href="<?php echo base_url('challenges')?>">Challenges</a></li>
-                <li><a href="">Videos</a></li>
+                <li><a href="<?php echo base_url('video')?>">Videos</a></li>
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
                 <!--<li class="nav-active"><a href="<?php /*echo base_url('upload')*/?>">+ Upload</a></li>-->
                 <li><a href="<?php echo base_url("upgrade")?>"> Upgrade</a></li>

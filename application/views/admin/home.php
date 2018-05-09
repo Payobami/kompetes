@@ -19,7 +19,7 @@
                                     <div class="th_status_wrapper">
 
                                             <a href="#" class="th_icon yellow"><i class="fa fa-users" aria-hidden="true"></i></a>
-                                        <a href="<?php echo base_url('admin/users')?>">
+                                        <a href="<?php echo base_url('admin/users/0')?>">
                                             <div class="th_status">
                                                 <strong>All Users</strong>
                                                 <h6><?php echo $countAllUsers ?></h6>

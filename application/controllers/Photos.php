@@ -170,6 +170,7 @@ class Photos extends CI_Controller{
                     'comment_id'=> substr(str_shuffle("0123456789"), 0, 10),
                     'picture'=> $data['userPhoto'],
                     'username'=> $data['username'],
+                    'user_id'=> $_SESSION['userLogginID'],
                     'date'=> date("Y-m-d H:i:s"),
                 );
 

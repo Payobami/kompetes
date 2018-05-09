@@ -27,7 +27,7 @@ foreach($getSingleUser as $userInfo);
                                 <div class="col-xs-5 col-sm-12 col-md-4">
                                     <div class="picture">
 
-                                        <img width="100%" height="100%" class="img-circle" src="<?php if(!empty($userInfo['picture'])){echo base_url('users_photo/'.$userInfo['picture']);}else{ echo 'users_photo/avatar.png';} ?>">
+                                        <img width="100%" height="100%" class="img-circle" src="<?php if(!empty($userInfo['picture'])){echo base_url('users_photo/'.$userInfo['picture']);}else{ echo base_url('users_photo/avatar.png');} ?>">
                                     </div>
                                 </div>
 

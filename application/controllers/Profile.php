@@ -30,19 +30,61 @@ class Profile extends CI_Controller{
             $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
 
             redirect(base_url('login?redirect=profile'));
-            //$this->load->view('template/header',$data);
-            //$this->load->view('login?redirect=profile',$data);
-            //$this->load->view('template/footer',$data);
+
         }
 
         else{
 
+
             require_once('action/fetch_user.php');
+
+            $this->db->where("user_id = '$UserID'");
+            $getProfileUser = $this->db->get('userz')->result();
+
+            foreach($getProfileUser as $data['profileUser'])
+
+                $data['title'] = $data['profileUser']->username;
             $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);
             $this->load->view('myProfile', $data);
         }
     }
+
+
+    public function check($id){
+
+        if(isset($_SESSION['userLogginID'])){
+
+            require_once('action/fetch_user.php');
+        }
+
+
+
+
+        $this->db->where("user_id = '$id'");
+        $countProfile = $this->db->count_all_results('userz');
+
+        if($countProfile >=1) {
+
+            $this->db->where("user_id = '$id'");
+            $getProfileUser = $this->db->get('userz')->result();
+
+            foreach($getProfileUser as $data['profileUser'])
+
+            $data['title'] = $data['profileUser']->username;
+
+            $data['USER_ID'] = $this->uri->segment(3);
+            $this->load->view('template/header', $data);
+            $this->load->view('template/myprofile_middle_page', $data);
+            $this->load->view('myProfile', $data);
+        }
+        elseif(empty($id) || $countProfile <=0){
+
+
+            die('opps');
+        }
+    }
+
 
     public function update(){
         $data['success']="";
@@ -305,34 +347,53 @@ class Profile extends CI_Controller{
     public function contest(){
 
         $data['success']="";
-        $data['title'] = "Profile";
+        //$data['title'] = "Profile";
 
-        if(!isset($this->session->userLogginID)){
+       {
+           if(isset($_SESSION['userLogginID'])){
 
-            $data['title']='Login';
-            $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
+               require_once('action/fetch_user.php');
+           }
 
-            redirect(base_url('login?redirect=profile/contest'));
+           if(!empty($this->uri->segment(3))){
 
-            /*$this->load->view('template/header',$data);
-            $this->load->view('login?redirect=profile/contest',$data);
-            $this->load->view('template/footer',$data);*/
-        }
+               $userID = $this->uri->segment(3);
+           }
 
-        else{
+           elseif(isset($_SESSION['userLogginID'])){
+               $userID = $_SESSION['userLogginID'];
 
-            require_once('action/fetch_user.php');
+               //check if the id exist
 
+               $this->db->where("user_id = '$userID'");
+               $countProfile = $this->db->count_all_results("userz");
 
+               if($countProfile <=0){
 
-            //Entry submitted
-            $userID = $_SESSION['userLogginID'];
+                   die("Oops");
+               }
+           }
+           else{
+
+               redirect(base_url('login?redirect=profile/contest#contest'));
+           }
+
 
             $this->db->where("user_id='$userID' AND entry_type='contest'");
             $data['contestEntry'] = $this->db->get("entries_submited")->result_array();
 
             $this->db->where("user_id='$userID' AND entry_type='contest'");
             $data['countContest'] = $this->db->count_all_results("entries_submited");
+
+
+           $this->db->where("user_id = '$userID'");
+           $getProfileUser = $this->db->get('userz')->result();
+
+           foreach($getProfileUser as $data['profileUser'])
+
+               $data['title'] = $data['profileUser']->username;
+
+           $data['title'] = $data['profileUser']->username;
 
 
             $this->load->view('template/header', $data);
@@ -347,33 +408,55 @@ class Profile extends CI_Controller{
     public function challenges(){
 
         $data['success']="";
-        $data['title'] = "Profile";
 
-        if(!isset($this->session->userLogginID)){
 
-            $data['title']='Login';
-            $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-
-            redirect(base_url('login?redirect=profile/challenges'));
-           /* $this->load->view('template/header',$data);
-            $this->load->view('login?redirect=profile/challenges',$data);
-            $this->load->view('template/footer',$data);*/
-        }
-
-        else{
+       {
 
             require_once('action/fetch_user.php');
 
-            $userID = $_SESSION['userLogginID'];
-            $this->db->where("user_id = '$userID' and entry_type='challenge'");
+           if(isset($_SESSION['userLogginID'])){
+
+               require_once('action/fetch_user.php');
+           }
+
+           if(!empty($this->uri->segment(3))){
+
+               $userID = $this->uri->segment(3);
+           }
+
+           elseif(isset($_SESSION['userLogginID'])){
+               $userID = $_SESSION['userLogginID'];
+
+               //check if the id exist
+
+               $this->db->where("user_id = '$userID'");
+               $countProfile = $this->db->count_all_results("userz");
+
+               if($countProfile <=0){
+
+                   die("Oops");
+               }
+           }
+           else{
+
+               redirect(base_url('login?redirect=profile/challenges#contest'));
+           }
+
+           $this->db->where("user_id = '$userID' and entry_type='challenge'");
             $data['contestEntry'] = $this->db->get("entries_submited")->result_array();
 
             $this->db->where("user_id = '$userID' and entry_type='challenge'");
             $data['countChallenge'] = $this->db->count_all_results("entries_submited");
 
+           $this->db->where("user_id = '$userID'");
+           $getProfileUser = $this->db->get('userz')->result();
+
+           foreach($getProfileUser as $data['profileUser'])
+
+               $data['title'] = $data['profileUser']->username;
 
 
-            $this->load->view('template/header', $data);
+           $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);
             $this->load->view('myProfile_challenges', $data);
         }
@@ -385,23 +468,48 @@ class Profile extends CI_Controller{
     public function followers(){
 
         $data['success']="";
-        $data['title'] = "Profile";
 
-        if(!isset($this->session->userLogginID)){
+        {
 
-            $data['title']='Login';
-            $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-            //redirect to login page
-            redirect(base_url('login?redirect=profile/followers'));
-        }
 
-        else{
+            if(isset($_SESSION['userLogginID'])){
 
-            //add user information fetched from database
-            require_once('action/fetch_user.php');
+                require_once('action/fetch_user.php');
+            }
+
+            if(!empty($this->uri->segment(3))){
+
+                $userID = $this->uri->segment(3);
+            }
+
+            elseif(isset($_SESSION['userLogginID'])){
+                $userID = $_SESSION['userLogginID'];
+
+                //check if the id exist
+
+                $this->db->where("user_id = '$userID'");
+                $countProfile = $this->db->count_all_results("userz");
+
+                if($countProfile <=0){
+
+                    die("Oops");
+                }
+            }
+            else{
+
+                redirect(base_url('login?redirect=profile/contest#contest'));
+            }
+
+            $this->db->where("user_id = '$userID'");
+            $getProfileUser = $this->db->get('userz')->result();
+
+            foreach($getProfileUser as $data['profileUser'])
+
+                $data['title'] = $data['profileUser']->username;
+
 
             //get all the followers
-            $this->db->where("user_id = '$UserID'");
+            $this->db->where("user_id = '$userID'");
             $data['getFollowers'] = $this->db->get("followingx")->result_array();
 
 
@@ -418,26 +526,43 @@ class Profile extends CI_Controller{
 
         $data['success']="";
         $data['title'] = "Profile";
-
-        if(!isset($this->session->userLogginID)){
-
-            $data['title']='Login';
-            $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-
-            redirect(base_url('login?redirect=profile/following'));
-
-            /*$this->load->view('template/header',$data);
-            $this->load->view('login?redirect=profile/following',$data);
-            $this->load->view('template/footer',$data);*/
-        }
-
-        else{
+    {
+        if(isset($_SESSION['userLogginID'])){
 
             require_once('action/fetch_user.php');
+        }
 
+        if(!empty($this->uri->segment(3))){
 
+            $userID = $this->uri->segment(3);
 
-            $this->db->where("follower_id = '$UserID'");
+            //check if the id exist
+
+            $this->db->where("user_id = '$userID'");
+            $countProfile = $this->db->count_all_results("userz");
+
+            if($countProfile <=0){
+
+                die("Oops");
+            }
+        }
+
+        elseif(isset($_SESSION['userLogginID'])){
+            $userID = $_SESSION['userLogginID'];
+        }
+        else{
+
+            redirect(base_url('login?redirect=profile/contest#contest'));
+        }
+
+        $this->db->where("user_id = '$userID'");
+        $getProfileUser = $this->db->get('userz')->result();
+
+        foreach($getProfileUser as $data['profileUser'])
+
+            $data['title'] = $data['profileUser']->username;
+
+            $this->db->where("follower_id = '$userID'");
             $data['getFollowingx'] = $this->db->get("followingx")->result_array();
 
 
@@ -451,23 +576,47 @@ class Profile extends CI_Controller{
     public function about(){
 
         $data['success']="";
-        $data['title'] = "Profile";
-
-        if(!isset($this->session->userLogginID)){
-
-            $data['title']='Login';
-            $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
 
 
-            redirect(base_url('login?redirect=profile/about'));
-            /*$this->load->view('template/header',$data);
-            $this->load->view('login?redirect=profile/about',$data);
-            $this->load->view('template/footer',$data);*/
-        }
 
-        else{
 
-            require_once('action/fetch_user.php');
+        {
+
+            if(isset($_SESSION['userLogginID'])){
+
+                require_once('action/fetch_user.php');
+            }
+
+            if(!empty($this->uri->segment(3))){
+
+                $userID = $this->uri->segment(3);
+
+                //check if the id exist
+
+                $this->db->where("user_id = '$userID'");
+                $countProfile = $this->db->count_all_results("userz");
+
+                if($countProfile <=0){
+
+                    die("Oops");
+                }
+
+            }
+
+            elseif(isset($_SESSION['userLogginID'])){
+                $userID = $_SESSION['userLogginID'];
+            }
+            else{
+
+                redirect(base_url('login?redirect=profile/contest#contest'));
+            }
+
+            $this->db->where("user_id = '$userID'");
+            $getProfileUser = $this->db->get('userz')->result();
+
+            foreach($getProfileUser as $data['profileUser'])
+
+                $data['title'] = $data['profileUser']->username;
             require_once('action/time_function.php');
             $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);

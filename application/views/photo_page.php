@@ -40,10 +40,10 @@
                 <div class="col-sm-6 col-xs-7">
                     <div class="pull-right" style="margin-top: 10px">
                         <div class="left p-t-5" style="float: left; margin-right: 10px">
-                            <img src="<?php if(empty($ownerInfo->picture)){echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$ownerInfo->picture);}?>" width="40" style="height: 40px;width: 40px" class="img-circle">
+                            <a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>"><img src="<?php if(empty($ownerInfo->picture)){echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$ownerInfo->picture);}?>" width="40" style="height: 40px;width: 40px" class="img-circle"></a>
                         </div>
                         <div class="right"style="float: right">
-                            <span class="userName"><b><?php echo $ownerInfo->username ?></b></span>
+                            <span class="userName"><a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>"><b><?php echo $ownerInfo->username ?></b></a></span>
                             <br>
                             <a href="<?php echo base_url('follow/following/'.$ownerId) ?>"><label class="label label-default">Follow</label></a>
                         </div>
@@ -367,14 +367,17 @@
                             <?php //echo $countComment ?>
                             <div class="reviewRow">
                                 <div class="reviewerField">
-                                    <div class="reviwerPic">
-                                        <img src="<?php if(!empty($comment['picture'])){echo base_url('users_photo/'.$comment['picture']);}else{ echo base_url('users_photo/avatar.png');}?>">
-                                    </div>
-                                    <div class="rname"><?php echo $comment['username']?></div>
+                                    <a href="<?php echo base_url('profile/check/'.$comment['user_id'])?>" class="text-black">
+                                        <div class="reviwerPic">
+                                            <img src="<?php if(!empty($comment['picture'])){echo base_url('users_photo/'.$comment['picture']);}else{ echo base_url('users_photo/avatar.png');}?>">
+                                        </div>
+                                        <div class="rname"><?php echo $comment['username']?></div>
+                                    </a>
+
                                 </div>
                                 <div class="reviewerContent">
                                     <div class="innerBubble">
-                                        <h5><?php echo $comment['username'] ?></h5>
+                                        <h5><a href="<?php echo base_url('profile/check/'.$comment['user_id'])?>" class="text-red"> <?php echo $comment['username'] ?></a></h5>
                                         <span><i class=" glyphicon glyphicon-clock"></i> <?php echo time_elapsed_string($comment['date']);?></span>
                                         <p><?php echo $comment['comment']?></p>
 

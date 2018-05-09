@@ -22,7 +22,7 @@ $this->db->where("status ='1'");
 $data['countPendingUsers'] = $this->db->count_all_results('userz');
 
 //get disqualified userz
-$this->db->where("status ='1'");
+$this->db->where("status ='2'");
 $data['countDisqualifiedUsers'] = $this->db->count_all_results('userz');
 
 //fetch all users

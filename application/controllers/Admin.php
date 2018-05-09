@@ -52,41 +52,102 @@ class Admin extends CI_Controller{
 
 
 
-    public function users(){
+    public function users($id){
         $data['title'] ='';
         if(!isset($_SESSION['userLogginID'])){
 
             redirect(base_url('login'));
         }
-        else{
+        else {
 
             require_once('action/fetch_user.php');
 
-            if($data['adminStatus'] !=='1'){
+
+            if ($data['adminStatus'] !== '1') {
 
                 redirect(base_url('user/home'));
 
-            }
-            else{
+            } else {
+                require_once('action/admin_info.php');
+
+                if(empty($id)){
+                    $id = 0;
+                }
+
+
+                //get user lists
+                $this->db->where("status='$id'");
+                $data['getAllusers'] = $this->db->get("userz")->result_array();
+
 
                 $this->load->view("admin/template/admin_header", $data);
-                //$this->load->view("admin/home", $data);
+                $this->load->view("admin/users", $data);
                 $this->load->view("admin/template/admin_footer", $data);
 
             }
-
-
-
-
-
         }
-
-
-
-
     }
 
 
 
+    public function single_user($id){
 
+        $data['title'] ='';
+        if(!isset($_SESSION['userLogginID'])){
+
+            redirect(base_url('login'));
+        }
+        else {
+
+            require_once('action/fetch_user.php');
+
+
+            if ($data['adminStatus'] !== '1') {
+
+                redirect(base_url('user/home'));
+
+            }
+            else {
+                require_once('action/admin_info.php');
+                require_once('action/time_function.php');
+
+                if (empty($id)) {
+                    redirect(base_url('admin/home'));
+                }
+                else{
+
+
+                    $this->db->where("user_id='$id'");
+                    $data['getSingleUser']= $this->db->get('userz')->result_array();
+
+
+                    //count all prize won
+
+                    $this->db->where("user_id ='$id'");
+                    $data['countPrizeWon'] =  $this->db->count_all_results('prize_won');
+
+                    //get prize won list
+                    $this->db->where("user_id ='$id'");
+                    $data['getPrizeWon'] = $this->db->get('prize_won')->result_array();
+
+                    //count all challenges created by user
+
+                    $this->db->where("user_id = '$id'");
+                    $data['countChallenge'] = $this->db->count_all_results('challenges');
+
+                    //get all challenges
+                    $this->db->where("user_id = '$id'");
+                    $data['getChallenge'] = $this->db->get('challenges')->result_array();
+
+                    // $this->
+
+                    $this->load->view("admin/template/admin_header", $data);
+                    $this->load->view("admin/single_users", $data);
+                    $this->load->view("admin/template/admin_footer", $data);
+                }
+            }
+
+        }
+
+    }
 }

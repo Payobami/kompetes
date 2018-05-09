@@ -1,3 +1,23 @@
+<?php
+
+$USER_ID = $this->uri->segment(3);
+
+
+if(empty($USER_ID)){
+
+    $USER_ID = $_SESSION['userLogginID'];
+
+}
+
+$this->db->where("user_id = '$USER_ID'");
+$countUploadPicture = $this->db->count_all_results('uploads');
+
+$this->db->where("user_id = '$USER_ID'");
+$getUploadedPhotos = $this->db->get('uploads')->result_array();
+
+?>
+
+
         <div class="container-fluid" style="min-height: 550px; margin-top: -40px">
 
             <div id="photo_wrapper" class="photo_wrapper" style="">
@@ -7,7 +27,7 @@
                     <?php foreach($getUploadedPhotos as $getUpload):?>
                         <div class="photo_row">
                             <div class="show-image">
-                                <a href="photo_page.html">
+                                <a href="<?php echo base_url('photos/check/'.$getUpload['picture_id'])?>">
                                     <img src="<?php echo base_url('uploads/medium_thumb/'.$getUpload['picture_medium_name']) ?>">
                                 </a>
 

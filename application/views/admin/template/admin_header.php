@@ -21,14 +21,9 @@
         <div class="th_menu_container">
             <ul>
                 <li><a href="<?php echo base_url('admin/home') ?>">Dashboard</a></li>
-                <li><a href="<?php echo base_url('admin/users') ?>">Users</a>
-                    <ul>
-                        <li><a href="<?php echo base_url('admin/contests') ?>">Contests</a></li>
-                        <li><a href="<?php echo base_url('admin/challenges') ?>">Challenges</a></li>
-
-                    </ul>
-                </li>
-
+                <li><a href="<?php echo base_url('admin/users/0') ?>">Users</a></li>
+                <li><a href="<?php echo base_url('admin/contests') ?>">Contests</a></li>
+                <li><a href="<?php echo base_url('admin/challenges') ?>">Challenges</a></li>
                 <li><a href="<?php echo base_url('admin/vote') ?>">Votes</a></li>
                 <li><a href="">Upload</a>
                     <ul>

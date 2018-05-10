@@ -8,6 +8,12 @@
         $USER_ID = $_SESSION['userLogginID'];
 
     }
+
+
+
+
+
+
      $this->db->where("user_id = '$USER_ID' and entry_type='challenge'");
      $countChallenge = $this->db->count_all_results("entries_submited");
 
@@ -31,6 +37,9 @@
 
 
         $countBanner = 1;
+
+        $this->db->where("user_id = '$USER_ID'");
+        $countUploadPicture = $this->db->count_all_results('uploads');
 
         $this->db->where("user_id = '$USER_ID'");
         $countUSERID = $this->db->count_all_results('uploads');
@@ -90,7 +99,7 @@
             <?php if(!empty($profileUser->firstname)){ echo $profileUser->firstname. ' '. $profileUser->lastname;}else{ echo $profileUser->username; }?>
         </h4>
 
-        <?php if($USER_ID == $_SESSION['userLogginID']):?>
+        <?php if(isset($_SESSION['userLogginID']) && $USER_ID == $_SESSION['userLogginID']):?>
 
             <div class="profile-edit-link text-center" style="border-color: red">
                 <a href="<?php echo base_url('profile/update')?>" class="text-center text-white" style="border-color: red">
@@ -112,7 +121,7 @@
                 <?php if(!empty($profileUser->firstname)){ echo $profileUser->firstname. ' '. $profileUser->lastname;}else{ echo $profileUser->username; }?>
             </h4>
 
-            <?php if($USER_ID == $_SESSION['userLogginID']):?>
+            <?php if(isset($_SESSION['userLogginID']) && $USER_ID == $_SESSION['userLogginID']):?>
 
             <div class="profile-edit-link text-center" style="border-color: red">
                 <a href="<?php echo base_url('profile/update')?>" class="text-center text-white" style="border-color: red">
@@ -140,8 +149,6 @@
                     $pageUserID ='';
                     $pageUserID2 ='';
                 }
-
-
                 ?>
 
 
@@ -149,7 +156,7 @@
                 <div class="user_profile_menu text-center no-padding-xs no-padding-sm" style="padding-top: 0;margin-top: 10px; margin-bottom: -5px">
                     <ul>
                         <li><a href="<?php echo base_url('profile/'.$pageUserID2) ?>" class="<?php if ($this->uri->segment(2)==''){echo 'active';}?>"><?php echo $countUploadPicture ?> Photos</a></li>
-                        <li><a href="<?php //echo base_url('profile/vote'.$pageUserID) ?>?page=#award" class="<?php if ($this->uri->segment(2)=='vote'){echo 'active';}?>">9 Vote</a></li>
+                        <li><a href="<?php //echo base_url('profile/vote'.$pageUserID) ?>?page=#award" class="<?php if ($this->uri->segment(2)=='vote'){echo 'active';}?>">0 Vote</a></li>
                         <li><a href="<?php echo base_url('profile/contest'.$pageUserID) ?>?page=#contest" class="<?php if ($this->uri->segment(2)=='contest'){echo 'active';}?>"><?php echo $countContest ?> Contest</a></li>
                         <li class="hidden-xs"><a href="<?php echo base_url('profile/challenges'.$pageUserID) ?>?page=#challenges" class="<?php if ($this->uri->segment(2)=='challenges'){echo 'active';}?>"><?php echo $countChallenge ?> Challenges</a></li>
                         <li class="hidden-xs"><a href="<?php echo base_url('profile/followers'.$pageUserID) ?>?page=#followers" class="<?php if ($this->uri->segment(2)=='followers'){echo 'active';}?>"><?php echo $countFollowers ?> Followers</a></li>

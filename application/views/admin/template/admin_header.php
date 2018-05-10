@@ -27,9 +27,9 @@
                 <li><a href="<?php echo base_url('admin/vote') ?>">Votes</a></li>
                 <li><a href="">Upload</a>
                     <ul>
-                        <li><a href="<?php base_url('admin/photo_upload')?>">Photos Upload</a></li>
-                        <li><a href="<?php base_url('admin/video_upload') ?>">Videos Upload</a></li>
-                        <li><a href="<?php base_url('admin/contest_upload') ?>">Upload Contest</a></li>
+                        <li><a href="<?php echo base_url('admin/contest_upload') ?>">Upload Contest</a></li>
+                        <li><a href="<?php echo base_url('admin/photo_upload')?>">Photos Upload</a></li>
+                        <li><a href="<?php echo base_url('admin/video_upload') ?>">Videos Upload</a></li>
 
                     </ul>
                 </li>

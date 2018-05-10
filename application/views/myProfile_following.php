@@ -21,7 +21,15 @@
             foreach ($getFollowerCover as $itemCover);
 
             //check if the user is following back
-            $userID = $_SESSION['userLogginID'];
+                if(isset($_SESSION['userLogginID']) && !empty($this->uri->segment(3))){
+
+                    $userID = $_SESSION['userLogginID'];
+                }
+                else{
+
+                    $userID = $this->uri->segment(3);
+
+                }
             //$this->db->select("follower_id");
 
             $this->db->where("follower_id ='$userID'");

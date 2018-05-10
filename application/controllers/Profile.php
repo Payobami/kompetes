@@ -412,7 +412,7 @@ class Profile extends CI_Controller{
 
        {
 
-            require_once('action/fetch_user.php');
+
 
            if(isset($_SESSION['userLogginID'])){
 
@@ -576,10 +576,6 @@ class Profile extends CI_Controller{
     public function about(){
 
         $data['success']="";
-
-
-
-
         {
 
             if(isset($_SESSION['userLogginID'])){
@@ -590,9 +586,7 @@ class Profile extends CI_Controller{
             if(!empty($this->uri->segment(3))){
 
                 $userID = $this->uri->segment(3);
-
                 //check if the id exist
-
                 $this->db->where("user_id = '$userID'");
                 $countProfile = $this->db->count_all_results("userz");
 
@@ -614,9 +608,9 @@ class Profile extends CI_Controller{
             $this->db->where("user_id = '$userID'");
             $getProfileUser = $this->db->get('userz')->result();
 
-            foreach($getProfileUser as $data['profileUser'])
+            foreach($getProfileUser as $data['profileUser']);
 
-                $data['title'] = $data['profileUser']->username;
+            $data['title'] = $data['profileUser']->username;
             require_once('action/time_function.php');
             $this->load->view('template/header', $data);
             $this->load->view('template/myprofile_middle_page', $data);

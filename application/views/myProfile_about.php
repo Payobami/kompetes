@@ -1,4 +1,26 @@
- <div class="container" id="about" style="min-height: 300px;">
+<?php
+if(isset($_SESSION['userLogginID']) && empty($this->uri->segment(3))){
+
+    $userID = $_SESSION['userLogginID'];
+
+}
+elseif(!empty($this->uri->segment(3))){
+
+    $userID = $this->uri->segment(3);
+}
+
+
+$this->db->where("user_id = '$userID'");
+$getUserPro = $this->db->get('userz')->result();
+
+foreach($getUserPro as $userPro);
+
+
+
+?>
+
+
+<div class="container" id="about" style="min-height: 300px;">
 
         <div class="row">
 
@@ -6,8 +28,8 @@
                 <div class="m-t-20" style="min-height: 200px;background: #fff;">
                     <h6 class="f-s-14 text-center" style="border-bottom: 1px solid #d2d2d2">Info</h6>
                     <div class="p-20">
-                        <b>Username:</b> <?php if(!empty($userFirstName)){echo $userFirstName .' '. $userLastname;}else{echo $username;}?> <br>
-                        <b>Country:</b> <?php echo $userCountry;?> <br>
+                        <b>Username:</b> <?php if(!empty($userPro->firstname)){echo $userPro->firstname .' '. $userPro->lastname;}else{echo $userPro->username;}?> <br>
+                        <b>Country:</b> <?php echo $userPro->city.', '.$userPro->state.', '. $userPro->country;?> <br>
                     </div>
                 </div>
             </div>
@@ -18,7 +40,7 @@
 
 
                     <p class="p-20 f-s-15 t-c-ash f-Roboto-Condensed">
-                       <?php echo $userAbout; ?>
+                       <?php echo $userPro->about; ?>
                     </p>
 
                     <div class="socialList">
@@ -32,7 +54,7 @@
             <div class="col-sm-3">
                 <div class="m-t-20" style="background: #fff; min-height: 200px">
                     <h6 class="f-s-14 text-center" style="border-bottom: 1px solid #d2d2d2">Membership</h6>
-                    <h6 class="f-s-15 text-center">Joined <?php echo time_elapsed_string($userRegDate) ?></h6>
+                    <h6 class="f-s-15 text-center">Joined <?php echo time_elapsed_string($userPro->date) ?></h6>
 
                 </div>
 

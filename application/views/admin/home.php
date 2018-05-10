@@ -30,7 +30,7 @@
 
                                             <div class="th_status_wrapper">
                                                 <a href="#" class="th_icon dark-magenta"><i class="fa fa-binoculars" aria-hidden="true"></i></a>
-                                                <a href="<?php echo base_url('admin/contest')?>">
+                                                <a href="<?php echo base_url('admin/contests')?>">
 
                                                 <div class="th_status">
                                                     <strong>All Contest</strong>

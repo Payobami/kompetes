@@ -13,7 +13,6 @@
             background-size: cover;
             padding-top: 40px;
             font-family: 'Ubuntu', sans-serif;
-
         }
         .contest-foot{
             background: linear-gradient(60deg, rgba(100,0,0,0.5), rgba(0,0,70,.3)), url("<?php echo base_url('uploads/contests/'.$contest->contest_picture)?>");
@@ -88,7 +87,7 @@
             <div class="col-sm-4" style="margin: 0;">
                 <div class="contest-grid-price contest-price-row bg-aqua-gradient" style="">
                     <div class="contest-pics" style="">
-                        <img src="<?php echo base_url('uploads/price_photo/'.$contestComp->contest_1st_picture)?>" width="100%" class="img-circle">
+                        <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_1st_picture)?>" width="100%" class="img-circle">
                     </div>
                     <div class="contest-price text-center">
                         <h3 class="text-center text-white"><?php echo $contestComp->contest_1st_price ?></h3>
@@ -117,7 +116,7 @@
                 <div class="col-sm-4" style="margin: 0;">
                 <div class="contest-grid-price contest-price-row bg-maroon-gradient">
                     <div class="contest-pics">
-                        <img src="<?php echo base_url('uploads/price_photo/'.$contestComp->contest_2nd_picture)?>" width="100%" class="img-circle">
+                        <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_2nd_picture)?>" width="100%" class="img-circle">
                     </div>
 
                     <div class="contest-price text-center">
@@ -143,7 +142,7 @@
             <div class="col-sm-4">
                 <div class="contest-grid-price contest-price-row bg-purple-gradient" style="">
                     <div class="contest-pics">
-                        <img src="<?php echo base_url('uploads/price_photo/'.$contestComp->contest_3d_picture)?>" class="img-circle" width="100%">
+                        <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_3d_picture)?>" class="img-circle" width="100%">
                     </div>
                     <div class="contest-price text-center">
                         <h3 class="text-center text-white"><?php echo $contestComp->contest_3rd_price ?></h3>

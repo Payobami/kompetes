@@ -53,7 +53,7 @@ foreach($getSingleUser as $userInfo);
                                     <li><strong>Email </strong><span><?php echo $userInfo['email']?></span></li>
                                     <li><strong>Member Since </strong><span><?php echo time_elapsed_string($userInfo['date'])?></span></li>
                                     <li><strong><i class="fa fa-facebook"></i> Facebook </strong><span><a href="https://facebook.com/<?php echo $userInfo['facebook']?>" target="_new"><?php echo $userInfo['facebook']?></a></span></li>
-                                    <li><strong><i class="fa fa-twitter text-blue"></i> Twitter </strong><span><a href="https://twitter.com/<?php echo $userInfo['twitter']?>" target="_new"><?php echo $userInfo['twitter'] ?></span></span></li>
+                                    <li><strong><i class="fa fa-twitter text-blue"></i> Twitter </strong><span><a href="https://twitter.com/<?php echo $userInfo['twitter']?>" target="_new"><?php echo $userInfo['twitter'] ?></a></span></span></li>
                                     <li><strong><i class="fa fa-instagram text-red"></i> Instagram </strong><span class="clearfix"><a href="https://instagram.com/<?php echo $userInfo['instagram']?>" class="text-right" target="_new"> <?php echo $userInfo['instagram']?></a></span></li>
                                 </ul>
                             </div>

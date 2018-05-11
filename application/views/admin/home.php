@@ -17,7 +17,6 @@
                             <div class="th_mini_status">
                                 <div class="" style="">
                                     <div class="th_status_wrapper">
-
                                             <a href="#" class="th_icon yellow"><i class="fa fa-users" aria-hidden="true"></i></a>
                                         <a href="<?php echo base_url('admin/users/0')?>">
                                             <div class="th_status">
@@ -28,16 +27,16 @@
                                     </div>
 
 
-                                            <div class="th_status_wrapper">
-                                                <a href="#" class="th_icon dark-magenta"><i class="fa fa-binoculars" aria-hidden="true"></i></a>
-                                                <a href="<?php echo base_url('admin/contests')?>">
+                                    <div class="th_status_wrapper">
+                                        <a href="#" class="th_icon dark-magenta"><i class="fa fa-binoculars" aria-hidden="true"></i></a>
+                                        <a href="<?php echo base_url('admin/contests')?>">
 
-                                                <div class="th_status">
-                                                    <strong>All Contest</strong>
-                                                    <h6><?php echo $countAllContest ?></h6>
-                                                </div>
-                                                </a>
-                                            </div>
+                                        <div class="th_status">
+                                            <strong>All Contest</strong>
+                                            <h6><?php echo $countAllContest ?></h6>
+                                        </div>
+                                        </a>
+                                    </div>
 
 
                                     <div class="th_status_wrapper">
@@ -74,7 +73,7 @@
 
                                     <div class="th_status_wrapper">
                                         <a href="#" class="th_icon teal"><i class="fa fa-video-camera" aria-hidden="true"></i></a>
-                                        <a href="<?php echo base_url('admin/video')?>">
+                                        <a href="<?php echo base_url('admin/videos')?>">
                                             <div class="th_status">
                                                 <strong>All Videos</strong>
                                                 <h6>0</h6>

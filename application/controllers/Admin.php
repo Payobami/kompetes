@@ -362,7 +362,7 @@ class Admin extends CI_Controller
 
 
 
-                    $contestID =  date('Ymd').''.rand(111111111111111, 999999999999999999999999);
+                    $contestID =  str_replace('.','',microtime(date('Ymdhis'))).rand(000001, 99999999);
 
 
                     //insert into table
@@ -398,9 +398,35 @@ class Admin extends CI_Controller
                         "third_reward" => $this->input->post('third_reward'),
                     );
 
+                    $insertPost_timeline = array(
+                        'post_id' => str_replace('.','',microtime(date('Ymdhis'))).rand(00, 999),
+                        'post_title'=>str_replace('contest','',$this->input->post('contest_name')),
+                        'poster_name'=> $data['username'],
+                        'poster_id'=>'admin',
+                        'post_type'=>'contest',
+                        'media_id'=> $contestID,
+                        'date'=> date("Y-m-d H:i:s"),
+                    );
 
+
+                    $insertNotification = array(
+
+                        "message"=> "A new contest (". $this->input->post('contest_name')  .") has been created.. click to check",
+                        "link"=> base_url('contests/check'.$contestID),
+                        'user_id'=>'Admin',
+                        'date'=> date('Y-m-d H:i:s'),
+                        );
+
+
+                    //add to contest table
                     $this->db->insert("contests", $insertContest);
+                    //add to contest price table
                     $this->db->insert("contest_price_picture", $insertPrize);
+                    //add to post timeline table
+                    $this->db->insert("post_timeline", $insertPost_timeline);
+                    //add notification
+                    $this->db->insert("notificationx", $insertNotification);
+
 
 
                     redirect(base_url('admin/upload_success'));
@@ -412,13 +438,189 @@ class Admin extends CI_Controller
 
     public  function upload_success(){
 
-
          $data['success'] ='';
         $this->load->view("admin/template/admin_header", $data);
         $this->load->view('admin/success');
         $this->load->view("admin/template/admin_footer", $data);
 
+    }
 
 
+    public function photos(){
+
+
+        $data['title'] = '';
+
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+
+
+        } else {
+
+            require_once('action/fetch_user.php');
+            require_once('action/admin_info.php');
+            require_once('action/time_function.php');
+
+            if ($data['adminStatus'] !== '1') {
+                redirect(base_url('user/home'));
+            } else {
+
+
+
+                //get all picture
+                $this->db->select('*');
+                $this->db->order_by('id', 'DESC');
+                $data['getAllPicture'] = $this->db->get('uploads')->result_array();
+
+
+                $this->load->view("admin/template/admin_header", $data);
+                $this->load->view("admin/photos", $data);
+                $this->load->view("admin/template/admin_footer", $data);
+            }
+
+
+        }
+
+
+
+    }
+
+
+
+    public function videos(){
+
+
+        $data['title'] = '';
+
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+
+
+        } else {
+
+            require_once('action/fetch_user.php');
+            require_once('action/admin_info.php');
+
+            if ($data['adminStatus'] !== '1') {
+                redirect(base_url('user/home'));
+            } else {
+                $this->load->view("admin/template/admin_header", $data);
+                $this->load->view("admin/videos", $data);
+                $this->load->view("admin/template/admin_footer", $data);
+            }
+
+
+        }
+    }
+
+
+    public function vote(){
+
+
+        $data['title'] = '';
+
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+
+
+        } else {
+
+            require_once('action/fetch_user.php');
+            require_once('action/admin_info.php');
+
+            if ($data['adminStatus'] !== '1') {
+                redirect(base_url('user/home'));
+            } else {
+                $today = date('Y-m-d');
+
+                //count all open vote contest
+                $this->db->where("type='contest' AND vote_end_date >'$today' AND status='0'");
+                $data['contestVoteOpen'] = $this->db->count_all_results('vote_information');
+
+                //count all open vote contest
+                $this->db->where("type='contest' AND vote_end_date < '$today' AND status !='0'");
+                $data['contestVoteClose'] = $this->db->count_all_results('vote_information');
+
+
+                //count all open vote contest
+                $this->db->where("type='challenge' AND vote_end_date >'$today' AND status='0'");
+                $data['challengeVoteOpen'] = $this->db->count_all_results('vote_information');
+
+                //count all open vote contest
+                $this->db->where("type='challenge' AND vote_end_date < '$today' AND status !='0'");
+                $data['challengeVoteClose'] = $this->db->count_all_results('vote_information');
+
+
+                //get open vote and detail
+                $this->db->where("type='contest' AND vote_end_date >'$today' AND status='0'");
+                $data['getOpenContestVote'] = $this->db->get('vote_information')->result_array();
+
+
+                $this->load->view("admin/template/admin_header", $data);
+                $this->load->view("admin/vote", $data);
+                $this->load->view("admin/template/admin_footer", $data);
+            }
+        }
+    }
+
+
+    public function prize_approve($id){
+
+        $data['title'] = '';
+
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+
+
+        } else {
+
+            require_once('action/fetch_user.php');
+            require_once('action/admin_info.php');
+
+            if ($data['adminStatus'] !== '1') {
+                redirect(base_url('user/home'));
+            } else {
+                $this->load->view("admin/template/admin_header", $data);
+                $this->load->view("admin/approve_prize", $data);
+                $this->load->view("admin/template/admin_footer", $data);
+            }
+
+
+        }
+
+
+
+
+    }
+
+
+
+    public function transactions(){
+
+
+        $data['title'] = '';
+
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+
+
+        } else {
+
+            require_once('action/fetch_user.php');
+            require_once('action/admin_info.php');
+
+            if ($data['adminStatus'] !== '1') {
+                redirect(base_url('user/home'));
+            } else {
+                $this->load->view("admin/template/admin_header", $data);
+                $this->load->view("admin/transaction", $data);
+                $this->load->view("admin/template/admin_footer", $data);
+            }
+        }
     }
 }

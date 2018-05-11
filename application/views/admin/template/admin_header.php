@@ -24,12 +24,14 @@
                 <li><a href="<?php echo base_url('admin/users/0') ?>">Users</a></li>
                 <li><a href="<?php echo base_url('admin/contests') ?>">Contests</a></li>
                 <li><a href="<?php echo base_url('admin/challenges') ?>">Challenges</a></li>
+                <li><a href="<?php echo base_url('admin/photos') ?>">Photos</a></li>
+                <li><a href="<?php echo base_url('admin/videos') ?>">Videos</a></li>
                 <li><a href="<?php echo base_url('admin/vote') ?>">Votes</a></li>
                 <li><a href="">Upload</a>
                     <ul>
                         <li><a href="<?php echo base_url('admin/contest_upload') ?>">Upload Contest</a></li>
-                        <li><a href="<?php echo base_url('admin/photo_upload')?>">Photos Upload</a></li>
-                        <li><a href="<?php echo base_url('admin/video_upload') ?>">Videos Upload</a></li>
+                        <li><a href="<?php echo base_url('upload')?>">Photos Upload</a></li>
+                        <li><a href="<?php //echo base_url('admin/video_upload') ?>">Videos Upload</a></li>
 
                     </ul>
                 </li>

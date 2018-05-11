@@ -20,7 +20,7 @@
                     <div class="blockMenu">
                         <a class="borderNone">
                             <small class="text-center">
-                                Active Contest
+                                Active Challenges
                                 <div class="countCircle teal">
                                     <i class="fa- fa"></i>
                                 </div>
@@ -40,7 +40,7 @@
                     <div class="blockMenu">
                         <a>
                             <small class="text-center">
-                                Closed Contest
+                                Closed Challenges
                                 <div class="countCircle dark-magenta">
                                     <i class="fa- fa"></i>
                                 </div>
@@ -59,7 +59,7 @@
                     <div class="blockMenu">
                         <a>
                             <small class="text-center">
-                                Contest Entries
+                                Challenges Entries
                                 <div class="countCircle orange">
                                     <i class="fa- fa"></i>
                                 </div>
@@ -77,7 +77,7 @@
                     <div class="blockMenu">
                         <a>
                             <small class="text-center">
-                                Total Contest
+                                Total Challenges
                                 <div class="countCircle green">
                                     <i class="fa- fa"></i>
                                 </div>
@@ -92,7 +92,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="th_manage_user">
-                            <h3 class="th_title">Contest List</h3>
+                            <h3 class="th_title">Challenges Lists</h3>
 
 
 

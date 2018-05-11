@@ -240,7 +240,6 @@ foreach($getSingleUser as $userInfo);
                                         endforeach;
                                     }
                                     ?>
-
                                 </div>
                             </div>
                         </div>

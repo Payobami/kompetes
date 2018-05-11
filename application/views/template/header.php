@@ -12,6 +12,13 @@
 
     <link rel="icon" href="<?php echo base_url()?>img/ico.png">
 
+
+    <style>
+        .nav > li > .no-hover:hover {
+            border: none !important;
+        }
+    </style>
+
 </head>
 <body  data-spy="scroll" data-target=".navbar" data-offset="400" style="padding: 0">
 <nav class="navbar navbar-black navbar-offcanvas navbar-offcanvas navbar-fixed-top navbar-border">
@@ -51,7 +58,7 @@
 
 
                         <li class="dropdown" style="background: none">
-                            <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <a class="dropdown-toggle text-center no-hover" data-toggle="dropdown">
                                 <i class="fa fa-bell text-center"></i>
 
                                 <div class="notificatio_count" style="margin-top: -20px">
@@ -80,7 +87,7 @@
                         </li>
 
                         <li style="background: none" class="dropdown">
-                            <a class="dropdown-toggle text-center" data-toggle="dropdown">
+                            <a class="dropdown-toggle text-center no-hover" data-toggle="dropdown">
                                 <div class="userPhotoDP" style="">
                                     <img src="<?php if(!empty($userPhoto)){echo base_url('users_photo/'.$userPhoto);}else{ echo base_url('users_photo/avatar.png');}?>">
                                 </div>
@@ -152,7 +159,7 @@
                 </li>
 
                 <li class="dropdown hidden-xs">
-                    <a class="dropdown-toggle" data-toggle="dropdown">
+                    <a class="dropdown-toggle no-hover" data-toggle="dropdown">
                         <i class="fa fa-bell"></i>
                         <div class="notificatio_count">
                             <b>2</b>
@@ -182,7 +189,7 @@
 
 
                 <li class="dropdown hidden-xs">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="" class="dropdown-toggle no-hover" data-toggle="dropdown">
                         <div class="userPhotoDP" style="">
                             <img src="<?php if(!empty($userPhoto)){echo base_url('users_photo/'.$userPhoto);}else{ echo base_url('users_photo/avatar.png');}?>">
 

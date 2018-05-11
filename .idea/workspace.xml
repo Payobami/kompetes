@@ -9,13 +9,11 @@
     <list default="true" id="1d4837b0-45a0-4f17-855b-b9e32a2f10b9" name="Default" comment="" />
 =======
     <list default="true" id="1d4837b0-45a0-4f17-855b-b9e32a2f10b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/home.php" afterPath="$PROJECT_DIR$/application/views/admin/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/single_users.php" afterPath="$PROJECT_DIR$/application/views/admin/single_users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/template/admin_footer.php" afterPath="$PROJECT_DIR$/application/views/admin/template/admin_footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/template/admin_header.php" afterPath="$PROJECT_DIR$/application/views/admin/template/admin_header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/contests_view.php" afterPath="$PROJECT_DIR$/application/views/contests_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/template/myprofile_middle_page.php" afterPath="$PROJECT_DIR$/application/views/template/myprofile_middle_page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Profile.php" afterPath="$PROJECT_DIR$/application/controllers/Profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/myProfile_about.php" afterPath="$PROJECT_DIR$/application/views/myProfile_about.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/myProfile_follower.php" afterPath="$PROJECT_DIR$/application/views/myProfile_follower.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/myProfile_following.php" afterPath="$PROJECT_DIR$/application/views/myProfile_following.php" />
     </list>
 >>>>>>> 01414149e27cc97595ee2724ff8a5e912a1ac899
     <ignored path="kompete_dev.iws" />
@@ -45,16 +43,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Challenges.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Challenges.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923">
-              <caret line="139" column="56" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Upload.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Upload.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,16 +68,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-18.961538">
               <caret line="46" column="10" selection-start-line="19" selection-start-column="0" selection-end-line="46" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contests_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/contests_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6363635">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -191,34 +169,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_footer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/template/admin_footer.php">
+      <file leaf-file-name="success.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/success.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923">
-              <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+            <state vertical-scroll-proportion="-12.076923">
+              <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/template/admin_header.php">
+      <file leaf-file-name="Profile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Profile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-47.73077">
-              <caret line="73" column="42" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="42" />
+            <state vertical-scroll-proportion="-5.490909">
+              <caret line="595" column="17" selection-start-line="588" selection-start-column="15" selection-end-line="595" selection-end-column="17" />
               <folding>
-                <marker date="1525922971016" expanded="true" signature="1227:1338" placeholder="..." />
+                <element signature="n#update#0;n#Profile#0;n#!!top" expanded="false" />
+                <element signature="n#update_dp#0;n#Profile#0;n#!!top" expanded="false" />
+                <element signature="n#change_password#0;n#Profile#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="success.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/success.php">
+      <file leaf-file-name="myProfile_follower.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/myProfile_follower.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67718">
-              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-              <folding />
+            <state vertical-scroll-proportion="-12.538462">
+              <caret line="30" column="17" selection-start-line="22" selection-start-column="16" selection-end-line="30" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myProfile_following.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/myProfile_following.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.423077">
+              <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myProfile_about.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/myProfile_about.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.14100185">
+              <caret line="31" column="110" selection-start-line="31" selection-start-column="110" selection-end-line="31" selection-end-column="110" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h6#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -238,7 +245,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/Vote.php" />
         <option value="$PROJECT_DIR$/application/controllers/Follow.php" />
         <option value="$PROJECT_DIR$/css/kompetes.css" />
         <option value="$PROJECT_DIR$/application/views/myProfile_challenges.php" />
@@ -249,8 +255,6 @@
         <option value="$PROJECT_DIR$/application/views/challenge_page.php" />
         <option value="$PROJECT_DIR$/application/views/challenges_entry.php" />
         <option value="$PROJECT_DIR$/application/views/home.php" />
-        <option value="$PROJECT_DIR$/application/views/myProfile_follower.php" />
-        <option value="$PROJECT_DIR$/application/views/myProfile_following.php" />
         <option value="$PROJECT_DIR$/application/views/challenges_explore.php" />
         <option value="$PROJECT_DIR$/application/controllers/Contests.php" />
         <option value="$PROJECT_DIR$/application/controllers/Challenges.php" />
@@ -274,7 +278,6 @@
         <option value="$PROJECT_DIR$/application/controllers/action/admin_info.php" />
         <option value="$PROJECT_DIR$/application/views/admin/users.php" />
         <option value="$PROJECT_DIR$/application/views/myProfile.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Profile.php" />
         <option value="$PROJECT_DIR$/application/views/photo_page.php" />
         <option value="$PROJECT_DIR$/application/controllers/Photos.php" />
         <option value="$PROJECT_DIR$/application/views/admin/single_users.php" />
@@ -289,6 +292,10 @@
         <option value="$PROJECT_DIR$/application/views/admin/upload_contest.php" />
         <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
         <option value="$PROJECT_DIR$/application/views/admin/success.php" />
+        <option value="$PROJECT_DIR$/application/views/myProfile_follower.php" />
+        <option value="$PROJECT_DIR$/application/views/myProfile_following.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Profile.php" />
+        <option value="$PROJECT_DIR$/application/views/myProfile_about.php" />
       </list>
     </option>
   </component>
@@ -581,6 +588,7 @@
   <component name="editorHistoryManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/views/votes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.384615">
@@ -773,6 +781,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 3bf1a7cb0ee8b48253de9f45f77b3928ecc8e222
     <entry file="file://$PROJECT_DIR$/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="457.57693">
@@ -982,18 +992,6 @@
           <folding>
             <marker date="1525873406932" expanded="true" signature="24931:25132" placeholder="..." />
             <marker date="1525873406932" expanded="true" signature="25261:26062" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.038462">
-          <caret line="317" column="24" selection-start-line="317" selection-start-column="24" selection-end-line="317" selection-end-column="24" />
-          <folding>
-            <element signature="n#update#0;n#Profile#0;n#!!top" expanded="false" />
-            <element signature="n#update_dp#0;n#Profile#0;n#!!top" expanded="false" />
-            <element signature="n#change_password#0;n#Profile#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1256,9 +1254,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/success.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67718">
-          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        <state vertical-scroll-proportion="-12.076923">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/myProfile_follower.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.538462">
+          <caret line="30" column="17" selection-start-line="22" selection-start-column="16" selection-end-line="30" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/myProfile_following.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.423077">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.490909">
+          <caret line="595" column="17" selection-start-line="588" selection-start-column="15" selection-end-line="595" selection-end-column="17" />
+          <folding>
+            <element signature="n#update#0;n#Profile#0;n#!!top" expanded="false" />
+            <element signature="n#update_dp#0;n#Profile#0;n#!!top" expanded="false" />
+            <element signature="n#change_password#0;n#Profile#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/myProfile_about.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14100185">
+          <caret line="31" column="110" selection-start-line="31" selection-start-column="110" selection-end-line="31" selection-end-column="110" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h6#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

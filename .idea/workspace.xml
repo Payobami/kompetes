@@ -9,7 +9,7 @@
     <list default="true" id="1d4837b0-45a0-4f17-855b-b9e32a2f10b9" name="Default" comment="" />
 =======
     <list default="true" id="1d4837b0-45a0-4f17-855b-b9e32a2f10b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/photo_page.php" afterPath="$PROJECT_DIR$/application/views/photo_page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
     </list>
 >>>>>>> 01414149e27cc97595ee2724ff8a5e912a1ac899
     <ignored path="kompete_dev.iws" />
@@ -39,22 +39,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="599" column="0" selection-start-line="599" selection-start-column="0" selection-end-line="599" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.17996289">
+              <caret line="815" column="22" selection-start-line="815" selection-start-column="22" selection-end-line="815" selection-end-column="22" />
               <folding>
-                <marker date="1526144967558" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
+                <marker date="1526147410417" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="photo_page.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="photo_page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/photo_page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3729128">
+            <state vertical-scroll-proportion="-7.730769">
               <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
               <folding />
             </state>
@@ -310,8 +310,8 @@
         <option value="$PROJECT_DIR$/application/views/admin/single_users.php" />
         <option value="$PROJECT_DIR$/application/views/admin/vote.php" />
         <option value="$PROJECT_DIR$/application/views/admin/approve_prize.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
         <option value="$PROJECT_DIR$/application/views/photo_page.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
       </list>
     </option>
   </component>
@@ -1243,21 +1243,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
+    <entry file="file://$PROJECT_DIR$/application/views/photo_page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="599" column="0" selection-start-line="599" selection-start-column="0" selection-end-line="599" selection-end-column="0" />
-          <folding>
-            <marker date="1526144967558" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
-          </folding>
+        <state vertical-scroll-proportion="-7.730769">
+          <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/photo_page.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3729128">
-          <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
-          <folding />
+        <state vertical-scroll-proportion="0.17996289">
+          <caret line="815" column="22" selection-start-line="815" selection-start-column="22" selection-end-line="815" selection-end-column="22" />
+          <folding>
+            <marker date="1526147410417" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
+          </folding>
         </state>
       </provider>
     </entry>

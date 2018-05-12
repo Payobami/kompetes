@@ -6,7 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d4837b0-45a0-4f17-855b-b9e32a2f10b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/photo_page.php" afterPath="$PROJECT_DIR$/application/views/photo_page.php" />
     </list>
     <ignored path="kompete_dev.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,14 +35,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72541744">
-              <caret line="611" column="68" selection-start-line="611" selection-start-column="68" selection-end-line="611" selection-end-column="68" />
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="599" column="0" selection-start-line="599" selection-start-column="0" selection-end-line="599" selection-end-column="0" />
               <folding>
                 <marker date="1526144967558" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photo_page.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/photo_page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3729128">
+              <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,16 +75,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="transaction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/transaction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -191,7 +191,6 @@
         <option value="$PROJECT_DIR$/application/controllers/action/admin_info.php" />
         <option value="$PROJECT_DIR$/application/views/admin/users.php" />
         <option value="$PROJECT_DIR$/application/views/myProfile.php" />
-        <option value="$PROJECT_DIR$/application/views/photo_page.php" />
         <option value="$PROJECT_DIR$/application/controllers/Photos.php" />
         <option value="$PROJECT_DIR$/application/views/myProfile_contest.php" />
         <option value="$PROJECT_DIR$/application/views/admin/contests.php" />
@@ -216,6 +215,7 @@
         <option value="$PROJECT_DIR$/application/views/admin/vote.php" />
         <option value="$PROJECT_DIR$/application/views/admin/approve_prize.php" />
         <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
+        <option value="$PROJECT_DIR$/application/views/photo_page.php" />
       </list>
     </option>
   </component>
@@ -620,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/photo_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.76923">
-          <caret line="374" column="40" selection-start-line="374" selection-start-column="40" selection-end-line="374" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/myProfile_contest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3680431">
@@ -886,11 +879,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72541744">
-          <caret line="611" column="68" selection-start-line="611" selection-start-column="68" selection-end-line="611" selection-end-column="68" />
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="599" column="0" selection-start-line="599" selection-start-column="0" selection-end-line="599" selection-end-column="0" />
           <folding>
             <marker date="1526144967558" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/photo_page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3729128">
+          <caret line="61" column="95" selection-start-line="61" selection-start-column="95" selection-end-line="61" selection-end-column="95" />
+          <folding />
         </state>
       </provider>
     </entry>

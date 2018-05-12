@@ -59,7 +59,7 @@
                     <div class="carousel">
                         <div class="itemsNext">
                             <div class="itm text-center">
-                                <img src="<?php echo base_url('uploads/medium_thumb/'.$select_photo->picture_medium_name)?>" class="text-center">
+                                <img src="<?php echo base_url('uploads/'.$select_photo->picture_name)?>" class="text-center">
                             </div>
 
                         </div>

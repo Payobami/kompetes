@@ -25,7 +25,8 @@
             ?>
 
             <div class="theme_panel_section">
-                <h4 class="th_title">Welcome Admin , It's all what we have !!
+                <h4 class="th_title">
+                    Voting Information
                 </h4>
             </div>
             <div class="col-sm-10">

@@ -570,6 +570,7 @@ class Admin extends CI_Controller
     public function prize_approve($id){
 
         $data['title'] = '';
+        $data['success'] = '';
 
         if (!isset($_SESSION['userLogginID'])) {
 
@@ -584,9 +585,221 @@ class Admin extends CI_Controller
             if ($data['adminStatus'] !== '1') {
                 redirect(base_url('user/home'));
             } else {
-                $this->load->view("admin/template/admin_header", $data);
-                $this->load->view("admin/approve_prize", $data);
-                $this->load->view("admin/template/admin_footer", $data);
+
+
+
+                //get all contest information
+                $this->db->select('*');
+                $this->db->where("contest_challenge_id='$id'");
+                $this->db->from('vote_information');
+                $this->db->join('contest_price_picture', 'contest_price_picture.contest_id = vote_information.contest_challenge_id');
+                $this->db->join('contests', 'contests.contest_id = vote_information.contest_challenge_id');
+                $getContestInfo = $this->db->get()->result();
+
+                foreach($getContestInfo as $data['contestInfo']);
+
+                    //get number of entries
+                $this->db->where("entry_id='$id'");
+                $data['countEntry'] = $this->db->count_all_results('entries_submited');
+
+                //sum vote
+                $this->db->select_sum('vote');
+                $this->db->where("entry_id = '$id'");
+                $getTotalVote = $this->db->get('votex')->result();
+
+                foreach($getTotalVote as $data['totalVotex']);
+
+                $data['query'] = $this->db->query("SELECT *, COUNT(*) c FROM votex WHERE entry_id ='$id' GROUP BY picture_id HAVING c > 1 ORDER BY c DESC LIMIT 10");
+
+
+
+                //$data['getVoteRank'] = $this->db->get('votex')->result_array();
+
+
+                $this->form_validation->set_rules('award1', $data['contestInfo']->contest_1st_price.' Award ','required|trim');
+                $this->form_validation->set_rules('award2',$data['contestInfo']->contest_2nd_price.' Award ','required|trim');
+                $this->form_validation->set_rules('award3',$data['contestInfo']->contest_3rd_price.' Award ','required|trim');
+                $this->form_validation->set_rules('entry_id','Award Prize','required|trim');
+                $this->form_validation->set_rules('entry_name','Entry Name','required|trim');
+                $this->form_validation->set_error_delimiters("<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a>", "</div>");
+
+                if($this->form_validation->run() == false) {
+
+                    $this->load->view("admin/template/admin_header", $data);
+                    $this->load->view("admin/approve_prize", $data);
+                    $this->load->view("admin/template/admin_footer", $data);
+                }
+
+                else{
+
+
+                    $award1 = $this->input->post('award1');
+                    $award2 = $this->input->post('award2');
+                    $award3 = $this->input->post('award3');
+
+                    $awardTitle1 = $data['contestInfo']->contest_1st_price;
+                    $awardTitle2 = $data['contestInfo']->contest_2nd_price;
+                    $awardTitle3 = $data['contestInfo']->contest_3rd_price;
+
+                    $contestEntryID = $this->input->post('entry_id');
+                    $contestEntryName = $this->input->post('entry_name');
+
+                    //get information about award 1
+                    //$this->db->select('username','picture_id');
+                    $this->db->where("picture_id = '$award1' OR picture_id='$award2' OR picture_id = '$award3'");
+                    $countInput = $this->db->count_all_results('uploads');
+
+                    //check if the user has already approve award before
+                    $this->db->where("entry_id = '$id'");
+                    $countPrizeWon = $this->db->count_all_results("prize_won");
+
+                    if($countPrizeWon >=1){
+
+                        $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a> You have awarded prize for this contest already  </div>";
+
+                        $this->load->view("admin/template/admin_header", $data);
+                        $this->load->view("admin/approve_prize", $data);
+                        $this->load->view("admin/template/admin_footer", $data);
+
+                    }
+
+
+                    if($countInput < 3){
+
+                        $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a> Please make sure you enter a correct Picture ID for all the fields  </div>";
+
+                        $this->load->view("admin/template/admin_header", $data);
+                        $this->load->view("admin/approve_prize", $data);
+                        $this->load->view("admin/template/admin_footer", $data);
+                    }
+
+                    else {
+
+
+                        $this->db->where("picture_id = '$award1' OR picture_id='$award2' OR picture_id = '$award3'");
+                        $getPictureInfo = $this->db->get('uploads')->result();
+
+                        $userNameAward1 = $getPictureInfo[0]->username;
+                        $userNameAward2 = $getPictureInfo[1]->username;
+                        $userNameAward3 = $getPictureInfo[2]->username;
+
+
+                        //insert Award1 into the table
+
+                        $insertAward1 = array(
+
+                            array(
+                            'username' => $userNameAward1,
+                            'user_id' => $getPictureInfo[0]->user_id,
+                            'entry_id' => $contestEntryID,
+                            'entry_name' => $contestEntryName,
+                            'submitted_media_id' => $award1,
+                            'prize_won' => $awardTitle1,
+                            'reward_won' => $data['contestInfo']->first_reward,
+                            'date' => date('Y-m-d')
+                            ),
+
+                            array(
+                                'username' => $userNameAward2,
+                                'user_id' => $getPictureInfo[1]->user_id,
+                                'entry_id' => $contestEntryID,
+                                'entry_name' => $contestEntryName,
+                                'submitted_media_id' => $award2,
+                                'prize_won' => $awardTitle2,
+                                'reward_won' => $data['contestInfo']->second_reward,
+                                'date' => date('Y-m-d')
+                            ),
+
+                            array(
+                                'username' => $userNameAward3,
+                                'user_id' => $getPictureInfo[2]->user_id,
+                                'entry_id' => $contestEntryID,
+                                'entry_name' => $contestEntryName,
+                                'submitted_media_id' => $award3,
+                                'prize_won' => $awardTitle3,
+                                'reward_won' => $data['contestInfo']->third_reward,
+                                'date' => date('Y-m-d')
+                            )
+                        );
+
+
+                        //insert 2
+
+                        $insertAward2 = array(
+                            'username' => $userNameAward2,
+                            'user_id' => $getPictureInfo[1]->user_id,
+                            'entry_id' => $contestEntryID,
+                            'entry_name' => $contestEntryName,
+                            'submitted_media_id' => $award2,
+                            'prize_won' => $awardTitle2,
+                            'reward_won' => $data['contestInfo']->second_reward,
+                            'date' => date('Y-m-d')
+                        );
+
+                        //insert 3
+
+                        $insertAward3 = array(
+                            'username' => $userNameAward3,
+                            'user_id' => $getPictureInfo[2]->user_id,
+                            'entry_id' => $contestEntryID,
+                            'entry_name' => $contestEntryName,
+                            'submitted_media_id' => $award3,
+                            'prize_won' => $awardTitle3,
+                            'reward_won' => $data['contestInfo']->third_reward,
+                            'date' => date('Y-m-d')
+                        );
+
+                        //update status
+                        $this->db->where("contest_id='$id'");
+                        $this->db->update("contests", array('contest_status' => '2'));
+
+                        $this->db->where("contest_challenge_id='$id'");
+                        $this->db->update("vote_information", array("status" => '2'));
+
+                        $this->db->insert_batch('prize_won', $insertAward1);
+
+                        //$this->db->insert('prize_won', $insertAward2);
+                        //$this->db->insert('prize_won', $insertAward3);
+
+                        //notify the winner
+
+                        $notifyFirstWinner = array(
+                            array(
+                            "message"=>"Congratulation!!! You have won ".$awardTitle1." with the reward of ". $data['contestInfo']->first_reward,
+                            "link" => base_url("winners/check/".$id),
+                            "user_id"=> $getPictureInfo[0]->user_id,
+                            "date"=> date('Y-m-d H:i:s'),
+                        ),
+
+                            array(
+                                "message"=>"Congratulation!!! You have won ".$awardTitle2." with the reward of ". $data['contestInfo']->second_reward,
+                                "link" => base_url("winners/check/".$id),
+                                "user_id"=> $getPictureInfo[1]->user_id,
+                                "date"=> date('Y-m-d H:i:s'),
+                            ),
+
+                            array(
+                                "message"=>"Congratulation!!! You have won ".$awardTitle3." with the reward of ". $data['contestInfo']->third_reward,
+                                "link" => base_url("winners/check/".$id),
+                                "user_id"=> $getPictureInfo[2]->user_id,
+                                "date"=> date('Y-m-d H:i:s'),
+                            )
+
+                        );
+
+
+                        $this->db->insert_batch('notificationx', $notifyFirstWinner );
+
+
+                        $data['success'] = "<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>x</a> Prize Awarded Successfully.. you will be redirected to vote page in  <span id='secondsDisplay' class='text-white'>15 seconds</span>   </div>";
+
+                        $this->load->view("admin/template/admin_header", $data);
+                        $this->load->view("admin/approve_prize", $data);
+                        $this->load->view("admin/template/admin_footer", $data);
+                    }
+
+
+                }
             }
 
 

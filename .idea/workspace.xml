@@ -39,9 +39,9 @@
         <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.72541744">
-              <caret line="611" column="18" selection-start-line="611" selection-start-column="18" selection-end-line="611" selection-end-column="18" />
+              <caret line="611" column="68" selection-start-line="611" selection-start-column="68" selection-end-line="611" selection-end-column="68" />
               <folding>
-                <marker date="1526141063761" expanded="true" signature="19868:19979" placeholder="SELECT *, CO..votex..." />
+                <marker date="1526144967558" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
               </folding>
             </state>
           </provider>
@@ -887,9 +887,9 @@
     <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72541744">
-          <caret line="611" column="18" selection-start-line="611" selection-start-column="18" selection-end-line="611" selection-end-column="18" />
+          <caret line="611" column="68" selection-start-line="611" selection-start-column="68" selection-end-line="611" selection-end-column="68" />
           <folding>
-            <marker date="1526141063761" expanded="true" signature="19868:19979" placeholder="SELECT *, CO..votex..." />
+            <marker date="1526144967558" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
           </folding>
         </state>
       </provider>

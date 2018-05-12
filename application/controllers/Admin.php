@@ -611,10 +611,7 @@ class Admin extends CI_Controller
 
                 $data['query'] = $this->db->query("SELECT picture_id, COUNT(*) c FROM votex WHERE entry_id ='$id' GROUP BY picture_id HAVING c > 1 ORDER BY c DESC LIMIT 10");
 
-
-
                 //$data['getVoteRank'] = $this->db->get('votex')->result_array();
-
 
                 $this->form_validation->set_rules('award1', $data['contestInfo']->contest_1st_price.' Award ','required|trim');
                 $this->form_validation->set_rules('award2',$data['contestInfo']->contest_2nd_price.' Award ','required|trim');
@@ -816,6 +813,7 @@ class Admin extends CI_Controller
 
 
         $data['title'] = '';
+        $data['success'] = '';
 
         if (!isset($_SESSION['userLogginID'])) {
 

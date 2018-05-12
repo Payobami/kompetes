@@ -609,7 +609,7 @@ class Admin extends CI_Controller
 
                 foreach($getTotalVote as $data['totalVotex']);
 
-                //$data['query'] = $this->db->query("SELECT *, COUNT(*) c FROM votex WHERE entry_id ='$id' GROUP BY picture_id HAVING c > 1 ORDER BY c DESC LIMIT 10");
+                $data['query'] = $this->db->query("SELECT picture_id, COUNT(*) c FROM votex WHERE entry_id='$id' GROUP BY picture_id HAVING c > 1 ORDER BY c DESC LIMIT 10");
 
 
 

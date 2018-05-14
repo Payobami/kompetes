@@ -51,7 +51,7 @@
 
                                     <div class="th_status_wrapper">
                                         <a href="#" class="th_icon teal"><i class="fa fa-archive" aria-hidden="true"></i></a>
-                                        <a href="<?php echo base_url('admin/challenge')?>">
+                                        <a href="<?php echo base_url('admin/vote')?>">
                                             <div class="th_status">
                                                 <strong>All Open Votes</strong>
                                                 <h6><?php echo $countOpenVote ?></h6>

@@ -11,7 +11,7 @@
                         <li class="label label-success hidden-xs no-border-radius"><a href="<?php echo base_url('contests/cat/discover')?>"> Discover </a> </li>
                         <li class="label label-warning hidden-xs no-border-radius"><a href="<?php echo base_url('contests/cat/new')?>"> New </a> </li>
                         <li class="label bg-aqua-gradient hidden-xs"><a href="<?php echo base_url('contests/cat/action')?>"> Action </a> </li>
-                        <li class="label bg-purple hidden-xs no-border-radius"><a href="<?php echo base_url('contests/cat/winner')?>"> Winner </a> </li>
+                        <li class="label bg-purple hidden-xs no-border-radius"><a href="<?php echo base_url('winner')?>"> Winner </a> </li>
                         <li class="label bg-teal-gradient hidden-xs no-border-radius"><a href="<?php echo base_url('contests/cat/city')?>"> City </a> </li>
 
 

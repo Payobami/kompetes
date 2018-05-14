@@ -144,6 +144,28 @@
 
                             <div style='font-size: 70px' class='text-center text-red m-t-30 p-t-40 p-b-20'><?php echo $countPrizeAwarded ?></div> <div class='text-center f-s-18'>Prize Won</div>
 
+
+                            <?php if($countPrizeAwarded >=1){?>
+
+
+                            <div class="m-t-10">
+                                <small>See the Prize Awarded</small>
+                                <ul class="tag-style m-t-10">
+                                    <?php
+                                    $this->db->where("status='2'");
+                                    $prizeWn = $this->db->get('vote_information')->result_array();
+
+                                        foreach($prizeWn as $prizeWon):
+                                    ?>
+
+                                            <li><a href="<?php echo base_url("winner/check/".$prizeWon['contest_challenge_id'])?>"> <?php echo $prizeWon['title'].' Contest' ?></a></li>
+
+                                    <?php endforeach ?>
+
+                                </ul>
+
+                                </div>
+                            <?php  }?>
                         </div>
                     </div>
                 </div>

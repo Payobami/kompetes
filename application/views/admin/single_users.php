@@ -229,12 +229,9 @@ foreach($getSingleUser as $userInfo);
 
                                             ?>
 
-
                                             <ul class="tag-style">
-                                                <li><a href=""><?php echo $prize['prize_won'] ?></a> </li>
+                                                <li><a href="<?php echo base_url('winner/check/'.$prize['entry_id'])?>"><?php echo $prize['prize_won'] ?></a> </li>
                                             </ul>
-
-
                                             <?php
 
                                         endforeach;

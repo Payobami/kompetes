@@ -30,7 +30,7 @@
                     <div class="blockMenu">
                         <a class="borderNone" href="0">
                             <small class="text-center">
-                                Active Users
+                                Active Photos
                                 <div class="countCircle teal">
                                     <i class="fa-user fa"></i>
                                 </div>
@@ -45,7 +45,7 @@
                     <div class="blockMenu">
                         <a href="1">
                             <small class="text-center">
-                                Pending Users
+                                Pending Photos
                                 <div class="countCircle dark-magenta">
                                     <i class="fa-home fa"></i>
                                 </div>
@@ -59,7 +59,7 @@
                     <div class="blockMenu">
                         <a href="2">
                             <small class="text-center">
-                                Disqualified Users
+                                Disqualified Photos
                                 <div class="countCircle orange">
                                     <i class="fa-suitcase fa"></i>
                                 </div>

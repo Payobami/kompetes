@@ -763,21 +763,21 @@ class Admin extends CI_Controller
                         $notifyFirstWinner = array(
                             array(
                             "message"=>"Congratulation!!! You have won ".$awardTitle1." with the reward of ". $data['contestInfo']->first_reward,
-                            "link" => base_url("winners/check/".$id),
+                            "link" => base_url("winner/check/".$id),
                             "user_id"=> $getPictureInfo[0]->user_id,
                             "date"=> date('Y-m-d H:i:s'),
                         ),
 
                             array(
                                 "message"=>"Congratulation!!! You have won ".$awardTitle2." with the reward of ". $data['contestInfo']->second_reward,
-                                "link" => base_url("winners/check/".$id),
+                                "link" => base_url("winner/check/".$id),
                                 "user_id"=> $getPictureInfo[1]->user_id,
                                 "date"=> date('Y-m-d H:i:s'),
                             ),
 
                             array(
                                 "message"=>"Congratulation!!! You have won ".$awardTitle3." with the reward of ". $data['contestInfo']->third_reward,
-                                "link" => base_url("winners/check/".$id),
+                                "link" => base_url("winner/check/".$id),
                                 "user_id"=> $getPictureInfo[2]->user_id,
                                 "date"=> date('Y-m-d H:i:s'),
                             )

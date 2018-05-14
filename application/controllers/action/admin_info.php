@@ -12,6 +12,7 @@
  * Users Information
  */
 
+$today = date('Y-m-d');
 
 
 //count all register users
@@ -75,7 +76,10 @@ $data['countTotalVote'] = $this->db->count_all_results('votex');
 $realDate = date('Y-m-d');
 
 //$this->db->where("vote_start_date >= '$vote_start_date'  && vote_end_date >= '$vote_end_date' ");
-$data['countOpenVote'] = 0;
+//count all open vote contest
+$this->db->where("type='contest' AND vote_end_date >'$today' AND status='0'");
+$data['countOpenVote'] = $this->db->count_all_results('vote_information');
+
 
 
 //$getVoteInformation = $this->db->get('vote_information')->result_array();

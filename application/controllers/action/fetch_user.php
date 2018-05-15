@@ -46,7 +46,7 @@ $data['getUploadedPhotos'] = $this->db->get('uploads')->result_array();
 
 
 //get user credit unit
-//$this->db->where("user_id = '$UserID'");
+$this->db->where("user_id = '$UserID'");
 $getUserCredit = $this->db->get('credit_subscription')->result();
 
 foreach($getUserCredit as $userCredit);

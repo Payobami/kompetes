@@ -1,3 +1,20 @@
+<?php
+
+
+$this->db->where("status ='0'");
+$countCredit = $this->db->count_all_results('credit_price');
+/*
+$this->db->where("status ='0'");
+$this->db->order_by('credit_price','ASC');
+$getCredit = $this->db->get("credit_price")->result_array();
+*/
+$query = $this->db->query("SELECT * FROM credit_price WHERE status ='0' ORDER BY CAST(credit_unit AS UNSIGNED) ASC ");
+
+$getCredit = $query->result_array();
+
+
+?>
+
 <script type="text/javascript">
 
 
@@ -5,17 +22,9 @@
     //add the product price with hosting price
 
     var hostingPrice = new Array();
-    hostingPrice['1'] = 1;
-    hostingPrice['3'] = 3;
-    hostingPrice['6'] = 6;
-    hostingPrice['12'] = 12;
-    hostingPrice['18'] = 18;
-    hostingPrice['24'] = 24;
-    hostingPrice['36'] = 36;
-    hostingPrice['60'] = 60;
-    hostingPrice['150'] = 150;
-    hostingPrice['300'] = 300;
-    hostingPrice['500'] = 500;
+    <?php foreach ($getCredit as $creditList) {?>
+    hostingPrice['<?php echo $creditList['credit_unit']?>'] = <?php echo $creditList['credit_unit']?>;
+    <?php } ?>
 
     function getHostingPlanPrice (){
 
@@ -161,124 +170,55 @@
                 </div>
 
                 <?php echo form_open("upgrade/checkout", array('id'=>'upgrade'))?>
+
+
                 <div class="p-l-10 p-r-10">
 
-                    <div class="unit_price">
-                        <label class="p-t-10">
-                            <div class="col-xs-6">
-                                <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="1">
-                                1 <span> credits </span>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                £12 <span>GBP</span>
-                                <br>
-                                <div style="margin-top:-13px">
-                                    <small>£12/credit</small>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </label>
-                    </div>
+
+                  <?php
+
+                    $i=1;
+                    foreach($getCredit as $creditList):
+
+                  ?>
 
 
                     <div class="unit_price">
                         <label class="p-t-10">
                             <div class="col-xs-6">
-                                <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="3">
-                                3 <span> credits </span>
+                                <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="<?php echo $creditList['credit_unit'] ?>">
+                                <?php echo $creditList['credit_unit'] ?> <span> credits </span>
                             </div>
                             <div class="col-xs-6 text-right">
-                                £33 <span>GBP</span>
+                                £<?php echo $creditList['credit_price'] ?> <span>GBP</span>
                                 <br>
                                 <div style="margin-top:-13px">
-                                    <small>£11/credit</small>
+                                    <small>£<?php echo $creditList['price_per_credit'] ?>/credit</small>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                         </label>
                     </div>
-
-                    <div class="unit_price">
-                        <label class="p-t-10">
-                            <div class="col-xs-6">
-                                <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="6">
-                                6 <span> credits </span>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                £60 <span>GBP</span>
-                                <br>
-                                <div style="margin-top:-13px">
-                                    <small>£10/credit</small>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </label>
-                    </div>
-
-                    <div class="unit_price">
-                        <label class="p-t-10">
-                            <div class="col-xs-6">
-                                <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="12">
-                                12 <span> credits </span>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                £108 <span>GBP</span>
-                                <br>
-                                <div style="margin-top:-13px">
-                                    <small>£9/credit</small>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </label>
-                    </div>
-
-                    <div class="unit_price">
-                        <label class="p-t-10">
-                            <div class="col-xs-6">
-                                <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="18">
-                                18 <span> credits </span>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                £144 <span>GBP</span>
-                                <br>
-                                <div style="margin-top:-13px">
-                                    <small>£8/credit</small>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </label>
-
-                    </div>
-
-                    <div class="unit_price">
-                        <label class="p-t-10">
-                            <div class="col-xs-6">
-                                <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="24">
-                                24 <span> credits </span>
-                            </div>
-                            <div class="col-xs-6 text-right">
-                                £168 <span>GBP</span>
-                                <br>
-                                <div style="margin-top:-13px">
-                                    <small>£7/credit</small>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </label>
-                    </div>
+                        <?php if($i++ == 6)
+                        break;
+                        ?>
+                    <?php endforeach ?>
 
                     <div class="text-center m-t-20" id="hide">
                         <a onclick="revealMore()" >Check for more</a>
                     </div>
 
+
                     <div class="" hidden id="reveal">
+                        <?php
 
-
+                        for($i=6; $i<$countCredit; $i++):
+                        ?>
                         <div class="unit_price">
                             <label class="p-t-10">
                                 <div class="col-xs-6">
-                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="36">
-                                    36 <span> credits </span>
+                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="<?php echo $getCredit[$i]['credit_unit'] ?>">
+                                    <?php echo $getCredit[$i]['credit_unit'] ?> <span> credits </span>
                                 </div>
                                 <div class="col-xs-6 text-right">
                                     £216 <span>GBP</span>
@@ -290,79 +230,7 @@
                                 <div class="clearfix"></div>
                             </label>
                         </div>
-
-
-                        <div class="unit_price">
-                            <label class="p-t-10">
-                                <div class="col-xs-6">
-                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="60">
-                                    60 <span> credits </span>
-                                </div>
-                                <div class="col-xs-6 text-right">
-                                    £360 <span>GBP</span>
-                                    <br>
-                                    <div style="margin-top:-13px">
-                                        <small>£6/credit</small>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </label>
-                        </div>
-
-
-
-                        <div class="unit_price">
-                            <label class="p-t-10">
-                                <div class="col-xs-6">
-                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="150">
-                                    150 <span> credits </span>
-                                </div>
-                                <div class="col-xs-6 text-right">
-                                    £870 <span>GBP</span>
-                                    <br>
-                                    <div style="margin-top:-13px">
-                                        <small>£5.8/credit</small>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </label>
-                        </div>
-
-
-                        <div class="unit_price">
-                            <label class="p-t-10">
-                                <div class="col-xs-6">
-                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="300">
-                                    300 <span> credits </span>
-                                </div>
-                                <div class="col-xs-6 text-right">
-                                    £1,650 <span>GBP</span>
-                                    <br>
-                                    <div style="margin-top:-13px">
-                                        <small>£5.5/credit</small>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </label>
-                        </div>
-
-
-                        <div class="unit_price">
-                            <label class="p-t-10">
-                                <div class="col-xs-6">
-                                    <input type="radio" onclick="calculateTotalPrice()" class="option-input radio" name="unit" value="500">
-                                    500 <span> credits </span>
-                                </div>
-                                <div class="col-xs-6 text-right">
-                                    £2,500 <span>GBP</span>
-                                    <br>
-                                    <div style="margin-top:-13px">
-                                        <small>£5/credit</small>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </label>
-                        </div>
+                        <?php endfor ?>
 
                     </div>
 

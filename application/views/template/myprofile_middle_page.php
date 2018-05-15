@@ -11,7 +11,10 @@
 
 
 
+    //get the number of prize won
 
+    $this->db->where("user_id = '$USER_ID'");
+    $countPrizeWon = $this->db->count_all_results('prize_won');
 
 
      $this->db->where("user_id = '$USER_ID' and entry_type='challenge'");
@@ -156,7 +159,7 @@
                 <div class="user_profile_menu text-center no-padding-xs no-padding-sm" style="padding-top: 0;margin-top: 10px; margin-bottom: -5px">
                     <ul>
                         <li><a href="<?php echo base_url('profile/'.$pageUserID2) ?>" class="<?php if ($this->uri->segment(2)==''){echo 'active';}?>"><?php echo $countUploadPicture ?> Photos</a></li>
-                        <li><a href="<?php //echo base_url('profile/vote'.$pageUserID) ?>?page=#award" class="<?php if ($this->uri->segment(2)=='vote'){echo 'active';}?>">0 Prize Won</a></li>
+                        <li><a href="<?php //echo base_url('profile/vote'.$pageUserID) ?>?page=#award" class="<?php if ($this->uri->segment(2)=='vote'){echo 'active';}?>"><?php echo $countPrizeWon; ?> Prize Won</a></li>
                         <li><a href="<?php echo base_url('profile/contest'.$pageUserID) ?>?page=#contest" class="<?php if ($this->uri->segment(2)=='contest'){echo 'active';}?>"><?php echo $countContest ?> Contest</a></li>
                         <li class="hidden-xs"><a href="<?php echo base_url('profile/challenges'.$pageUserID) ?>?page=#challenges" class="<?php if ($this->uri->segment(2)=='challenges'){echo 'active';}?>"><?php echo $countChallenge ?> Challenges</a></li>
                         <li class="hidden-xs"><a href="<?php echo base_url('profile/followers'.$pageUserID) ?>?page=#followers" class="<?php if ($this->uri->segment(2)=='followers'){echo 'active';}?>"><?php echo $countFollowers ?> Followers</a></li>

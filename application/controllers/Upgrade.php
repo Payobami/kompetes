@@ -138,7 +138,7 @@ class Upgrade extends CI_Controller{
 
     public function transaction(){
         if(!isset($_SESSION['userLogginID'])){
-            redirect(base_url('login?redirect=transaction?id='.$_GET['id']));
+            redirect(base_url('login?redirect=upgrade/transaction?id='.$_GET['id']));
         }
         else {
             if (isset($_GET['id'])) {
@@ -261,15 +261,11 @@ class Upgrade extends CI_Controller{
 
 
                     $this->db->insert_batch('notificationx', $insertNotification );
-
-
-
                 }
                 else {
                     $data['header'] = '<h1 class="f-s-22 text-center text-red f-bitter"><img src="'. base_url('img/icons/svg/fail.svg'). '" class="m-b-20"><br> Transaction Failed</h1>';
                     $data['icon'] = "fail";
                     $data['message'] = "<p class='text-center m-t-25 f-s-14 f-ubuntu'> Your last transaction has Failed, Make sure you have sufficient balance on your debit card; Check below for more Information " . "</p>";
-
 
                 }
 

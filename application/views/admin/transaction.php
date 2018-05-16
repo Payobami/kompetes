@@ -68,7 +68,7 @@
                                     <i class="fa-save fa"></i>
                                 </div>
                             </small>
-                            <?php //echo $countAllUsers ?>
+                            <?php echo $getSumUsedCredit->credit_unit ?>
                         </a>
                     </div>
                 </div>

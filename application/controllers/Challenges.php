@@ -440,11 +440,7 @@ class Challenges extends CI_Controller
             $this->db->where("challenge_id='$id'");
             $countContest = $this->db->count_all_results('challenges');
 
-
-
-
             if($countContest >= 1){
-
 
                 //get challenges information
                 $this->db->where("challenge_id='$id'");
@@ -478,8 +474,6 @@ class Challenges extends CI_Controller
 
                     $this->load->view("template/header", $data);
                     $this->load->view("challenges_entry", $data);
-
-
                 }
 
                 else{
@@ -519,7 +513,6 @@ class Challenges extends CI_Controller
                     $data['success'] = "<div class='alert alert-success text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Entry Submitted Successfully!</div>";
                     $data['title'] ='Entries ';
                     foreach($getChallenge as $data['getChallenge'])
-
                         //get entries
 
 

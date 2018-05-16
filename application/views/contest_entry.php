@@ -46,6 +46,8 @@
         </div>
     </div>
 
+    <?php echo $success ?>
+
     <!--<div class="" style="background-color: #fff;">
         <div class="contest-cat-line" style="border-bottom: 1px dotted #fff;padding-top: 10px">
             <strong class="p-l-20"> Entries </strong>

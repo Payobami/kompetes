@@ -47,10 +47,20 @@ $data['getUploadedPhotos'] = $this->db->get('uploads')->result_array();
 
 //get user credit unit
 $this->db->where("user_id = '$UserID'");
-$getUserCredit = $this->db->get('credit_subscription')->result();
+$countUserCredit = $this->db->count_all_results('credit_subscription');
 
-foreach($getUserCredit as $userCredit);
-$data['creditUnit'] = $userCredit->credit;
+if($countUserCredit >=1) {
+ $this->db->where("user_id = '$UserID'");
+ $getUserCredit = $this->db->get('credit_subscription')->result();
+
+ foreach ($getUserCredit as $userCredit) ;
+ $data['creditUnit'] = $userCredit->credit;
+}
+else{
+
+ $data['creditUnit'] = 0;
+
+}
 
 /*//get the no of follower
 

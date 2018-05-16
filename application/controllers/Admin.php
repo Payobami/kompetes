@@ -250,6 +250,7 @@ class Admin extends CI_Controller
                 $this->form_validation->set_rules('voting_ends','Voting Close Date','required|trim');
                 $this->form_validation->set_rules('category','Category','required|trim');
                 $this->form_validation->set_rules('tags','Tags','required|trim');
+                $this->form_validation->set_rules('allow_upload','Number of Allowed Upload','required|trim');
                 $this->form_validation->set_rules('introduction','Introduction','required|trim');
                 $this->form_validation->set_rules('first_prize','First Prize','required|trim');
                 $this->form_validation->set_rules('first_reward','First Reward','required|trim');
@@ -377,6 +378,7 @@ class Admin extends CI_Controller
                         "contest_picture" => $BannerData['file_name'],
                         "category" => $this->input->post('category'),
                         "tags" => $this->input->post('tags'),
+                        "allow_upload"=> $this->input->post('allow_upload'),
                         "description" => $this->input->post('introduction'),
                         "entry_price" => $this->input->post('entry_point'),
                         "date" => date('Y-m-d H:i:s'),
@@ -427,8 +429,6 @@ class Admin extends CI_Controller
                     //add notification
                     $this->db->insert("notificationx", $insertNotification);
 
-
-
                     redirect(base_url('admin/upload_success'));
                 }
             }
@@ -466,13 +466,10 @@ class Admin extends CI_Controller
                 redirect(base_url('user/home'));
             } else {
 
-
-
                 //get all picture
                 $this->db->select('*');
                 $this->db->order_by('id', 'DESC');
                 $data['getAllPicture'] = $this->db->get('uploads')->result_array();
-
 
                 $this->load->view("admin/template/admin_header", $data);
                 $this->load->view("admin/photos", $data);
@@ -839,6 +836,14 @@ class Admin extends CI_Controller
                 $this->db->where("transaction_status !='processor_declined'");
                 $getSumCredit = $this->db->get('transactionx')->result();
                 foreach($getSumCredit as $data['getSumCredit']);
+
+                //sum total credit used
+
+                $this->db->select_sum('credit_unit');
+                $this->db->where("status ='0'");
+                $getSumUsedCredit = $this->db->get('credit_used')->result();
+                foreach($getSumUsedCredit as $data['getSumUsedCredit']);
+
 
 
                 //get all the transaction details

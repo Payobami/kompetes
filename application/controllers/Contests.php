@@ -129,6 +129,7 @@ class Contests extends CI_Controller{
 
 
         $data['title'] = 'Contest name';
+        $data['success'] = '';
 
         //get user information if loggedin
 
@@ -165,41 +166,76 @@ class Contests extends CI_Controller{
         }
         else{
 
-
+            die('Oops');
 
         }
-
-
-
     }
 
     public function submit_entry($id){
 
         if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['userLogginID'])){
-
-
             require_once('action/fetch_user.php');
 
             $userID = $_SESSION['userLogginID'];
             $photoID = $this->input->post("photo");
             $entryType = $this->input->post("entry_type");
 
-            //get contest information
+            $data['success']="";
+            $data['title'] ='Contest entries ';
 
+            //get contest information
             $this->db->where("contest_id='$id'");
             $countContest = $this->db->count_all_results('contests');
 
 
+            //get all the pictures submited for the contest entry
+            $this->db->where("entry_id='$id' AND entry_type='contest'");
+            $data['getContestEntry'] = $this->db->get("entries_submited")->result_array();
+
             if($countContest >=1){
+
+                //count the contest entries
+
+                $this->db->where("entry_id='$id'");
+                $data['countEntries'] = $this->db->count_all_results('entries_submited');
+
+                //get the contest information out
+                $this->db->where("contest_id='$id'");
+                $data['getContest'] = $this->db->get("contests")->result();
+
+                //get all the pictures submited for the contest entry
+                $this->db->where("entry_id='$id' AND entry_type='contest'");
+                $data['getContestEntry'] = $this->db->get("entries_submited")->result_array();
+
+
+
+
+
+
+
+                //get the contest information out
+                $this->db->where("contest_id='$id'");
+                $data['getContest'] = $this->db->get("contests")->result();
+
 
                 //count the contest entries check if the user has already submitted photo for this entry
                 $this->db->where("entry_id='$id' AND user_id='$userID'");
                 $countEntries = $this->db->count_all_results('entries_submited');
 
-                if($countEntries >=1){
-                    //user already submitted the
 
-                    die('You have already submitted photo for this contest ');
+                //get the contest information out
+                $this->db->where("contest_id='$id'");
+                $getContest = $this->db->get("contests")->result();
+                $contestEntryPrice =  $getContest[0]->entry_price;
+                $contestAllowUpload =  $getContest[0]->allow_upload;
+
+                if($countEntries > $contestAllowUpload){
+                    //user already submitted the
+                    //die('You have already submitted photo for this contest ');
+
+                    $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a> You have reached the maximum upload limit for this contest.. Sorry, you can try another contest  </div>";
+                    $this->load->view('template/header', $data);
+                    $this->load->view('contest_entry', $data);
 
 
                 }
@@ -221,47 +257,110 @@ class Contests extends CI_Controller{
                         'submited_date'=>date('Y-m-d H:i:s')
                     );
 
-                    $this->db->insert('entries_submited', $insertPhoto);
-                    
                     //die("uploaded successful");
 
+                    if($contestEntryPrice !=='Free'){
+
+                        //check if the user have enough
+                        //echo $contestEntryPrice;
+                        if($data['creditUnit'] >= $contestEntryPrice){
+
+                            $insertCreditSpent = array(
+
+                                "credit_unit"=> $contestEntryPrice,
+                                "username"=> $data['username'],
+                                "user_id"=> $_SESSION['userLogginID'],
+                                "entry_id"=> $id,
+                                "entry_type"=> $entryType,
+                                "date"=> date("Y-m-d H:i:s"),
+                            );
+
+                            $this->db->insert('credit_used', $insertCreditSpent);
+
+                            //update user credit from the table
+                            $this->db->where("user_id='$userID'");
+                            $this->db->update('credit_subscription', array('credit'=> $data['creditUnit'] - $contestEntryPrice ));
+
+                            //insert into entry table
+                            $this->db->insert('entries_submited', $insertPhoto);
+
+                            //insert into notification
+
+                            $insertNotification = array(
+                                array(
+                                "message"=> "You have successfully enter the ". $getContest[0]->contest_name. ' contest for ' .$contestEntryPrice,
+                                "user_id"=> $userID,
+                                "link"=> base_url('contests/check/'.$id),
+                                'date'=> date('Y-m-d H:i:s'),
+                            ),
+                                array(
+                                    "message"=> $data['username'] ." has successfully enter the ". $getContest[0]->contest_name. ' contest for ' .$contestEntryPrice,
+                                    "user_id"=> 'Admin',
+                                    "link"=> base_url('contests/check/'.$id),
+                                    'date'=> date('Y-m-d H:i:s'),
+                                )
+                            );
+
+                            $this->db->insert_batch('notificationx', $insertNotification);
 
 
-                    //get the contest information out
-                    $this->db->where("contest_id='$id'");
-                    $data['getContest'] = $this->db->get("contests")->result();
+                            $data['success'] = "<div class='alert alert-success text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Contest Entry Submitted Successfully!</div>";
 
-                    //get all the pictures submited for the contest entry
-                    $this->db->where("entry_id='$id' AND entry_type='contest'");
-                    $data['getContestEntry'] = $this->db->get("entries_submited")->result_array();
+                            $this->load->view('template/header', $data);
+                            $this->load->view('contest_entry', $data);
 
 
+                        }
+                        else{
 
-//                $this->load->view('template/header', $data);
-//                $this->load->view('contest_entry', $data);
+                            //Insufficient Credit
 
+                            $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a> Insufficient Balance!.. You do not have a sufficient credit to enter this contest, <a href='".base_url('upgrade')."'>Click  here</a> to Upgrade your wallet  </div>";
+                            $this->load->view('template/header', $data);
+                            $this->load->view('contest_entry', $data);
+                        }
+                    }
+                    else{
+
+                        //insert into notification
+
+                        $insertNotification = array(
+                            array(
+                                "message"=> "You have successfully enter the ". $getContest[0]['contest_name']. ' contest for Free',
+                                "user_id"=> $userID,
+                                "link"=> base_url('contests/check/'.$id),
+                                'date'=> date('Y-m-d H:i:s'),
+                            ),
+                            array(
+                                "message"=> $data['username'] ." has successfully enter the ". $getContest[0]['contest_name']. ' contest for Free',
+                                "user_id"=> 'Admin',
+                                "link"=> base_url('contests/check/'.$id),
+                                'date'=> date('Y-m-d H:i:s'),
+                            )
+                        );
+
+                        $this->db->insert_batch('notificationx', $insertNotification);
+
+                        //insert if the contest is free
+                        $this->db->insert('entries_submited', $insertPhoto);
+
+                        $data['success'] = "<div class='alert alert-success text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Contest Entry Submitted Successfully!</div>";
+
+                        $this->load->view('template/header', $data);
+                        $this->load->view('contest_entry', $data);
+
+                    }
                 }
-
             }
             else{
                 //contests not found
-
-
+                die("Oops Contest not found");
             }
-
-
-
-
         }
 
         else{
 
             die("You are not allowed to access this page directly");
         }
-
-
-
-
     }
-
 }

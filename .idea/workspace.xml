@@ -10,11 +10,10 @@
 =======
     <list default="true" id="1d4837b0-45a0-4f17-855b-b9e32a2f10b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin.php" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Contests.php" afterPath="$PROJECT_DIR$/application/controllers/Contests.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Upgrade.php" afterPath="$PROJECT_DIR$/application/controllers/Upgrade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/action/fetch_user.php" afterPath="$PROJECT_DIR$/application/controllers/action/fetch_user.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/transaction.php" afterPath="$PROJECT_DIR$/application/views/admin/transaction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/template/myprofile_middle_page.php" afterPath="$PROJECT_DIR$/application/views/template/myprofile_middle_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/upgrade.php" afterPath="$PROJECT_DIR$/application/views/upgrade.php" />
     </list>
 >>>>>>> 01414149e27cc97595ee2724ff8a5e912a1ac899
     <ignored path="kompete_dev.iws" />
@@ -47,10 +46,10 @@
       <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.090909">
-              <caret line="755" column="47" selection-start-line="755" selection-start-column="42" selection-end-line="755" selection-end-column="47" />
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="817" column="50" selection-start-line="817" selection-start-column="50" selection-end-line="817" selection-end-column="50" />
               <folding>
-                <marker date="1526281436018" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
+                <marker date="1526436521688" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
               </folding>
             </state>
           </provider>
@@ -59,26 +58,31 @@
       <file leaf-file-name="transaction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/transaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.538462">
-              <caret line="70" column="58" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
+            <state vertical-scroll-proportion="-23.961538">
+              <caret line="98" column="49" selection-start-line="98" selection-start-column="49" selection-end-line="98" selection-end-column="49" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1526454017060" expanded="true" signature="6964:7174" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Contests.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Contests.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.21706864">
+              <caret line="224" column="20" selection-start-line="224" selection-start-column="20" selection-end-line="224" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Upgrade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Upgrade.php">
+      <file leaf-file-name="Challenges.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Challenges.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43042672">
-              <caret line="271" column="0" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="transaction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/transaction.php">
-          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             <state vertical-scroll-proportion="-0.0">
@@ -205,15 +209,20 @@
                 <marker date="1526402061998" expanded="true" signature="1392:1544" placeholder="..." />
                 <marker date="1526402061998" expanded="true" signature="1692:2010" placeholder="..." />
               </folding>
+=======
+            <state vertical-scroll-proportion="20.4">
+              <caret line="428" column="33" selection-start-line="428" selection-start-column="29" selection-end-line="428" selection-end-column="33" />
+              <folding />
+>>>>>>> 1f10885614f03b661a076daa2f02fed117689767
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="braintree_init.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/braintree_init.php">
+      <file leaf-file-name="Upgrade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Upgrade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-14.730769">
+              <caret line="155" column="46" selection-start-line="155" selection-start-column="46" selection-end-line="155" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -323,9 +332,7 @@
         <option value="$PROJECT_DIR$/application/views/photo_page.php" />
         <option value="$PROJECT_DIR$/application/views/admin/photos.php" />
         <option value="$PROJECT_DIR$/application/views/admin/vote.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
         <option value="$PROJECT_DIR$/application/views/winner.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Contests.php" />
         <option value="$PROJECT_DIR$/application/controllers/Winner.php" />
         <option value="$PROJECT_DIR$/application/views/contests.php" />
         <option value="$PROJECT_DIR$/application/views/winner_index.php" />
@@ -333,12 +340,14 @@
         <option value="$PROJECT_DIR$/application/views/admin/home.php" />
         <option value="$PROJECT_DIR$/application/controllers/action/admin_info.php" />
         <option value="$PROJECT_DIR$/application/views/template/myprofile_middle_page.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/transaction.php" />
         <option value="$PROJECT_DIR$/application/views/upgrade.php" />
         <option value="$PROJECT_DIR$/application/views/checkpay.php" />
         <option value="$PROJECT_DIR$/application/controllers/action/fetch_user.php" />
         <option value="$PROJECT_DIR$/application/views/transaction.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
         <option value="$PROJECT_DIR$/application/controllers/Upgrade.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/transaction.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Contests.php" />
       </list>
     </option>
   </component>
@@ -1151,6 +1160,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="94" column="65" selection-start-line="94" selection-start-column="65" selection-end-line="94" selection-end-column="65" />
+          <folding>
+            <marker date="1526027374135" expanded="true" signature="7613:7693" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1180,6 +1192,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.346154">
           <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1187,13 +1200,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.692307">
           <caret line="166" column="38" selection-start-line="166" selection-start-column="38" selection-end-line="166" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Challenges.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.192307">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -1217,6 +1223,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.7454543">
           <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,14 +1320,6 @@
             <marker date="1526281541760" expanded="true" signature="10288:10305" placeholder="..." />
             <marker date="1526281541760" expanded="true" signature="10306:10348" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Contests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7012987">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1424,7 +1423,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/transaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.423077">
+        <state vertical-scroll-proportion="0.8348794">
           <caret line="55" column="121" selection-start-line="55" selection-start-column="121" selection-end-line="55" selection-end-column="121" />
           <folding>
             <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
@@ -1441,28 +1440,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.538462">
-          <caret line="70" column="58" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.090909">
-          <caret line="755" column="47" selection-start-line="755" selection-start-column="42" selection-end-line="755" selection-end-column="47" />
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="817" column="50" selection-start-line="817" selection-start-column="50" selection-end-line="817" selection-end-column="50" />
           <folding>
-            <marker date="1526281436018" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
+            <marker date="1526436521688" expanded="true" signature="19866:19986" placeholder="SELECT pictu..votex..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Upgrade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43042672">
-          <caret line="271" column="0" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
+        <state vertical-scroll-proportion="-14.730769">
+          <caret line="155" column="46" selection-start-line="155" selection-start-column="46" selection-end-line="155" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Challenges.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="20.4">
+          <caret line="428" column="33" selection-start-line="428" selection-start-column="29" selection-end-line="428" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/transaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.961538">
+          <caret line="98" column="49" selection-start-line="98" selection-start-column="49" selection-end-line="98" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1526454017060" expanded="true" signature="6964:7174" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Contests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21706864">
+          <caret line="224" column="20" selection-start-line="224" selection-start-column="20" selection-end-line="224" selection-end-column="20" />
           <folding />
         </state>
       </provider>

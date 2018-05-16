@@ -795,16 +795,9 @@ class Admin extends CI_Controller
                         $this->load->view("admin/template/admin_footer", $data);
                     }
 
-
                 }
             }
-
-
         }
-
-
-
-
     }
 
 
@@ -822,12 +815,37 @@ class Admin extends CI_Controller
 
         } else {
 
+            require_once('action/time_function.php');
             require_once('action/fetch_user.php');
             require_once('action/admin_info.php');
 
             if ($data['adminStatus'] !== '1') {
                 redirect(base_url('user/home'));
             } else {
+
+                //get transaction information
+
+                //get total subscriber
+                $this->db->where("status='0'");
+                $data['count_subscriber'] = $this->db->count_all_results('credit_subscription');
+
+
+                //total transaction
+                $this->db->where("transaction_status !='processor_declined'");
+                $data['countSuccessTrans'] = $this->db->count_all_results('transactionx');
+
+                //sum total credit sold
+                $this->db->select_sum('amount');
+                $this->db->where("transaction_status !='processor_declined'");
+                $getSumCredit = $this->db->get('transactionx')->result();
+                foreach($getSumCredit as $data['getSumCredit']);
+
+
+                //get all the transaction details
+
+                $data['getAllTrans'] = $this->db->get("transactionx")->result_array();
+
+
                 $this->load->view("admin/template/admin_header", $data);
                 $this->load->view("admin/transaction", $data);
                 $this->load->view("admin/template/admin_footer", $data);

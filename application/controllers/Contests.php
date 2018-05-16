@@ -222,8 +222,9 @@ class Contests extends CI_Controller{
                     );
 
                     $this->db->insert('entries_submited', $insertPhoto);
+                    
+                    //die("uploaded successful");
 
-                    die("uploaded successful");
 
 
                     //get the contest information out

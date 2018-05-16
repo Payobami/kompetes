@@ -221,10 +221,10 @@ $getCredit = $query->result_array();
                                     <?php echo $getCredit[$i]['credit_unit'] ?> <span> credits </span>
                                 </div>
                                 <div class="col-xs-6 text-right">
-                                    £216 <span>GBP</span>
+                                    £<?php echo $getCredit[$i]['credit_price'] ?> <span>GBP</span>
                                     <br>
                                     <div style="margin-top:-13px">
-                                        <small>£6/credit</small>
+                                        <small>£<?php echo $getCredit[$i]['price_per_credit'] ?>/credit</small>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>

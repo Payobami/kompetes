@@ -9,7 +9,18 @@ rupture.scale-names = 'xs' 's' 'm' 'l' 'xl' 'hd'
 typographic()
 t-present(1)
 
+body::-webkit-scrollbar {
+  width: 0.6em;
+}
 
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: red;
+  outline: 1px solid slategrey;
+}
 
 
 .siteName
@@ -658,7 +669,7 @@ body {
       margin-right 4px
 
       a
-        color #FFF
+        color #fff !important
         font-size 14px
 
 
@@ -2255,7 +2266,20 @@ items item {
 
 
 .notification_drop
-  width 200px
+  width 250px
+  max-height 300px
+  overflow-y scroll
+  background #ff
+
+  ::-webkit-scrollbar
+    width: 10px;
+
+  ::-webkit-scrollbar-track
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+
+  ::-webkit-scrollbar-thumb
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
 
   ul
     padding 0

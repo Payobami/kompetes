@@ -53,25 +53,45 @@ class User extends CI_Controller{
             $this->db->where("follower_id = '$UserID'");
             $data['countMyFollowing'] = $this->db->count_all_results('followingx');
 
-            //get my following user
+            //count following
             $this->db->where("follower_id = '$UserID'");
-            $data["getMyFollowing"] = $this->db->get("followingx")->result_array();
+            $countFollowing = $this->db->count_all_results('followingx');
 
-            foreach($data['getMyFollowing'] as $myFollowing){
+            $data['countFollowing'] = $countFollowing;
 
-                //get people to follow
-                $myFollowingID = $myFollowing['user_id'];
-                $this->db->where("user_id !='$myFollowingID' AND user_id !='$UserID'");
-                $data['getMoreFollow'] = $this->db->get("userz")->result_array();
+            if($countFollowing >=1) {
+                //get my following user
+                $this->db->where("follower_id = '$UserID'");
+                $data["getMyFollowing"] = $this->db->get("followingx")->result_array();
 
+                foreach ($data['getMyFollowing'] as $myFollowing) {
+
+                    //get people to follow
+                    $myFollowingID = $myFollowing['user_id'];
+                    $this->db->where("user_id !='$myFollowingID' AND user_id !='$UserID'");
+                    $data['getMoreFollow'] = $this->db->get("userz")->result_array();
+
+
+                    //get post from my following users
+                    $this->db->where("poster_id = '$myFollowingID' || poster_id='Admin'");
+                    $this->db->order_by('date', 'DESC');
+                    $data['getPost'] = $this->db->get('post_timeline')->result_array();
+                }
+            }
+            else{
+
+                $this->db->where("userz.user_id !='$UserID'");
+                $this->db->from('userz');
+                //$this->db->join("uploads",'userz.user_id = uploads.user_id');
+                $this->db->limit(10);
+                $data['getMoreFollow'] = $this->db->get()->result_array();
+
+                //$this->db->query("SELECT * FROM uploads ");
 
                 //get post from my following users
-
-                $this->db->where("poster_id = '$myFollowingID' || poster_id='Admin'");
-                $this->db->order_by('date','DESC');
+                $this->db->where("poster_id='Admin'");
+                $this->db->order_by('date', 'DESC');
                 $data['getPost'] = $this->db->get('post_timeline')->result_array();
-
-
 
             }
 

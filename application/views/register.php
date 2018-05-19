@@ -7,7 +7,7 @@
 
             <div class="form-style" style="">
                 <div style="z-index: 10000;">
-                    <h3 style="color: #fff;margin-bottom: 20px" class="">Create Account !!!</h3>
+                    <h3 style="color: #fff;margin-bottom: 20px" class="f-bitter">Create Account</h3>
                     <?php echo form_open() ?>
                     <?php echo $success ?>
                         <div class="form-group">
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="Create Account" class="btn btn-success btn-lg" name="submit" style="border-radius: 0; width: 100%; background: #449D44">
+                            <input type="submit" value="Create Account" class="btn btn-danger btn-lg" name="submit" style="border-radius: 0; width: 100%; background:#ff5a2c">
                         </div>
 
                         <div class="text-center"style="color: #f00;font-weight: 700;padding-bottom: 10px">

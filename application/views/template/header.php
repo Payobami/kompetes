@@ -17,6 +17,10 @@
         .nav > li > .no-hover:hover {
             border: none !important;
         }
+
+        .nav > li > .no-hover:focus {
+            background: none !important;
+        }
     </style>
 
 </head>
@@ -62,12 +66,12 @@
                                 <i class="fa fa-bell text-center"></i>
 
                                 <div class="notificatio_count" style="margin-top: -20px">
-                                    <b>2</b>
+                                    <b><?php echo $countNotification ?></b>
                                 </div>
                             </a>
 
 
-                            <ul class="dropdown-menu no-border-radius" style="min-height: 250px; margin-left: -155px">
+                            <ul class="dropdown-menu no-border-radius" style="margin-left: -155px; background: #FFF">
                                 <div class="notification_drop">
                                     <ul>
                                         <li style="background: none">
@@ -108,7 +112,7 @@
                                             </a>
                                         </li>
 
-                                        <li class="width-100 bg bg-green"><a href="<?php echo base_url("upgrade")?>" style="color: #333333 !important;">Upgrade</a></li>
+                                        <li class="width-100 bg bg-green"><a href="<?php echo base_url("upgrade")?>" style="color: #333333 !important;">Credit</a></li>
                                         <li class="no-bg width-100" ><a href="#" style="color: #333333 !important;">My Stats</a></li>
                                         <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Inbox </a></li>
                                         <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">My points </a></li>
@@ -142,7 +146,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
-                <li><a href="<?php echo base_url()?>photos">Photos</a></li>
+                <li><a href="<?php echo base_url()?>photos">Images</a></li>
                 <li><a href="<?php echo base_url('video')?>">Videos</a></li>
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
 
@@ -162,24 +166,24 @@
                     <a class="dropdown-toggle no-hover" data-toggle="dropdown">
                         <i class="fa fa-bell"></i>
                         <div class="notificatio_count">
-                            <b>2</b>
+                            <b><?php echo $countNotification ?></b>
                         </div>
                     </a>
 
-                    <ul class="dropdown-menu" style="min-height: 300px;color: #000">
+                    <ul class="dropdown-menu" style="color: #000;background-color: #fff;">
                         <div class="notification_drop">
                             <ul>
-                                <li>
-                                    <a href="#" style="color: #2c2c2c !important;">
-                                        Your notification appears here
-                                    </a>
-                                </li>
 
-                                <li>
-                                    <a href="#" style="color: #2c2c2c !important;">
-                                        Your notification appears here
-                                    </a>
-                                </li>
+
+                                <?php foreach($getNotifications as $notification):?>
+
+                                    <li>
+                                        <a href="<?php echo $notification['link']; ?>" style="color: #2c2c2c !important;">
+                                            <?php echo $notification['message']; ?>
+                                        </a>
+                                    </li>
+
+                                <?php endforeach ?>
                             </ul>
                         </div>
                     </ul>
@@ -232,14 +236,14 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="<?php echo base_url('user/home')?>">Timeline</a></li>
+                <li class="active"><a href="<?php echo base_url('user/home')?>">Home</a></li>
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
-                <li><a href="<?php echo base_url()?>photos">Photos</a></li>
-                <li><a href="<?php echo base_url('challenges')?>">Challenges</a></li>
+                <li><a href="<?php echo base_url()?>photos">Images</a></li>
+                <li><a href="<?php echo base_url('challenges')?>">Member Contest</a></li>
                 <li><a href="<?php echo base_url('video')?>">Videos</a></li>
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
                 <!--<li class="nav-active"><a href="<?php /*echo base_url('upload')*/?>">+ Upload</a></li>-->
-                <li><a href="<?php echo base_url("upgrade")?>"> Upgrade</a></li>
+                <li><a href="<?php echo base_url("upgrade")?>"> Credit</a></li>
 
                 <li class="visible-xs" style="min-height: 400px"></li>
 

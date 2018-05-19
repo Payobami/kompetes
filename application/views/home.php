@@ -9,7 +9,68 @@
             </ul>
         </div>
 
+
         <div class="col-sm-7 no-padding-xs">
+
+            <?php if($countFollowing<=0):?>
+
+
+                <div class="row" style="min-height: 400px">
+                    <h6 class="f-s-18 text-black m-l-25" style="margin-bottom:-30px;border-bottom:1px solid #fff">People You May Follow</h6>
+
+                    <?php foreach($getMoreFollow as $moreFollower):?>
+
+                        <?php
+                        $userzID = $moreFollower['user_id'];
+                        $this->db->where("user_id ='$userzID'");
+                        $this->db->order_by("id","RANDOM");
+                        $getCaption = $this->db->get('uploads')->result_array();
+
+                        //count number of followers
+                        $this->db->where("user_id='$userzID'");
+                        $countUserzFollowers = $this->db->count_all_results("followingx");
+
+                        //count number of following
+                        $this->db->where("follower_id='$userzID'");
+                        $countUserzFollowing = $this->db->count_all_results("followingx");
+                        ?>
+
+
+                        <div class="col-sm-6 m-0 p-20">
+                            <div class="profile-grid-block p-0">
+                                <a href="<?php echo base_url('profile/check/'.$moreFollower['user_id'])?>">
+                                    <div class="grid-image" style="background: linear-gradient(rgba(70,20,10,0.6),rgba(0,0,0,0.4)), url(<?php if(!empty($getCaption[0]['picture_small_name'])){echo base_url('uploads/small_thumb/'.$getCaption[0]['picture_small_name']);}else{echo base_url('photo/77345942_widepreview400.jpg'); }?>)">
+
+                                    </div>
+                                    <div class="grid-user-content">
+                                        <div class="grid-user-picture">
+                                            <img src="<?php if($moreFollower['picture']){echo base_url('users_photo/'.$moreFollower['picture']);}else{ echo base_url('users_photo/avatar.png');}?>" class="img-circle img-thumbnail" width="100" height="100" style="height: 62px">
+                                        </div>
+                                        <h5 class="text-center f-raleway f-s-18">
+                                            <?php echo $moreFollower['username'] ?>
+                                            <br>
+                                            <a class="btn btn-success btn-xs m-b-10" href="">Follow</a>
+
+                                        </h5>
+
+                                        <div class="text-center contest-cat-line p-l-10">
+                                            <ul>
+                                                <li class="label label-primary p-t-2" style="height: 20px;min-width: 30px"><a href="<?php echo 'https://facebook.com/'. str_replace('@','',$moreFollower['facebook'])?>" target="_new" class="f-s-10"><i class="fa fa-facebook"></i> </a></li>
+                                                <li class="label label-info p-t-2" style="height: 20px;min-width: 30px"><a href="<?php echo 'https://twitter.com/'. $moreFollower['twitter']?>" target="_new" class="f-s-10"><i class="fa fa-twitter"></i> </a></li>
+                                                <li class="label label-danger p-t-2" style="height: 20px;min-width: 30px"><a href="<?php echo 'https://instagram.com/'. str_replace('@','',$moreFollower['instagram'])?>" target="_new" class="f-s-10"><i class="fa fa-instagram"></i> </a></li>
+                                                <li class="label label-primary p-t-4" style="height: 20px;"><a href="<?php echo base_url('profile/followers/'.$moreFollower['user_id']) ?>" class="f-s-10"> Follower <?php echo $countUserzFollowers ?> </a></li>
+                                                <li class="label label-warning p-t-4" style="height: 20px;"><a href="<?php echo base_url('profile/following/'.$moreFollower['user_id']) ?>" class="f-s-10"> Following <?php echo $countUserzFollowing ?> </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+            <?php endif ?>
+
+
 
             <div class="photos_wall" style="min-height: 1700px;padding-top: 30px;padding-bottom: 100px">
 
@@ -181,6 +242,10 @@
 
         <div class="col-sm-4 hidden-xs" style="min-height: 650px;">
             <div class="right_var" style="z-index: -1">
+                <div class=""style="margin-bottom: -30px; margin-top: 55px">
+
+                    <small>Open Contests</small>
+                </div>
                 <div class="divider-horizontal"></div>
                 <?php foreach($getContestAvail as $getContest):?>
                     <?php
@@ -202,10 +267,10 @@
                             <img src="<?php echo base_url('uploads/contests/'.$getContest['contest_picture'])?>" class="img-circle" width="35" height="35">
                         </div>
                         <div class="contest_info_row">
-                            <h5 class="contest_heading"><?php echo $getContest['contest_name']?> Contest</h5>
-                            <p>
+                            <h5 class="contest_heading" style="line-height: 19.7px"><?php echo $getContest['contest_name']?> Contest</h5>
+                            <p class="m-t-5">
                                 <?php echo $getContest['contest_grand_price']?>
-                                <small class="pull-right"><?php echo $d2 ?> Days left</small>
+                                <small class="pull-right m-t-30"><?php echo $d2 ?> Days left</small>
                             </p>
 
                         </div>
@@ -215,7 +280,7 @@
                 <?php endforeach ?>
 
                 <div>
-                    <div class=""  style="margin-bottom: -30px; margin-top: 40px">
+                    <div class=""style="margin-bottom: -30px; margin-top: 40px">
 
                         <small>Who to Follow</small>
                     </div>

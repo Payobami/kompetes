@@ -75,3 +75,20 @@ $data['countFollowings'] = $this->db->count_all_results('followingx');
 //get all the followings
 $this->db->where("user_id = '$UserID'");
 $data['getFollowings'] = $this->db->get("followingx")->result_array();*/
+
+
+
+//get user notifications
+
+$this->db->where("user_id ='$UserID' || user_id ='general'");
+$data['countNotification'] = $this->db->count_all_results('notificationx');
+
+if($data['countNotification'] >=1){
+
+ //Fetch result out
+ $this->db->where("user_id ='$UserID' || user_id ='general'");
+ $this->db->order_by("date",'DESC');
+ $data['getNotifications'] = $this->db->get('notificationx')->result_array();
+
+
+}

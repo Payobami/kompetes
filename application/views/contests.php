@@ -7,6 +7,8 @@
                 <div class="col-sm-8 col-sm-offset-2">
                     <ul>
                         <li class="label label-danger no-border-radius"><a href="<?php echo base_url('contests')?>"> Explore All</a> </li>
+                        <li class="label label-default no-border-radius"><a href="<?php echo base_url('contests/cat/art')?>"> Art</a> </li>
+                        <li class="label label-default no-border-radius"><a href="<?php echo base_url('contests/cat/photography')?>"> Photography</a> </li>
                         <li class="label label-warning no-border-radius"><a href="<?php echo base_url('contests/video')?>"> Video </a> </li>
                         <li class="label label-success hidden-xs no-border-radius"><a href="<?php echo base_url('contests/cat/discover')?>"> Discover </a> </li>
                         <li class="label label-warning hidden-xs no-border-radius"><a href="<?php echo base_url('contests/cat/new')?>"> New </a> </li>

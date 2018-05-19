@@ -8,7 +8,7 @@
 
             <div class="form-style" style="">
                 <div style="z-index: 10000;">
-                    <h3 style="color: #fff;margin-bottom: 20px" class="">Login Here !!!</h3>
+                    <h3 style="color: #fff;margin-bottom: 20px" class="f-bitter">Login</h3>
                     <?php echo form_open(base_url($action_link)) ?>
                     <?php echo $success ?>
                         <div class="form-group">
@@ -31,16 +31,16 @@
                                 Remember Me
                             </label>
 
-                            <label class="pull-right"><a href="forgot.html" style="font-weight: 700;color: #1eb2ff">Forgot Password?</a></label>
+                            <label class="pull-right"><a href="<?php echo base_url('authentication/forgot')?>" style="font-weight: 700;color: #fff">Forgot Password?</a></label>
                             <br>
                         </div>
 
                         <div class="form-group">
                             <!--<input type="submit" class="btn btn-success btn-lg" name="submit" style="border-radius: 0; width: 100%; background: #449D44" value="Login">-->
-                            <button class="btn btn-success btn-lg" type="submit" style="border-radius: 0; width: 100%; background: #449D44">Login</button>
+                            <button class="btn btn-danger btn-lg" type="submit" style="border-radius: 0; width: 100%; background: #ff5a2c">Login</button>
                         </div>
 
-                        <div class="text-center"style="color: #f00;font-weight: 700;padding-bottom: 10px">
+                        <div class="text-center"style="color: #fff;font-weight: 700;padding-bottom: 10px">
                             <span class="text-center">OR</span>
                         </div>
 
@@ -50,7 +50,7 @@
                     <?php echo form_close() ?>
                 </div>
             </div>
-            <p class="text-center" style="color: #fff;">By creating your account you agree with our <a href="#"><b>terms</b></a> of service. </p>
+            <p class="text-center" style="color: #fff;">By creating your account you agree with our <a href="#" class="text-black"><b>terms</b></a> of service. </p>
         </div>
     </div>
 

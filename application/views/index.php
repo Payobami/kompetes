@@ -28,7 +28,7 @@
 
                     <a href="" class="btn btn-danger btn-lg no-border-radius" style="width: 250px; margin-bottom: 10px">
                         <i class="fa-fb"></i>
-                        Sign Up For Free
+                        Sign Up For Now
                     </a>
                 </div>
             </div>

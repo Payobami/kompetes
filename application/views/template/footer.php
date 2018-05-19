@@ -2,16 +2,18 @@
     <div class="container">
         <div class="col-sm-12">
 
-            <ul>
-                <li><a>About Us</a></li>
-                <li><a>Support</a></li>
+            <ul class="float-left">
+               <li><a>About Us</a></li>
+                <li><a>Sponsor</a></li>
+                <li><a>Contest</a></li>
                 <li><a>Privacy</a></li>
                 <li><a>Terms</a></li>
-                <li><a>Judges</a></li>
-                <li><a>Facebook</a></li>
-                <li><a><i class=""></i> Twitter</a></li>
-                <li><a>Instagram</a></li>
-                <li><a>Google+</a></li>
+                <li><a>Artknews Magazine</a></li>
+
+                <li><a> <i class="fa fa-facebook m-r-5 m-l-5"></i>Facebook</a></li>
+                <li><a><i class="fa fa-twitter m-r-5 m-l-5"></i> Twitter</a></li>
+                <li><a><i class="fa fa-instagram m-r-5 m-l-5"></i>Instagram</a></li>
+                <li><a><i class="fa fa-twitter m-r-5 m-l-5"></i>Google+</a></li>
             </ul>
 
         </div>

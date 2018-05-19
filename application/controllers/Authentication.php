@@ -26,6 +26,11 @@ class Authentication extends CI_Controller{
         $data['title'] = "Login";
         $data['success']="";
 
+        if(isset($_SESSION['userLogginID'])){
+
+            redirect(base_url('user/home'));
+        }
+
 
         $this->form_validation->set_rules('username','Username','required|trim');
         $this->form_validation->set_rules('password','Password','required|trim');

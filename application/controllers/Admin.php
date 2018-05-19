@@ -42,11 +42,7 @@ class Admin extends CI_Controller
                 $this->load->view("admin/home", $data);
                 $this->load->view("admin/template/admin_footer", $data);
             }
-
-
         }
-
-
     }
 
 
@@ -854,6 +850,59 @@ class Admin extends CI_Controller
                 $this->load->view("admin/template/admin_header", $data);
                 $this->load->view("admin/transaction", $data);
                 $this->load->view("admin/template/admin_footer", $data);
+            }
+        }
+    }
+
+
+    public function credit(){
+
+
+        $data['title'] = 'Credit Managment';
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+        } else {
+
+            require_once('action/fetch_user.php');
+
+
+            if ($data['adminStatus'] !== '1') {
+
+                redirect(base_url('user/home'));
+
+            } else {
+                require_once('action/admin_info.php');
+                require_once('action/time_function.php');
+
+
+                //get all the credit details involved
+
+                $this->db->where("status='0'");
+                $data['creditPrice'] = $this->db->get("credit_price")->result_array();
+
+
+                if(isset($_POST['price_per_credit'])) {
+                    //redirect(base_url('admin/credit'));
+                    $creditUnit = $_POST['creditUnit'];
+                    $creditPrice = $_POST['creditPrice'];
+                    //$pricePerCredit = $_POST['price_per_credit'];
+                    $pricePerCredit = round($creditPrice/$creditUnit,2);
+                    $id = $_POST['id'];
+
+                    $this->db->where("id='$id'");
+                    $result = $this->db->update("credit_price", array('credit_unit'=>$creditUnit,'credit_price'=>$creditPrice,'price_per_credit'=>$pricePerCredit));
+
+                    if($result){
+                        echo 'data updated';
+                    }
+                }
+
+
+                $this->load->view("admin/template/admin_header", $data);
+                $this->load->view("admin/credit", $data);
+                //$this->load->view("admin/template/admin_footer", $data);
+
             }
         }
     }

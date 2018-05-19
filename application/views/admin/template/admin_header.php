@@ -42,9 +42,8 @@
                     </ul>
                 </li>
 
-                <li><a href="<?php echo base_url('user/home')?>">Switch to User Account</a>
-
-                </li>
+                <li><a href="<?php echo base_url('admin/credit')?>">Credit Management</a></li>
+                <li><a href="<?php echo base_url('user/home')?>">Switch to User Account</a></li>
 
                 <li><a href="<?php echo base_url() ?>authentication/logout">Logout</a></li>
 

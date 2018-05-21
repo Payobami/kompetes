@@ -22,7 +22,9 @@
 
         }
     </style>
-
+    <?php if(isset($_SESSION['userLogginID']) AND $contest->entry_price !=='Free' AND $contest->entry_price > $creditUnit AND $contest->contest_status !=='1'){?>
+        <div class="alert alert-danger bg-red-gradient no-border-radius text-white p-5 m-b-3 m-t-0 text-center"><a class="close" data-dismiss="alert">x</a> It seems you do not have sufficient credits to enter this contest.. Please subscribe for more credits. <a href="<?php echo base_url('upgrade')?>" target="_new" class="text-black"> click to subscribe</a> </div>
+    <?php } ?>
 
     <div class="contest-bg" style="height: 180px !important;">
 
@@ -30,16 +32,35 @@
             <h6 class="" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $contest->contest_name ?> Photo Contest</h6>
             <!--<h5 class="text-center text-white">Share your best photos showing vegetable and fruit</h5>-->
 
+            <div class="text-center text-white">
 
-            <div class="p-r-20 " style="">
-                <?php if(isset($_SESSION['userLogginID'])){?>
-                <a href="#" class="btn btn-lg no-border-radius" style="background: #fff" data-toggle="modal" data-target="#myModal">
-                    Submit Photos
-                </a>
-                <?php }else{?>
-                    <a href="<?php echo base_url('login')?>" class="btn btn-lg no-border-radius" style="background: #fff">
-                        Login to Submit Photos
+                <?php
+                $contestStart = strtotime($contest->contest_start_date);
+                $currentDate = strtotime(date('Y-m-d'));
+                $contestClose = strtotime($contest->contest_close_date);
+
+                if($contest->contest_start_date < date('Y-m-d') && $contest->contest_status =='2'){?>
+
+                    <a class="btn btn-default btn-lg no-border-radius">
+                        Contest Closed
                     </a>
+                <?php } elseif($currentDate < $contestClose  || $contest->contest_status =='1'){?>
+                    <a href="<?php echo base_url('vote/info/'.$contest->contest_id)?>" class="btn btn-default btn-lg no-border-radius">
+                        Click to Vote
+                    </a>
+                <?php }else{?>
+                    <?php
+                    if(!isset($_SESSION['userLogginID']))
+                    {?>
+                        <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn btn-primary btn-lg no-border-radius">
+                            Login to Enter this contest <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
+                        </a>
+                    <?php }
+                    else{?>
+                        <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg no-border-radius">
+                            Enter Now <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Credits';} ?>
+                        </a>
+                    <?php }?>
                 <?php }?>
             </div>
 

@@ -7,13 +7,13 @@
 
         <div class="col-sm-8 col-sm-offset-2">
             <?php echo $success ?>
-            <h3 class="f-raleway text-white f-w-700 text-center p-b-20">Start your own new challenge!</h3>
+            <h3 class="f-raleway text-white f-w-700 text-center p-b-20">Start your own new Contest!</h3>
 
 
             <div class="form-group col-sm-6 col-sm-offset-3">
                 <?php echo form_error('challenge_name')?>
                 <label class="text-white">
-                    Name for the challenge
+                    Name for the Contest
                 </label>
                 <input type="text" name="challenge_name" value="<?php echo set_value('challenge_name')?>" class="form-control no-border-radius">
             </div>
@@ -21,7 +21,7 @@
             <div class="form-group col-sm-6 col-sm-offset-3">
                 <?php echo form_error('category')?>
                 <label class="text-white">
-                    Select Challenge Category
+                    Select Contest Category
                 </label>
                 <select name="category" class="form-control m-b-15 no-border-radius">
                     <option value="">-- Select Category --</option>
@@ -66,7 +66,7 @@
             <div class="form-group col-sm-6 col-sm-offset-3">
                 <?php echo form_error('allow_no')?>
                 <label class="text-white">
-                    How many Photo/Video allow per participant for this challenge
+                    How many Photo/Video allow per participant for this contest
                 </label>
                 <select name="allow_no" class="form-control no-border-radius">
                     <option value="1">1</option>
@@ -80,7 +80,7 @@
             <div class="form-group col-sm-6 col-sm-offset-3">
                 <?php echo form_error('challenge_type')?>
                 <label class="text-white">
-                    Type of Challenge
+                    Type of Contest
                 </label>
                 <select name="challenge_type" class="form-control no-border-radius">
                     <option value="">Select Type</option>
@@ -102,7 +102,7 @@
             <div class="p-l-10 p-r-10 m-t-15 form-row-challenge">
                 <div class="form-group m-t-40">
                     <?php echo form_error('file')?>
-                    <label>Choose a Challenge Banner <small>(JPG for photo or MP4 for video)</small></label><br>
+                    <label>Choose a Contest Banner <small>(JPG for photo or MP4 for video)</small></label><br>
                     <input type="file" name="file" class="form-control no-border-radius">
                 </div>
             </div>
@@ -111,7 +111,7 @@
             <div class="p-l-10 p-r-10 m-t-15 form-row-challenge">
                 <div class="form-group m-t-40">
                     <?php echo form_error('description')?>
-                    <label>Write a description about your challenge</label><br>
+                    <label>Write a description about your Contest</label><br>
                     <textarea class="form-control" name="description"></textarea>
                 </div>
             </div>
@@ -265,8 +265,8 @@
 
             <div class="text-center">
                 <div class="m-t-30 m-b-40 text-center" style="margin-top: 50px">
-                    <button class="btn btn-success no-border-radius" type="submit">Submit and Upload</button>
-                    <button class="btn btn-warning no-border-radius" type="submit">Preview</button>
+                    <button class="btn btn-danger no-border-radius" type="submit">Submit and Upload</button>
+                    <button class="btn btn-default no-border-radius" type="submit">Preview</button>
                 </div>
             </div>
         </div>

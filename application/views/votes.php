@@ -6,10 +6,32 @@
 </style>
 <section class="content" style="margin-top: 50px;padding: 0;">
 
-    <div class="">
-        <div class="">
-            <h4 class="text-center f-Roboto-Condensed m-0">Chose a contest, be inspired and start voting for your favourite photos</h4>
+    <div class="bg-white">
+
+
+
+        <div class="bg-white" style="background: #fff">
+            <h4 class="text-center f-Roboto-Condensed m-0 bg-white">Choose a contest and start voting</h4>
+
+            <div class="pull-right hidden-xs" style="min-height: 50px; margin-top: -52px">
+                <ul class="nav nav-tabs" style="width:;">
+                    <li class="no-border-radius bg-red text-white" style="width:;border-bottom: 2px solid #f00"><a href="" class="text-white"> Contest </a> </li>
+                    <li style="width:"><a href="<?php echo base_url('vote/challenge')?>" class="text-black"> Member Contest </a> </li>
+                </ul>
+            </div>
         </div>
+
+
+        <div class="visible-xs" style="min-height: 50px;">
+            <ul class="nav nav-tabs text-center" style="width:; border-bottom: 2px solid #f00">
+                <li class="no-border-radius bg-red text-white" style="width:50%;border-bottom: 2px solid #f00"><a href="<?php echo base_url('vote')?>" class="text-white"> Contest </a> </li>
+                <li style="width: 50%"><a class="text-black" href="<?php echo base_url('vote/challenge')?>"> Member Contest </a> </li>
+            </ul>
+        </div>
+
+
+
+
 
         <?php foreach($getVote as $votelist):?>
             <?php

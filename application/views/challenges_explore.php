@@ -94,14 +94,19 @@
                                 <a href="<?php echo base_url("challenges/check/".$challengeItem['challenge_id'])?>"></a>
                             </div>
 
-
-
-
-
                         </div>
                     </div>
                 </div>
                 <?php endforeach ?>
+
+                <?php if($countChallenges <=0):?>
+
+                    <h5 class="f-ubuntu text-center">
+                        No Contest Available for Now
+                    </h5>
+
+
+                <?php endif ?>
 
 
 
@@ -115,13 +120,13 @@
 
 
 
+    <?php if($countChallenges >=1):?>
 
+        <div class="text-center" style="margin-top: 120px;margin-bottom: 40px">
+            <a href="#" class="btn btn-default btn-lg" style="width: 270px;border: 3px solid #4bd26f;border-radius: 20px">Load more</a>
+        </div>
+    <?php endif ?>
 
-    <div class="text-center" style="margin-top: 120px;margin-bottom: 40px">
-
-                <a href="#" class="btn btn-default btn-lg" style="width: 270px;border: 3px solid #4bd26f;border-radius: 20px">Load more</a>
-
-            </div>
         </div>
 
 

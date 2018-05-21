@@ -31,14 +31,54 @@ class Vote extends CI_Controller{
             require_once('action/fetch_user.php');
         }
 
-
+        $current_date = date("Y-m-d H:i:s");
         //get all the contest out
-        //$this->db->where("");
-        $this->db->order_by('contest_close_date');
-        $data['getVote'] = $this->db->get('contests')->result_array();
+        $this->db->from("vote_information");
+        $this->db->where('vote_start_date <= ',date('Y-m-d', strtotime($current_date)));
+        $this->db->where('vote_end_date >= ',date('Y-m-d', strtotime($current_date)));
+        $this->db->where("status !='2'");
+        $this->db->join('contests','contests.contest_id = vote_information.contest_challenge_id');
+
+        //echo $this->db->count_all_results();
+
+        $this->db->order_by('contest_close_date','ASC');
+        $data['getVote'] = $this->db->get()->result_array();
+
+
+        //echo $this->db->count_all_results();
+
 
         $this->load->view('template/header',$data);
         $this->load->view('votes',$data);
+    }
+
+
+    public function challenge(){
+
+
+        $data['success']="";
+        $data['title'] = "Start Votes";
+
+        if(isset($_SESSION['userLogginID'])){
+            require_once('action/fetch_user.php');
+        }
+
+        $current_date = date("Y-m-d H:i:s");
+        //get all the contest out
+        $this->db->from("vote_information");
+        $this->db->where('vote_start_date <= ',date('Y-m-d', strtotime($current_date)));
+        $this->db->where('vote_end_date >= ',date('Y-m-d', strtotime($current_date)));
+        $this->db->where("vote_information.status !='2'");
+        $this->db->join('challenges','challenges.challenge_id = vote_information.contest_challenge_id');
+        $this->db->order_by('challenge_close_date',"ASC");
+        $data['getVote'] = $this->db->get()->result_array();
+
+
+
+
+        $this->load->view('template/header',$data);
+        $this->load->view('vote_challenge',$data);
+
     }
 
     public function info($id){
@@ -50,14 +90,36 @@ class Vote extends CI_Controller{
             require_once('action/fetch_user.php');
         }
 
-        $this->db->where("contest_id='$id'");
-        $countID = $this->db->count_all_results('contests');
+        $this->db->where("contest_challenge_id='$id'");
+        $countID = $this->db->count_all_results('vote_information');
         if($countID >=1){
 
-            $this->db->where("contest_id='$id'");
-            $getcontestInfo = $this->db->get('contests')->result();
+            //get the vote type
+            $this->db->where("contest_challenge_id='$id'");
+            $getType = $this->db->get('vote_information')->result_array();
 
-            foreach($getcontestInfo as $data['contestInfo'])
+            if($getType[0]['type'] =='contest') {
+
+                $this->db->where("contest_id='$id'");
+                $getcontestInfo = $this->db->get('contests')->result();
+
+                foreach ($getcontestInfo as $data['contestInfo']);
+
+                $data['contest_id'] =$data['contestInfo']->contest_id;
+                $data['contest_name'] =$data['contestInfo']->contest_name;
+                $data['contest_picture'] ='contests/'.$data['contestInfo']->contest_picture;
+            }
+            elseif($getType[0]['type'] =='challenge'){
+
+                $this->db->where("challenge_id='$id'");
+                $getChallengeInfo = $this->db->get('challenges')->result();
+
+                foreach ($getChallengeInfo as $challengInfo);
+                $data['contest_id'] =$challengInfo->challenge_id;
+                $data['contest_name'] =$challengInfo->challenge_name;
+                $data['contest_picture'] ='challenges/'.$challengInfo->challenge_banner;
+
+            }
 
             $this->load->view('template/header',$data);
             $this->load->view('vote_information',$data);
@@ -65,6 +127,9 @@ class Vote extends CI_Controller{
         }
 
         else{
+
+
+            //404 Page (Page not found)
 
 
         }
@@ -91,8 +156,11 @@ class Vote extends CI_Controller{
         elseif(isset($_SESSION['userLogginID'])) {
             require_once('action/fetch_user.php');
 
-            $this->db->where("contest_id='$id'");
-            $countID = $this->db->count_all_results('contests');
+            $current_date = date('Y-m-d');
+
+            $this->db->where("contest_challenge_id='$id'");
+            $this->db->where('vote_end_date >= ',date('Y-m-d', strtotime($current_date)));
+            $countID = $this->db->count_all_results('vote_information');
             if ($countID >= 1) {
 
                 if(!isset($_SESSION['realSession'])){
@@ -106,8 +174,8 @@ class Vote extends CI_Controller{
                 }
 
 
-                $this->db->where("contest_id='$id'");
-                $getcontestInfo = $this->db->get('contests')->result();
+                $this->db->where("contest_challenge_id='$id'");
+                $getcontestInfo = $this->db->get('vote_information')->result();
 
                 foreach ($getcontestInfo as $data['contestInfo']) ;
 
@@ -252,16 +320,5 @@ class Vote extends CI_Controller{
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }

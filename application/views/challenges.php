@@ -2,9 +2,9 @@
 
     <div class="challenge-static-bg">
         <div class="col-sm-8 col-sm-offset-2 text-center ">
-            <h3 class="f-raleway text-white f-w-600">Launch your own photo challenge!</h3>
+            <h3 class="f-raleway text-white f-w-600">Launch your own contest!</h3>
             <p class="text-white f-s-22 f-raleway">Got an interesting idea?</p>
-            <a href="<?php echo base_url('challenges/start')?>" class="btn btn-lg btn-default no-border-radius">Get Started</a>
+            <a href="<?php echo base_url('challenges/start')?>" class="btn btn-lg btn-default no-border-radius">Create Contest</a>
         </div>
     </div>
 
@@ -12,8 +12,12 @@
     <div class="challenge-row-text">
         <div class="col-sm-8 col-sm-offset-2">
             <h5 class="text-center f-ubuntu f-w-200">
-                Each peer photo challenge was created by a fellow photographer with a creative spark.
-                Join a challenge, dive in and share your creativity!
+                Each contest is created by a member of the Kompetes community
+                Choose a contest to enter
+
+
+                <!--Each peer photo challenge was created by a fellow photographer with a creative spark.
+                Join a challenge, dive in and share your creativity!-->
             </h5>
         </div>
     </div>
@@ -47,7 +51,7 @@
                                 ?>
 
                                 <div class="grid-user-picture">
-                                    <img src="<?php echo base_url('users_photo/'.$userInfo['picture'])?>" class="img-circle img-thumbnail" width="100">
+                                    <img src="<?php if(!empty($userInfo['picture'])){echo base_url('users_photo/'.$userInfo['picture']);}else{ echo base_url('users_photo/avatar.png'); }?>" class="img-circle img-thumbnail" width="100">
                                 </div>
                                 <h5 class="text-center"><?php echo $challenges['challenge_name']?></h5>
                                 <p class="m-0 text-center" style="color: #919191">
@@ -85,13 +89,12 @@
 
             </div>
 
+            <?php if($countChallenges >= 1):?>
 
-
-            <div class="text-center" style="margin-top: 120px;margin-bottom: 40px">
-
-                <a href="<?php echo base_url('challenges/explore/all')?>" class="btn btn-default btn-lg" style="width: 270px;border: 3px solid #4bd26f;border-radius: 20px">View all challenges</a>
-
-            </div>
+                <div class="text-center" style="margin-top: 120px;margin-bottom: 40px">
+                    <a href="<?php echo base_url('challenges/explore/all')?>" class="btn btn-default btn-lg" style="width: 270px;border: 3px solid #4bd26f;border-radius: 20px">View all Member Contests</a>
+                </div>
+            <?php endif ?>
         </div>
 
 

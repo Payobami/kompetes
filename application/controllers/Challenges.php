@@ -25,6 +25,7 @@ class Challenges extends CI_Controller
     {
         $data['success'] = "";
         $data['title'] = "Challenges";
+        $current_date = date('Y-m-d');
 
         if (!isset($this->session->userLogginID)) {
 
@@ -40,9 +41,11 @@ class Challenges extends CI_Controller
             //get oppen challenge
 
             $this->db->where("status='0'");
+            $this->db->where('challenge_start_date >= ',date('Y-m-d', strtotime($current_date)));
             $data['countChallenges'] = $this->db->count_all_results('challenges');
 
             $this->db->where("status='0'");
+            $this->db->where('challenge_start_date >= ',date('Y-m-d', strtotime($current_date)));
             $this->db->limit(8);
             $data['getChallenge'] = $this->db->get('challenges')->result_array();
 
@@ -345,12 +348,17 @@ class Challenges extends CI_Controller
 
 
             //get category
+            $current_date = date('Y-m-d');
+
             $this->db->where("status='0'");
             $data['getCategory'] = $this->db->get('category')->result_array();
 
+            $this->db->where('challenge_start_date >= ',date('Y-m-d', strtotime($current_date)));
+            $this->db->where("status = '0'");
+            $data['countChallenges'] = $this->db->count_all_results('challenges');
 
             //get all the challenges out
-
+            $this->db->where('challenge_start_date >= ',date('Y-m-d', strtotime($current_date)));
             $this->db->where("status = '0'");
             $data['getChallenge'] = $this->db->get('challenges')->result_array();
 

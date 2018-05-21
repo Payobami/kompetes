@@ -24,10 +24,10 @@
 
         }
     </style>
-    
-
+    <?php if(isset($_SESSION['userLogginID']) AND $contest->entry_price !=='Free' AND $contest->entry_price > $creditUnit){?>
+        <div class="alert alert-danger bg-red-gradient no-border-radius text-white p-5 m-b-3 m-t-0 text-center"><a class="close" data-dismiss="alert">x</a> It seems you do not have sufficient credits to enter this contest.. Please subscribe for more credits. <a href="<?php echo base_url('upgrade')?>" target="_new" class="text-black"> click to subscribe</a> </div>
+    <?php } ?>
     <div class="contest-bg" style="">
-
         <div class="container-fluid">
             <h1 class="text-center" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $contest->contest_name ?> <br> Photo Contest</h1>
             <h5 class="text-center text-white"><?php echo $contest->contest_grand_price ?> and more</h5>
@@ -35,17 +35,33 @@
 
         <div class="text-center">
 
-            <?php if(isset($_SESSION['userLogginID'])){?>
+            <?php
+            $contestStart = strtotime($contest->contest_start_date);
+            $currentDate = strtotime(date('Y-m-d'));
+            $contestClose = strtotime($contest->contest_close_date);
 
-            <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg no-border-radius">
-                Enter Now <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
-            </a>
-            <?php }else{?>
+            if($contest->contest_start_date < date('Y-m-d') && $contest->contest_status =='2'){?>
 
-                <a href="<?php echo base_url('login')?>" class="btn btn-primary btn-lg no-border-radius">
-                    Login to Enter this contest <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
+                <a class="btn btn-default btn-lg no-border-radius">
+                   Contest Closed
                 </a>
-
+            <?php } elseif($currentDate < $contestClose  || $contest->contest_status =='1'){?>
+                <a href="<?php echo base_url('vote/info/'.$contest->contest_id)?>" class="btn btn-default btn-lg no-border-radius">
+                    Click to Vote
+                </a>
+            <?php }else{?>
+                <?php
+                    if(!isset($_SESSION['userLogginID']))
+                    {?>
+                        <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn btn-primary btn-lg no-border-radius">
+                            Login to Enter this contest <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
+                        </a>
+                    <?php }
+                else{?>
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg no-border-radius">
+                        Enter Now <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Credits';} ?>
+                    </a>
+                <?php }?>
             <?php }?>
         </div>
 
@@ -85,7 +101,7 @@
 
         foreach($getContestComp as $contestComp)?>
             <div class="col-sm-4" style="margin: 0;">
-                <div class="contest-grid-price contest-price-row bg-aqua-gradient" style="">
+                <div class="contest-grid-price contest-price-row bg-aqua- text-white no-border-radius text-white" style="background: #ff2718;">
                     <div class="contest-pics" style="">
                         <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_1st_picture)?>" width="100%" class="img-circle">
                     </div>
@@ -114,7 +130,7 @@
 
 
                 <div class="col-sm-4" style="margin: 0;">
-                <div class="contest-grid-price contest-price-row bg-maroon-gradient">
+                <div class="contest-grid-price contest-price-row bg-maroon-gradient no-border-radius text-white">
                     <div class="contest-pics">
                         <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_2nd_picture)?>" width="100%" class="img-circle">
                     </div>
@@ -140,7 +156,7 @@
 
 
             <div class="col-sm-4">
-                <div class="contest-grid-price contest-price-row bg-purple-gradient" style="">
+                <div class="contest-grid-price contest-price-row bg-purple- no-border-radius text-white" style="background:#ff444e">
                     <div class="contest-pics">
                         <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_3d_picture)?>" class="img-circle" width="100%">
                     </div>
@@ -179,7 +195,7 @@
                 <p class="text-left">Hello! My name is Tyler Thompson and I am from Northwest Arkansas! My wife and I currently run a Wedding Photography and Videography business. Although I mostly shoot weddings I have a passion for Landscape Photography. Any chance I get, I go outside and explore the world around me. Photography has given me so many opportunities to travel this Earth</p>
             </div>-->
 
-            <h2 class="text-center" style="margin-bottom: 30px">How Kompetes Contest Works</h2>
+            <h2 class="text-center" style="margin-bottom: 30px">How Contest Works</h2>
 
             <div class="row" style="padding-top: 30px;">
 
@@ -201,17 +217,17 @@
                         ?>
                         <ul>
                             <li>
-                                <i class="fa fa-clock-o fa-3x text-blue"></i>
+                                <i class="fa fa-clock-o fa-3x text-black"></i>
                                 <span><?php echo $d2 ?> days left | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?> </span>
                             </li>
 
                             <li>
-                                <i class="fa fa-picture-o fa-3x text-purple"></i>
+                                <i class="fa fa-picture-o fa-3x text-black"></i>
                                 <span><?php echo $countEntries; ?> submissions | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?></span>
                             </li>
 
                             <li>
-                                <i class="fa fa-heart-o fa-3x text-red"></i>
+                                <i class="fa fa-heart-o fa-3x text-black"></i>
                                 <span>Judged based on creativity, originality and in accordance to the theme</span>
                             </li>
 
@@ -222,8 +238,9 @@
                             </li>-->
 
                             <li>
-                                <i class="fa fa-dollar fa-3x text-red"></i>
-                                <span>Entry fee: <?php if($contest->entry_price=='Free'){echo 'Free';}else{echo $contest->entry_price.' Points ';} ?> for Premium and Pro members</span>
+                                <!--<i class="fas fa-pound-sign fa-3x text-black"></i>-->
+                                <img src="https://use.fontawesome.com/releases/v5.0.13/svgs/solid/pound-sign.svg" style="width: 2em;" class="pull-left m-r-40">
+                                <span class="pull-left m-l-20" style="">Entry fee: <?php if($contest->entry_price=='Free'){echo 'Free';}else{echo $contest->entry_price.' Credits ';} ?> for Premium and Pro members</span>
                             </li>
                         </ul>
                     </div>

@@ -166,7 +166,7 @@ $getCredit = $query->result_array();
             <div class="" style="min-height: 500px;background: #fff">
                 <div class="bg-black-gradient text-center" style="height: 70px;">
                     <h6 class="text-white m-b-0 p-b-0 f-s-20 f-bitter" style="margin-bottom: -10px !important;">Credits</h6>
-                    <p class="text-white m-t-0 p-t-0 f-bitter"> Get access to competes for any photo contests</p>
+                    <p class="text-white m-t-0 p-t-0 f-bitter">Purchase credits here to use for entry to the premium contests.</p>
                 </div>
 
                 <?php echo form_open("upgrade/checkout", array('id'=>'upgrade'))?>
@@ -238,10 +238,6 @@ $getCredit = $query->result_array();
                     <div class="form-group text-center m-t-25 p-b-20">
                         <button type="submit"   class="btn btn-default btn-lg no-border-radius" style="width: 100%; border: 3px solid #007BC4;border-radius: 20px;">  Buy <span id="totalPrice"></span>  Credits </button>
                     </div>
-
-
-
-
                 </div>
                 <?php echo form_close()?>
 

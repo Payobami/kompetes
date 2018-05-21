@@ -30,14 +30,20 @@ class Contests extends CI_Controller{
         }
 
 
+        $current_date = date("Y-m-d H:i:s");
+
         $this->db->where("status='0'");
         $data['getCategory'] = $this->db->get('category')->result_array();
 
+
+        $this->db->where('contest_start_date >= ',date('Y-m-d', strtotime($current_date)));
         $this->db->where("contest_status='0'");
+
+        $this->db->order_by('contest_start_date','ASC');
         $data['getContest'] = $this->db->get('contests')->result_array();
 
         //count picture
-        $this->db->where("contest_status='0'");
+        $this->db->where("contest_status='0' AND contest_start_date<='$current_date'");
         //$this->db->like("category",$id,'both');
         $data['countContest'] = $this->db->count_all_results('contests');
 

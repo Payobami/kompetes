@@ -21,15 +21,15 @@
         <div class="contest-cat-line " style="border-bottom: 1px dotted #fff;padding-top: 10px">
             <div class="col-sm-8 col-sm-offset-2">
                 <ul>
-                    <li class="label label-danger no-border-radius"><a href="<?php echo base_url('photos')?>"> Explore All</a> </li>
-                    <li class="label label-warning no-border-radius"><a href="<?php echo base_url('video')?>"> Video </a> </li>
-                    <li class="label label-success hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/discover')?>"> Discover </a> </li>
-                    <li class="label label-warning hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/new')?>"> New </a> </li>
-                    <li class="label bg-aqua-gradient hidden-xs"><a href="<?php echo base_url('photos/cat/action')?>"> Action </a> </li>
-                    <li class="label bg-purple hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/winner')?>"> Winner </a> </li>
-                    <li class="label bg-teal-gradient hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/city')?>"> City </a> </li>
+                    <!--<li class="label label-danger no-border-radius"><a href="<?php /*echo base_url('photos')*/?>"> Explore All</a> </li>
+                    <li class="label label-warning no-border-radius"><a href="<?php /*echo base_url('video')*/?>"> Video </a> </li>-->
+                    <li class="label label-success hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/art')?>"> Art </a> </li>
+                    <li class="label label-warning hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/photography')?>"> Photography </a> </li>
+                    <!--<li class="label bg-aqua-gradient hidden-xs"><a href="<?php /*echo base_url('photos/cat/action')*/?>"> Action </a> </li>
+                    <li class="label bg-purple hidden-xs no-border-radius"><a href="<?php /*echo base_url('photos/cat/winner')*/?>"> Winner </a> </li>
+                    <li class="label bg-teal-gradient hidden-xs no-border-radius"><a href="<?php /*echo base_url('photos/cat/city')*/?>"> City </a> </li>-->
 
-
+<!--
                     <li class="label label-primary pull-right no-border-radius dropdown" style="margin-right: -10px"><a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Categories ▾ </a>
 
                         <ul class="dropdown-menu no-border-radius" role="menu" aria-labelledby="dLabel" style="width: 300px;height: 400px">
@@ -38,14 +38,14 @@
                                 <div class="dropLinks">
                                     <ul class="" style="color: #000;">
 
-                                        <?php foreach($getCategory as $cat):?>
-                                        <li><a href="<?php echo base_url('photos/cat/').$cat['category_name']?>" class=""><?php echo $cat['category_name']?></a></li>
-                                        <?php endforeach?>
+                                        <?php /*foreach($getCategory as $cat):*/?>
+                                        <li><a href="<?php /*echo base_url('photos/cat/').$cat['category_name']*/?>" class=""><?php /*echo $cat['category_name']*/?></a></li>
+                                        <?php /*endforeach*/?>
                                     </ul>
                                 </div>
                             </div>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>

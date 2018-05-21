@@ -60,8 +60,8 @@
                         <!-- Modal content-->
                         <div class="modal-content no-border-radius" style="margin-top: 280px">
                             <div class="modal-body text-center p-t-0">
-                                <button type="submit" value="Submit and Proceed" class="btn btn-success no-border-radius m-t-20">Submit and Proceed</button>
-                                <button type="reset" data-dismiss="modal" class="btn btn-warning no-border-radius m-t-20">Reset</button>
+                                <button type="submit" value="Submit and Proceed" class="btn btn-danger no-border-radius m-t-20">Submit and Proceed</button>
+                                <button type="reset" data-dismiss="modal" class="btn btn- bg-black no-border-radius m-t-20">Reset</button>
                             </div>
                         </div>
                     </div>
@@ -73,11 +73,11 @@
             <div class="col-sm-1 p-0 hidden" style="margin-top: -1px" hidden>
                 <nav class="pull-right p-t-20 voteRightView navbar navbar-default navbar-fixed-top" style="position: relative" id="">
                     <div class="userPhotoDP" style="width: 60px;height: 60px;">
-                        <img src="<?php echo base_url()?>users_photo/77577639_280x280.jpg" class="no-padding-xs">
+                        <img src="<?php if(!empty($userPhoto)){echo base_url("users_photo/".$userPhoto);}else{ echo base_url("users_photo/avatar.png");}?>" class="no-padding-xs">
                     </div>
 
                     <div class="m-t-25">
-                        <?php echo $contestInfo->contest_name ?> Photo Contest
+                        <?php echo $contestInfo->title ?> Photo Contest
                     </div>
 
 
@@ -92,24 +92,24 @@
 
 
 
-    <div class="visible hidden">
+    <div class="visible">
         <nav class="navbar navbar-default navbar-fixed-bottom voteBottomView" style="background: #fff">
             <div class="container p-b-20">
                 <div id="MobileHMenuStick" style="background: #fff">
                     <div class="m-b-10" style="">
                         <div class="userPhotoDP pull-left m-t-5" style="width: 50px;height: 50px;">
-                            <img src="<?php echo base_url()?>users_photo/77577639_280x280.jpg" class="">
+                            <img src="<?php if(!empty($userPhoto)){echo base_url("users_photo/".$userPhoto);}else{ echo base_url("users_photo/avatar.png");}?>" class="">
                         </div>
                         <div class="pull-left m-l-10">
-                            <?php echo $contestInfo->contest_name ?> Contest
+                            <?php echo $contestInfo->title ?> Contest
                             <div class="">
-                                <a href="<?php echo base_url('vote/start/'.$contestInfo->contest_id)?>" class="btn btn-warning btn-xs no-border-radius">Browse Gallery</a>
+                                <a href="<?php echo base_url('vote/start/'.$contestInfo->contest_challenge_id)?>" class="btn btn-warning btn-xs no-border-radius">Browse Gallery</a>
                             </div>
                         </div>
 
 
                         <div class="pull-right">
-                            <a href="<?php echo base_url('vote/start/'.$contestInfo->contest_id)?>" class="btn-danger btn btn-xs no-border-radius m-t-m_20">Go to the next image set</a>
+                            <a href="<?php echo base_url('vote/start/'.$contestInfo->contest_challenge_id)?>" class="btn-danger btn btn-xs no-border-radius m-t-m_20">Go to the next image set</a>
                         </div>
                     </div>
                 </div>

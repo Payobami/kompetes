@@ -201,17 +201,38 @@
 
                                 foreach($getEntry as $entry){
 
-                                     $entryName = $entry['entry_name'];
+                                     $entryName = $entry['contest_name'];
 
+                                 ?>
 
-
-                                ?>
+                                    <?php if(!empty($entryName)):?>
 
                                 <li>
                                     <a href="<?php echo base_url($entry['entry_type'].'s/check/'.$entry['entry_id'])?>"><?php echo $entryName ?></a>
                                 </li>
 
-                                <?php } ?>
+
+                                <?php endif; } ?>
+
+
+
+
+                                <?php
+
+                                foreach($getEntry2 as $entry2){
+
+                                    $entryName2 = $entry2['challenge_name'];
+
+                                    ?>
+
+                                    <?php if(!empty($entryName2)):?>
+
+                                        <li>
+                                            <a href="<?php echo base_url($entry2['entry_type'].'s/check/'.$entry2['entry_id'])?>"><?php echo $entryName2 ?></a>
+                                        </li>
+
+
+                                    <?php endif; } ?>
                             </ul>
                         </div>
 

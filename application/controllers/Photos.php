@@ -146,8 +146,18 @@ class Photos extends CI_Controller{
             $data['getComment'] = $this->db->get('commentx')->result_array();
 
 
-            $this->db->where("picture_id ='$id'");
-            $data['getEntry'] = $this->db->get("entries_submited")->result_array();
+
+            $this->db->select('*');
+            $this->db->from('entries_submited');
+            $this->db->where("entries_submited.picture_id ='$id'");
+            $this->db->join('contests',"contests.contest_id = entries_submited.entry_id");
+            $data['getEntry'] = $this->db->get()->result_array();
+
+            $this->db->select('*');
+            $this->db->from('entries_submited');
+            $this->db->where("entries_submited.picture_id ='$id'");
+            $this->db->join('challenges',"challenges.challenge_id = entries_submited.entry_id");
+            $data['getEntry2'] = $this->db->get()->result_array();
 
             //validate comment
             $this->form_validation->set_rules('comment','Comment','required','required|trim|max_length[250]');

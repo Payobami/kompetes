@@ -2,6 +2,27 @@
 
 ?>
 
+
+    <?php
+$timestampStart = strtotime($contest->contest_start_date);
+$formattedStartDate = date('F d', $timestampStart);
+
+//vote end
+$timestampClose = strtotime($contest->contest_close_date);
+$formattedCloseDate = date('F d, Y', $timestampClose);
+
+//voting starting date
+$d1=strtotime($contest->contest_start_date);
+$d2=ceil(($d1-time())/60/60/24);
+
+//entry submission end date
+
+$s1=strtotime($contest->contest_close_date);
+$s2=ceil(($s1-time())/60/60/24);
+
+
+?>
+
 <section class="content" style="margin-top: 55px">
     
     <style type="text/css">
@@ -40,28 +61,30 @@
             $currentDate = strtotime(date('Y-m-d'));
             $contestClose = strtotime($contest->contest_close_date);
 
-            if($contest->contest_start_date < date('Y-m-d') && $contest->contest_status =='2'){?>
+
+            if($d2 >0 && isset($_SESSION['userLogginID'])){?>
+
+                <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg no-border-radius">
+                    Enter Now <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Credits';} ?>
+                </a>
+
+            <?php }elseif(!isset($_SESSION['userLogginID']) && $d2 > 0){?>
+                <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn btn-primary btn-lg no-border-radius">
+                    Login to Enter this contest <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
+                </a>
+            <?php }?>
+
+            <?php if($d2 < 0 and $s2 > 0 || $contest->contest_status =='1'){?>
+
+                <a href="<?php echo base_url('vote/info/'.$contest->contest_id)?>" class="btn btn-default btn-lg no-border-radius">
+                    Click to Vote
+                </a>
+
+            <?php } elseif($s2 < 0 && $d2 < 0 || $contest->contest_status =='2'){?>
 
                 <a class="btn btn-default btn-lg no-border-radius">
                    Contest Closed
                 </a>
-            <?php } elseif($currentDate < $contestClose  || $contest->contest_status =='1'){?>
-                <a href="<?php echo base_url('vote/info/'.$contest->contest_id)?>" class="btn btn-default btn-lg no-border-radius">
-                    Click to Vote
-                </a>
-            <?php }else{?>
-                <?php
-                    if(!isset($_SESSION['userLogginID']))
-                    {?>
-                        <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn btn-primary btn-lg no-border-radius">
-                            Login to Enter this contest <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
-                        </a>
-                    <?php }
-                else{?>
-                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg no-border-radius">
-                        Enter Now <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Credits';} ?>
-                    </a>
-                <?php }?>
             <?php }?>
         </div>
 
@@ -202,23 +225,11 @@
 
                 <div class="col-sm-7 col-sm-offset-3" style="padding: 0">
                     <div class="contest-Hwork">
-                        <?php
-                        $timestampStart = strtotime($contest->contest_start_date);
-                        $formattedStartDate = date('F d', $timestampStart);
 
-                        //vote end
-                        $timestampClose = strtotime($contest->contest_close_date);
-                        $formattedCloseDate = date('F d, Y', $timestampClose);
-
-                        //remaining date
-                        $d1=strtotime($contest->contest_start_date);
-                        $d2=ceil(($d1-time())/60/60/24);
-
-                        ?>
                         <ul>
                             <li>
                                 <i class="fa fa-clock-o fa-3x text-black"></i>
-                                <span><?php echo $d2 ?> days left | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?> </span>
+                                <span><?php echo $d2 .' '. $s2 ?> days left | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?> </span>
                             </li>
 
                             <li>

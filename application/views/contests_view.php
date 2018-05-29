@@ -64,25 +64,25 @@ $s2=ceil(($s1-time())/60/60/24);
 
             if($d2 >0 && isset($_SESSION['userLogginID'])){?>
 
-                <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg no-border-radius">
+                <a href="#" data-toggle="modal" data-target="#myModal" class="btn bg-red text-white btn-lg no-border-radius">
                     Enter Now <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Credits';} ?>
                 </a>
 
             <?php }elseif(!isset($_SESSION['userLogginID']) && $d2 > 0){?>
-                <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn btn-primary btn-lg no-border-radius">
+                <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn btn- bg-black text-white btn-lg no-border-radius">
                     Login to Enter this contest <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
                 </a>
             <?php }?>
 
             <?php if($d2 < 0 and $s2 > 0 || $contest->contest_status =='1'){?>
 
-                <a href="<?php echo base_url('vote/info/'.$contest->contest_id)?>" class="btn btn-default btn-lg no-border-radius">
+                <a href="<?php echo base_url('vote/info/'.$contest->contest_id)?>" class="btn btn- bg-red btn-lg text-white no-border-radius">
                     Click to Vote
                 </a>
 
             <?php } elseif($s2 < 0 && $d2 < 0 || $contest->contest_status =='2'){?>
 
-                <a class="btn btn-default btn-lg no-border-radius">
+                <a class="btn btn-danger btn-lg no-border-radius">
                    Contest Closed
                 </a>
             <?php }?>
@@ -124,7 +124,7 @@ $s2=ceil(($s1-time())/60/60/24);
 
         foreach($getContestComp as $contestComp)?>
             <div class="col-sm-4" style="margin: 0;">
-                <div class="contest-grid-price contest-price-row bg-aqua- text-white no-border-radius text-white" style="background: #ff2718;">
+                <div class="contest-grid-price contest-price-row bg-aqua- text-white no-border-radius text-white" style="background: #ff2a02;">
                     <div class="contest-pics" style="">
                         <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_1st_picture)?>" width="100%" class="img-circle">
                     </div>
@@ -153,7 +153,7 @@ $s2=ceil(($s1-time())/60/60/24);
 
 
                 <div class="col-sm-4" style="margin: 0;">
-                <div class="contest-grid-price contest-price-row bg-maroon-gradient no-border-radius text-white">
+                <div class="contest-grid-price contest-price-row no-border-radius text-white" style="background: #ff4f0d;">
                     <div class="contest-pics">
                         <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_2nd_picture)?>" width="100%" class="img-circle">
                     </div>
@@ -179,7 +179,7 @@ $s2=ceil(($s1-time())/60/60/24);
 
 
             <div class="col-sm-4">
-                <div class="contest-grid-price contest-price-row bg-purple- no-border-radius text-white" style="background:#ff444e">
+                <div class="contest-grid-price contest-price-row bg-purple- no-border-radius text-white" style="background:#ff7970">
                     <div class="contest-pics">
                         <img src="<?php echo base_url('uploads/contests/'.$contestComp->contest_3d_picture)?>" class="img-circle" width="100%">
                     </div>
@@ -272,7 +272,7 @@ $s2=ceil(($s1-time())/60/60/24);
     <div class="contest-foot">
 
         <h4 class="text-center text-white">Partners & Brands</h4>
-        <p class="text-center text-white" style="font-size: 20px"> Collaborate with millions of creative photographers to increase your reach and find awesome & original content. <a href="">Learn more!</a> </p>
+        <p class="text-center text-white" style="font-size: 20px"> Collaborate with millions of creative photographers to increase your reach and find awesome & original content. <a class="text-white" href="">Learn more!</a> </p>
 
     </div>
 
@@ -314,7 +314,7 @@ $s2=ceil(($s1-time())/60/60/24);
                 <a class="" data-dismiss="modal">X</a>
             </div>
             <div class="p-l-20" style="margin-top: -40px">
-                <p>Click the photo(s) you'd like to submit or <a href="<?php echo base_url('upload')?>" class="btn btn-xs btn-success">Upload</a> </p>
+                <p>Click the photo(s) you'd like to submit or <a href="<?php echo base_url('upload')?>" class="btn btn-xs bg-black btn-success">Upload</a> </p>
             </div>
 
             <div class="p-l-2-" style="min-height: 50px;background: #d5d5d5"></div>
@@ -372,9 +372,9 @@ $s2=ceil(($s1-time())/60/60/24);
                             <div class="pull-left">
                                 <div class="">
                                     <input type="hidden" name="entry_type" value="contest">
-                                    <input type="submit" value="Submit" class="btn btn-success btn-sm no-border-radius">Submit</input>
+                                    <input type="submit" value="Submit" class="btn btn-success bg-red btn-sm no-border-radius">Submit</input>
 
-                                    By entering this challenge you accept ViewBug's Terms of Use
+                                    By entering this challenge you accept Kompetes's Terms of Use
                                 </div>
                             </div>
 

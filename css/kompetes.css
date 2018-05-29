@@ -507,7 +507,8 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 3px solid #f00;
 }
 body {
-  background: #ddd;
+  background: #fff !important;
+  height: 100%;
 }
 @media only screen and (max-width: 650px) {
   .navbar-black .navbar-nav > li > a {
@@ -1153,6 +1154,10 @@ z-index
   background: #000;
   min-height: 50px;
   color: #fff;
+  position: fixed;
+  width: 100%;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
 }
 .footer ul {
   width: 100%;
@@ -3213,7 +3218,7 @@ margin-top
 }
 .dropZone .dropzone-button {
   height: 50px;
-  background: #74b9ff !important;
+  background: #000 !important;
   text-align: center;
   color: #fff;
   font-size: 22px;
@@ -3256,6 +3261,8 @@ margin-top
   min-width: 100px;
   margin-right: 10px;
   float: left;
+  background: #000;
+  color: #fff !important;
   margin-bottom: 10px;
 }
 /*mobile search modal */

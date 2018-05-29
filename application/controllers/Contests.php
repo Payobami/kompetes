@@ -49,6 +49,8 @@ class Contests extends CI_Controller{
 
         $this->load->view('template/header', $data);
         $this->load->view('contests', $data);
+        $this->load->view('template/footer', $data);
+
     }
 
 

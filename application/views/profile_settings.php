@@ -1,4 +1,24 @@
+<style type="text/css">
+    .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+        color: #fff !important;
+        background-color: #000;
+    }
 
+    .nav > li > a:focus{
+
+        color: #000 !important;
+    }
+
+    .nav > li > a:hover, .nav > li > a:focus {
+        text-decoration: none;
+        background-color: #000 !important !important;
+        background: #000 !important !important;
+        border-bottom: 3px solid #f00;
+    }
+
+
+
+</style>
 
 <section class="content p-t-40" style="margin-top: 40px;padding: 0;">
     <div class="container-fluid">
@@ -10,7 +30,7 @@
 
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-                    <li><a href="#password" data-toggle="tab">Password</a></li>
+                    <li class="text-black"><a href="#password" data-toggle="tab">Password</a></li>
                     <!--<li><a href="#social_connect" data-toggle="tab">Social Connect</a></li>-->
                 </ul>
             </div>
@@ -49,8 +69,8 @@
 
 
                     <div class="col-sm-8">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading"> Profile Information</div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading bg-black text-white"> Profile Information</div>
                             <div class="panel-body">
                                 <?php echo form_open(base_url('profile/update'))?>
                                     <div class="form-group col-sm-6">
@@ -216,7 +236,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-12">
-                                        <input type="submit" class="btn btn-primary no-border-radius" value="Update Profile">
+                                        <input type="submit" class="btn btn-dark bg-black-gradient no-border-radius" value="Update Profile">
                                     </div>
                                 <?php echo form_close()?>
                             </div>
@@ -259,7 +279,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="submit" class="btn-success btn no-border-radius" value="Change Password">
+                                            <input type="submit" class="btn- bg-red text-white btn no-border-radius" value="Change Password">
                                         </div>
                                     <?php echo form_close()?>
                                 </div>

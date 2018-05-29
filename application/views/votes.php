@@ -15,7 +15,7 @@
 
             <div class="pull-right hidden-xs" style="min-height: 50px; margin-top: -52px">
                 <ul class="nav nav-tabs" style="width:;">
-                    <li class="no-border-radius bg-red text-white" style="width:;border-bottom: 2px solid #f00"><a href="" class="text-white"> Contest </a> </li>
+                    <li class="no-border-radius text-black" style="width:;border-bottom: 2px solid #f00"><a href="" class="text-black"> Contest </a> </li>
                     <li style="width:"><a href="<?php echo base_url('vote/challenge')?>" class="text-black"> Member Contest </a> </li>
                 </ul>
             </div>
@@ -24,7 +24,7 @@
 
         <div class="visible-xs" style="min-height: 50px;">
             <ul class="nav nav-tabs text-center" style="width:; border-bottom: 2px solid #f00">
-                <li class="no-border-radius bg-red text-white" style="width:50%;border-bottom: 2px solid #f00"><a href="<?php echo base_url('vote')?>" class="text-white"> Contest </a> </li>
+                <li class="no-border-radius bg- text-black" style="width:50%;border-bottom: 2px solid #f00"><a href="<?php echo base_url('vote')?>" class="text-black"> Contest </a> </li>
                 <li style="width: 50%"><a class="text-black" href="<?php echo base_url('vote/challenge')?>"> Member Contest </a> </li>
             </ul>
         </div>

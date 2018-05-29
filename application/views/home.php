@@ -46,10 +46,13 @@
                                         <div class="grid-user-picture">
                                             <img src="<?php if($moreFollower['picture']){echo base_url('users_photo/'.$moreFollower['picture']);}else{ echo base_url('users_photo/avatar.png');}?>" class="img-circle img-thumbnail" width="100" height="100" style="height: 62px">
                                         </div>
-                                        <h5 class="text-center f-raleway f-s-18">
+                                        <h5 class="text-center f-raleway f-s-18 ">
+                                            <span class="text-black">
                                             <?php echo $moreFollower['username'] ?>
+                                            </span>
+
                                             <br>
-                                            <a class="btn btn-success btn-xs m-b-10" href="">Follow</a>
+                                            <a class="btn btn-success btn-xs m-b-10 bg-red no-border-radius" href="">Follow</a>
 
                                         </h5>
 
@@ -58,8 +61,8 @@
                                                 <li class="label label-primary p-t-2" style="height: 20px;min-width: 30px"><a href="<?php echo 'https://facebook.com/'. str_replace('@','',$moreFollower['facebook'])?>" target="_new" class="f-s-10"><i class="fa fa-facebook"></i> </a></li>
                                                 <li class="label label-info p-t-2" style="height: 20px;min-width: 30px"><a href="<?php echo 'https://twitter.com/'. $moreFollower['twitter']?>" target="_new" class="f-s-10"><i class="fa fa-twitter"></i> </a></li>
                                                 <li class="label label-danger p-t-2" style="height: 20px;min-width: 30px"><a href="<?php echo 'https://instagram.com/'. str_replace('@','',$moreFollower['instagram'])?>" target="_new" class="f-s-10"><i class="fa fa-instagram"></i> </a></li>
-                                                <li class="label label-primary p-t-4" style="height: 20px;"><a href="<?php echo base_url('profile/followers/'.$moreFollower['user_id']) ?>" class="f-s-10"> Follower <?php echo $countUserzFollowers ?> </a></li>
-                                                <li class="label label-warning p-t-4" style="height: 20px;"><a href="<?php echo base_url('profile/following/'.$moreFollower['user_id']) ?>" class="f-s-10"> Following <?php echo $countUserzFollowing ?> </a></li>
+                                                <li class="label label-prim bg-black p-t-4" style="height: 20px;"><a href="<?php echo base_url('profile/followers/'.$moreFollower['user_id']) ?>" class="f-s-10"> Followers <?php echo $countUserzFollowers ?> </a></li>
+                                                <li class="label label-wa bg-red p-t-4" style="height: 20px;"><a href="<?php echo base_url('profile/following/'.$moreFollower['user_id']) ?>" class="f-s-10"> Following <?php echo $countUserzFollowing ?> </a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -242,7 +245,7 @@
 
         <div class="col-sm-4 hidden-xs" style="min-height: 650px;">
             <div class="right_var" style="z-index: -1">
-                <div class=""style="margin-bottom: -30px; margin-top: 55px">
+                <div class="border-bottom" style="margin-bottom: -30px; margin-top: 55px;border-bottom: 1px solid #d2d2d2">
 
                     <small>Open Contests</small>
                 </div>
@@ -261,13 +264,13 @@
                     $d2=ceil(($d1-time())/60/60/24);
 
                     ?>
-                    <div class="row_contest" style="background: #fff">
+                    <div class="row_contest" style="background: ">
                     <a href="<?php echo base_url("contests/check/".$getContest['contest_id'])?>">
                         <div class="contest_thumb_image">
                             <img src="<?php echo base_url('uploads/contests/'.$getContest['contest_picture'])?>" class="img-circle" width="35" height="35">
                         </div>
                         <div class="contest_info_row">
-                            <h5 class="contest_heading" style="line-height: 19.7px"><?php echo $getContest['contest_name']?> Contest</h5>
+                            <h5 class="contest_heading" style="line-height: 19.7px;"><?php echo $getContest['contest_name']?> Contest</h5>
                             <p class="m-t-5">
                                 <?php echo $getContest['contest_grand_price']?>
                                 <small class="pull-right m-t-30"><?php echo $d2 ?> Days left</small>
@@ -280,7 +283,7 @@
                 <?php endforeach ?>
 
                 <div>
-                    <div class=""style="margin-bottom: -30px; margin-top: 40px">
+                    <div class=""style="margin-bottom: -30px; margin-top: 40px;border-bottom: 1px solid #d2d2d2">
 
                         <small>Who to Follow</small>
                     </div>
@@ -289,11 +292,11 @@
                     <?php foreach($getMoreFollow as $getMoreF):?>
 
 
-                    <div class="follow_row">
-                        <img src="<?php echo base_url()?>users_photo/avatar.png" width="30" height="30">
+                    <div class="follow_row" style="background: #f2f2f2; border-bottom: 1px solid #d2d2d2">
+                        <img src="<?php if(empty($getMoreF['picture'])){ echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$getMoreF['picture']);}?>" width="30" height="30">
                         <a href="#"><?php echo $getMoreF['username']?></a>
                         <span class="right">
-                            <a href="" class="btn btn-success btn-xs no-border-radius">Follow</a>
+                            <a href="" class="btn btn-success bg-red btn-xs no-border-radius">Follow</a>
                         </span>
                     </div>
                     <?php endforeach ?>
@@ -302,7 +305,7 @@
 
 
                 <div>
-                    <div class=""  style="margin-bottom: -30px; margin-top: 40px">
+                    <div class=""  style="margin-bottom: -30px; margin-top: 40px;border-bottom: 1px solid #d2d2d2">
 
                         <small>Ongoing Voting</small>
                     </div>

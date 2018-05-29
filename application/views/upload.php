@@ -1,4 +1,66 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/dropzone.css">
+<style type="text/css">
+    .borderNone{
+        border: none !important;
+    }
+
+    .tagsinput {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 6px 6px 0;
+        width: 300px;
+        overflow-y: auto;
+    }
+    span.tag {
+
+        display: block;
+        float: left;
+        padding: 0px 5px 0px 5px;
+        text-decoration: none;
+        /*background: #1abb9c;*/
+        background: #c02f21;
+        color: #f1f6f7;
+        margin-right: 5px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        font-family: helvetica;
+    }
+    span.tag a {
+        color: #f1f6f7 !important;
+    }
+    .tagsinput span.tag a {
+        font-weight: bold;
+        color: #82ad2b;
+        text-decoration: none;
+        font-size: 11px;
+    }
+    .tagsinput input {
+        width: 80px;
+        margin: 0px;
+        font-family: helvetica;
+        font-size: 12px;
+        border: 1px solid transparent;
+        padding: 3px;
+        background: transparent;
+        color: #000;
+        outline: 0px;
+    }
+    .tagsinput div {
+        display: block;
+        float: left;
+    }
+    .tags_clear {
+        clear: both;
+        width: 100%;
+        height: 0px;
+    }
+    .not_valid {
+        background: #fbd8db !important;
+        color: #90111a !important;
+    }
+</style>
+
+
 <section  class="content" style="margin-top: 90px;padding: 0;">
 
     <div class="container-fluid no-margin-xs no-padding-xs" style="">
@@ -16,7 +78,7 @@
 
 
 
-            <div class="upload-info no-padding-xs" style="margin-top: 50px; background:#fff;padding:20px;">
+            <div class="upload-info no-padding-xs" style="margin-top: 50px; background:#f2f2f2;padding:20px;">
                 <?php echo form_open()?>
                     <div class="uploaded-picture">
 
@@ -44,8 +106,16 @@
 
                     <div class="form-group col-sm-6">
 
-                        <label>Tags</label>
-                        <input class="form-control no-border-radius" name="tags" value="<?php echo set_value('tags')?>" placeholder="Tag the picture separate by comma">
+
+                        <div class="control-group">
+                            <?php echo form_error('tags')?>
+                            <label class="">Tags</label>
+                            <div class="">
+                                <input id="tags_1" type="text" class="tags form-control" name="tags" value="<?php echo set_value('tags','Prize Value, Abstract, Jury')?>"/>
+                                <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+                            </div>
+                        </div>
+
                     </div>
 
 
@@ -60,7 +130,7 @@
                             ?>
                             <div class="select-cat">
                                 <input id="active<?php echo $cat['id']?>"  name="category[]" value="<?php echo $cat['category_name']?>" type="checkbox" class="check">
-                                <label for="active<?php echo $cat['id']?>" class="check"><?php echo $cat['category_name']?></label>
+                                <label for="active<?php echo $cat['id']?>" class="check text-white f-ubuntu"><?php echo $cat['category_name']?></label>
                             </div>
 
                             <?php endforeach ?>
@@ -70,7 +140,7 @@
 
 
                     <div class="col-sm-6 col-sm-offset-3">
-                        <button type="submit" class="btn btn-success no-border-radius btn-lg" style="width: 100%">SUBMIT</button>
+                        <button type="submit" class="btn btn- bg-black text-white no-border-radius btn-lg" style="width: 100%">SUBMIT</button>
                     </div>
 
                     <div class="clearfix"></div>
@@ -106,6 +176,7 @@
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src="<?php echo base_url('plugins/jquery.tagsinput/src/jquery.tagsinput.js')?>"></script>
 <script src='<?php echo base_url()?>/js/dropzone.js'></script>
 
 <script>
@@ -126,6 +197,26 @@
     });*/
 
     //Dropzone.options.myDropzone = false;
+</script>
+
+<script>
+    function onAddTag(tag) {
+        alert("Added a tag: " + tag);
+    }
+
+    function onRemoveTag(tag) {
+        alert("Removed a tag: " + tag);
+    }
+
+    function onChangeTag(input, tag) {
+        alert("Changed a tag: " + tag);
+    }
+
+    $(document).ready(function() {
+        $('#tags_1').tagsInput({
+            width: 'auto'
+        });
+    });
 </script>
 
 </body>

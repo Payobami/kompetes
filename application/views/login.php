@@ -50,7 +50,7 @@
                     <?php echo form_close() ?>
                 </div>
             </div>
-            <p class="text-center" style="color: #fff;">By creating your account you agree with our <a href="#" class="text-black"><b>terms</b></a> of service. </p>
+            <p class="text-center" style="color: #fff;">By creating your account you agree with our <a href="#" class="text-red"><b>terms</b></a> of service. </p>
         </div>
     </div>
 

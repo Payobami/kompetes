@@ -2,18 +2,18 @@
     <div class="container">
         <div class="col-sm-12">
 
-            <ul class="float-left">
+            <ul class="float-left inl">
                <li><a>About Us</a></li>
                 <li><a>Sponsor</a></li>
                 <li><a>Contest</a></li>
                 <li><a>Privacy</a></li>
                 <li><a>Terms</a></li>
-                <li><a>Artknews Magazine</a></li>
-
-                <li><a> <i class="fa fa-facebook m-r-5 m-l-5"></i>Facebook</a></li>
-                <li><a><i class="fa fa-twitter m-r-5 m-l-5"></i> Twitter</a></li>
-                <li><a><i class="fa fa-instagram m-r-5 m-l-5"></i>Instagram</a></li>
-                <li><a><i class="fa fa-twitter m-r-5 m-l-5"></i>Google+</a></li>
+                <li><a>Support</a></li>
+                <li style="max-width: 20px !important; margin-right: -35px;padding-left: 0"><a> <i class="fa fa-facebook m-r-5 m-l-5"></i></a></li>
+                <li style="max-width: 20px !important;margin-right: -35px;padding-left: 0"><a><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
+                <li style="width: 20px;margin-right: -35px;"><a><i class="fa fa-instagram m-r-5 m-l-5"></i></a></li>
+                <li style="width: 40px;margin-right: -35px;"><a><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
+                <li style=""><a>Artknews Magazine</a></li>
             </ul>
 
         </div>
@@ -27,7 +27,6 @@
 
 <div id="mobileSearch" class="modal fade" role="dialog">
     <div class="modal-dialog" style="margin-top: 200px">
-
         <!-- Modal content-->
         <div class="modal-content no-border-radius">
 

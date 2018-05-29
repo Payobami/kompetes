@@ -18,7 +18,33 @@
             </p>
 
             <div>
-                <a href="<?php echo base_url('vote/start/'.$contest_id)?>" class="btn btn-lg no-border-radius" style="background: #fff;height: 60px; min-width: 180px;color: #000;padding-top: 15px">Start Voting</a>
+                <style type="text/css">
+                    .voteNow{
+                        left: 0;
+                        height: 40px;
+                        min-width: 150px;
+                        font-size: 23px;
+                        margin: auto;
+                        border: 2px solid #fff;
+                        border-radius: 10px !important;
+                        color: #fff;
+                        padding: .2em .6em .3em;
+                        font-weight: bold;
+                        line-height: 1;
+                        text-align: center;
+                        white-space: nowrap;
+                        vertical-align: baseline;
+                    }
+                    a :hover{
+                        text-decoration: none !important;
+                        color: #fff  ;
+                    }
+                </style>
+
+                <a href="<?php echo base_url('vote/start/'.$contest_id)?>" class="voteNow" style="position: relative;margin-bottom: -40px;">
+                    Start Voting
+                </a>
+
             </div>
         </div>
     </div>

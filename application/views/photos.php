@@ -15,16 +15,52 @@
             }
         }
 
+        .label :hover{
+
+            background: #f00 !important;
+            padding: .2em .6em .3em;
+            text-decoration: none;
+            display: ;
+            min-width: 100% !important;
+            position: ;
+        }
+
     </style>
 
-   | <div class="p-t-0 m-b-15" style="background: #fff">
+   <div class="p-t-0 m-b-15" style="background: #fff">
         <div class="contest-cat-line " style="border-bottom: 1px dotted #fff;padding-top: 10px">
             <div class="col-sm-8 col-sm-offset-2">
+
+                <div class="row">
+
+
+                    <div class="col-xs-6 col-xs-offset-3 text-center text-black p-t-40 m-b-10" style="min-height:60px">
+
+
+                        <div class="">
+                            <a href="<?php echo base_url('photos/cat/art')?>" class="text-black f-s-22 f-bitter"> Art</a>
+                            <a href="<?php echo base_url('photos/cat/photography')?>" class="text-black f-s-22 m-l-20 f-bitter"> Photography</a>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
                 <ul>
                     <!--<li class="label label-danger no-border-radius"><a href="<?php /*echo base_url('photos')*/?>"> Explore All</a> </li>
                     <li class="label label-warning no-border-radius"><a href="<?php /*echo base_url('video')*/?>"> Video </a> </li>-->
-                    <li class="label label-success hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/art')?>"> Art </a> </li>
-                    <li class="label label-warning hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/photography')?>"> Photography </a> </li>
+
+
+                    <li class="label bg-  hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/art')?>"> Art </a> </li>
+                    <li class="label bg- hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/photography')?>"> Photography </a> </li>
+
+
                     <!--<li class="label bg-aqua-gradient hidden-xs"><a href="<?php /*echo base_url('photos/cat/action')*/?>"> Action </a> </li>
                     <li class="label bg-purple hidden-xs no-border-radius"><a href="<?php /*echo base_url('photos/cat/winner')*/?>"> Winner </a> </li>
                     <li class="label bg-teal-gradient hidden-xs no-border-radius"><a href="<?php /*echo base_url('photos/cat/city')*/?>"> City </a> </li>-->
@@ -52,7 +88,7 @@
     </div>
 
 
-    <div class="container-fluid" style="min-height: 550px; padding: 0;margin-top: -55px">
+    <div class="container-fluid" style="min-height: 550px; padding: 0;margin-top: -5px">
 
         <div id="photo_wrapper" class="photo_wrapper">
 
@@ -65,12 +101,12 @@
                         </a>
 
                         <div>
-                            <label class="award label label-default">
+                            <label class="award label bg-black">
                                <a href="" class="text-white"> <i class="fa fa-thumbs-up"></i></a>
                             </label>
 
                             <?php if(isset($this->session->userLogginID)):?>
-                                <label class="star label label-danger">
+                                <label class="star label bg-black">
                                     <a href="" class="text-white">
                                         <i class="fa fa-star"></i>
                                     </a>

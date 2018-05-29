@@ -419,7 +419,7 @@ var Dropzone = function (_Emitter) {
         /**
          * The text used before any files are dropped.
          */
-        dictDefaultMessage: "<div class='dropZone'><h3>Drop Photos here to upload </h3> <br>  <span>or</span><br><br> <div class='dropzone-button'> Upload From Computer </div> <p> Recommended. max 5 photos at once and .jpgs larger than 1200px X 600px. <br>By uploading photos.. you agree to our terms of use.</p></div>",
+        dictDefaultMessage: "<div class='dropZone'><h3>Drop Photos here to upload </h3> <br>  <span>or</span><br><br> <div class='dropzone-button bg-black' style='background: #000'> Upload From Computer </div> <p> Recommended. max 5 photos at once and .jpgs larger than 1200px X 600px. <br>By uploading photos.. you agree to our terms of use.</p></div>",
 
         /**
          * The text that replaces the default message text it the browser is not supported.

@@ -107,9 +107,31 @@ class User extends CI_Controller{
 
 
 
-    public function profile($id){
+    public function credit(){
+
+        $data['success'] = "";
+        if(!isset($this->session->userLogginID)){
+
+            redirect(base_url('login?redirect=user/credit'));
 
 
+        }
+
+        else{
+
+            require_once('action/fetch_user.php');
+            require_once('action/time_function.php');
+
+            $data['title'] = '';
+
+
+            $this->load->view('template/header', $data);
+
+            $this->load->view('mycredit', $data);
+
+            $this->load->view('template/footer', $data);
+
+        }
 
 
 

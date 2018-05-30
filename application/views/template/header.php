@@ -116,7 +116,7 @@
                                         <li class="width-100 bg bg-black"><a href="<?php echo base_url("upgrade")?>" style="color: #333333 !important;">Credit</a></li>
                                         <!--<li class="no-bg width-100" ><a href="#" style="color: #333333 !important;">My Stats</a></li>
                                         <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">Inbox </a></li>-->
-                                        <li class="no-bg width-100"><a href="#" style="color: #333333 !important;">My Credits </a></li>
+                                        <li class="no-bg width-100"><a href="<?php echo base_url('user/credit')?>" style="color: #333333 !important;">My Credits </a></li>
                                         <li class="no-bg width-100"><a href="<?php echo base_url('profile/update')?>" style="color: #333333 !important;">Account Settings </a></li>
                                         <li class="no-bg width-100"><a href="<?php echo base_url('authentication/logout')?>" style="color: #333333 !important;">Logout </a></li>
                                     </ul>
@@ -219,7 +219,7 @@
                                 <li class="bg bg-black text-white"><a href="<?php echo base_url("upgrade") ?>" style="color: #fff !important;">Upgrade Credit</a></li>
                                 <!--<li class=""><a href="#" style="color: #333333 !important;">My Stats</a></li>
                                 <li class=""><a href="#" style="color: #333333 !important;">Inbox </a></li>-->
-                                <li class=""><a href="#" style="color: #333333 !important;">My Credit </a></li>
+                                <li class=""><a href="<?php echo base_url('user/credit')?>" style="color: #333333 !important;">My Credit </a></li>
                                 <li class=""><a href="<?php echo base_url('profile/update')?>" style="color: #333333 !important;">Account Settings </a></li>
                                 <?php if($adminStatus == 1){?>
                                 <li class="bg-red text-white"><a href="<?php echo base_url('admin/home')?>" style="color: #fff !important;">Switch to Admin </a></li>

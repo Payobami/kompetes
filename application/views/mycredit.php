@@ -28,8 +28,6 @@
 
 
         <div class="row">
-
-
             <div class="col-sm-12 m-t-40">
 
                 <div class="table-responsive">

@@ -3079,6 +3079,45 @@ items item {
 .follow_row span {
   float: right;
 }
+.body-right {
+  width: 40%;
+  margin: 1px;
+float
+  ul: li;
+  display: inline-block;
+}
+.body-right .btn {
+  border: 1px solid #ededed;
+  color: #292f33;
+  background-color: #fff;
+  font-weight: bold;
+  font-family: sans-serif;
+  background-image: -webkit-linear-gradient(#fff, #f5f8fa);
+  background-image: -moz-linear-gradient(#fff, #f5f8fa);
+  background-image: -o-linear-gradient(#fff, #f5f8fa);
+  background-image: -ms-linear-gradient(#fff, #f5f8fa);
+  background-image: linear-gradient(#fff, #f5f8fa);
+  padding: 3px 13px;
+  font-size: 13px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.body-right .follow:active {
+  background-image: -webkit-linear-gradient(#fff, #f5f8fa);
+  background-image: -moz-linear-gradient(#fff, #f5f8fa);
+  background-image: -o-linear-gradient(#fff, #f5f8fa);
+  background-image: -ms-linear-gradient(#fff, #f5f8fa);
+  background-image: linear-gradient(#fff, #f5f8fa);
+  cursor: pointer;
+}
+.body-right .follow:hover {
+  background-image: -webkit-linear-gradient(#fff, #f5f8fa);
+  background-image: -moz-linear-gradient(#fff, #f5f8fa);
+  background-image: -o-linear-gradient(#fff, #f5f8fa);
+  background-image: -ms-linear-gradient(#fff, #f5f8fa);
+  background-image: linear-gradient(#fff, #f5f8fa);
+  cursor: pointer;
+}
 .ongoing_voting_row {
   width: 100%;
   background: #f2f2f2;

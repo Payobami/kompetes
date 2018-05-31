@@ -1,7 +1,7 @@
 
 <?php if(isset($_GET['redirect'])){$action_link = 'login?redirect='.$_GET['redirect'];}else{ $action_link ='login';}?>
 <section class="content login-bg" style="margin-top: 45px">
-    <div class="container-fluid" style="min-height: 520px">
+    <div class="container-fluid" style="min-height: 750px">
 
         <div class="col-sm-4 col-sm-offset-4 col-xs-12 col-xs-offset-0">
             <?php //echo $_GET['redirect']?>

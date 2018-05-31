@@ -24,14 +24,14 @@
                 <div class="col-sm-6 col-xs-5">
                     <div class="photo_share_row" style="margin-left: -20px">
                         <ul>
-                            <li><a href=""><i class="fa fa-star"></i></a></li>
-                            <li class="pull-right visible-xs" style="margin-right: -5px !important;"><a href="" class="text-red"><i class="fa fa-thumbs-up"></i></a></li>
-                            <li class="hidden-xs" style=""><a href="" class="text-red"><i class="fa fa-thumbs-up"></i></a></li>
-                            <li class="hidden-xs"><a href="" class="text-red"><i class="fa fa-twitter"></i></a></li>
-                            <li class="hidden-xs"><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li class="hidden-xs"><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li class="hidden-xs"><a href="" class="text-red"><i class="fa fa-pinterest"></i></a></li>
-                            <li class="hidden-xs"><a href=""><i class="fa fa-envelope"></i></a></li>
+                            <li><a href="" class="text-black"><i class="fa fa-star"></i></a></li>
+                            <li class="pull-right visible-xs" style="margin-right: -5px !important;"><a href="" class="text-black"><i class="fa fa-thumbs-up"></i></a></li>
+                            <li class="hidden-xs" style=""><a href="" class="text-black"><i class="fa fa-thumbs-up"></i></a></li>
+                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-twitter"></i></a></li>
+                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-facebook"></i></a></li>
+                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-pinterest"></i></a></li>
+                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-envelope"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,10 +43,53 @@
                             <a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>"><img src="<?php if(empty($ownerInfo->picture)){echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$ownerInfo->picture);}?>" width="40" style="height: 40px;width: 40px" class="img-circle"></a>
                         </div>
                         <div class="right"style="float: right">
-                            <span class="userName"><a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>"><b><?php echo $ownerInfo->username ?></b></a></span>
+                            <span class="userName "><a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>"><b><?php echo $ownerInfo->username ?></b></a></span>
                             <br>
-                            <a href="<?php echo base_url('follow/following/'.$ownerId) ?>"><label class="label label-default">Follow</label></a>
+                            <!--<a href="<?php /*echo base_url('follow/following/'.$ownerId) */?>"><label class="label label-default">Follow</label></a>-->
+                            <div class="body-right" style="margin-left: -15px">
+                                <ul>
+                                    <?php if(isset($_SESSION['userLogginID']) AND $ownerInfo->user_id !== $_SESSION['userLogginID']){?>
+                                        <?php
+
+                                        $userIDD = $_SESSION['userLogginID'];
+                                        //echo $ownerInfo->user_id;
+                                        //check if the user is already following
+
+                                        $this->db->where("follower_id = '$ownerInfo->user_id' AND user_id = '$userIDD'");
+                                        $countFollo = $this->db->count_all_results('followingx');
+
+
+                                        ?>
+
+                                    <li>
+                                        <?php if($countFollo <=0){?>
+                                        <a class="btn follow" id="<?php echo $ownerInfo->user_id ?>" rel="<?php echo $ownerInfo->user_id ?>">
+                                            <i class="fa fa-user-plus text-red"></i>
+                                            Follow
+                                        </a>
+                                        <?php }elseif($countFollo >= 1){?>
+                                            <a class="btn follow following" id="<?php echo $ownerInfo->user_id ?>" rel="<?php echo $ownerInfo->user_id ?>">
+                                                <i class="ext-red"></i>
+                                                Following
+                                            </a>
+                                        <?php } ?>
+
+                                    </li>
+
+
+
+                                    <?php }?>
+                                </ul>
+                            </div>
+
                         </div>
+
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -446,6 +489,61 @@
 <script src='<?php echo base_url('js/photo/photo_ca.js')?>'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+<script type="text/javascript" src="<?php echo base_url()?>js/functions.js"></script>
+
+
+<script type="text/javascript" >
+    $(function()
+    {
+        $(".follow").click(function(){
+            var element = $(this);
+            var I = element.attr("id");
+            var info = 'id=' + I;
+            $("#loading").html('<img src="loader.gif" >');
+
+            $.ajax({
+                type: "POST",
+                url: "follow/following",
+                data: info,
+                success: function(){
+                    $("#loading").ajaxComplete(function(){}).slideUp();
+                    $('#follow'+I).fadeOut(200).hide();
+                    $('#unfollow'+I).fadeIn(200).show();
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+<script type="text/javascript" >
+    $(function()
+    {
+        $(".unfollow").click(function(){
+            var element = $(this);
+            var I = element.attr("id");
+            var info = 'id=' + I;
+            $("#loading").html('<img src="loader.gif" >');
+
+            $.ajax({
+                type: "POST",
+                url: "unfollow.php",
+                data: info,
+                success: function(){
+                    $("#loading").ajaxComplete(function(){}).slideUp();
+                    $('#unfollow'+I).fadeOut(200).hide();
+                    $('#follow'+I).fadeIn(200).show();
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+
+
+
 
 
 </body>

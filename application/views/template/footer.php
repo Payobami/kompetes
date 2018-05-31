@@ -12,7 +12,7 @@
                 <li style="max-width: 20px !important; margin-right: -35px;padding-left: 0"><a> <i class="fa fa-facebook m-r-5 m-l-5"></i></a></li>
                 <li style="max-width: 20px !important;margin-right: -35px;padding-left: 0"><a><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
                 <li style="width: 20px;margin-right: -35px;"><a><i class="fa fa-instagram m-r-5 m-l-5"></i></a></li>
-                <li style="width: 40px;margin-right: -35px;"><a><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
+                <li style="width: 40px;margin-right: -35px;"><a><i class="fa fa-pinterest-p m-r-5 m-l-5"></i></a></li>
                 <li style=""><a>Artknews Magazine</a></li>
             </ul>
 

@@ -149,7 +149,7 @@ $getCredit = $query->result_array();
 
 <section class="content" style="margin-top: 55px;padding: 0; background: url(<?php echo base_url('img/bg/bg3.jpg')?>) no-repeat; background-size: cover">
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="min-height: 710px">
 
 
 

@@ -23,10 +23,45 @@ class Follow extends CI_Controller{
     }
 
 
-    public function following($id){
+    public function following(){
+
 
         $data['success']="";
         $data['title'] = "";
+
+
+        {
+            $follow_id = $_POST['follow'];
+            //run function from main class
+            $useID = $_SESSION['userLogginID'];
+            $follow_id = $_POST['follow'];
+            $id = $_POST['follow'];
+
+            require_once('action/fetch_user.php');
+
+            //get user information
+            $this->db->where("user_id='$id'");
+            $getFollowing = $this->db->get('userz')->result();
+            foreach($getFollowing as $following);
+
+            $insertFollower = array(
+                'username'=>$following->username,
+                'user_id'=> $id,
+                'follower_name'=> $data['username'],
+                'follower_id'=> $_SESSION['userLogginID'],
+                'date'=> date('Y-m-d H:i:s'),
+            );
+
+            $this->db->insert('followingx', $insertFollower);
+
+
+        }
+
+
+
+
+
+
 
         if(!isset($_SESSION['userLogginID'])){
 
@@ -40,7 +75,9 @@ class Follow extends CI_Controller{
         else{
 
 
-            require_once('action/fetch_user.php');
+
+
+
 
             //check if the user is already following..
             $username = $data['username'];
@@ -48,45 +85,38 @@ class Follow extends CI_Controller{
             $this->db->where("follower_id ='$useID' AND user_id='$id' AND status='0'");
             $countFollow = $this->db->count_all_results('followingx');
 
-            if($countFollow<=0){
-
-                //get user information
-                $this->db->where("user_id='$id'");
-                $getFollowing = $this->db->get('userz')->result();
-                foreach($getFollowing as $following);
+            if($countFollow<=0 and isset($_POST['follow'])){
 
 
-                $insertFollower = array(
-                    'username'=>$following->username,
-                    'user_id'=> $id,
-                    'follower_name'=> $data['username'],
-                    'follower_id'=> $_SESSION['userLogginID'],
-                    'date'=> date('Y-m-d H:i:s'),
-                );
+                    $follow_id = $_POST['follow'];
+                    //run function from main class
+                    //$submit->follow($user_id,$follow_id);
 
-                $this->db->insert('followingx', $insertFollower);
 
-                //notify the user
 
-                echo 'Following';
-            }
-            else{
 
-                //update
-                $this->db->where("follower_id ='$useID' AND user_id='$id' AND status='0'");
-                $this->db->delete("followingx");
-
-                die("Unfollow");
 
             }
+
         }
     }
 
 
-    public function unfollow($id){
+    public function unfollow(){
 
 
+        if(isset($_POST['Unfollow'])){
+            $follow_id = $_POST['Unfollow'];
+            //run function from main class
 
+            $this->db->where("follower_id = '$follow_id'");
+            $this->db->delete('followingx');
+
+            die('deleted');
+
+
+            /// /$submit->unFollow($user_id,$follow_id);
+        }
 
     }
 

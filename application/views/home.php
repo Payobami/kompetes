@@ -42,7 +42,7 @@
                                     <div class="grid-image" style="background: linear-gradient(rgba(70,20,10,0.6),rgba(0,0,0,0.4)), url(<?php if(!empty($getCaption[0]['picture_small_name'])){echo base_url('uploads/small_thumb/'.$getCaption[0]['picture_small_name']);}else{echo base_url('photo/77345942_widepreview400.jpg'); }?>)">
 
                                     </div>
-                                    <div class="grid-user-content">
+                                    <div class="grid-user-content" style="background: #f2f2f2">
                                         <div class="grid-user-picture">
                                             <img src="<?php if($moreFollower['picture']){echo base_url('users_photo/'.$moreFollower['picture']);}else{ echo base_url('users_photo/avatar.png');}?>" class="img-circle img-thumbnail" width="100" height="100" style="height: 62px">
                                         </div>
@@ -56,7 +56,7 @@
 
                                         </h5>
 
-                                        <div class="text-center contest-cat-line p-l-10">
+                                        <div class="text-center col-xs-offset-2 contest-cat-line p-l-10">
                                             <ul>
                                                 <li class="label label-primary p-t-2" style="height: 20px;min-width: 30px"><a href="<?php echo 'https://facebook.com/'. str_replace('@','',$moreFollower['facebook'])?>" target="_new" class="f-s-10"><i class="fa fa-facebook"></i> </a></li>
                                                 <li class="label label-info p-t-2" style="height: 20px;min-width: 30px"><a href="<?php echo 'https://twitter.com/'. $moreFollower['twitter']?>" target="_new" class="f-s-10"><i class="fa fa-twitter"></i> </a></li>

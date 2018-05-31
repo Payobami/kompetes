@@ -24,7 +24,7 @@
 
 <section class="content" style="margin-top: 50px; position:relative;">
 
-    <div class="" style="min-height: 560px;padding-top: 0px">
+    <div class="" style="min-height: 710px;padding-top: 0px">
 
         <div class="p-t-0 m-b-1" style="background: #fff">
             <div class="contest-cat-line " style="border-bottom: 1px dotted #fff;padding-top: 10px">

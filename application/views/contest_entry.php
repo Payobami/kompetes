@@ -61,12 +61,12 @@ $s2=ceil(($s1-time())/60/60/24);
 
                 if($d2 >0 && isset($_SESSION['userLogginID'])){?>
 
-                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg no-border-radius">
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-lg no-border-radius">
                         Enter Now <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Credits';} ?>
                     </a>
 
                 <?php }elseif(!isset($_SESSION['userLogginID']) && $d2 > 0){?>
-                    <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn btn-primary btn-lg no-border-radius">
+                    <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn bg-black btn-lg no-border-radius">
                         Login to Enter this contest <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
                     </a>
                 <?php }?>

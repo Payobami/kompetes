@@ -15,6 +15,62 @@
 
 ?>
 
+
+<style>
+    #content{ width:600px; margin-left:80px;}
+
+    .digg-panel{ border-bottom:1px solid #CCDCEF; min-height:100px; width:450px; margin-bottom:10px;}
+
+    .digg-panel .bio{
+        width:320px; margin-left:50px;clear:left;
+        color:#666666;
+        letter-spacing:-0.03em;
+        overflow:hidden;
+        font-family:Arial, Helvetica, sans-serif;
+        line-height:1.16667em;
+        font-size:11px;
+        padding-bottom:5px;
+    }
+
+    .digg-panel .img-username{ float:left; width:340px; vertical-align:top}
+
+    .digg-panel .img-username img.userImage{ float:left;-webkit-border-radius: 5px;}
+
+    .digg-panel .buttons a{ margin-top:10px;}
+
+    /*.digg-panel .buttons .btn-follow{ display:block; background:url(*/<?php //echo base_url('img/')?>/*follow.png) top center no-repeat; height:38px; width:67px; float:right;}*/
+
+    /*.digg-panel .buttons .btn-following{ display:block; background:url(*/<?php //echo base_url('img/')?>/*following.png) top center no-repeat; height:38px; width:103px; float:right;}*/
+
+    /*.digg-panel .buttons a:hover{ border:solid #333333 1px;}*/
+
+    .digg-panel .user-title{
+        font-weight:bold;
+        margin-bottom:3px;
+        padding-left:10px;
+        float:left;
+    }
+    .digg-panel .user-title a.fullname{
+        color:#373529;
+        font-family:Arial, Helvetica, sans-serif;
+        display:block;
+        font-size:1.0em;
+        text-decoration:none;
+    }
+    .digg-panel .user-title a.username{
+        color:#105CB6;
+        font-family:Arial, Helvetica, sans-serif;
+        display:block;
+        text-decoration:none;
+        font-size:0.7em;
+    }
+    .digg-panel .user-title a:hover{
+        text-decoration:underline;
+    }
+
+
+</style>
+
 <section class="content" style="margin-top: 50px;padding: 0;">
 
         <div class="container-fluid">
@@ -46,7 +102,7 @@
                             <span class="userName "><a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>"><b><?php echo $ownerInfo->username ?></b></a></span>
                             <br>
                             <!--<a href="<?php /*echo base_url('follow/following/'.$ownerId) */?>"><label class="label label-default">Follow</label></a>-->
-                            <div class="body-right" style="margin-left: -15px">
+                            <div class="body-right " style="margin-left: -15px">
                                 <ul>
                                     <?php if(isset($_SESSION['userLogginID']) AND $ownerInfo->user_id !== $_SESSION['userLogginID']){?>
                                         <?php
@@ -55,41 +111,41 @@
                                         //echo $ownerInfo->user_id;
                                         //check if the user is already following
 
-                                        $this->db->where("follower_id = '$ownerInfo->user_id' AND user_id = '$userIDD'");
+                                        $this->db->where("user_id = '$ownerInfo->user_id' AND follower_id = '$userIDD'");
                                         $countFollo = $this->db->count_all_results('followingx');
 
 
                                         ?>
 
-                                    <li>
-                                        <?php if($countFollo <=0){?>
-                                        <a class="btn follow" id="<?php echo $ownerInfo->user_id ?>" rel="<?php echo $ownerInfo->user_id ?>">
-                                            <i class="fa fa-user-plus text-red"></i>
-                                            Follow
-                                        </a>
-                                        <?php }elseif($countFollo >= 1){?>
-                                            <a class="btn follow following" id="<?php echo $ownerInfo->user_id ?>" rel="<?php echo $ownerInfo->user_id ?>">
-                                                <i class="ext-red"></i>
-                                                Following
-                                            </a>
-                                        <?php } ?>
-
-                                    </li>
+                                        <li>
+                                            <?php if($countFollo <=0){?>
 
 
+<!--                                            <span class="buttons" id="button_--><?php //echo $ownerInfo->user_id ?><!--"><a class="btn-follow" href="javascript:void(0)"></a></span>-->
+                                                <span class="buttons" id="button_<?php echo $ownerInfo->user_id.'-'. $ownerInfo->username.'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                <a class="btn follow" href="javascript: void(0)" id="<?php echo $ownerInfo->user_id ?>" rel="<?php echo $ownerInfo->user_id ?>">
+                                                    <i class="fa fa-user-plus text-red"></i>
+                                                    Follow
+                                                </a>
+                                            </span>
+                                            <?php }elseif($countFollo >= 1){?>
 
+
+<!--                                                <span class="buttons" id="button_--><?php //echo $ownerInfo->user_id ?><!--"><a class="btn-following" href="javascript: void(0)"></a></span>-->
+
+                                            <span class="buttons" id="button_<?php echo $ownerInfo->user_id.'-'. $ownerInfo->username.'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                <a class="btn follow following" id="<?php echo $ownerInfo->user_id ?>" href="javascript:void(0)" rel="<?php echo $ownerInfo->user_id ?>">
+                                                    <i class="ext-red"></i>
+                                                    Following
+                                                </a>
+                                            </span>
+                                            <?php } ?>
+                                        </li>
                                     <?php }?>
                                 </ul>
                             </div>
 
                         </div>
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -109,11 +165,15 @@
                             <?php
                             $this->db->where("user_id ='$ownerId'");
                             $this->db->order_by('id','RANDOM');
+
+
                             $getNextPhoto = $this->db->get('uploads')->result();
 
                             foreach($getNextPhoto as $nextPhoto)
 
                             ;?>
+
+
                             <a href="<?php echo base_url('photos/check/'.$nextPhoto->picture_id); ?>" style="height: 30px;" class="text-black">
                                 <div class="next arrow"></div>
                             </a>
@@ -121,6 +181,9 @@
                             <a  href="<?php echo base_url('photos/check/'.$nextPhoto->picture_id); ?>">
                                 <div class="previous arrow" data-disabled=""></div>
                             </a>
+
+
+
                     </div>
 
 
@@ -147,10 +210,11 @@
                         $ownerId = $select_photo->user_id;
 
                         $this->db->where("user_id ='$ownerId'");
+                        $this->db->order_by('id','RANDOM');
+                        $this->db->limit(5);
                         $getMore = $this->db->get('uploads')->result();
 
                         foreach($getMore as $morePhotos):?>
-
 
                             <a href="<?php echo base_url('photos/check/'.$morePhotos->picture_id)?>">
                                 <img src="<?php echo base_url("uploads/small_thumb/".$morePhotos->picture_small_name)?>">
@@ -217,7 +281,6 @@
 
                                 ?>
 
-
                                 <a href="">#<?php echo str_replace(' ','',$tag) ?></a>
                                 <!--<a href="/search/tags/drink">#drink</a>-->
 
@@ -250,15 +313,10 @@
 
                                     <?php if(!empty($entryName)):?>
 
-                                <li>
-                                    <a href="<?php echo base_url($entry['entry_type'].'s/check/'.$entry['entry_id'])?>"><?php echo $entryName ?></a>
-                                </li>
-
-
-                                <?php endif; } ?>
-
-
-
+                                    <li>
+                                        <a href="<?php echo base_url($entry['entry_type'].'s/check/'.$entry['entry_id'])?>"><?php echo $entryName ?></a>
+                                    </li>
+                                    <?php endif; } ?>
 
                                 <?php
 
@@ -487,60 +545,50 @@
 
 <script src='<?php echo base_url('js/photo/index.js')?>'></script>
 <script src='<?php echo base_url('js/photo/photo_ca.js')?>'></script>
+
+<!--<script type="text/javascript" src="--><?php //echo base_url()?><!--js/jquery-1.2.6.min.js"></script>-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
 
 <script type="text/javascript" src="<?php echo base_url()?>js/functions.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/jquery.livequery.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
 
-<script type="text/javascript" >
-    $(function()
-    {
-        $(".follow").click(function(){
-            var element = $(this);
-            var I = element.attr("id");
-            var info = 'id=' + I;
-            $("#loading").html('<img src="loader.gif" >');
+        $('.buttons > a').livequery("click",function(e){
 
-            $.ajax({
-                type: "POST",
-                url: "follow/following",
-                data: info,
-                success: function(){
-                    $("#loading").ajaxComplete(function(){}).slideUp();
-                    $('#follow'+I).fadeOut(200).hide();
-                    $('#unfollow'+I).fadeIn(200).show();
-                }
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('button_','');
+
+            //$.post("<?php echo base_url()?>follow/following/"+getID, {
+            $.post("<?php echo base_url()?>follow.php?id="+getID, {
+
+            }, function(response){
+
+                $('#button_'+getID).html($(response).fadeIn('slow'));
             });
-            return false;
+        });
+
+
+
+
+
+        $('.likex > a').livequery("click",function(e){
+
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('likex_','');
+
+            //$.post("<?php echo base_url()?>follow/following/"+getID, {
+            $.post("<?php echo base_url()?>like.php?id="+getID, {
+
+            }, function(response){
+
+                $('#button_'+getID).html($(response).fadeIn('slow'));
+            });
         });
     });
 </script>
-
-<script type="text/javascript" >
-    $(function()
-    {
-        $(".unfollow").click(function(){
-            var element = $(this);
-            var I = element.attr("id");
-            var info = 'id=' + I;
-            $("#loading").html('<img src="loader.gif" >');
-
-            $.ajax({
-                type: "POST",
-                url: "unfollow.php",
-                data: info,
-                success: function(){
-                    $("#loading").ajaxComplete(function(){}).slideUp();
-                    $('#unfollow'+I).fadeOut(200).hide();
-                    $('#follow'+I).fadeIn(200).show();
-                }
-            });
-            return false;
-        });
-    });
-</script>
-
 
 
 

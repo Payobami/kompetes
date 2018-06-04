@@ -66,7 +66,7 @@ $s2=ceil(($s1-time())/60/60/24);
                     </a>
 
                 <?php }elseif(!isset($_SESSION['userLogginID']) && $d2 > 0){?>
-                    <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn bg-black btn-lg no-border-radius">
+                    <a href="<?php echo base_url('login?redirect=contests/check/'.$contest->contest_id)?>" class="btn bg-black text-white btn-lg no-border-radius">
                         Login to Enter this contest <?php if($contest->entry_price =="Free"){echo 'for '. $contest->entry_price;}else{echo 'with '. $contest->entry_price.' Unit';} ?>
                     </a>
                 <?php }?>
@@ -155,17 +155,18 @@ $s2=ceil(($s1-time())/60/60/24);
         <div class="container">
             <div class="col-sm-12">
 
-                <ul>
+                <ul class="float-left inl">
                     <li><a>About Us</a></li>
-                    <li><a>Support</a></li>
+                    <li style="width: 120px"><a>Sponsor Contest</a></li>
+
                     <li><a>Privacy</a></li>
                     <li><a>Terms</a></li>
-                    <li><a>Judges</a></li>
-                    <li><a>Facebook</a></li>
-                    <li><a><i class=""></i> Twitter</a></li>
-                    <li><a>Instagram</a></li>
-                    <li><a>Google+</a></li>
-                    <li><a>Disclaimer</a></li>
+                    <li><a>Support</a></li>
+                    <li style="max-width: 20px !important; margin-right: -35px;padding-left: 0"><a> <i class="fa fa-facebook m-r-5 m-l-5"></i></a></li>
+                    <li style="max-width: 20px !important;margin-right: -35px;padding-left: 0"><a><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
+                    <li style="width: 20px;margin-right: -35px;"><a><i class="fa fa-instagram m-r-5 m-l-5"></i></a></li>
+                    <li style="width: 40px;margin-right: -35px;"><a><i class="fa fa-google-plus m-r-5 m-l-5"></i></a></li>
+                    <li style=""><a>Artknews Magazine</a></li>
                 </ul>
 
             </div>

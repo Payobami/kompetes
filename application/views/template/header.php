@@ -148,7 +148,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
                 <li><a href="<?php echo base_url()?>image">Images</a></li>
-                <li><a href="<?php echo base_url('video')?>">Videos</a></li>
+<!--                <li><a href="--><?php //echo base_url('video')?><!--">Videos</a></li>-->
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
 
             </ul>
@@ -241,7 +241,7 @@
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
                 <li><a href="<?php echo base_url()?>image">Images</a></li>
                 <li><a href="<?php echo base_url('challenges')?>">Member Contest</a></li>
-                <li><a href="<?php echo base_url('video')?>">Videos</a></li>
+<!--                <li><a href="--><?php //echo base_url('video')?><!--">Videos</a></li>-->
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
                 <li class="nav-active"><a href="<?php echo base_url('upload')?>">+ Upload</a></li>
                 <li><a href="<?php echo base_url("upgrade")?>"> Credit</a></li>

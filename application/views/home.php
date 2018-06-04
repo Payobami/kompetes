@@ -52,8 +52,19 @@
                                             </span>
 
                                             <br>
-                                            <a class="btn btn-success btn-xs m-b-10 bg-red no-border-radius" href="">Follow</a>
 
+                                            <div class="body-right">
+                                                <span class="buttons" id="button_<?php echo $moreFollower['user_id'].'-'. $moreFollower['username'].'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                <a class="btn follow" href="javascript: void(0)" id="<?php echo $moreFollower['user_id'] ?>" rel="<?php echo $moreFollower['user_id'] ?>">
+                                                    <i class="fa fa-user-plus text-red"></i>
+                                                    Follow
+                                                </a>
+                                            </span>
+
+
+                                            </div>
+
+<!--                                            <a class="btn btn-success btn-xs m-b-10 bg-red no-border-radius" href="">Follow</a>-->
                                         </h5>
 
                                         <div class="text-center col-xs-offset-2 contest-cat-line p-l-10">
@@ -295,9 +306,17 @@
                     <div class="follow_row" style="background: #f2f2f2; border-bottom: 1px solid #d2d2d2">
                         <img src="<?php if(empty($getMoreF['picture'])){ echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$getMoreF['picture']);}?>" width="30" height="30">
                         <a href="#"><?php echo $getMoreF['username']?></a>
-                        <span class="right">
-                            <a href="" class="btn btn-success bg-red btn-xs no-border-radius">Follow</a>
+
+
+                        <span class="body-right right">
+                                                <span class="buttons" id="button_<?php echo $getMoreF['user_id'].'-'. $getMoreF['username'].'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                <a class="btn follow" href="javascript: void(0)" id="<?php echo $getMoreF['user_id'] ?>" rel="<?php echo $getMoreF['user_id'] ?>">
+                                                    <i class="fa fa-user-plus text-red"></i>
+                                                    Follow
+                                                </a>
+                                            </span>
                         </span>
+
                     </div>
                     <?php endforeach ?>
 
@@ -379,7 +398,56 @@
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<!--<script type="text/javascript" src="--><?php //echo base_url()?><!--js/jquery-1.2.6.min.js"></script>-->
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/functions.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/jquery.livequery.js"></script>
+<script type="text/javascript">
+
+    function clearjQueryCache(){
+        for (var x in jQuery.cache){
+            delete jQuery.cache[x];
+        }
+    }
+
+
+    $(document).ready(function() {
+
+        $('.buttons > a').livequery("click",function(e){
+
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('button_','');
+
+
+            $.post("<?php echo base_url()?>follow.php?id="+getID, {
+
+            }, function(response){
+
+                $('#button_'+getID).html($(response).fadeIn('slow'));
+            });
+        });
+
+
+
+
+
+        $('.likex > a').livequery("click",function(e){
+
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('likex_','');
+
+
+            $.post("<?php echo base_url()?>like.php?id="+getID, {
+
+            }, function(response){
+
+                $('#button_'+getID).html($(response).fadeIn('slow'));
+            });
+        });
+    });
+</script>
+
+
 
 </body>
 </html>

@@ -38,7 +38,19 @@ session_start();
         $insert = @mysqli_query($connect,"INSERT INTO `followingx` (`username`,`user_id`,`follower_name`,`follower_id`,`status`,`date`) VALUES('".$followerName."','". $followerID ."','". $followingName."','". $followingID ."','0','". $date .  "')");
 
 
-        if(!$insert){
+        //notify the person of the follower information
+
+        $message = $followerName. 'Started following you.. check <a href="profile/check/'. $followerID .'">'. $followingName .'s profile for more information</a>';
+        $link = "profile/check/".$followingID;
+        $user_id = $followerID;
+        $status = 0;
+        $remake = '';
+
+
+        $insertNotification = mysqli_query($connect, "INSERT INTO `notificationx` (`message`,`link`,`user_id`,`status`,`date`,`remark`) VALUES('$message','".$link."','$user_id','0','$date','$remake')");
+
+
+        if(!$insertNotification){
 
             echo mysqli_error($connect);
 

@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="Create Account" class="btn btn-danger btn-lg" name="submit" style="border-radius: 0; width: 100%; background:#ff5a2c">
+                            <input type="submit" value="Create Account" class="btn btn-danger btn-lg" name="submit" style="border-radius: 0; width: 100%; background:#f00">
                         </div>
 
                         <div class="text-center"style="color: #f00;font-weight: 700;padding-bottom: 10px">
@@ -59,6 +59,6 @@
             </div>
             
             
-            <p class="text-center" style="color: #fff;">By creating your account you agree with our <a href="#"><b>terms</b></a> of service. </p>
+            <p class="text-center" style="color: #fff;">By creating your account you agree with our <a href="#" class="text-red"><b>terms</b></a> of service. </p>
         </div>
     </div>

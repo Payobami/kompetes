@@ -1,3 +1,47 @@
+<style>
+
+#right_var{
+    width: 400px;
+    position: ;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+
+.sticky_var{
+
+    position: fixed;
+    right: 150px;
+    height: 750px;
+    left: ;
+    top: 0;
+    float: left;
+    margin-top: 30px !important;
+    overflow-y: scroll;
+
+
+
+
+}
+
+.photos_wall{
+    min-height: 1700px;
+
+}
+
+.photos_wall + sticky_var{
+    padding-top: 400px !important;
+
+
+}
+
+
+
+</style>
+
+
 
 <section class="content" style="margin-top: 40px;padding: 0;">
     <div class="container-fluid no-margin-xs">
@@ -86,7 +130,55 @@
 
 
 
-            <div class="photos_wall" style="min-height: 1700px;padding-top: 30px;padding-bottom: 100px">
+            <div class="photos_wall" style="min-height: 1700px;padding-top: 30px;padding-bottom: 100px;">
+
+
+               <?php if($countFollowing >=1):?>
+                    <?php foreach($getPost2 as $post2):?>
+
+
+                    <?php
+                    $postType = $post2['post_type'];
+                    $postMediaID = $post2['media_id'];
+
+                    if($postType =='contest'):
+
+
+                        $this->db->where("contest_id = '$postMediaID'");
+                        $getContestFile = $this->db->get("contests")->result();
+
+                        foreach($getContestFile as $getContest):
+
+                            ?>
+                            <!-- open contest -->
+                            <div class="photos_row" style="margin:0px !important !important;">
+                                <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
+                                    <div class="logoPhoto" style="padding-top: 5px">
+                                        <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
+                                        <span> Recommend for you <a href="<?php echo base_url("contests/check/".$getContest->contest_id)?>"><?php echo $getContest->contest_name; ?> Contest</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="photos_content photo_contest" style="">
+                                    <a href="<?php echo base_url("contests/check/".$getContest->contest_id)?>">
+                                        <img src="<?php echo base_url("uploads/contests/".$getContest->contest_picture)?>" width="100%" style="">
+                                    </a>
+
+                                    <div class="photo_contest_info" style="margin-bottom: 100px !important;">
+                                        <h2 class="text-center"><?php echo $getContest->contest_name; ?> Contest</h2>
+                                        <h6 class="text-center"><?php echo $getContest->contest_grand_price; ?></h6>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        <?php endforeach ?>
+                    <?php endif ?>
+
+                <?php endforeach ?>
+
+                <?php endif ?>
 
                 <?php foreach($getPost as $post):?>
 
@@ -105,9 +197,9 @@
 
                     <?php if($postType =='photo'): ?>
                         <!-- photorow start here -->
-                        <div class="photos_row" style="margin-bottom: 50px">
-                            <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
-                                <div class="logoPhoto" style="padding-top: 5px">
+                        <div class="photos_row" style="margin-bottom: 50px;background: #f3f3f3 !important; ">
+                            <div class="photo_title" style="height: 60px;width: 100%; padding: 10px;background: #f3f3f3">
+                                <div class="logoPhoto" style="padding-top: 5px;background: #f3f3f3">
                                     <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
                                     <span> Recommend for you by <a href=""> <?php echo $post['poster_name']?></a></span>
                                 </div>
@@ -185,7 +277,7 @@
                             ?>
 
                             <!-- open contest -->
-                            <div class="photos_row" style="">
+                            <div class="photos_row" style="background:;">
                                 <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
                                     <div class="logoPhoto" style="padding-top: 5px">
                                         <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
@@ -222,8 +314,8 @@
 
                         ?>
                         <!-- open contest -->
-                         <div class="photos_row" style="margin:0px !important !important;">
-                            <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
+                         <div class="photos_row" style="margin:0px !important !important;background: #f3f3f3 !important; ">
+                            <div class="photo_title" style="height: 60px;background: #f3f3f3;width: 100%; padding: 10px;">
                                 <div class="logoPhoto" style="padding-top: 5px">
                                     <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
                                     <span> Recommend for you <a href="<?php echo base_url("contests/check/".$getContest->contest_id)?>"><?php echo $getContest->contest_name; ?> Contest</a></span>
@@ -255,7 +347,7 @@
         </div>
 
         <div class="col-sm-4 hidden-xs" style="min-height: 650px;">
-            <div class="right_var" style="z-index: -1">
+            <div class="right_var" id="" style="z-index: -1;">
                 <div class="border-bottom" style="margin-bottom: -30px; margin-top: 55px;border-bottom: 1px solid #d2d2d2">
 
                     <small>Open Contests</small>
@@ -293,76 +385,105 @@
                 </div>
                 <?php endforeach ?>
 
-                <div>
-                    <div class=""style="margin-bottom: -30px; margin-top: 40px;border-bottom: 1px solid #d2d2d2">
 
-                        <small>Who to Follow</small>
-                    </div>
-                    <div class="divider-horizontal"></div>
+                <div id="right_var">
 
-                    <?php foreach($getMoreFollow as $getMoreF):?>
+                    <div>
+                        <div class=""style="margin-bottom: -30px; margin-top: 40px;border-bottom: 1px solid #d2d2d2">
 
+                            <small>Who to Follow</small>
+                        </div>
+                        <div class="divider-horizontal"></div>
 
-                    <div class="follow_row" style="background: #f2f2f2; border-bottom: 1px solid #d2d2d2">
-                        <img src="<?php if(empty($getMoreF['picture'])){ echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$getMoreF['picture']);}?>" width="30" height="30">
-                        <a href="#"><?php echo $getMoreF['username']?></a>
+                        <?php
 
+                            $userIDD = $_SESSION['userLogginID'];
+                            foreach($getMoreFollow as $getMoreF):
 
-                        <span class="body-right right">
-                                                <span class="buttons" id="button_<?php echo $getMoreF['user_id'].'-'. $getMoreF['username'].'-'.$_SESSION['userLogginID'].'-'.$username ?>">
-                                                <a class="btn follow" href="javascript: void(0)" id="<?php echo $getMoreF['user_id'] ?>" rel="<?php echo $getMoreF['user_id'] ?>">
-                                                    <i class="fa fa-user-plus text-red"></i>
-                                                    Follow
-                                                </a>
-                                            </span>
-                        </span>
+                                $userzID = $getMoreF['user_id'];
 
-                    </div>
-                    <?php endforeach ?>
+                            //check if the user is following already
 
-                </div>
+                                $this->db->where("follower_id = '$userIDD' AND user_id ='$userzID'");
+                                $countFollowBack = $this->db->count_all_results('followingx');
+
+                        ?>
 
 
-                <div>
-                    <div class=""  style="margin-bottom: -30px; margin-top: 40px;border-bottom: 1px solid #d2d2d2">
-
-                        <small>Ongoing Voting</small>
-                    </div>
-
-                    <div class="divider-horizontal"></div>
-
-                    <?php foreach ($getOngoingVoting as $votingList): ?>
+                        <div class="follow_row" style="background: #f2f2f2; border-bottom: 1px solid #d2d2d2" <?php if ($countFollowBack >=1){echo 'hidden';} ?>>
+                            <img src="<?php if(empty($getMoreF['picture'])){ echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$getMoreF['picture']);}?>" width="30" height="30">
+                            <a href="<?php echo base_url('profile/check/'.$getMoreF['user_id']) ?>" target="_new"><?php echo $getMoreF['username']?></a>
+                            <span class="body-right right">
+                            <?php if ($countFollowBack <=0){?>
 
 
-                    <div class="ongoing_voting_row">
-                        <a href="<?php echo base_url("vote/info/".$votingList['contest_id'])?>">
-                            <img src="<?php echo base_url('uploads/contests/'.$votingList['contest_picture'])?>" width="30" height="30">
-                            <?php echo $votingList['contest_name']?> contest Voting
-                        </a>
-                    </div>
+                                                    <span class="buttons" id="button_<?php echo $getMoreF['user_id'].'-'. $getMoreF['username'].'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                    <a class="btn follow" href="javascript: void(0)" id="<?php echo $getMoreF['user_id'] ?>" rel="<?php echo $getMoreF['user_id'] ?>">
+                                                        <i class="fa fa-user-plus text-red"></i>
+                                                        Follow
+                                                    </a>
+                                                </span>
 
-                    <?php endforeach ?>
+                            <?php } ?>
 
-                </div>
+                                <?php if($countFollowBack >=1 ){?>
 
+                                <span class="buttons" id="button_<?php echo $getMoreF['user_id'].'-'. $getMoreF['username'].'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                    <a class="btn follow following" href="javascript: void(0)" id="<?php echo $getMoreF['user_id'] ?>" rel="<?php echo $getMoreF['user_id'] ?>">
+                                                        <i class="fa text-red"></i>
+                                                        Following
+                                                    </a>
+                                                </span>
 
-                <div>
-                    <div class=""  style="margin-bottom: -30px; margin-top: 40px">
-                        <small>Invite more Friends</small>
-                    </div>
+                            <?php }?>
+                                 </span>
 
-                    <div class="divider-horizontal"></div>
+                        </div>
+                        <?php endforeach ?>
 
-                    <div class="invite_row">
-                        <img src="<?php echo base_url()?>img/icons/Facebook.png">
-                        Invite using Facebook
                     </div>
 
 
-                    <div class="invite_row">
-                        <img src="<?php echo base_url()?>img/icons/Twitter.png">
-                        Invite using Twitter
+                    <div>
+                        <div class="" style="margin-bottom: -30px; margin-top: 40px;border-bottom: 1px solid #d2d2d2">
+
+                            <small>Ongoing Voting</small>
+                        </div>
+
+                        <div class="divider-horizontal"></div>
+
+                        <?php foreach ($getOngoingVoting as $votingList): ?>
+
+
+                        <div class="ongoing_voting_row">
+                            <a href="<?php echo base_url("vote/info/".$votingList['contest_id'])?>">
+                                <img src="<?php echo base_url('uploads/contests/'.$votingList['contest_picture'])?>" width="30" height="30">
+                                <?php echo $votingList['contest_name']?> contest Voting
+                            </a>
+                        </div>
+
+                        <?php endforeach ?>
+
                     </div>
+
+
+                    <div>
+                        <div class=""  style="margin-bottom: -30px; margin-top: 40px">
+                            <small class="">Invite more Friends</small>
+                        </div>
+
+                        <div class="divider-horizontal"></div>
+
+                        <div class="invite_row p-b-10 f-ubuntu">
+                            <img src="<?php echo base_url()?>img/icons/Facebook.png" class="m-r-5">
+                            Invite using Facebook
+                        </div>
+
+
+                        <div class="invite_row p-b-10 f-ubuntu">
+                            <img src="<?php echo base_url()?>img/icons/Twitter.png" class="m-r-5">
+                            Invite using Twitter
+                        </div>
 
                     <div class="invite_row">
                         <img src="<?php echo base_url()?>img/icons/Google-+.png">
@@ -370,6 +491,7 @@
                     </div>
 
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -396,6 +518,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <!--<script type="text/javascript" src="--><?php //echo base_url()?><!--js/jquery-1.2.6.min.js"></script>-->
@@ -445,6 +570,22 @@
             });
         });
     });
+
+
+
+
+    window.onscroll = function() {myFunction()};
+
+    var right_var = document.getElementById("right_var");
+    var sticky_var = right_var.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky_var) {
+            right_var.classList.add("sticky_var")
+        } else {
+            right_var.classList.remove("sticky_var");
+        }
+    }
 </script>
 
 

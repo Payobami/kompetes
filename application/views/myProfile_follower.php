@@ -19,6 +19,13 @@
                 $getFollowerCover = $this->db->get('uploads')->result();
                 foreach ($getFollowerCover as $itemCover);
 
+
+                if(isset($_SESSION['userLogginID'])){
+                    $userID = $_SESSION['userLogginID'];
+                    $this->db->where("follower_id = '$userID' AND user_id ='$followerID'");
+                    $countFollowBack = $this->db->count_all_results('followingx');
+                }
+
                 //check if the user is following back
                 if(isset($_SESSION['userLogginID']) && !empty($this->uri->segment(3))){
 
@@ -46,26 +53,38 @@
                         <div class="grid-image">
                             <img src="<?php if(!empty($itemCover->picture_small_name)){echo base_url('uploads/small_thumb/'.$itemCover->picture_small_name);}else{echo base_url('users_photo/user_caption/caption2.jpg'); }; ?>" style="height:250px;" width="100%">
                         </div>
-                        <div class="grid-user-content">
+                        <div class="grid-user-content" style="background-color: #f2f2f2;">
                             <div class="grid-user-picture">
                                 <img src="<?php if(!empty($followerPhoto->picture)){echo base_url('users_photo/'.$followerPhoto->picture);}else{echo base_url('users_photo/avatar.png');} ?>" class="img-circle img-thumbnail" width="100">
                             </div>
                             <h5 class="text-center f-raleway f-s-18"><?php echo $followersName ?></h5>
 
-                            <div class="text-center">
+                            <div class="text-center" style="">
+                                <div class="body-right">
 
-                                <?php
-                                foreach($getFollowingBack as $followBack):
-                                if($followBack->follower_id == $followerID){?>
-                                <a href="" class="btn btn-success no-border-radius">
-                                    Unfollow
-                                </a>
-                                <?php }else{?>
-                                    <a href="" class="btn btn-warning no-border-radius">
-                                        Follow
-                                    </a>
-                                <?php }
-                                endforeach ?>
+                                    <a href="" onclick="clearjQueryCache()" hidden>Clear Cache</a>
+                                <?php if(isset($_SESSION['userLogginID'])){?>
+
+                                    <?php if ($countFollowBack <=0){?>
+
+                                        <span class="buttons" id="button_<?php echo $followerID.'-'. $followersName.'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                    <a class="btn follow" href="javascript: void(0)" id="<?php echo $followerID ?>" rel="<?php echo $followerID ?>">
+                                                        <i class="fa fa-user-plus text-red"></i>
+                                                        Follow
+                                                    </a>
+                                                </span>
+
+                                    <?php }else{ ?>
+
+                                        <span class="buttons" id="button_<?php //echo $moreFollower['user_id'].'-'. $moreFollower['username'].'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                    <a class="btn follow following" href="javascript: void(0)" id="<?php //echo $moreFollower['user_id'] ?>" rel="<?php //echo $moreFollower['user_id'] ?>">
+                                                        <i class="fa fa-user-plus text-red"></i>
+                                                        following
+                                                    </a>
+                                                </span>
+
+                                    <?php } }?>
+                            </div>
                             </div>
                         </div>
                     </a>
@@ -131,18 +150,50 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-<script src="js/jquery.masonry.js"></script>
+
+    <script type="text/javascript" src="<?php echo base_url()?>js/functions.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>js/jquery.livequery.js"></script>
 <script>
-    $(function(){
 
-        var $container = $('#photo_wrapper');
+    function clearjQueryCache(){
+        for (var x in jQuery.cache){
+            delete jQuery.cache[x];
+        }
+    }
 
-        $container.imagesLoaded( function(){
-            $container.masonry({
-                itemSelector : '.photo_row'
+    $(document).ready(function() {
+
+        $('.buttons > a').livequery("click",function(e){
+
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('button_','');
+
+
+            $.post("<?php echo base_url()?>follow.php?id="+getID, {
+
+            }, function(response){
+
+                $('#button_'+getID).html($(response).fadeIn('slow'));
             });
         });
 
+
+
+
+
+        $('.likex > a').livequery("click",function(e){
+
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('likex_','');
+
+
+            $.post("<?php echo base_url()?>like.php?id="+getID, {
+
+            }, function(response){
+
+                $('#button_'+getID).html($(response).fadeIn('slow'));
+            });
+        });
     });
 
 

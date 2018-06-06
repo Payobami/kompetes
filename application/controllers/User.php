@@ -64,6 +64,20 @@ class User extends CI_Controller{
                 $this->db->where("follower_id = '$UserID'");
                 $data["getMyFollowing"] = $this->db->get("followingx")->result_array();
 
+                //join the table
+                $this->db->select('*');
+                $this->db->from("followingx");
+                $this->db->where("follower_id = '$UserID'");
+                $this->db->join('post_timeline',"post_timeline.poster_id = followingx.user_id");
+                $this->db->order_by('.post_timeline.date', 'DESC');
+                $data['getPost'] = $this->db->get()->result_array();
+
+                //get post from admin
+                $this->db->where("poster_id ='admin'");
+                $this->db->order_by("date", 'DESC');
+                $data['getPost2'] = $this->db->get('post_timeline')->result_array();
+
+
                 foreach ($data['getMyFollowing'] as $myFollowing) {
 
                     //get people to follow
@@ -73,12 +87,16 @@ class User extends CI_Controller{
 
 
                     //get post from my following users
-                    $this->db->where("poster_id = '$myFollowingID' || poster_id='Admin'");
-                    $this->db->order_by('date', 'DESC');
-                    $data['getPost'] = $this->db->get('post_timeline')->result_array();
+                   // $this->db->where("poster_id = '$myFollowingID' || poster_id='Admin'");
+                    //$this->db->order_by('date', 'DESC');
+                    //$data['getPost'] = $this->db->get('post_timeline')->result_array();
                 }
             }
             else{
+
+                redirect(base_url('user/people'));
+
+
 
                 $this->db->where("userz.user_id !='$UserID'");
                 $this->db->from('userz');
@@ -95,13 +113,12 @@ class User extends CI_Controller{
 
             }
 
-            $this->load->view('template/header', $data);
-            $this->load->view('home', $data);
+           $this->load->view('template/header', $data);
+           $this->load->view('home', $data);
 
 
             //$this->load->view('template/footer', $data);
         }
-
 
     }
 
@@ -137,7 +154,58 @@ class User extends CI_Controller{
 
     }
 
+    public function people(){
 
+        empty($data['success']);
+
+
+        if(!isset($this->session->userLogginID)){
+
+            $data['title']='Login?redirect=user/people';
+            $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
+            $this->load->view('template/header',$data);
+            $this->load->view('login',$data);
+            $this->load->view('template/footer',$data);
+        }
+
+        else{
+
+            $UserID = $this->session->userLogginID;
+            require_once('action/fetch_user.php');
+
+
+            $UserID = $this->session->userLogginID;
+            //$this->db->where("follower_id = '$UserID'");
+            $this->db->from("followingx");
+            $getFollow = $this->db->get()->result_array();
+
+            foreach ($getFollow as $follow_list) {
+
+
+                $followListUser = $follow_list['user_id'];
+                $this->db->where("user_id !='$UserID' AND user_id !='$followListUser' ");
+                $this->db->from('userz');
+                //$this->db->join("uploads",'userz.user_id = uploads.user_id');
+                $this->db->limit(10);
+                $data['getMoreFollow'] = $this->db->get()->result_array();
+
+                //$this->db->query("SELECT * FROM uploads ");
+
+                //get post from my following users
+                $this->db->where("poster_id='Admin'");
+                $this->db->order_by('date', 'DESC');
+                $data['getPost'] = $this->db->get('post_timeline')->result_array();
+
+
+            }
+
+            $data['title'] = "People You May Know";
+            $this->load->view('template/header', $data);
+            $this->load->view('people', $data);
+
+        }
+
+    }
 
 
 

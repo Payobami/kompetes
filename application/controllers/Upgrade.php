@@ -235,7 +235,7 @@ class Upgrade extends CI_Controller{
                             'user_id'=> $user_ID,
                             'email' =>  $data['userEmail'],
                             'credit'=> $data['transaction']->amount,
-                            'susbcription_date'=>$data['transaction']->updatedAt->format('Y-m-d H:i:s'),
+                            'subscription_date'=>$data['transaction']->updatedAt->format('Y-m-d H:i:s'),
                         );
                         $this->db->insert("credit_subscription", $insertSubscriber);
                     }
@@ -261,6 +261,15 @@ class Upgrade extends CI_Controller{
 
 
                     $this->db->insert_batch('notificationx', $insertNotification );
+
+                    //send mail
+
+
+
+
+
+
+
                 }
                 else {
                     $data['header'] = '<h1 class="f-s-22 text-center text-red f-bitter"><img src="'. base_url('img/icons/svg/fail.svg'). '" class="m-b-20"><br> Transaction Failed</h1>';

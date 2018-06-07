@@ -1,5 +1,5 @@
 <?php
-
+$logo = base_url('img/logo.png');
 /*$logo = '';
 $fullname ='';
 $reason ='';
@@ -65,10 +65,8 @@ echo $mailBody ='
                                             <td align="left" style=
                                             "margin:0;padding-top:10px;line-height:1;" valign=
                                                 "top" mc:edit="welcomeEdit-04">
-                                                <h4><strong>fullname</strong></h4>
-
-                                                <h5>Community Manager at Kompetes</h5>
-                                                <h5>Phone number: '. $phone .'</h5>
+                                                <h4><strong>'. $fullname. ' fullname</strong></h4>
+                                                                                       
                                                 <h5>Email: '. $email .'</h5>
                                                 <h5>Organisation: '. $organisation .'</h5>
                                             </td>

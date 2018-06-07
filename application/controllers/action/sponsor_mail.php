@@ -1,7 +1,7 @@
 <?php
 
-/*$logo = '';
-$fullname ='';
+$logo = base_url('img/logo.png');
+/*$fullname ='';
 $reason ='';
 $message ='';*/
 //$logo = base_url('img/logo.png');
@@ -43,7 +43,7 @@ echo $mailBody ='
                                 <td class="bodyContent" valign="top" mc:edit="welcomeEdit-02">
                                     <p>Hi Admin,</p>
 
-                                    <h1><strong>' . $reason .' Support Message from ' . $fullname .'<br>
+                                    <h1><strong> Contest Sponsorship Message from ' . $fullname .'<br>
                                             for Kompetes Admin!</strong></h1>
 
                                     <h3>' . $message . '</h3>
@@ -65,12 +65,12 @@ echo $mailBody ='
                                             <td align="left" style=
                                             "margin:0;padding-top:10px;line-height:1;" valign=
                                                 "top" mc:edit="welcomeEdit-04">
-                                                <h4><strong>fullname</strong></h4>
+                                                <h4><strong>' . $fullname .'</strong></h4>
 
-                                                <h5>Community Manager at Kompetes</h5>
+                                                <h5>Brand Name: '. $brand .' </h5>
                                                 <h5>Phone number: '. $phone .'</h5>
                                                 <h5>Email: '. $email .'</h5>
-                                                <h5>Organisation: '. $organisation .'</h5>
+                                                
                                             </td>
                                         </tr>
                                     </table>

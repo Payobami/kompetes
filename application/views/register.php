@@ -52,7 +52,7 @@
                         </div>
 
                         <div>
-                            <a href="#" class="btn btn-primary btn-lg" style="width: 100%;border-radius: 0">Connect with Facebook</a>
+                            <a href="<?php echo base_url('login')?>" class="btn bg-black text-white btn-lg" style="width: 100%;border-radius: 0">Go to Login Page</a>
                         </div>
                     <?php echo form_close() ?>
                 </div>

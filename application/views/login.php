@@ -45,7 +45,7 @@
                         </div>
 
                         <div>
-                            <a href="#" class="btn btn-primary btn-lg" style="width: 100%;border-radius: 0">Login with Facebook</a>
+                            <a href="<?php echo base_url('register')?>" class="btn bg-black btn-lg text-white" style="width: 100%;border-radius: 0">Sign up (New Member)</a>
                         </div>
                     <?php echo form_close() ?>
                 </div>

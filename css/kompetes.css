@@ -633,10 +633,18 @@ z-index
   line-height: 200px;
 }
 .cb-slideshow li:nth-child(1) span {
-  background-image: url("../img/bg/caracica.jpg");
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg3.JPG");
+  background-image: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg3.JPG");
+  background-image: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg3.JPG");
+  background-image: -ms-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg3.JPG");
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg3.JPG");
 }
 .cb-slideshow li:nth-child(2) span {
-  background-image: url("../img/bg/adventure.jpg");
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg2.jpg");
+  background-image: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg2.jpg");
+  background-image: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg2.jpg");
+  background-image: -ms-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg2.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg2.jpg");
   -webkit-animation-delay: 6s;
   -moz-animation-delay: 6s;
   -o-animation-delay: 6s;
@@ -648,7 +656,11 @@ z-index
   animation-delay: 6s;
 }
 .cb-slideshow li:nth-child(3) span {
-  background-image: url("../img/bg/bg6.jpg");
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg4.jpg");
+  background-image: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg4.jpg");
+  background-image: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg4.jpg");
+  background-image: -ms-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg4.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg4.jpg");
   -webkit-animation-delay: 12s;
   -moz-animation-delay: 12s;
   -o-animation-delay: 12s;
@@ -660,7 +672,11 @@ z-index
   animation-delay: 12s;
 }
 .cb-slideshow li:nth-child(4) span {
-  background-image: url("../img/bg/bg3.jpg");
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg5.jpg");
+  background-image: -moz-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg5.jpg");
+  background-image: -o-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg5.jpg");
+  background-image: -ms-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg5.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url("../img/nbg5.jpg");
   -webkit-animation-delay: 18s;
   -moz-animation-delay: 18s;
   -o-animation-delay: 18s;
@@ -1036,16 +1052,16 @@ z-index
 }
 .row_3 {
   height: 300px;
-  background: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background-image: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background-image: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background-image: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background-image: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
-  background-image: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/bg_1.jpg");
+  background: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background-image: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background-image: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background-image: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background-image: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
+  background-image: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg6.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -1101,16 +1117,16 @@ z-index
 }
 .row_7 {
   height: 300px;
-  background: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/caracica.jpg");
+  background: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background-image: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background-image: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background-image: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background-image: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
+  background-image: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg1.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -1132,17 +1148,17 @@ z-index
   font-family: 'Ubuntu', sans-serif;
 }
 .row_9 {
-  height: 300px;
-  background: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background-image: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background-image: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background-image: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background-image: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
-  background-image: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/bg/cam.jpg");
+  min-height: 300px;
+  background: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background-image: -webkit-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background-image: -moz-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background-image: -o-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background-image: -ms-linear-gradient(24deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
+  background-image: linear-gradient(66deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url("../img/nbg7.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -1175,32 +1191,32 @@ z-index
   font-family: 'Ubuntu', sans-serif;
 }
 .login-bg {
-  background: -webkit-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background: -moz-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background: -o-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background: -ms-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background: linear-gradient(170deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: -webkit-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: -moz-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: -o-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: -ms-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
-  background-image: linear-gradient(170deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/caracica.jpg");
+  background: -webkit-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background: -moz-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background: -o-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background: -ms-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background: linear-gradient(170deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background-image: -webkit-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background-image: -moz-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background-image: -o-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background-image: -ms-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
+  background-image: linear-gradient(170deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/login_bg.jpg");
   width: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
 }
 .register-bg {
-  background: -webkit-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background: -moz-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background: -o-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background: -ms-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background: linear-gradient(170deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background-image: -webkit-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background-image: -moz-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background-image: -o-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background-image: -ms-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
-  background-image: linear-gradient(170deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/African-Adventure-with-Kenya-and-Rovos-Rail.jpg");
+  background: -webkit-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background: -moz-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background: -o-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background: -ms-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background: linear-gradient(170deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background-image: -webkit-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background-image: -moz-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background-image: -o-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background-image: -ms-linear-gradient(280deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
+  background-image: linear-gradient(170deg, rgba(90,0,0,0.3), rgba(90,0,0,0.7)), url("../img/bg/register_bg.jpg");
   width: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3744,11 +3760,11 @@ input:checked + .toggle .toggle__handler {
 /*challenge design */
 .challenge-static-bg {
   min-height: 400px;
-  background: -webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/58816357_large1300.jpg") no-repeat;
-  background: -moz-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/58816357_large1300.jpg") no-repeat;
-  background: -o-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/58816357_large1300.jpg") no-repeat;
-  background: -ms-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/58816357_large1300.jpg") no-repeat;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/58816357_large1300.jpg") no-repeat;
+  background: -webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../img/bg/member_contest_bg.jpg") no-repeat;
+  background: -moz-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../img/bg/member_contest_bg.jpg") no-repeat;
+  background: -o-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../img/bg/member_contest_bg.jpg") no-repeat;
+  background: -ms-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../img/bg/member_contest_bg.jpg") no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../img/bg/member_contest_bg.jpg") no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -3759,11 +3775,11 @@ input:checked + .toggle .toggle__handler {
 }
 .challenge_start {
   min-height: 420px;
-  background: -webkit-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/76682994_large.jpg") no-repeat;
-  background: -moz-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/76682994_large.jpg") no-repeat;
-  background: -o-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/76682994_large.jpg") no-repeat;
-  background: -ms-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/76682994_large.jpg") no-repeat;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url("../photo/76682994_large.jpg") no-repeat;
+  background: -webkit-linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url("../img/bg/member_start_bg.jpg") no-repeat;
+  background: -moz-linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url("../img/bg/member_start_bg.jpg") no-repeat;
+  background: -o-linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url("../img/bg/member_start_bg.jpg") no-repeat;
+  background: -ms-linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url("../img/bg/member_start_bg.jpg") no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url("../img/bg/member_start_bg.jpg") no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;

@@ -1,7 +1,7 @@
 
 
 <section class="content">
-    <div class="container-fluid" style="min-height: 400px">
+    <div class="container-fluid" style="min-height: 450px;margin-top: 50px">
 
         <div>
             <ul class="cb-slideshow">
@@ -11,22 +11,24 @@
                 <li style="display: block"><span></span><div> </div></li>
                 <li style="display: block"><span></span><div> </div></li>
                 <li style="display: block"><span></span><div> </div></li>
+
             </ul>
 
             <div class="welcome_text"  style="margin-top: -600px !important;">
-                <h1>Immerse yourself inthe world's <br> most amazing photo contest community</h1>
+<!--                <h1>Immerse yourself inthe world's <br> most amazing photo contest community</h1>-->
+                <h1>Kompetes pushing your talent beyond its bounds, <br> sparking new ideas, and driving creativity </h1>
 
                 <div class="col-sm-6 col-sm-offset-3 text-center">
 
                     <br>
-                    <a href="" class="btn btn-primary btn-lg no-border-radius" style="width: 250px;margin-bottom: 10px">
+                    <a href="<?php echo base_url('login')?>" class="btn btn-danger bg-black btn-lg no-border-radius" style="width: 250px;margin-bottom: 10px">
                         <i class="fa-fb"></i>
-                        Connect With Facebook
+                        Login Here
                     </a>
 
 
 
-                    <a href="" class="btn btn-danger btn-lg no-border-radius" style="width: 250px; margin-bottom: 10px">
+                    <a href="<?php echo base_url('register')?>" class="btn btn-danger btn-lg no-border-radius" style="width: 250px; margin-bottom: 10px; background: #f00">
                         <i class="fa-fb"></i>
                         Sign Up For Now
                     </a>
@@ -43,7 +45,8 @@
     <div class="row_2">
         <div class="container" style="">
             <h1 class="text-center">The world's best photo contests</h1>
-            <p class="text-center">20 new photography contests every month; judged by world-renowned professional photographers, and sponsored by top brands. Share your best pictures online. Inspire others and be inspired. Browse the photo contests.</p>
+            <p class="text-center">If you are a looking for a new and exciting platform to showcase your artistic talent, join our community today and experience Kompetes</p>
+<!--            <p class="text-center">20 new photography contests every month; judged by world-renowned professional photographers, and sponsored by top brands. Share your best pictures online. Inspire others and be inspired. Browse the photo contests.</p>-->
 
              <!-- carousel displaying here -->
 
@@ -87,7 +90,9 @@
                 <div class="col-sm-6">
                     <h2>Win amazing prizes</h2>
                     <p style="">
-                        It's not about the prizes, but...the prizes do rock. From getting published to scoring Canon 5Ds, winning contests isn't just about bragging rights. Elevate your photography and get inspired!
+                        Prove that you’re the best at what you love to do by entering one of our on-going competitions!
+                        <br>
+                        win amazing prizes from cameras, magazine features and much more!
                     </p>
                 </div>
 
@@ -139,7 +144,8 @@
     <div class="row_6">
         <div class="container">
             <h1 class="text-center">Be Inspired</h1>
-            <p class="text-center">Discover images that inspire you and learn the technique behind their creation. Save your favorites into your own Inspiration Gallery. Browse awarded photos</p>
+<!--            <p class="text-center">Discover images that inspire you and learn the technique behind their creation. Save your favorites into your own Inspiration Gallery. Browse awarded photos</p>-->
+            <p class="text-center">Create your own contest and challenge your contemporaries to compete.</p>
 
         </div>
 
@@ -205,23 +211,40 @@
         </div>
     </div>
 
-    <div class="row_9">
+    <div class="row_9" >
         <div class="container">
-                <div style="margin-top: 70px; color: #fff" class="text-center">
+                <div style="margin-top: 70px; color: #fff;" class="text-center">
 
-                    <h3 style="color: #fff">Sign up now. It's free!</h3>
-                    <br>
-                    <a href="" class="btn btn-primary btn-lg no-border-radius" style="width: 250px;">
-                        <i class="fa-fb"></i>
-                        Connect With Facebook
-                    </a>
+                    <div hidden>
+                        <h3 style="color: #fff">Sign up now. It's free!</h3>
+                        <br>
+                        <a href="<?php echo base_url('login')?>" class="btn btn-danger bg-black btn-lg no-border-radius" style="width: 250px;">
+                            <i class="fa-fb"></i>
+                            Login Here
+                        </a>
 
-                    <a href="" class="btn btn-danger btn-lg no-border-radius" style="width: 250px">
-                        <i class="fa-fb"></i>
-                        Sign Up For Free
-                    </a>
+                        <a href="<?php echo base_url('register')?>" class="btn btn-lg no-border-radius text-white" style="width: 250px;background: #f00;">
+                            <i class="fa-fb"></i>
+                            Sign Up For Free
+                        </a>
+                    </div>
+                    <div>
+
+                        <h3 style="color: #fff">Mobile app at Work...</h3>
+                        <br>
+                        <a href="<?php echo base_url('login')?>" class="" style="width: 250px;">
+                            <img src="<?php echo base_url('img/android app logo.png')?>" width="290px">
+                        </a>
+
+                        <a href="<?php echo base_url('register')?>" class="" style="width: 250px;background: #f00;">
+                            <img src="<?php echo base_url('img/on-the-app-store.jpg')?>" width="200px">
+                        </a>
+                    </div>
                 </div>
+
         </div>
+
+        <div class="clearfix"></div>
     </div>
 
 

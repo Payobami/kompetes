@@ -18,7 +18,7 @@ $gateway = new Braintree\Gateway([
 
 <body>
 
-<section class="content" style="margin-top: 55px;padding: 0; background: url(<?php echo base_url('img/bg/money-bank.jpg')?>) no-repeat; background-size: cover">
+<section class="content" style="margin-top: 55px;padding: 0; background: url(<?php echo base_url('img/bg/credit_bg.jpg')?>) no-repeat; background-size: cover; min-height: 720px">
 
     <div class="container-fluid">
 

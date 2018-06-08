@@ -162,6 +162,21 @@ class Authentication extends CI_Controller{
 
                 $this->db->insert('userz', $dataStore);
 
+                //follow by default
+
+                $dataFOllow = array(
+                    'follower_name'=>$userName,
+                    'follower_id'=>$uniqueID,
+                    'username'=>'Prudent0014',
+                    'user_id'=>'di18cAlR7361',
+                    'date'=>date('Y-m-d H:i:s'),
+                    'status'=>0,
+                );
+
+                $this->db->insert('followingx', $dataFOllow);
+
+
+
                 //send confirmation mail
                 require_once('action/confirm_reg_mail.php');
 

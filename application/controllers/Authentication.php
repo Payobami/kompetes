@@ -187,7 +187,7 @@ class Authentication extends CI_Controller{
 
                 ;
 
-                $this->db->insert('followingx', $dataFOllow);
+                $this->db->insert_batch('followingx', $dataFOllow);
 
 
 

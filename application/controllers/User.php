@@ -25,28 +25,31 @@ class User extends CI_Controller{
         if(!isset($this->session->userLogginID)){
 
             $data['title']='Login';
-                $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
-                $this->load->view('template/header',$data);
-                $this->load->view('login',$data);
-                $this->load->view('template/footer',$data);
+            $data['success']="<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
+            $this->load->view('template/header',$data);
+            $this->load->view('login',$data);
+            $this->load->view('template/footer',$data);
         }
 
         else{
 
 
+
+
+
             $UserID = $this->session->userLogginID;
             require_once('action/fetch_user.php');
-            $data['title'] = $data['username'] .' Welcome home';
+            $data['title'] = $data['username'] . ' Welcome home';
             $currentDate = date('Y-m-d');
 
             //get avalaible contest list
             $this->db->where("contest_status='0' AND contest_start_date >='$currentDate'");
-            $this->db->order_by("id",'RANDOM');
+            $this->db->order_by("id", 'RANDOM');
             $data['getContestAvail'] = $this->db->get('contests')->result_array();
 
             //get ongoing voting
             $this->db->where("contest_status='0' AND contest_start_date <='$currentDate' AND contest_close_date >='$currentDate'");
-            $this->db->order_by("id",'RANDOM');
+            $this->db->order_by("id", 'RANDOM');
             $data['getOngoingVoting'] = $this->db->get('contests')->result_array();
 
             //count my following user
@@ -59,7 +62,7 @@ class User extends CI_Controller{
 
             $data['countFollowing'] = $countFollowing;
 
-            if($countFollowing >=1) {
+            if ($countFollowing >= 1) {
                 //get my following user
                 $this->db->where("follower_id = '$UserID'");
                 $data["getMyFollowing"] = $this->db->get("followingx")->result_array();
@@ -68,7 +71,7 @@ class User extends CI_Controller{
                 $this->db->select('*');
                 $this->db->from("followingx");
                 $this->db->where("follower_id = '$UserID'");
-                $this->db->join('post_timeline',"post_timeline.poster_id = followingx.user_id");
+                $this->db->join('post_timeline', "post_timeline.poster_id = followingx.user_id");
                 $this->db->order_by('.post_timeline.date', 'DESC');
                 $data['getPost'] = $this->db->get()->result_array();
 
@@ -87,15 +90,14 @@ class User extends CI_Controller{
 
 
                     //get post from my following users
-                   // $this->db->where("poster_id = '$myFollowingID' || poster_id='Admin'");
+                    // $this->db->where("poster_id = '$myFollowingID' || poster_id='Admin'");
                     //$this->db->order_by('date', 'DESC');
                     //$data['getPost'] = $this->db->get('post_timeline')->result_array();
                 }
-            }
-            else{
+            } else {
 
-                redirect(base_url('user/people'));
 
+                redirect(base_url('user/home?page=people'));
 
 
                 $this->db->where("userz.user_id !='$UserID'");
@@ -113,11 +115,12 @@ class User extends CI_Controller{
 
             }
 
-           $this->load->view('template/header', $data);
-           $this->load->view('home', $data);
+                $this->load->view('template/header', $data);
+                $this->load->view('home', $data);
 
 
             //$this->load->view('template/footer', $data);
+
         }
 
     }
@@ -143,9 +146,7 @@ class User extends CI_Controller{
 
 
             $this->load->view('template/header', $data);
-
             $this->load->view('mycredit', $data);
-
             $this->load->view('template/footer', $data);
 
         }

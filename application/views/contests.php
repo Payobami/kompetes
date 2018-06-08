@@ -1,19 +1,20 @@
 <style type="text/css">
     .label :hover{
 
-        background: #f00 !important;
+        background: #f00 ;
         padding: .2em .6em .3em;
         margin: 0 !important;
         text-decoration: none;
         display: ;
         min-width: 80px !important;
         position: ;
-
-
-
     }
 
+    .label2 {
 
+        padding: 10px;
+        font-weight: 600;
+    }
 
 
 
@@ -33,7 +34,7 @@
                         <li class="label label- bg-black no-border-radius"><a href="<?php echo base_url('contests')?>"> Explore All</a> </li>
                         <li class="label bg-black bg-black no-border-radius"><a href="<?php echo base_url('contests/cat/art')?>"> Art</a> </li>
                         <li class="label bg-black no-border-radius"><a href="<?php echo base_url('contests/cat/photography')?>"> Photography</a> </li>
-                        <li class="label label- bg-black no-border-radius"><a href="<?php echo base_url('contests/video')?>"> Video </a> </li>
+                        <li class="label label- bg-black no-border-radius"><a href="<?php //echo base_url('contests/video')?>"> Video </a> </li>
                         <!--<li class="label label-success hidden-xs no-border-radius"><a href="<?php /*echo base_url('contests/cat/discover')*/?>"> Discover </a> </li>
                         <li class="label label-warning hidden-xs no-border-radius"><a href="<?php /*echo base_url('contests/cat/new')*/?>"> New </a> </li>
                         <li class="label bg-aqua-gradient hidden-xs"><a href="<?php /*echo base_url('contests/cat/action')*/?>"> Action </a> </li>
@@ -41,7 +42,7 @@
                         <li class="label bg-teal-gradient hidden-xs no-border-radius"><a href="<?php /*echo base_url('contests/cat/city')*/?>"> City </a> </li>
 -->
 
-                        <li class="label bg-black pull-right no-border-radius dropdown" style="margin-right: -10px"><a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Categories ▾ </a>
+                        <li class="bg-black pull-right no-border-radius dropdown" style="margin-right: -10px"><a href="" class="dropdown-toggle label2" data-toggle="dropdown" aria-expanded="false"> Categories ▾ </a>
 
                             <ul class="dropdown-menu no-border-radius" role="menu" aria-labelledby="dLabel" style="width: 300px;height: 400px">
 

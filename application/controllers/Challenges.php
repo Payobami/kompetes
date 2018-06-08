@@ -223,8 +223,6 @@ class Challenges extends CI_Controller
                         $this->load->view('template/header', $data);
                         $this->load->view('challenges_start', $data);
                     }
-
-
                 }
 
             }

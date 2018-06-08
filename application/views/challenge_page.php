@@ -1,5 +1,28 @@
 
 
+<?php
+$timestampStart = strtotime($chanllengex->challenge_start_date);
+$formattedStartDate = date('F d', $timestampStart);
+
+//vote end
+$timestampClose = strtotime($chanllengex->challenge_close_date);
+$formattedCloseDate = date('F d, Y', $timestampClose);
+
+//voting starting date
+$d1=strtotime($chanllengex->challenge_start_date);
+$d2=ceil(($d1-time())/60/60/24);
+
+//entry submission end date
+
+$s1=strtotime($chanllengex->challenge_close_date);
+$s2=ceil(($s1-time())/60/60/24);
+
+
+?>
+
+
+
+
 <section class="content" style="margin-top: 55px">
 
     <style type="text/css">
@@ -33,9 +56,37 @@
         </div>
 
         <div class="text-center">
-            <a href="" class="btn btn-primary btn-lg no-border-radius" data-toggle="modal" data-target="#myModal">
-                Submit Photo
-            </a>
+
+            <?php
+            //$contestStart = strtotime($contest->contest_start_date);
+            //$currentDate = strtotime(date('Y-m-d'));
+            //$contestClose = strtotime($contest->contest_close_date);
+
+
+            if($d2 >0 && isset($_SESSION['userLogginID'])){?>
+
+                <a href="#" data-toggle="modal" data-target="#myModal" class="btn bg-red text-white btn-lg no-border-radius">
+                    Enter Now
+                </a>
+
+            <?php }elseif(!isset($_SESSION['userLogginID']) && $d2 > 0){?>
+                <a href="<?php echo base_url('login?redirect=challenges/check/'.$chanllengex->challenge_id)?>" class="btn btn- bg-black text-white btn-lg no-border-radius">
+                    Login to Enter this contest
+                </a>
+            <?php }?>
+
+            <?php if($d2 < 0 and $s2 > 0 || $chanllengex->status =='1'){?>
+
+                <a href="<?php echo base_url('vote/info/'.$chanllengex->challenge_id)?>" class="btn btn- bg-red btn-lg text-white no-border-radius">
+                    Click to Vote
+                </a>
+
+            <?php } elseif($s2 < 0 && $d2 < 0 || $chanllengex->status =='2'){?>
+
+                <a class="btn btn-danger btn-lg no-border-radius">
+                    Contest Closed
+                </a>
+            <?php }?>
         </div>
 
     </div>
@@ -66,11 +117,11 @@
     <div class="container-fluid" style="margin-bottom: 30px;margin-top: 20px; padding: 0">
 
         <div class="col-sm-12" style="margin: 0;">
-            <div class="contest-grid-price contest-price-row bg-aqua-gradient no-border-radius" style="">
+            <div class="contest-grid-price contest-price-row no-border-radius" style="background: #f00">
                 <div class="contest-pics" style="">
                     <img src="<?php echo base_url('img/badges/png256/'.$banner)?>" width="100%" class="img-circle">
                 </div>
-                <div class="contest-price text-center">
+                <div class="contest-price text-center text-white">
                     <h3 class="text-center text-white">Grand Winner </h3>
 
                     <ul>
@@ -82,7 +133,7 @@
         </div>
 
         <div class="col-sm-12" style="margin: 0;">
-            <div class="contest-grid-price contest-price-row bg-maroon-gradient no-border-radius">
+            <div class="contest-grid-price contest-price-row  no-border-radius text-white" style="background: #ff450f">
                 <div class="contest-pics">
                     <img src="<?php echo base_url('img/badges/png256/'.$choiceBanner)?>" width="100%" class="img-circle">
                 </div>
@@ -100,17 +151,29 @@
     </div>
 
 
+    <?php
+    //get the users picture
+    $user_upload_id = $chanllengex->user_id;
+    $this->db->where("user_id='$user_upload_id'");
+    $getUserPic = $this->db->get("userz")->result();
+
+    foreach($getUserPic as $userPic)
+
+
+    ?>
+
+
     <div class="contest-owner" style="min-height: 300px;background: #fff; padding-top: 40px">
         <div class="container">
             <div class="contest-owner-pic text-center">
-                <img src="<?php echo base_url('users_photo/'.$userPhoto)?>" width="250" height="250" class="img-circle img-thumbnail">
+                <img src="<?php if(!empty($userPic->picture)){echo base_url("users_photo/".$userPic->picture);}else{ echo base_url("users_photo/avatar.png");}?>" width="250" height="250" class="img-circle img-thumbnail">
 
             </div>
 
             <div>
-                <h2 class="text-center"><?php echo $userFirstName .' '. $userLastname?></h2>
+                <h2 class="text-center"><?php echo $userPic->username?> </h2>
 
-                <p class="text-center"><?php echo $userDescription ?> </p>
+                <p class="text-center"><?php echo $userPic->about ?>  </p>
             </div>
 
             <h2 class="text-center" id="rules" style="margin-bottom: 30px">How Kompetes Contest Works</h2>
@@ -134,17 +197,17 @@
                         ?>
                         <ul>
                             <li>
-                                <i class="fa fa-clock-o fa-3x text-blue"></i>
-                                <span><?php echo $d2 ?> days left | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?> </span>
+                                <i class="fa fa-clock-o fa-3x text-black"></i>
+                                <span><?php if($d2 >=0){ echo $d2 .' days left';} else{ echo 'CLOSED';} ?> | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?> </span>
                             </li>
 
                             <li>
-                                <i class="fa fa-picture-o fa-3x text-purple"></i>
+                                <i class="fa fa-picture-o fa-3x text-black"></i>
                                 <span><?php echo $countEntries; ?> submissions | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?></span>
                             </li>
 
                             <li>
-                                <i class="fa fa-heart-o fa-3x text-red"></i>
+                                <i class="fa fa-heart-o fa-3x text-black"></i>
                                 <span>Judged based on creativity, originality and in accordance to the theme</span>
                             </li>
 
@@ -155,7 +218,7 @@
                              </li>-->
 
                             <li>
-                                <i class="fa fa-dollar fa-3x text-red"></i>
+                                <img src="https://use.fontawesome.com/releases/v5.0.13/svgs/solid/pound-sign.svg" style="width: 2em;" class="pull-left m-r-40">
                                 <span>Entry fee: <?php //if($contest->entry_price=='Free'){echo 'Free';}else{echo $contest->entry_price.' Points ';} ?> for Premium and Pro members</span>
                             </li>
                         </ul>
@@ -171,8 +234,8 @@
 
     <div class="contest-foot">
         <div class="container-fluid text-white text-center">
-            <h4 class="text-center text-white">Partners & Brands</h4>
-            <p class="text-center text-white" style="font-size: 20px"> Collaborate with millions of creative photographers to increase your reach and find awesome & original content. <a href="">Learn more!</a> </p>
+            <h4 class="text-center text-white">About <?php echo $chanllengex->challenge_name ?></h4>
+            <p class="text-center text-white" style="font-size: 20px"> <?php echo $chanllengex->description ?> <a href="" class="text-white">Learn more!</a> </p>
 
 
         </div>
@@ -188,21 +251,20 @@
         <div class="container">
             <div class="col-sm-12">
 
-                <ul>
-                    <li><a>About Us</a></li>
-                    <li><a>Support</a></li>
-                    <li><a>Privacy</a></li>
-                    <li><a>Terms</a></li>
-                    <li><a>Judges</a></li>
-                    <li><a>Facebook</a></li>
-                    <li><a><i class=""></i> Twitter</a></li>
-                    <li><a>Instagram</a></li>
-                    <li><a>Google+</a></li>
-                    <li><a>Disclaimer</a></li>
+                <ul class="float-left inl">
+                    <li><a href="<?php echo base_url('pages/about')?>">About Us</a></li>
+                    <li style="width: 120px"><a href="<?php echo base_url('pages/sponsor_contest')?>">Sponsor Contest</a></li>
+
+                    <li><a href="<?php echo base_url('pages/privacy')?>">Privacy</a></li>
+                    <li><a href="<?php echo base_url('pages/terms')?>">Terms</a></li>
+                    <li><a href="<?php echo base_url('pages/support')?>">Support</a></li>
+                    <li style="max-width: 20px !important; margin-right: -35px;padding-left: 0"><a> <i class="fa fa-facebook m-r-5 m-l-5"></i></a></li>
+                    <li style="max-width: 20px !important;margin-right: -35px;padding-left: 0"><a><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
+                    <li style="width: 20px;margin-right: -35px;"><a><i class="fa fa-instagram m-r-5 m-l-5"></i></a></li>
+                    <li style="width: 40px;margin-right: -35px;"><a><i class="fa fa-google-plus m-r-5 m-l-5"></i></a></li>
+                    <li style=""><a>Artknews Magazine</a></li>
                 </ul>
-
             </div>
-
         </div>
     </div>
 </section>
@@ -220,7 +282,7 @@
                 <a class="" data-dismiss="modal">X</a>
             </div>
             <div class="p-l-20" style="margin-top: -40px">
-                <p>Click the photo(s) you'd like to submit or <a href="<?php echo base_url('upload')?>" class="btn btn-xs btn-success">Upload</a> </p>
+                <p>Click the photo(s) you'd like to submit or <a href="<?php echo base_url('upload')?>" class="btn btn-xs bg-red text-white">Upload</a> </p>
             </div>
 
             <div class="p-l-2-" style="min-height: 50px;background: #d5d5d5"></div>
@@ -278,7 +340,7 @@
                             <div class="pull-left">
                                 <div class="">
                                     <input type="hidden" name="entry_type" value="challenge">
-                                    <input type="submit" value="Submit" class="btn btn-success btn-sm no-border-radius">Submit</input>
+                                    <input type="submit" value="Submit" class="btn bg-black text-white btn-sm no-border-radius">Submit</input>
 
                                     By entering this challenge you accept ViewBug's Terms of Use
                                 </div>

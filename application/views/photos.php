@@ -94,7 +94,7 @@
 
             <?php foreach($getPhotos as $photos):?>
 
-                <div class="photo_row">
+                <article class="photo_row">
                     <div class="show-image">
                         <a href="<?php echo base_url('photos/check/'.$photos['picture_id'])?>">
                             <img src="<?php echo base_url('uploads/'.$photos['picture_name'])?>">
@@ -114,7 +114,7 @@
                             <?php endif ?>
                         </div>
                     </div>
-                </div>
+                </article>
             <?php endforeach ?>
 
             <?php if($countPhoto <=0):?>
@@ -131,29 +131,6 @@
 
     </div>
 
-    <!-- begins from here -->
-
-    <div class="footer">
-        <div class="container">
-            <div class="col-sm-12">
-
-                <ul>
-                    <li><a>About Us</a></li>
-                    <li><a>Support</a></li>
-                    <li><a>Privacy</a></li>
-                    <li><a>Terms</a></li>
-                    <li><a>Judges</a></li>
-                    <li><a>Facebook</a></li>
-                    <li><a><i class=""></i> Twitter</a></li>
-                    <li><a>Instagram</a></li>
-                    <li><a>Google+</a></li>
-                    <li><a>Disclaimer</a></li>
-                </ul>
-
-            </div>
-
-        </div>
-    </div>
 </section>
 
 

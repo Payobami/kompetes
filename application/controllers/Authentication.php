@@ -115,6 +115,11 @@ class Authentication extends CI_Controller{
         $this->form_validation->set_error_delimiters("<div class='alert alert-danger no-border-radius text-white'><a class='close' data-dismiss='alert'>&times;</a>", "</div>");
         $uniqueID = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8) . rand(111, 9993);
 
+        if(isset($_SESSION['userLogginID'])){
+
+            redirect(base_url('user/home?page=people'));
+        }
+
         if($this->form_validation->run() == false){
 
             $this->load->view('template/header',$data);
@@ -173,10 +178,19 @@ class Authentication extends CI_Controller{
                 $subject = 'Kompetes User Account Confirmation';
                 mail($to,$subject,$mailBody.'</body></html>',$headers, '-f'.$from_add);
 
-                $data['success'] ="<div class='alert alert-success no-border-radius text-white'><a class='close' data-dismiss='alert'></a> Registration Successful!!!.. Please visit your email (".$emailAddress.") to activate your account </div>";
+                //send home
+                $userID = $uniqueID;
+                $this->session->userLogginID = $userID;
+                redirect(base_url('user/home'));
+
+
+
+
+
+                /*$data['success'] ="<div class='alert alert-success no-border-radius text-white'><a class='close' data-dismiss='alert'></a> Registration Successful!!!.. Please visit your email (".$emailAddress.") to activate your account </div>";
                 $this->load->view('template/header',$data);
                 $this->load->view('register',$data);
-                $this->load->view('template/footer',$data);
+                $this->load->view('template/footer',$data);*/
             }
         }
     }

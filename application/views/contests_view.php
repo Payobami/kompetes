@@ -200,8 +200,6 @@ $s2=ceil(($s1-time())/60/60/24);
                     </div>
                 </div>
             </div>
-
-
     </div>
 
 
@@ -271,8 +269,8 @@ $s2=ceil(($s1-time())/60/60/24);
 
     <div class="contest-foot">
 
-        <h4 class="text-center text-white">Partners & Brands</h4>
-        <p class="text-center text-white" style="font-size: 20px"> Collaborate with millions of creative photographers to increase your reach and find awesome & original content. <a class="text-white" href="">Learn more!</a> </p>
+        <h4 class="text-center text-white">About Contest (<?php echo $contest->contest_name ?>)</h4>
+        <p class="text-center text-white" style="font-size: 20px"> <?php echo $contest->description ?> <a class="text-white" href="">Learn more!</a> </p>
 
     </div>
 
@@ -285,23 +283,23 @@ $s2=ceil(($s1-time())/60/60/24);
         <div class="container">
             <div class="col-sm-12">
 
-                <ul>
-                    <li><a>About Us</a></li>
-                    <li><a>Support</a></li>
-                    <li><a>Privacy</a></li>
-                    <li><a>Terms</a></li>
-                    <li><a>Judges</a></li>
-                    <li><a>Facebook</a></li>
-                    <li><a><i class=""></i> Twitter</a></li>
-                    <li><a>Instagram</a></li>
-                    <li><a>Google+</a></li>
-                    <li><a>Disclaimer</a></li>
+                <ul class="float-left inl">
+                    <li><a href="<?php echo base_url('pages/about')?>">About Us</a></li>
+                    <li style="width: 120px"><a href="<?php echo base_url('pages/sponsor_contest')?>">Sponsor Contest</a></li>
+
+                    <li><a href="<?php echo base_url('pages/privacy')?>">Privacy</a></li>
+                    <li><a href="<?php echo base_url('pages/terms')?>">Terms</a></li>
+                    <li><a href="<?php echo base_url('pages/support')?>">Support</a></li>
+                    <li style="max-width: 20px !important; margin-right: -35px;padding-left: 0"><a> <i class="fa fa-facebook m-r-5 m-l-5"></i></a></li>
+                    <li style="max-width: 20px !important;margin-right: -35px;padding-left: 0"><a><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
+                    <li style="width: 20px;margin-right: -35px;"><a><i class="fa fa-instagram m-r-5 m-l-5"></i></a></li>
+                    <li style="width: 40px;margin-right: -35px;"><a><i class="fa fa-google-plus m-r-5 m-l-5"></i></a></li>
+                    <li style=""><a>Artknews Magazine</a></li>
                 </ul>
-
             </div>
-
         </div>
     </div>
+
 </section>
 
 <!-- modal for submitting photo -->

@@ -164,14 +164,28 @@ class Authentication extends CI_Controller{
 
                 //follow by default
 
-                $dataFOllow = array(
-                    'follower_name'=>$userName,
-                    'follower_id'=>$uniqueID,
-                    'username'=>'Prudent0014',
-                    'user_id'=>'di18cAlR7361',
-                    'date'=>date('Y-m-d H:i:s'),
-                    'status'=>0,
-                );
+                $dataFOllow =array(
+
+                    array(
+                        'follower_name'=>$userName,
+                        'follower_id'=>$uniqueID,
+                        'username'=>'Prudent0014',
+                        'user_id'=>'di18cAlR7361',
+                        'date'=>date('Y-m-d H:i:s'),
+                        'status'=>0,
+                    ),
+
+                    array(
+                        'follower_name'=>$userName,
+                        'follower_id'=>$uniqueID,
+                        'username'=>'maguyva',
+                        'user_id'=>'laPzgL9G3016',
+                        'date'=>date('Y-m-d H:i:s'),
+                        'status'=>0,
+                    )
+                )
+
+                ;
 
                 $this->db->insert('followingx', $dataFOllow);
 

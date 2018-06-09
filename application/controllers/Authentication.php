@@ -67,13 +67,13 @@ class Authentication extends CI_Controller{
                 $this->load->view('template/footer', $data);
             }
 
-            elseif($countUserCofirm >=1){
+            /*elseif($countUserCofirm >=1){
 
                 $data['success'] = "<div class='alert alert-danger no-border-radius text-white'><a class='close' data-dismiss='alert'>x</a> Your are yet to activate your account from the mail sent to you. Please Login to your mail and activate your account </div>";
                 $this->load->view('template/header', $data);
                 $this->load->view('login',$data);
                 $this->load->view('template/footer', $data);
-            }
+            }*/
 
             else{
 

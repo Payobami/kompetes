@@ -274,4 +274,101 @@ class Upload extends CI_Controller{
         print_r('Image Uploaded Successfully.');
         exit;
     }
+
+
+    public function video()
+    {
+
+        $data['success'] = "";
+        $data['title'] = "Profile";
+
+        if (!isset($this->session->userLogginID)) {
+
+            $data['title'] = 'Login';
+            $data['success'] = "<div class='alert alert-danger text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Please login</div>";
+            $this->load->view('template/header', $data);
+            $this->load->view('login', $data);
+            $this->load->view('template/footer', $data);
+        } else {
+            $data['title'] = 'Upload';
+            $data['success'] = "";
+
+            require_once('action/fetch_user.php');
+
+            $this->form_validation->set_rules('title', 'Title', 'required|trim');
+            $this->form_validation->set_rules('adult', 'Adult', 'trim');
+            $this->form_validation->set_rules('tags', 'Tags', 'required|trim');
+            $this->form_validation->set_rules('category[]', 'Category', 'required|trim');
+            $this->form_validation->set_rules('discription', 'Description', 'required|trim');
+
+
+            if ($this->form_validation->run() == false) {
+                $this->load->view('template/header', $data);
+                $this->load->view('upload_video', $data);
+
+            } else {
+
+
+                if (!isset($_SESSION['set_picture_id'])) {
+                    $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a> Please upload your pictures first and proceed to fill the form</div>";
+                    $this->load->view('template/header', $data);
+                    //$this->load->view('upload', $data);
+
+                } else {
+
+
+                }
+            }
+
+        }
+    }
+
+
+
+        public function upload_video(){
+
+
+            //$config['upload_path']   = './uploads/';
+            //$config['allowed_types'] = 'gif|jpg|png';
+            //$config['max_size']      = 1024;
+
+
+            require_once('action/fetch_user.php');
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+                //print_r($_FILES);
+
+
+                if (!empty($_FILES['photo']['name'])) {
+
+                    $uploadPath = './videos/';
+                    $config['upload_path'] = $uploadPath;
+                    $config['allowed_types'] = 'webm|mp4|jpg|png|';
+                    //$config['max_size'] = 2048;
+                    $config['encrypt_name'] = TRUE;
+                    $this->load->library('upload', $config);
+
+
+                    //var_dump($this->upload->file_type);
+
+
+
+
+                    if (!$this->upload->do_upload('photo')) {
+                        die('Not uploaded '. $this->upload->display_errors());
+
+                    }
+
+                }
+            }
+
+
+
+
+
+
+
+        }
+
 }

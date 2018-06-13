@@ -47,7 +47,7 @@ foreach($getSingleUser as $userInfo);
                             <div class="workStatusList" style=" margin-top: 0px; border-top: none">
 
                                 <ul>
-                                    <li><span class="text-center"><a href="<?php echo base_url('profile/check/'.$userInfo['user_id'])?>" class="text-red" target="_blank"> Check full page </a></span><span></span></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#addCredit" class="label label-primary pull-left text-white m-t-10">Add Credit</a> <span class="text-center"><a href="<?php echo base_url('profile/check/'.$userInfo['user_id'])?>" class="text-red" target="_blank"> Check full page </a></span><span></span></li>
                                     <li><strong>Date of Birth </strong><span><?php echo str_replace('ago','',time_elapsed_string($userInfo['birthday'])); ?></span></li>
                                     <li><strong>Location</strong> <span>,<?php echo $userInfo['city'].', '. $userInfo['state'].', '. $userInfo['country'] ?></span></li>
                                     <li><strong>Email </strong><span><?php echo $userInfo['email']?></span></li>
@@ -62,6 +62,38 @@ foreach($getSingleUser as $userInfo);
                         </div>
                     </div>
 
+
+
+                    <div class="modal fade  theme_modal" id="addCredit" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="margin-top: 100px">
+
+                                <div class="modal-header">
+                                    <button class="close" aria-label="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title"> Add credit to <?php echo $userInfo['username']?>'s Account </h4>
+                                </div>
+                                <div class="modal-body">
+
+                                    <?php echo form_open('admin/add_credit/'.$userInfo['user_id'])?>
+
+                                        <div class="form-group">
+                                            <label class="">Credit Unit Point</label>
+                                            <input type="text" class="form-control" name="credit" placeholder="e.g 30">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-danger">
+                                        </div>
+
+                                    <?php echo form_close() ?>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="modal fade  theme_modal" id="changeUser" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -72,7 +104,7 @@ foreach($getSingleUser as $userInfo);
 
                                     <h4 class="modal-title" id="myModalLabel">Are you sure you want to suspend <?php echo $userInfo['username'] ?> ?</h4>
 
-                                    <a class="btn btn-primary" href="">Yes</a>
+                                    <a class="btn btn-primary" href="<?php echo base_url('admin/suspend_user/'.$userInfo['user_id'])?>">Yes</a>
                                     <a class="btn btn-warning" aria-label="Close" href="#" data-dismiss="modal">No</a>
 
                                 </div>
@@ -176,6 +208,8 @@ foreach($getSingleUser as $userInfo);
                             </div>
                         </div>
 
+                        <?php echo $success ?>
+
                         <div class="row">
                             <div class="col-sm-6">
 
@@ -254,8 +288,6 @@ foreach($getSingleUser as $userInfo);
 
 
                     </div>
-
-
 
                 </div>
             </div>

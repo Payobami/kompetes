@@ -4,6 +4,7 @@
     }
 </style>
 
+
 <div class="main_body">
     <!-- add user modal start -->
     <!-- user content section -->
@@ -95,7 +96,7 @@
                             <h3 class="th_title">Contest List</h3>
 
 
-
+                            <?php echo $success ?>
 
                             <div class="table-responsive">
                                 <table class="commonTable table table-striped table-bordered manage_user" cellspacing="0" width="100%">
@@ -153,8 +154,8 @@
                                             <td><?php echo $formattedCloseDate; ?> <span class="text-red"><?php if($d2 <=0){echo ' (0 day left)';}else{ echo ' ('.$d2.' days left)';} ?></span> </td>
                                             <td><?php if($e2 <= 0 && $d2 <=0){ echo '<div class="btn btn-danger f-s-12 btn-xs no-border-radius">Closed</div>';} elseif($e2>=1){ echo '<div class="btn btn-success f-s-12 btn-xs no-border-radius">Entry Open</div>';}elseif($d2>=1){echo '<div class="btn btn-warning btn-xs f-s-12 no-border-radius">Voting Open</div>'; } ?> </td>
                                             <td>
-                                                <a href="<?php //echo base_url('') ?>" class="btn btn-danger btn-xs f-s-12 no-border-radius">Suspend</a>
-                                                <a href="<?php //echo base_url('') ?>" class="btn btn-warning btn-xs f-s-12 no-border-radius">Edit</a>
+                                                <a href="<?php echo base_url('admin/contest_suspend/'.$contest['contest_id']) ?>" class="btn btn-danger btn-xs f-s-12 no-border-radius">Suspend</a>
+                                                <a href="<?php echo base_url('admin/contest_edit/'.$contest['contest_id']) ?>" class="btn btn-warning btn-xs f-s-12 no-border-radius">Edit</a>
                                                 <a target="_blank" href="<?php echo base_url('contests/check/'.$contest['contest_id']) ?>" class="btn btn-primary btn-xs f-s-12 no-border-radius">view</a>
                                             </td>
                                         </tr>

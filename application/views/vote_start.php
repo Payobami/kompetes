@@ -82,7 +82,7 @@
 
 
                     <div class="" style="margin-left: -10px;margin-top: 100px">
-                        <a href="" class="btn btn-primary btn-xs no-border-radius">Skip to Next</a>
+                        <a href="" class="btn btn bg-black text-white btn-xs no-border-radius">Skip to Next</a>
                     </div>
                 </nav>
             </div>
@@ -103,7 +103,7 @@
                         <div class="pull-left m-l-10">
                             <?php echo $contestInfo->title ?> Contest
                             <div class="">
-                                <a href="<?php echo base_url('vote/start/'.$contestInfo->contest_challenge_id)?>" class="btn btn-warning btn-xs no-border-radius">Browse Gallery</a>
+                                <a href="<?php echo base_url('contests/entries/'.$contestInfo->contest_challenge_id)?>" class="btn bg-black text-white btn-xs no-border-radius">Browse Gallery</a>
                             </div>
                         </div>
 

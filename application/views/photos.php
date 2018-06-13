@@ -20,6 +20,7 @@
             background: #f00 !important;
             padding: .2em .6em .3em;
             text-decoration: none;
+            margin: -2px -10px -3px -14px;
             display: ;
             min-width: 100% !important;
             position: ;

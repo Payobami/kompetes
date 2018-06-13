@@ -66,9 +66,17 @@
     <div class="container-fluid no-margin-xs no-padding-xs" style="">
 
         <div class="col-sm-10 col-sm-offset-1 no-margin-xs no-padding-xs">
+
+<div class="row text-center" style="min-height: 50px; margin-top: -32px;margin-bottom: 70px">
+                <ul class="nav nav-tabs" style="width:;">
+                    <li class="no-border-radius text-black f-s-20" style="width:;border-bottom: 2px solid #f00;width: 50%"><a href="<?php echo base_url('upload')?>" class="text-black"> Upload Photos </a> </li>
+                    <li style="width:50%"><a href="<?php echo base_url('upload/video')?>" class="text-black f-s-20">Upload Videos </a> </li>
+                </ul>
+            </div>
+
             <?php echo $success ?>
-            <div class="drop-zone-upload">
-                 <?php echo form_open_multipart('upload/upload_pix', array('class'=>"dropzone", 'id'=>"mydropzone"))?>
+            <div class="drop-zone-upload" style="margin-top: 40px">
+                 <?php echo form_open_multipart('upload/upload_pixc', array('class'=>"dropzone", 'id'=>"mydropzone"))?>
                     <div class="fallback">
                         <input name="file" type="file" multiple />
                     </div>
@@ -78,11 +86,14 @@
 
 
 
-            <div class="upload-info no-padding-xs" style="margin-top: 50px; background:#f2f2f2;padding:20px;">
-                <?php echo form_open()?>
-                    <div class="uploaded-picture">
 
-                    </div>
+
+            <div class="upload-info no-padding-xs" id="processUpload" hidden style="margin-top: 50px; background:#f2f2f2;padding:20px;">
+                <?php echo form_open()?>
+                <div class="uploaded-picture">
+                    <h5 class="m-t-0 m-b-40" style="border-bottom: 1px solid #d2d2d2">Give information about the uploaded <span class="text-red"> Photos </span></h5>
+                </div>
+
 
                     <div class="form-group col-sm-6">
                         <label>Title</label>
@@ -186,17 +197,17 @@
         paramName: "file", // The name that will be used to transfer the file
         acceptedFiles: ".jpeg,.jpg,.png,.gif",
         uploadMultiple: true,
+        maxFilesize: 5,
+
+        init: function() {
+            this.on("addedfile", function(file) {
+
+                document.getElementById('processUpload').removeAttribute('hidden')
+            });
+        }
+
     }
 
-/*
-        $("div#myDropzone").dropzone({
-
-
-
-
-    });*/
-
-    //Dropzone.options.myDropzone = false;
 </script>
 
 <script>

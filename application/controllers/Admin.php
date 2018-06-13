@@ -146,6 +146,7 @@ class Admin extends CI_Controller
     public function contests()
     {
         $data['title'] = '';
+        $data['success'] = '';
         if (!isset($_SESSION['userLogginID'])) {
 
             redirect(base_url('login'));
@@ -158,9 +159,7 @@ class Admin extends CI_Controller
 
                 redirect(base_url('user/home'));
 
-            }
-
-            else {
+            } else {
                 require_once('action/admin_info.php');
                 require_once('action/time_function.php');
 
@@ -185,8 +184,7 @@ class Admin extends CI_Controller
         if (!isset($_SESSION['userLogginID'])) {
 
             redirect(base_url('login'));
-        }
-        else {
+        } else {
 
             require_once('action/fetch_user.php');
 
@@ -195,9 +193,7 @@ class Admin extends CI_Controller
 
                 redirect(base_url('user/home'));
 
-            }
-            else
-            {
+            } else {
                 require_once('action/admin_info.php');
                 require_once('action/time_function.php');
 
@@ -213,15 +209,15 @@ class Admin extends CI_Controller
     }
 
 
-    public function contest_upload(){
+    public function contest_upload()
+    {
 
 
         $data['title'] = 'Upload Contest';
         if (!isset($_SESSION['userLogginID'])) {
 
             redirect(base_url('login'));
-        }
-        else {
+        } else {
 
             require_once('action/fetch_user.php');
 
@@ -230,9 +226,7 @@ class Admin extends CI_Controller
 
                 redirect(base_url('user/home'));
 
-            }
-            else
-            {
+            } else {
                 require_once('action/admin_info.php');
                 require_once('action/time_function.php');
 
@@ -240,32 +234,29 @@ class Admin extends CI_Controller
                 $data['getChallenge'] = $this->db->get('challenges')->result_array();
 
 
-                $this->form_validation->set_rules('contest_name','Contest Name','required|trim');
-                $this->form_validation->set_rules('entry_point','Entry Point','required|trim');
-                $this->form_validation->set_rules('submission_ends','Entry Submission Close Date','required|trim');
-                $this->form_validation->set_rules('voting_ends','Voting Close Date','required|trim');
-                $this->form_validation->set_rules('category','Category','required|trim');
-                $this->form_validation->set_rules('tags','Tags','required|trim');
-                $this->form_validation->set_rules('allow_upload','Number of Allowed Upload','required|trim');
-                $this->form_validation->set_rules('introduction','Introduction','required|trim');
-                $this->form_validation->set_rules('first_prize','First Prize','required|trim');
-                $this->form_validation->set_rules('first_reward','First Reward','required|trim');
-                $this->form_validation->set_rules('second_prize','Second prize','required|trim');
-                $this->form_validation->set_rules('second_reward','Second Reward','required|trim');
-                $this->form_validation->set_rules('third_prize','Third Prize','required|trim');
-                $this->form_validation->set_rules('third_reward','Third Reward','required|trim');
+                $this->form_validation->set_rules('contest_name', 'Contest Name', 'required|trim');
+                $this->form_validation->set_rules('entry_point', 'Entry Point', 'required|trim');
+                $this->form_validation->set_rules('submission_ends', 'Entry Submission Close Date', 'required|trim');
+                $this->form_validation->set_rules('voting_ends', 'Voting Close Date', 'required|trim');
+                $this->form_validation->set_rules('category', 'Category', 'required|trim');
+                $this->form_validation->set_rules('tags', 'Tags', 'required|trim');
+                $this->form_validation->set_rules('allow_upload', 'Number of Allowed Upload', 'required|trim');
+                $this->form_validation->set_rules('introduction', 'Introduction', 'required|trim');
+                $this->form_validation->set_rules('first_prize', 'First Prize', 'required|trim');
+                $this->form_validation->set_rules('first_reward', 'First Reward', 'required|trim');
+                $this->form_validation->set_rules('second_prize', 'Second prize', 'required|trim');
+                $this->form_validation->set_rules('second_reward', 'Second Reward', 'required|trim');
+                $this->form_validation->set_rules('third_prize', 'Third Prize', 'required|trim');
+                $this->form_validation->set_rules('third_reward', 'Third Reward', 'required|trim');
 
 
-
-
-                if($this->form_validation->run() == false){
+                if ($this->form_validation->run() == false) {
 
                     $this->load->view("admin/template/admin_header", $data);
                     $this->load->view("admin/upload_contest", $data);
                     $this->load->view("admin/template/admin_footer", $data);
 
-                }
-                else{
+                } else {
 
 
                     if (!empty($_FILES['banner']['name'])) {
@@ -283,7 +274,7 @@ class Admin extends CI_Controller
                             $BannerData = $this->upload->data();
                         }
                     }
-                    if(!empty($_FILES['first_pic']['name'])){
+                    if (!empty($_FILES['first_pic']['name'])) {
                         $uploadPath = './uploads/contests/';
                         $config['upload_path'] = $uploadPath;
                         $config['allowed_types'] = 'gif|jpg|png|mp4';
@@ -295,12 +286,10 @@ class Admin extends CI_Controller
                             //die('it works here');
 
                             $first_picData = $this->upload->data();
-                        }
-                        else{
+                        } else {
                             die($this->upload->display_errors());
                         }
-                    }
-                    else{
+                    } else {
 
 
                         die('First Prize picture cannot be empty upload the picture of the prize.. you can check google to download picture');
@@ -308,7 +297,7 @@ class Admin extends CI_Controller
                     }
 
 
-                    if(!empty($_FILES['second_pic']['name'])){
+                    if (!empty($_FILES['second_pic']['name'])) {
                         $uploadPath = './uploads/contests/';
                         $config['upload_path'] = $uploadPath;
                         $config['allowed_types'] = 'gif|jpg|png|mp4';
@@ -320,12 +309,10 @@ class Admin extends CI_Controller
                             //die('it works here');
 
                             $second_picData = $this->upload->data();
-                        }
-                        else{
+                        } else {
                             die($this->upload->display_errors());
                         }
-                    }
-                    else{
+                    } else {
 
 
                         die('Second Prize picture cannot be empty upload the picture of the prize.. you can check google to download picture');
@@ -333,7 +320,7 @@ class Admin extends CI_Controller
                     }
 
 
-                    if(!empty($_FILES['third_pic']['name'])){
+                    if (!empty($_FILES['third_pic']['name'])) {
                         $uploadPath = './uploads/contests/';
                         $config['upload_path'] = $uploadPath;
                         $config['allowed_types'] = 'gif|jpg|png|mp4';
@@ -345,12 +332,10 @@ class Admin extends CI_Controller
                             //die('it works here');
 
                             $third_picData = $this->upload->data();
-                        }
-                        else{
+                        } else {
                             die($this->upload->display_errors());
                         }
-                    }
-                    else{
+                    } else {
 
 
                         die('Third Prize picture cannot be empty upload the picture of the prize.. you can check google to download picture');
@@ -358,15 +343,14 @@ class Admin extends CI_Controller
                     }
 
 
-
-                    $contestID =  str_replace('.','',microtime(date('Ymdhis'))).rand(000001, 99999999);
+                    $contestID = str_replace('.', '', microtime(date('Ymdhis'))) . rand(000001, 99999999);
 
 
                     //insert into table
 
                     $insertContest = array(
 
-                        "contest_name"=> str_replace('contest','',$this->input->post('contest_name')),
+                        "contest_name" => str_replace('contest', '', $this->input->post('contest_name')),
                         "contest_id" => $contestID,
                         "contest_start_date" => $this->input->post('submission_ends'),
                         "contest_close_date" => $this->input->post('voting_ends'),
@@ -374,7 +358,7 @@ class Admin extends CI_Controller
                         "contest_picture" => $BannerData['file_name'],
                         "category" => $this->input->post('category'),
                         "tags" => $this->input->post('tags'),
-                        "allow_upload"=> $this->input->post('allow_upload'),
+                        "allow_upload" => $this->input->post('allow_upload'),
                         "description" => $this->input->post('introduction'),
                         "entry_price" => $this->input->post('entry_point'),
                         "date" => date('Y-m-d H:i:s'),
@@ -383,8 +367,8 @@ class Admin extends CI_Controller
 
 
                     $insertPrize = array(
-                        "contest_name"=>str_replace('contest','',$this->input->post('contest_name')),
-                        "contest_id"=> $contestID,
+                        "contest_name" => str_replace('contest', '', $this->input->post('contest_name')),
+                        "contest_id" => $contestID,
                         "contest_1st_price" => $this->input->post('first_prize'),
                         "contest_2nd_price" => $this->input->post('second_prize'),
                         "contest_3rd_price" => $this->input->post('third_prize'),
@@ -397,23 +381,23 @@ class Admin extends CI_Controller
                     );
 
                     $insertPost_timeline = array(
-                        'post_id' => str_replace('.','',microtime(date('Ymdhis'))).rand(00, 999),
-                        'post_title'=>str_replace('contest','',$this->input->post('contest_name')),
-                        'poster_name'=> $data['username'],
-                        'poster_id'=>'admin',
-                        'post_type'=>'contest',
-                        'media_id'=> $contestID,
-                        'date'=> date("Y-m-d H:i:s"),
+                        'post_id' => str_replace('.', '', microtime(date('Ymdhis'))) . rand(00, 999),
+                        'post_title' => str_replace('contest', '', $this->input->post('contest_name')),
+                        'poster_name' => $data['username'],
+                        'poster_id' => 'admin',
+                        'post_type' => 'contest',
+                        'media_id' => $contestID,
+                        'date' => date("Y-m-d H:i:s"),
                     );
 
 
                     $insertNotification = array(
 
-                        "message"=> "A new contest (". $this->input->post('contest_name')  .") has been created.. click to check",
-                        "link"=> base_url('contests/check'.$contestID),
-                        'user_id'=>'Admin',
-                        'date'=> date('Y-m-d H:i:s'),
-                        );
+                        "message" => "A new contest (" . $this->input->post('contest_name') . ") has been created.. click to check",
+                        "link" => base_url('contests/check' . $contestID),
+                        'user_id' => 'Admin',
+                        'date' => date('Y-m-d H:i:s'),
+                    );
 
 
                     //add to contest table
@@ -432,9 +416,10 @@ class Admin extends CI_Controller
     }
 
 
-    public  function upload_success(){
+    public function upload_success()
+    {
 
-         $data['success'] ='';
+        $data['success'] = '';
         $this->load->view("admin/template/admin_header", $data);
         $this->load->view('admin/success');
         $this->load->view("admin/template/admin_footer", $data);
@@ -442,7 +427,8 @@ class Admin extends CI_Controller
     }
 
 
-    public function photos(){
+    public function photos()
+    {
 
 
         $data['title'] = '';
@@ -476,12 +462,11 @@ class Admin extends CI_Controller
         }
 
 
-
     }
 
 
-
-    public function videos(){
+    public function videos()
+    {
 
 
         $data['title'] = '';
@@ -509,7 +494,8 @@ class Admin extends CI_Controller
     }
 
 
-    public function vote(){
+    public function vote()
+    {
 
 
         $data['title'] = '';
@@ -560,7 +546,8 @@ class Admin extends CI_Controller
     }
 
 
-    public function prize_approve($id){
+    public function prize_approve($id)
+    {
 
         $data['title'] = '';
         $data['success'] = '';
@@ -580,7 +567,6 @@ class Admin extends CI_Controller
             } else {
 
 
-
                 //get all contest information
                 $this->db->select('*');
                 $this->db->where("contest_challenge_id='$id'");
@@ -589,9 +575,9 @@ class Admin extends CI_Controller
                 $this->db->join('contests', 'contests.contest_id = vote_information.contest_challenge_id');
                 $getContestInfo = $this->db->get()->result();
 
-                foreach($getContestInfo as $data['contestInfo']);
+                foreach ($getContestInfo as $data['contestInfo']) ;
 
-                    //get number of entries
+                //get number of entries
                 $this->db->where("entry_id='$id'");
                 $data['countEntry'] = $this->db->count_all_results('entries_submited');
 
@@ -600,27 +586,25 @@ class Admin extends CI_Controller
                 $this->db->where("entry_id = '$id'");
                 $getTotalVote = $this->db->get('votex')->result();
 
-                foreach($getTotalVote as $data['totalVotex']);
+                foreach ($getTotalVote as $data['totalVotex']) ;
 
                 $data['query'] = $this->db->query("SELECT picture_id, COUNT(*) c FROM votex WHERE entry_id ='$id' GROUP BY picture_id HAVING c > 1 ORDER BY c DESC LIMIT 10");
 
                 //$data['getVoteRank'] = $this->db->get('votex')->result_array();
 
-                $this->form_validation->set_rules('award1', $data['contestInfo']->contest_1st_price.' Award ','required|trim');
-                $this->form_validation->set_rules('award2',$data['contestInfo']->contest_2nd_price.' Award ','required|trim');
-                $this->form_validation->set_rules('award3',$data['contestInfo']->contest_3rd_price.' Award ','required|trim');
-                $this->form_validation->set_rules('entry_id','Award Prize','required|trim');
-                $this->form_validation->set_rules('entry_name','Entry Name','required|trim');
+                $this->form_validation->set_rules('award1', $data['contestInfo']->contest_1st_price . ' Award ', 'required|trim');
+                $this->form_validation->set_rules('award2', $data['contestInfo']->contest_2nd_price . ' Award ', 'required|trim');
+                $this->form_validation->set_rules('award3', $data['contestInfo']->contest_3rd_price . ' Award ', 'required|trim');
+                $this->form_validation->set_rules('entry_id', 'Award Prize', 'required|trim');
+                $this->form_validation->set_rules('entry_name', 'Entry Name', 'required|trim');
                 $this->form_validation->set_error_delimiters("<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a>", "</div>");
 
-                if($this->form_validation->run() == false) {
+                if ($this->form_validation->run() == false) {
 
                     $this->load->view("admin/template/admin_header", $data);
                     $this->load->view("admin/approve_prize", $data);
                     $this->load->view("admin/template/admin_footer", $data);
-                }
-
-                else{
+                } else {
 
 
                     $award1 = $this->input->post('award1');
@@ -643,7 +627,7 @@ class Admin extends CI_Controller
                     $this->db->where("entry_id = '$id'");
                     $countPrizeWon = $this->db->count_all_results("prize_won");
 
-                    if($countPrizeWon >=1){
+                    if ($countPrizeWon >= 1) {
 
                         $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a> You have awarded prize for this contest already  </div>";
 
@@ -654,16 +638,14 @@ class Admin extends CI_Controller
                     }
 
 
-                    if($countInput < 3){
+                    if ($countInput < 3) {
 
                         $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a> Please make sure you enter a correct Picture ID for all the fields  </div>";
 
                         $this->load->view("admin/template/admin_header", $data);
                         $this->load->view("admin/approve_prize", $data);
                         $this->load->view("admin/template/admin_footer", $data);
-                    }
-
-                    else {
+                    } else {
 
 
                         $this->db->where("picture_id = '$award1' OR picture_id='$award2' OR picture_id = '$award3'");
@@ -679,14 +661,14 @@ class Admin extends CI_Controller
                         $insertAward1 = array(
 
                             array(
-                            'username' => $userNameAward1,
-                            'user_id' => $getPictureInfo[0]->user_id,
-                            'entry_id' => $contestEntryID,
-                            'entry_name' => $contestEntryName,
-                            'submitted_media_id' => $award1,
-                            'prize_won' => $awardTitle1,
-                            'reward_won' => $data['contestInfo']->first_reward,
-                            'date' => date('Y-m-d')
+                                'username' => $userNameAward1,
+                                'user_id' => $getPictureInfo[0]->user_id,
+                                'entry_id' => $contestEntryID,
+                                'entry_name' => $contestEntryName,
+                                'submitted_media_id' => $award1,
+                                'prize_won' => $awardTitle1,
+                                'reward_won' => $data['contestInfo']->first_reward,
+                                'date' => date('Y-m-d')
                             ),
 
                             array(
@@ -755,30 +737,30 @@ class Admin extends CI_Controller
 
                         $notifyFirstWinner = array(
                             array(
-                            "message"=>"Congratulation!!! You have won ".$awardTitle1." with the reward of ". $data['contestInfo']->first_reward,
-                            "link" => base_url("winner/check/".$id),
-                            "user_id"=> $getPictureInfo[0]->user_id,
-                            "date"=> date('Y-m-d H:i:s'),
-                        ),
-
-                            array(
-                                "message"=>"Congratulation!!! You have won ".$awardTitle2." with the reward of ". $data['contestInfo']->second_reward,
-                                "link" => base_url("winner/check/".$id),
-                                "user_id"=> $getPictureInfo[1]->user_id,
-                                "date"=> date('Y-m-d H:i:s'),
+                                "message" => "Congratulation!!! You have won " . $awardTitle1 . " with the reward of " . $data['contestInfo']->first_reward,
+                                "link" => base_url("winner/check/" . $id),
+                                "user_id" => $getPictureInfo[0]->user_id,
+                                "date" => date('Y-m-d H:i:s'),
                             ),
 
                             array(
-                                "message"=>"Congratulation!!! You have won ".$awardTitle3." with the reward of ". $data['contestInfo']->third_reward,
-                                "link" => base_url("winner/check/".$id),
-                                "user_id"=> $getPictureInfo[2]->user_id,
-                                "date"=> date('Y-m-d H:i:s'),
+                                "message" => "Congratulation!!! You have won " . $awardTitle2 . " with the reward of " . $data['contestInfo']->second_reward,
+                                "link" => base_url("winner/check/" . $id),
+                                "user_id" => $getPictureInfo[1]->user_id,
+                                "date" => date('Y-m-d H:i:s'),
+                            ),
+
+                            array(
+                                "message" => "Congratulation!!! You have won " . $awardTitle3 . " with the reward of " . $data['contestInfo']->third_reward,
+                                "link" => base_url("winner/check/" . $id),
+                                "user_id" => $getPictureInfo[2]->user_id,
+                                "date" => date('Y-m-d H:i:s'),
                             )
 
                         );
 
 
-                        $this->db->insert_batch('notificationx', $notifyFirstWinner );
+                        $this->db->insert_batch('notificationx', $notifyFirstWinner);
 
 
                         $data['success'] = "<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>x</a> Prize Awarded Successfully.. you will be redirected to vote page in  <span id='secondsDisplay' class='text-white'>15 seconds</span>   </div>";
@@ -794,8 +776,8 @@ class Admin extends CI_Controller
     }
 
 
-
-    public function transactions(){
+    public function transactions()
+    {
 
 
         $data['title'] = '';
@@ -831,15 +813,14 @@ class Admin extends CI_Controller
                 $this->db->select_sum('amount');
                 $this->db->where("transaction_status !='processor_declined'");
                 $getSumCredit = $this->db->get('transactionx')->result();
-                foreach($getSumCredit as $data['getSumCredit']);
+                foreach ($getSumCredit as $data['getSumCredit']) ;
 
                 //sum total credit used
 
                 $this->db->select_sum('credit_unit');
                 $this->db->where("status ='0'");
                 $getSumUsedCredit = $this->db->get('credit_used')->result();
-                foreach($getSumUsedCredit as $data['getSumUsedCredit']);
-
+                foreach ($getSumUsedCredit as $data['getSumUsedCredit']) ;
 
 
                 //get all the transaction details
@@ -855,7 +836,8 @@ class Admin extends CI_Controller
     }
 
 
-    public function credit(){
+    public function credit()
+    {
 
 
         $data['title'] = 'Credit Managment';
@@ -882,18 +864,18 @@ class Admin extends CI_Controller
                 $data['creditPrice'] = $this->db->get("credit_price")->result_array();
 
 
-                if(isset($_POST['price_per_credit'])) {
+                if (isset($_POST['price_per_credit'])) {
                     //redirect(base_url('admin/credit'));
                     $creditUnit = $_POST['creditUnit'];
                     $creditPrice = $_POST['creditPrice'];
                     //$pricePerCredit = $_POST['price_per_credit'];
-                    $pricePerCredit = round($creditPrice/$creditUnit,2);
+                    $pricePerCredit = round($creditPrice / $creditUnit, 2);
                     $id = $_POST['id'];
 
                     $this->db->where("id='$id'");
-                    $result = $this->db->update("credit_price", array('credit_unit'=>$creditUnit,'credit_price'=>$creditPrice,'price_per_credit'=>$pricePerCredit));
+                    $result = $this->db->update("credit_price", array('credit_unit' => $creditUnit, 'credit_price' => $creditPrice, 'price_per_credit' => $pricePerCredit));
 
-                    if($result){
+                    if ($result) {
                         echo 'data updated';
                     }
                 }
@@ -902,6 +884,321 @@ class Admin extends CI_Controller
                 $this->load->view("admin/template/admin_header", $data);
                 $this->load->view("admin/credit", $data);
                 //$this->load->view("admin/template/admin_footer", $data);
+
+            }
+        }
+
+    }
+
+
+    public function contest_edit($id)
+    {
+
+        $data['success'] = "";
+        $this->db->where('contest_id', $id);
+        $countID = $this->db->count_all_results('contests');
+
+        if($countID <=0 ){
+
+            redirect(base_url('admin/contests'));
+
+        }
+
+
+        if ($this->form_validation->run() == false) {
+
+            $data['title'] = 'Upload Contest';
+            if (!isset($_SESSION['userLogginID'])) {
+
+                redirect(base_url('login'));
+            } else {
+
+                require_once('action/fetch_user.php');
+
+
+                if ($data['adminStatus'] !== '1') {
+
+                    redirect(base_url('user/home'));
+
+                } else {
+                    require_once('action/admin_info.php');
+                    require_once('action/time_function.php');
+
+                    //get contest
+                    $data['getChallenge'] = $this->db->get('challenges')->result_array();
+                    //get
+                    $this->db->where('contest_id', $id);
+                    $data['getContestPicture'] = $this->db->get('contest_price_picture')->result();
+
+
+                    $this->db->where('contest_id', $id);
+                    $data['getContest'] = $this->db->get('contests')->result();
+
+
+                    if (isset($_POST['contest_update'])) {
+
+
+                        $this->form_validation->set_rules('contest_name', 'Contest Name', 'required|trim');
+                        $this->form_validation->set_rules('entry_point', 'Entry Point', 'required|trim');
+                        $this->form_validation->set_rules('submission_ends', 'Entry Submission Close Date', 'required|trim');
+                        $this->form_validation->set_rules('voting_ends', 'Voting Close Date', 'required|trim');
+                        $this->form_validation->set_rules('category', 'Category', 'required|trim');
+                        $this->form_validation->set_rules('tags', 'Tags', 'required|trim');
+                        $this->form_validation->set_rules('allow_upload', 'Number of Allowed Upload', 'required|trim');
+                        $this->form_validation->set_rules('introduction', 'Introduction', 'required|trim');
+                        if($this->form_validation->run() == false){
+
+                            $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>X</a> Fill the Form as appropriate. No Field should be left empty  </div>";
+
+                        }
+                        else{
+
+
+
+
+                            if (!empty($_FILES['banner']['name'])){
+
+
+                                $uploadP = './uploads/contests/';
+                                $confi['upload_path'] = $uploadP;
+                                $confi['allowed_types'] = 'gif|jpg|png|mp4';
+                                //$config['max_size'] = 10048;
+                                $confi['encrypt_name'] = TRUE;
+                                $this->load->library('upload', $confi);
+
+                                if ($this->upload->do_upload('banner')) {
+                                    //die('it works here');
+
+                                    $BannerData = $this->upload->data();
+
+                                    $this->db->where("contest_id", $id);
+                                    $this->db->update('contests', array('contest_picture'=>$BannerData['file_name']));
+                                }
+                            }
+
+                            $insertContest = array(
+
+                                "contest_name" => str_replace('contest', '', $this->input->post('contest_name')),
+                                "contest_id" => $id,
+                                "contest_start_date" => $this->input->post('submission_ends'),
+                                "contest_close_date" => $this->input->post('voting_ends'),
+                                //"contest_grand_price" => $this->input->post("first_reward"),
+                                //"contest_picture" => $BannerData['file_name'],
+                                "category" => $this->input->post('category'),
+                                "tags" => $this->input->post('tags'),
+                                "allow_upload" => $this->input->post('allow_upload'),
+                                "description" => $this->input->post('introduction'),
+                                "entry_price" => $this->input->post('entry_point'),
+                                "date" => date('Y-m-d H:i:s'),
+
+                            );
+
+                            $this->db->where("contest_id", $id);
+                            $this->db->update('contests', $insertContest);
+                            $data['success'] ="<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>X</a> Contest Uploaded Successfully !!! </div>";
+
+
+                        }
+                    }
+
+                    if(isset($_POST['first_prize_info'])){
+
+                        $this->form_validation->set_rules('first_prize', 'First Prize', 'required|trim');
+                        $this->form_validation->set_rules('first_reward', 'First Reward', 'required|trim');
+
+
+                        if($this->form_validation->run() == false){
+
+                            $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>X</a></div>";
+
+                            }
+                        else {
+
+                            if (!empty($_FILES['first_pic']['name'])) {
+                                $uploadPath = './uploads/contests/';
+                                $config['upload_path'] = $uploadPath;
+                                $config['allowed_types'] = 'gif|jpg|png|mp4';
+                                //$config['max_size'] = 10048;
+                                $config['encrypt_name'] = TRUE;
+                                $this->load->library('upload', $config);
+
+                                if ($this->upload->do_upload('first_pic')) {
+                                    //die('it works here');
+
+                                    $first_picData = $this->upload->data();
+
+                                    $this->db->where('contest_id', $id);
+                                    $this->db->update('contest_price_picture', array('contest_1st_picture' => $first_picData['file_name']));
+                                }
+                            }
+
+
+                            //process the form
+
+                            $updatFirstPrice = $this->input->post("first_prize");
+                            $first_reward = $this->input->post("first_reward");
+
+                            $this->db->where('contest_id', $id);
+                            $this->db->update('contest_price_picture', array('contest_1st_price' => $updatFirstPrice, 'first_reward' => $first_reward));
+
+                            $data['success'] = "<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>X</a> Contest Uploaded Successfully !!! </div>";
+                        }
+
+
+                        //die('first decoded');
+                    }
+
+                    if(isset($_POST['second_prize_info'])){
+
+
+                        $this->form_validation->set_rules('second_prize', 'Second prize', 'required|trim');
+                        $this->form_validation->set_rules('second_reward', 'Second Reward', 'required|trim');
+
+
+                        if($this->form_validation->run() == false){
+
+                            $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>X</a></div>";
+
+                        }
+                        else {
+
+                            if (!empty($_FILES['second_pic']['name'])) {
+                                $uploadPath = './uploads/contests/';
+                                $config['upload_path'] = $uploadPath;
+                                $config['allowed_types'] = 'gif|jpg|png|mp4';
+                                //$config['max_size'] = 10048;
+                                $config['encrypt_name'] = TRUE;
+                                $this->load->library('upload', $config);
+
+                                if ($this->upload->do_upload('second_pic')) {
+
+
+                                    $second_picData = $this->upload->data();
+
+                                    $this->db->where('contest_id', $id);
+                                    $this->db->update('contest_price_picture', array('contest_2nd_picture' => $second_picData['file_name']));
+                                }
+                            }
+
+
+                            //process the form
+
+                            $updatSecPrice = $this->input->post("second_prize");
+                            $second_reward = $this->input->post("second_reward");
+
+                            $this->db->where('contest_id', $id);
+                            $this->db->update('contest_price_picture', array('contest_2nd_price' => $updatSecPrice, 'first_reward' => $second_reward));
+
+                            $data['success'] = "<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>X</a> Contest Uploaded Successfully !!! </div>";
+
+                            //die('second decoded');
+                        }
+                    }
+
+                    if(isset($_POST['third_prize_info'])){
+
+                        $this->form_validation->set_rules('third_prize', 'Third Prize', 'required|trim');
+                        $this->form_validation->set_rules('third_reward', 'Third Reward', 'required|trim');
+
+                        //die('third decoded');
+                        if($this->form_validation->run() == false){
+
+                            $data['success'] = "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>X</a></div>";
+
+                        }
+                        else {
+
+                            if (!empty($_FILES['third_pic']['name'])) {
+                                $uploadPath = './uploads/contests/';
+                                $config['upload_path'] = $uploadPath;
+                                $config['allowed_types'] = 'gif|jpg|png|mp4';
+                                //$config['max_size'] = 10048;
+                                $config['encrypt_name'] = TRUE;
+                                $this->load->library('upload', $config);
+
+                                if ($this->upload->do_upload('third_pic')) {
+                                    //die('it works here');
+
+                                    $third_picData = $this->upload->data();
+                                    $this->db->where('contest_id', $id);
+                                    $this->db->update('contest_price_picture', array('contest_3d_picture' => $third_picData['file_name']));
+                                }
+                            }
+
+
+                            //process the form
+
+                            $updatThirdPrice = $this->input->post("third_prize");
+                            $third_reward = $this->input->post("third_reward");
+
+                            $this->db->where('contest_id', $id);
+                            $this->db->update('contest_price_picture', array('contest_3rd_price' => $updatThirdPrice, 'third_reward' => $third_reward));
+
+                            $data['success'] = "<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>X</a> Contest Uploaded Successfully !!! </div>";
+
+                            //die('second decoded');
+                        }
+                    }
+
+
+
+
+
+
+                    $this->load->view("admin/template/admin_header", $data);
+                    $this->load->view("admin/contest_edit", $data);
+                    $this->load->view("admin/template/admin_footer", $data);
+
+
+
+                }
+
+
+            }
+        }
+
+    }
+
+
+
+    public function contest_suspend($id)
+    {
+
+        $data['success'] ="";
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+        } else {
+
+            require_once('action/fetch_user.php');
+
+
+            if ($data['adminStatus'] !== '1') {
+
+                redirect(base_url('user/home'));
+
+            } else {
+                require_once('action/admin_info.php');
+                require_once('action/time_function.php');
+
+
+                $this->db->where("contest_id", $id);
+                $this->db->delete('contests');
+
+
+                $this->db->where("contest_id", $id);
+                $this->db->delete('contest_price_picture');
+
+                $data['success'] = "<div class='alert alert-success text-white'><a class='alert' data-dismiss='alert'>x</a> Contest Deleted Successfully </div>";
+
+                //get contest
+
+                $data['getContests'] = $this->db->get('contests')->result_array();
+
+
+                $this->load->view("admin/template/admin_header", $data);
+                $this->load->view("admin/contests", $data);
+                $this->load->view("admin/template/admin_footer", $data);
 
             }
         }

@@ -133,10 +133,10 @@
 
                         <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
                              <div class="selectBadge text-center">
-                                    <input type="radio" name="winner_point" value="100" id="cb1" />
+                                    <input type="radio" name="winner_point" value="30" id="cb1" />
                                     <label for="cb1"><img src="<?php echo base_url()?>img/badges/png256/014-badge-7.png" /></label>
 
-                                    <div class="rewardPrice"> 100 RC </div>
+                                    <div class="rewardPrice"> 30 RC </div>
                              </div>
                         </div>
 
@@ -144,9 +144,9 @@
 
                         <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
                             <div class="selectBadge text-center">
-                                <input type="radio" name="winner_point" value="200" id="cb2" />
+                                <input type="radio" name="winner_point" value="60" id="cb2" />
                                 <label for="cb2"><img src="<?php echo base_url()?>img/badges/png256/015-badge-6.png" /></label>
-                                <div class="rewardPrice"> 200 RC </div>
+                                <div class="rewardPrice"> 60 RC </div>
                             </div>
                         </div>
 
@@ -155,19 +155,19 @@
 
                         <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
                             <div class="selectBadge text-center">
-                                <input type="radio" name="winner_point" value="300" id="cb3" />
+                                <input type="radio" name="winner_point" value="100" id="cb3" />
                                 <label for="cb3"><img src="<?php echo base_url()?>img/badges/png256/016-badge-5.png" /></label>
-                                <div class="rewardPrice"> 300 RC </div>
+                                <div class="rewardPrice"> 100 RC </div>
                             </div>
                         </div>
 
 
                         <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
                             <div class="selectBadge text-center">
-                                <input type="radio" name="winner_point" value="400" id="cb4" />
+                                <input type="radio" name="winner_point" value="150" id="cb4" />
                                 <label for="cb4"><img src="<?php echo base_url()?>img/badges/png256/017-medal-2.png" /></label>
 
-                                <div class="rewardPrice"> 400 RC</div>
+                                <div class="rewardPrice"> 150 RC</div>
                             </div>
 
                         </div>
@@ -176,11 +176,11 @@
 
                         <div class="col-sm-2 col-xs-6 p-r-10 p-l-0">
                             <div class="selectBadge text-center">
-                                <input type="radio" name="winner_point" value="500" id="cb5" />
+                                <input type="radio" name="winner_point" value="200" id="cb5" />
                                 <label for="cb5"><img src="<?php echo base_url()?>img/badges/png256/023-badge-1.png" /></label>
 
 
-                                <div class="rewardPrice"> 500 RC </div>
+                                <div class="rewardPrice"> 200 RC </div>
                             </div>
                         </div>
 
@@ -209,41 +209,41 @@
 
                         <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
                             <div class="selectBadge text-center">
-                                <input type="radio" name="people_choice" value="100" id="cb6" />
+                                <input type="radio" name="people_choice" value="30" id="cb6" />
                                 <label for="cb6"><img src="<?php echo base_url()?>img/badges/png256/014-badge-7.png" /></label>
+                                <div class="rewardPrice"> 30 RC </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="people_choice" value="60" id="cb7" />
+                                <label for="cb7"><img src="<?php echo base_url()?>img/badges/png256/015-badge-6.png" /></label>
+                                <div class="rewardPrice"> 60 RC </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
+                            <div class="selectBadge text-center">
+                                <input type="radio" name="people_choice" value="100" id="cb8" />
+                                <label for="cb8"><img src="<?php echo base_url()?>img/badges/png256/016-badge-5.png" /></label>
                                 <div class="rewardPrice"> 100 RC </div>
                             </div>
                         </div>
 
                         <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
                             <div class="selectBadge text-center">
-                                <input type="radio" name="people_choice" value="200" id="cb7" />
-                                <label for="cb7"><img src="<?php echo base_url()?>img/badges/png256/015-badge-6.png" /></label>
-                                <div class="rewardPrice"> 200 RC </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
-                            <div class="selectBadge text-center">
-                                <input type="radio" name="people_choice" value="300" id="cb8" />
-                                <label for="cb8"><img src="<?php echo base_url()?>img/badges/png256/016-badge-5.png" /></label>
-                                <div class="rewardPrice"> 300 RC </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-2 col-xs-6 p-r-5 p-l-0">
-                            <div class="selectBadge text-center">
-                                <input type="radio" name="people_choice" value="400" id="cb9" />
+                                <input type="radio" name="people_choice" value="150" id="cb9" />
                                 <label for="cb9"><img src="<?php echo base_url()?>img/badges/png256/017-medal-2.png" /></label>
-                                <div class="rewardPrice"> 400 RC</div>
+                                <div class="rewardPrice"> 150 RC</div>
                             </div>
                         </div>
 
                         <div class="col-sm-2 col-xs-6 p-r-10 p-l-0">
                             <div class="selectBadge text-center">
-                                <input type="radio" name="people_choice" value="500" id="cb10" />
+                                <input type="radio" name="people_choice" value="200" id="cb10" />
                                 <label for="cb10"><img src="<?php echo base_url()?>img/badges/png256/023-badge-1.png" /></label>
-                                <div class="rewardPrice"> 500 RC </div>
+                                <div class="rewardPrice"> 200 RC </div>
                             </div>
                         </div>
 

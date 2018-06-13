@@ -85,7 +85,7 @@
 
                                     <div class="th_status_wrapper">
                                         <a href="#" class="th_icon maroon"><i class="fa fa-money" aria-hidden="true"></i></a>
-                                        <a href="<?php echo base_url('admin/transaction')?>">
+                                        <a href="<?php echo base_url('admin/transactions')?>">
                                             <div class="th_status">
                                                 <strong style="font-size: 15px">Amount generated</strong>
                                                 <h6>0</h6>
@@ -102,6 +102,8 @@
                                             </div>
                                         </a>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>

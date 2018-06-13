@@ -227,7 +227,7 @@ $s2=ceil(($s1-time())/60/60/24);
                         <ul>
                             <li>
                                 <i class="fa fa-clock-o fa-3x text-black"></i>
-                                <span><?php echo $d2 .' '. $s2 ?> days left | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?> </span>
+                                <span><?php echo $d2 ?> days left | Vote from <?php echo $formattedStartDate;?> until <?php echo $formattedCloseDate;?> </span>
                             </li>
 
                             <li>
@@ -269,8 +269,8 @@ $s2=ceil(($s1-time())/60/60/24);
 
     <div class="contest-foot">
 
-        <h4 class="text-center text-white">About Contest (<?php echo $contest->contest_name ?>)</h4>
-        <p class="text-center text-white" style="font-size: 20px"> <?php echo $contest->description ?> <a class="text-white" href="">Learn more!</a> </p>
+        <h4 class="text-center text-white">Contest (<?php echo $contest->contest_name ?>) Description</h4>
+        <p class="text-center text-white" style="font-size: 20px"> <?php echo $contest->description ?> <a class="text-white" hidden href="">Learn more!</a> </p>
 
     </div>
 

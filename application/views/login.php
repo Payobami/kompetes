@@ -45,12 +45,12 @@
                         </div>
 
                         <div>
-                            <a href="<?php echo base_url('register')?>" class="btn bg-black btn-lg text-white" style="width: 100%;border-radius: 0">Sign up (New Member)</a>
+                            <a href="<?php echo base_url('register')?>" class="btn bg-black btn-lg text-white" style="width: 100%;border-radius: 0">Sign up </a>
                         </div>
                     <?php echo form_close() ?>
                 </div>
             </div>
-            <p class="text-center" style="color: #fff;">By creating your account you agree with our <a href="#" class="text-red"><b>terms</b></a> of service. </p>
+            <p class="text-center" style="color: #fff;">By creating your account you agree with our <a href="<?php echo base_url('pages/terms')?>" class="text-red"><b>terms</b></a> of service. </p>
         </div>
     </div>
 

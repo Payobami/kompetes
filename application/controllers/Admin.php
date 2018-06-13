@@ -87,6 +87,7 @@ class Admin extends CI_Controller
     {
 
         $data['title'] = '';
+        $data['success'] = '';
         if (!isset($_SESSION['userLogginID'])) {
 
             redirect(base_url('login'));
@@ -1141,16 +1142,11 @@ class Admin extends CI_Controller
                     }
 
 
-
-
-
-
                     $this->load->view("admin/template/admin_header", $data);
                     $this->load->view("admin/contest_edit", $data);
                     $this->load->view("admin/template/admin_footer", $data);
 
-
-
+                    
                 }
 
 
@@ -1202,5 +1198,127 @@ class Admin extends CI_Controller
 
             }
         }
+    }
+
+    public function add_credit($id){
+        $data['success'] ="";
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+        } else {
+
+            require_once('action/fetch_user.php');
+
+
+            if ($data['adminStatus'] !== '1') {
+
+                redirect(base_url('user/home'));
+
+            } else {
+                require_once('action/admin_info.php');
+                require_once('action/time_function.php');
+
+
+                $this->db->where("user_id", $id);
+                $countUserz = $this->db->count_all_results("userz");
+
+                if($countUserz <= 0){
+
+                    redirect(base_url('admin/home'));
+                }
+                else{
+
+                    $transID =  str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+
+                    $this->form_validation->set_rules('credit', 'Credit', 'required|trim|is_numeric');
+                    $this->form_validation->set_error_delimiters("<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>x</a>", "</div>");
+
+                    $creditSet = $this->input->post('credit');
+
+                    $this->db->where("user_id", $id);
+                    $getUserz = $this->db->get('userz')->result_array();
+
+                    //insert into the transaction
+
+                    $insertTransaction = array(
+                        'username'=>$getUserz[0]['username'],
+                        'user_id'=>$id,
+                        'transaction_id' => $transID,
+                        'transaction_status' => 'transfer',
+                        'amount'=>0,
+                        'total_unit'=>$creditSet,
+                        'status'=>0,
+                        'date'=>date('Y-m-d H:i:s'),
+
+                    );
+
+                    $this->db->insert("transactionx", $insertTransaction);
+
+                    $this->db->where("user_id", $id);
+                    $getSub = $this->db->get("credit_subscription")->result_array();
+
+                    $insertSubscription = array(
+
+                        'username'=>$getUserz[0]['username'],
+                        'user_id'=>$id,
+                        'email'=>$getUserz[0]['email'],
+                        'credit'=>str_replace('-','',$creditSet),
+                        'subscription_date'=> date('Y-m-d H:i:s'),
+                        'date'=> date('Y-m-d H:i:s'),
+
+                    );
+                    $this->db->where("user_id", $id);
+                    $countSub = $this->db->count_all_results('credit_subscription');
+
+                    if($countSub <= 0){
+
+                        $this->db->insert("credit_subscription", $insertSubscription);
+
+                    }
+                    else{
+                        $this->db->where("user_id", $id);
+                        $this->db->update("credit_subscription", array('credit'=> $getSub[0]['credit'] + $creditSet));
+
+                        }
+
+
+                    //check if the user is already subscribed
+
+
+                    $data['success'] ="<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>X</a> Credit Updated Successfully </div>";
+
+                    $this->db->where("user_id='$id'");
+                    $data['getSingleUser'] = $this->db->get('userz')->result_array();
+
+
+                    //count all prize won
+
+                    $this->db->where("user_id ='$id'");
+                    $data['countPrizeWon'] = $this->db->count_all_results('prize_won');
+
+                    //get prize won list
+                    $this->db->where("user_id ='$id'");
+                    $data['getPrizeWon'] = $this->db->get('prize_won')->result_array();
+
+                    //count all challenges created by user
+
+                    $this->db->where("user_id = '$id'");
+                    $data['countChallenge'] = $this->db->count_all_results('challenges');
+
+                    //get all challenges
+                    $this->db->where("user_id = '$id'");
+                    $data['getChallenge'] = $this->db->get('challenges')->result_array();
+
+                    // $this->
+
+                    $this->load->view("admin/template/admin_header", $data);
+                    $this->load->view("admin/single_users", $data);
+                    $this->load->view("admin/template/admin_footer", $data);
+
+                }
+            }
+
+        }
+
     }
 }

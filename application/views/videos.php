@@ -56,10 +56,10 @@
     <div class="container-fluid p-0 m-0" style="min-height: 650px;">
 
 
-        <h2 class="text-center f-raleway"><i class="fa fa-video"></i> <br> Working in Progress <br> ............................ </h2>
+<!--        <h2 class="text-center f-raleway"><i class="fa fa-video"></i> <br> Working in Progress <br> ............................ </h2>-->
 
 
-        <!--<div class="col-sm-2 p-0 m-0">
+        <div class="col-sm-2 p-0 m-0">
             <div class="" style="background: #f2f2f2;min-height: 300px;margin: 0"></div>
 
         </div>
@@ -98,7 +98,7 @@
                     <div class="" style="height: 160px;background: #a2a2a2"></div>
                 </div>
             </div>
-        </div>-->
+        </div>
 
     </div>
 

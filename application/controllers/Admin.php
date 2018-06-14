@@ -1146,7 +1146,7 @@ class Admin extends CI_Controller
                     $this->load->view("admin/contest_edit", $data);
                     $this->load->view("admin/template/admin_footer", $data);
 
-                    
+
                 }
 
 
@@ -1321,4 +1321,151 @@ class Admin extends CI_Controller
         }
 
     }
+
+
+    public function suspend_user($id)
+    {
+
+        $data['success'] = "";
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+        } else {
+
+            require_once('action/fetch_user.php');
+
+
+            if ($data['adminStatus'] !== '1') {
+
+                redirect(base_url('user/home'));
+
+            } else {
+                require_once('action/admin_info.php');
+                require_once('action/time_function.php');
+
+
+                $this->db->where("user_id", $id);
+                $countUserz = $this->db->count_all_results("userz");
+
+                if ($countUserz <= 0) {
+
+                    redirect(base_url('admin/home'));
+                } else {
+
+                    $this->db->where("user_id", $id);
+                    $this->db->update("userz", array('status'=>2));
+
+                    $data['success'] = "<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>X</a> Account Suspended Successfully </div>";
+
+
+
+                    $this->db->where("user_id='$id'");
+                    $data['getSingleUser'] = $this->db->get('userz')->result_array();
+
+
+                    //count all prize won
+
+                    $this->db->where("user_id ='$id'");
+                    $data['countPrizeWon'] = $this->db->count_all_results('prize_won');
+
+                    //get prize won list
+                    $this->db->where("user_id ='$id'");
+                    $data['getPrizeWon'] = $this->db->get('prize_won')->result_array();
+
+                    //count all challenges created by user
+
+                    $this->db->where("user_id = '$id'");
+                    $data['countChallenge'] = $this->db->count_all_results('challenges');
+
+                    //get all challenges
+                    $this->db->where("user_id = '$id'");
+                    $data['getChallenge'] = $this->db->get('challenges')->result_array();
+
+                    // $this->
+
+                    $this->load->view("admin/template/admin_header", $data);
+                    $this->load->view("admin/single_users", $data);
+                    $this->load->view("admin/template/admin_footer", $data);
+
+                }
+            }
+        }
+
+    }
+
+
+    public function active_user($id)
+    {
+
+        $data['success'] = "";
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+        } else {
+
+            require_once('action/fetch_user.php');
+
+
+            if ($data['adminStatus'] !== '1') {
+
+                redirect(base_url('user/home'));
+
+            } else {
+                require_once('action/admin_info.php');
+                require_once('action/time_function.php');
+
+
+                $this->db->where("user_id", $id);
+                $countUserz = $this->db->count_all_results("userz");
+
+                if ($countUserz <= 0) {
+
+                    redirect(base_url('admin/home'));
+                } else {
+
+                    $this->db->where("user_id", $id);
+                    $this->db->update("userz", array('status'=>0));
+
+                    $data['success'] = "<div class='alert alert-success text-white'><a class='close' data-dismiss='alert'>X</a> Account Activated Successfully </div>";
+
+
+
+                    $this->db->where("user_id='$id'");
+                    $data['getSingleUser'] = $this->db->get('userz')->result_array();
+
+
+                    //count all prize won
+
+                    $this->db->where("user_id ='$id'");
+                    $data['countPrizeWon'] = $this->db->count_all_results('prize_won');
+
+                    //get prize won list
+                    $this->db->where("user_id ='$id'");
+                    $data['getPrizeWon'] = $this->db->get('prize_won')->result_array();
+
+                    //count all challenges created by user
+
+                    $this->db->where("user_id = '$id'");
+                    $data['countChallenge'] = $this->db->count_all_results('challenges');
+
+                    //get all challenges
+                    $this->db->where("user_id = '$id'");
+                    $data['getChallenge'] = $this->db->get('challenges')->result_array();
+
+                    // $this->
+
+                    $this->load->view("admin/template/admin_header", $data);
+                    $this->load->view("admin/single_users", $data);
+                    $this->load->view("admin/template/admin_footer", $data);
+
+                }
+            }
+        }
+
+    }
+
+
+
+
+
 }

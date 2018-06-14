@@ -102,10 +102,21 @@ foreach($getSingleUser as $userInfo);
                                 <div class="modal-header">
                                     <button class="close" aria-label="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span></button>
 
+                                    <?php if($userInfo['status'] == 0){?>
                                     <h4 class="modal-title" id="myModalLabel">Are you sure you want to suspend <?php echo $userInfo['username'] ?> ?</h4>
 
                                     <a class="btn btn-primary" href="<?php echo base_url('admin/suspend_user/'.$userInfo['user_id'])?>">Yes</a>
                                     <a class="btn btn-warning" aria-label="Close" href="#" data-dismiss="modal">No</a>
+                                    <?php } else{?>
+
+
+                                        <h4 class="modal-title" id="myModalLabel">Are you sure you want to Activate <?php echo $userInfo['username'] ?> ?</h4>
+
+                                        <a class="btn btn-primary" href="<?php echo base_url('admin/active_user/'.$userInfo['user_id'])?>">Yes</a>
+                                        <a class="btn btn-warning" aria-label="Close" href="#" data-dismiss="modal">No</a>
+
+
+                                    <?php }?>
 
                                 </div>
                             </div>

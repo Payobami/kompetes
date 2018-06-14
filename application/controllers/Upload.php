@@ -375,9 +375,24 @@ class Upload extends CI_Controller{
             }
 
 
+    }
 
 
 
+
+    public function u_video(){
+
+        if($_SERVER['REQUEST_METHOD'] == 'Post'){
+
+            error_reporting(E_ALL | E_STRICT);
+            require('UploadHandler.php');
+            $upload_handler = new UploadHandler();
         }
 
+
+        $this->load->view("video_upload");
+
+
+
+    }
 }

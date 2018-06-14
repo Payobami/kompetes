@@ -82,32 +82,15 @@
             </div>
 
              <?php echo $success ?>
-            <!--<div class="drop-zone-upload" style="margin-top: 40px">
-                 <?php /*echo form_open_multipart('upload/upload_video', array('class'=>"dropzone", 'id'=>"mydropzone"))*/?>
+            <div class="drop-zone-upload" style="margin-top: 40px">
+                 <?php echo form_open_multipart('upload/upload_video', array('class'=>"dropzone", 'id'=>"mydropzone"))?>
                     <div class="fallback">
                         <input name="file" type="file" multiple />
                     </div>
-                <?php /*echo form_close()*/?>
-            </div>-->
-
-
-
-
-            <?php echo form_open_multipart('upload/upload_video')?>
-
-
-            <div class="form-group">
-                <input type="file" name="photo" class="form-control">
+                <?php echo form_close()?>
             </div>
 
-
-            <input type="submit" class="btn btn-success">
-
-
-            <?php echo form_close()?>
-
-
-
+            
 
             <div class="upload-info no-padding-xs xxjj" id="processUpload" hidden>
                 <?php echo form_open()?>
@@ -210,9 +193,9 @@
         Dropzone.options.mydropzone = {
 
             paramName: "file", // The name that will be used to transfer the file
-            //acceptedFiles: ".mp4",
+            acceptedFiles: ".mp4",
             uploadMultiple: true,
-            maxFilesize: 20,
+            maxFilesize: 200,
             MaxFiles: 1,
 
             init: function() {

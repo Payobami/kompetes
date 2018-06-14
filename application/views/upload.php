@@ -76,7 +76,7 @@
 
             <?php echo $success ?>
             <div class="drop-zone-upload" style="margin-top: 40px">
-                 <?php echo form_open_multipart('upload/upload_pixc', array('class'=>"dropzone", 'id'=>"mydropzone"))?>
+                 <?php echo form_open_multipart('upload/upload_pix', array('class'=>"dropzone", 'id'=>"mydropzone"))?>
                     <div class="fallback">
                         <input name="file" type="file" multiple />
                     </div>

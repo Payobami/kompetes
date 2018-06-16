@@ -1,4 +1,9 @@
 
+<link rel="stylesheet" href="<?php echo base_url('css/video_style.css')?>"></link>
+
+
+
+
 
 <section class="content" style="margin-top: 50px;padding: 0;">
 
@@ -53,52 +58,85 @@
         </div>
     </div>
 
-    <div class="container-fluid p-0 m-0" style="min-height: 650px;">
+    <div class="container-fluid p-0 m-20" style="min-height: 650px;">
 
 
 <!--        <h2 class="text-center f-raleway"><i class="fa fa-video"></i> <br> Working in Progress <br> ............................ </h2>-->
 
+        <div class="col-sm-2">
 
-        <div class="col-sm-2 p-0 m-0">
-            <div class="" style="background: #f2f2f2;min-height: 300px;margin: 0"></div>
 
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-10" id="list">
 
-
-            <div class="col-sm-3">
-                <div>
-                    <a href="#">
-                        <div class="" style="height: 160px;background: #a2a2a2"> </div>
-                        <div class="">
-                            Title information
-                        </div>
-                    </a>
-                </div>
+            <div class="videoItem">
+                <p class="category">Category</p>
+                <a href="#" class="thumbnail">
+                    <span class="duration">05:00</span>
+                    <img src="https://s1.dmcdn.net/IDEz8.jpg">
+                    <div class="play"></div>
+                </a>
+                <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui, ornare eu porttitor ut, tristique ac tellus.</a></p>
+                <p class="author"><a href="#">Author</a></p>
             </div>
 
-
-            <div class="col-sm-3">
-                <div>
-                    <div class="" style="height: 160px;background: #a2a2a2"></div>
-                </div>
+            <div class="videoItem">
+                <p class="category">Category</p>
+                <a href="#" class="thumbnail">
+                    <img src="https://s1.dmcdn.net/IDEz8.jpg">
+                    <div class="play"></div>
+                    <span class="duration">05:00</span>
+                </a>
+                <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui, ornare eu porttitor ut, tristique ac tellus.</a></p>
+                <p class="author"><a href="#">Author</a></p>
             </div>
 
-
-
-            <div class="col-sm-3">
-                <div>
-                    <div class="" style="height: 160px;background: #a2a2a2"></div>
-                </div>
+            <div class="videoItem">
+                <p class="category promoted">Promoted</p>
+                <a href="#" class="thumbnail">
+                    <img src="https://s1.dmcdn.net/IDEz8.jpg">
+                    <div class="play"></div>
+                    <span class="duration">05:00</span>
+                </a>
+                <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui, ornare eu porttitor ut, tristique ac tellus.</a></p>
+                <p class="author"><a href="#">Author</a></p>
             </div>
 
-
-            <div class="col-sm-3">
-                <div>
-                    <div class="" style="height: 160px;background: #a2a2a2"></div>
-                </div>
+            <div class="videoItem">
+                <p class="category">Category</p>
+                <a href="#" class="thumbnail">
+                    <img src="https://s1.dmcdn.net/IDEz8.jpg">
+                    <div class="play"></div>
+                    <span class="duration">05:00</span>
+                </a>
+                <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui, ornare eu porttitor ut, tristique ac tellus.</a></p>
+                <p class="author"><a href="#">Author</a></p>
             </div>
+
+            <div class="videoItem">
+                <p class="category">Category</p>
+                <a href="#" class="thumbnail">
+                    <img src="https://s1.dmcdn.net/IDEz8.jpg">
+                    <div class="play"></div>
+                    <span class="duration">05:00</span>
+                </a>
+                <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui, ornare eu porttitor ut, tristique ac tellus.</a></p>
+                <p class="author"><a href="#">Author</a></p>
+            </div>
+
+            <div class="videoItem">
+                <p class="category">Category</p>
+                <a href="#" class="thumbnail">
+                    <img src="https://s1.dmcdn.net/IDEz8.jpg">
+                    <div class="play"></div>
+                    <span class="duration">05:00</span>
+                </a>
+                <p class="title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam massa dui, ornare eu porttitor ut, tristique ac tellus.</a></p>
+                <p class="author"><a href="#">Author</a></p>
+            </div>
+
         </div>
+
 
     </div>
 

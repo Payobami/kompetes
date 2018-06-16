@@ -332,48 +332,51 @@ class Upload extends CI_Controller{
             //$config['allowed_types'] = 'gif|jpg|png';
             //$config['max_size']      = 1024;
 
-
-            require_once('action/fetch_user.php');
-
-            $files = $_FILES;
-            $path=dirname(__FILE__);
-            $abs_path=explode('/application/',$path);
-            $pathToImages = './videos/';
-            $pathToThumbImages = './videos/';
-            $pathToMediumImages = './videos/';
-
-            //$this->load->library('upload', $config);
-            //$this->upload->do_upload('file');
-
-            $cpt = count($_FILES['file']['name']);
-            $groupId = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"), 0, 8);
-
-            for($i=0; $i<$cpt; $i++) {
-
-                $_FILES['files']['name'] = $files['file']['name'][$i];
-                $_FILES['files']['type'] = $files['file']['type'][$i];
-                $_FILES['files']['tmp_name'] = $files['file']['tmp_name'][$i];
-                $_FILES['files']['error'] = $files['file']['error'][$i];
-                $_FILES['files']['size'] = $files['file']['size'][$i];
-
-                $config['upload_path'] = $pathToImages;
-                $config['max_size'] = 0;
-                /*$config['max_width']            = 1024;
-                $config['max_height']           = 768;*/
-                $config['allowed_types'] = 'mp4|jpg|jpeg|png';
+            if($_SERVER['REQUEST_METHOD'] =="Post") {
 
 
-                $this->load->library('upload', $config);
-                $this->upload->initialize($config);
+                die("welcome");
+                require_once('action/fetch_user.php');
+
+                $files = $_FILES;
+                $path = dirname(__FILE__);
+                $abs_path = explode('/application/', $path);
+                $pathToImages = './videos/';
+                $pathToThumbImages = './videos/';
+                $pathToMediumImages = './videos/';
+
+                //$this->load->library('upload', $config);
+                //$this->upload->do_upload('file');
+
+                $cpt = count($_FILES['file']['name']);
+                $groupId = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"), 0, 8);
+
+                for ($i = 0; $i < $cpt; $i++) {
+
+                    $_FILES['files']['name'] = $files['file']['name'][$i];
+                    $_FILES['files']['type'] = $files['file']['type'][$i];
+                    $_FILES['files']['tmp_name'] = $files['file']['tmp_name'][$i];
+                    $_FILES['files']['error'] = $files['file']['error'][$i];
+                    $_FILES['files']['size'] = $files['file']['size'][$i];
+
+                    $config['upload_path'] = $pathToImages;
+                    $config['max_size'] = 0;
+                    /*$config['max_width']            = 1024;
+                    $config['max_height']           = 768;*/
+                    $config['allowed_types'] = 'mp4|jpg|jpeg|png';
 
 
-                if ($this->upload->do_upload('files')) {
+                    $this->load->library('upload', $config);
+                    $this->upload->initialize($config);
 
+
+                    if ($this->upload->do_upload('files')) {
+
+
+                    }
 
                 }
-
             }
-
 
     }
 
@@ -381,6 +384,16 @@ class Upload extends CI_Controller{
 
 
     public function u_video(){
+
+        $data['title'] ="Upload Video";
+
+        if(isset($_SESSION['userLogginID'])){
+
+
+            require_once('action/fetch_user.php');
+        }
+
+        $this->load->view('template/header', $data);
 
         if($_SERVER['REQUEST_METHOD'] == 'Post'){
 

@@ -1,55 +1,222 @@
-<!DOCTYPE HTML>
-<!--
-/*
- * jQuery File Upload Plugin Basic Plus Demo
- * https://github.com/blueimp/jQuery-File-Upload
- *
- * Copyright 2013, Sebastian Tschan
- * https://blueimp.net
- *
- * Licensed under the MIT license:
- * https://opensource.org/licenses/MIT
- */
--->
-<html lang="en">
-<head>
-    <!-- Force latest IE rendering engine or ChromeFrame if installed -->
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-    <meta charset="utf-8">
-    <title>jQuery File Upload Demo - Basic Plus version</title>
-    <meta name="description" content="File Upload widget with multiple file selection, drag&amp;drop support, progress bar, validation and preview images, audio and video for jQuery. Supports cross-domain, chunked and resumable file uploads. Works with any server-side platform (Google App Engine, PHP, Python, Ruby on Rails, Java, etc.) that supports standard HTML form file uploads.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!-- Generic page styles -->
     <link rel="stylesheet" href="<?php echo base_url()?>css/style.css">
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="<?php echo base_url()?>css/jquery.fileupload.css">
-</head>
-<body>
+
+    <style type="text/css">
+        .borderNone{
+            border: none !important;
+        }
+
+        .tagsinput {
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 6px 6px 0;
+            width: 300px;
+            overflow-y: auto;
+        }
+        span.tag {
+
+            display: block;
+            float: left;
+            padding: 0px 5px 0px 5px;
+            text-decoration: none;
+            /*background: #1abb9c;*/
+            background: #c02f21;
+            color: #f1f6f7;
+            margin-right: 5px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-family: helvetica;
+        }
+        span.tag a {
+            color: #f1f6f7 !important;
+        }
+        .tagsinput span.tag a {
+            font-weight: bold;
+            color: #82ad2b;
+            text-decoration: none;
+            font-size: 11px;
+        }
+        .tagsinput input {
+            width: 80px;
+            margin: 0px;
+            font-family: helvetica;
+            font-size: 12px;
+            border: 1px solid transparent;
+            padding: 3px;
+            background: transparent;
+            color: #000;
+            outline: 0px;
+        }
+        .tagsinput div {
+            display: block;
+            float: left;
+        }
+        .tags_clear {
+            clear: both;
+            width: 100%;
+            height: 0px;
+        }
+        .not_valid {
+            background: #fbd8db !important;
+            color: #90111a !important;
+        }
+
+        .xxjj{
+            margin-top: 50px;
+            background:#f2f2f2;
+            padding:20px;
+
+        }
+
+        .videoClear{
+
+            margin 0;
+            font-family: 'ubuntu', Sans-serif;
+
+        }
+
+        .videoClear video{
+
+            width: 100%;
+            margin: 20px;
+        }
+
+
+    </style>
 
 <a href="" onclick="clearjQueryCache()">Clear Cache</a>
-<div class="container">
+<div class="container m-t-40">
 
-    <br>
-    <!-- The fileinput-button span is used to style the file input field as button -->
-    <span class="btn btn-success fileinput-button">
-        <i class="glyphicon glyphicon-plus"></i>
-        <span>Add files...</span>
-        <!-- The file input field used as target for the file upload widget -->
-        <input id="fileupload" type="file" name="files[]" multiple>
-    </span>
-    <br>
-    <br>
-    <!-- The global progress bar -->
-    <div id="progress" class="progress">
-        <div class="progress-bar progress-bar-success"></div>
+
+    <div style="background: #f2f2f2;padding: 10px;margin-top: 100px">
+
+
+
+
+        <?php echo form_open_multipart()?>
+
+        <div class="form-group">
+            <input type="file" name="file" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <input type="button" class="btn bg-black text-white" value="Upload">
+        </div>
+
+
+        <?php echo form_close()?>
+
+
+        <h5 class="m-b-0" style=""> Click on the Add Button to add your video</h5>
+        <br>
+        <!-- The fileinput-button span is used to style the file input field as button -->
+
+        <!-- The global progress bar -->
+        <div id="progress" class="progress" >
+            <div class="progress-bar progress-bar-striped active"></div>
+        </div>
+
+
+        <span class="btn bg-red text-white no-border-radius fileinput-button" >
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Add videos...</span>
+            <!-- The file input field used as target for the file upload widget -->
+            <input id="fileupload" type="file" name="file" multiple>
+        </span>
+
+        <!-- The container for the uploaded files -->
+        <div id="files" class="files">
+
+
+
+        </div>
+
+
+        <div class="clearfix"></div>
     </div>
-    <!-- The container for the uploaded files -->
-    <div id="files" class="files"></div>
     <br>
+    <div class="upload-info no-padding-xs xxjj" id="processUpload" hidden>
+        <?php echo form_open()?>
+        <div class="uploaded-picture">
+
+            <h5 class="m-t-0 m-b-40" style="border-bottom: 1px solid #d2d2d2">Give information about the uploaded <span class="text-red">Video</span> </h5>
+
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label>Title</label>
+            <input type="text" class="form-control no-border-radius" value="<?php echo set_value('title') ?>" name="title" placeholder="title">
+        </div>
+
+
+        <div class="form-group col-sm-6" style="min-height: 50px">
+            <label>Adult Content</label>
+            <div class="toggleWrapper" style="width: 100%; margin-top: 25px;position: relative">
+                <input class="dn" name="adult" value="yes" type="checkbox" id="dn"/>
+                <label class="toggle" for="dn"><span class="toggle__handler"></span></label>
+            </div>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label>Description</label>
+            <textarea class="form-control no-border-radius" name="discription"><?php echo set_value('discription')?></textarea>
+        </div>
+
+
+        <div class="form-group col-sm-6">
+
+
+            <div class="control-group">
+                <?php echo form_error('tags')?>
+                <label class="">Tags</label>
+                <div class="">
+                    <input id="tags_1" type="text" class="tags form-control" name="tags" value="<?php echo set_value('tags','Prize Value, Abstract, Jury')?>"/>
+                    <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="form-group col-sm-12">
+            <label>Select Category(s)</label>
+
+            <div class="photo-cat">
+                <?php
+                $this->db->select('*');
+                $getCat = $this->db->get('category')->result_array();
+                foreach($getCat as $cat):
+                    ?>
+                    <div class="select-cat">
+                        <input id="active<?php echo $cat['id']?>"  name="category[]" value="<?php echo $cat['category_name']?>" type="checkbox" class="check">
+                        <label for="active<?php echo $cat['id']?>" class="check text-white f-ubuntu"><?php echo $cat['category_name']?></label>
+                    </div>
+
+                <?php endforeach ?>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-sm-offset-3">
+            <button type="submit" class="btn btn- bg-black text-white no-border-radius btn-lg" style="width: 100%">SUBMIT</button>
+        </div>
+
+        <div class="clearfix"></div>
+        <?php echo form_close()?>
+    </div>
+
+
+
 
 </div>
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="<?php echo base_url()?>js/upload_js/vendor/jquery.ui.widget.js"></script>
@@ -86,6 +253,31 @@
     }
 
 </script>
+
+    <script>
+
+
+        Dropzone.options.mydropzone = {
+
+            paramName: "file", // The name that will be used to transfer the file
+            acceptedFiles: ".mp4",
+            uploadMultiple: true,
+            maxFilesize: 200,
+            MaxFiles: 1,
+
+            init: function() {
+                this.on("addedfile", function(file) {
+
+                    document.getElementById('processUpload').removeAttribute('hidden')
+                });
+            }
+
+        }
+
+
+    </script>
+
+
 <script>
     /*jslint unparam: true, regexp: true */
     /*global window, $ */
@@ -93,9 +285,9 @@
         'use strict';
         // Change this to the location of your server-side upload handler:
         var url = window.location.hostname ===  'blueimp.github.io' ?
-            '//jquery-file-upload.appspot.com/' :'<?php echo  base_url()?>server/php/',
+            '//jquery-file-upload.appspot.com/' :'<?php echo  base_url()?>upload/upload_video',
             uploadButton = $('<button/>')
-                .addClass('btn btn-primary')
+                .addClass('btn bg-black text-white')
                 .prop('disabled', true)
                 .text('Processing...')
                 .on('click', function () {
@@ -116,7 +308,7 @@
             url: url,
             dataType: 'json',
             autoUpload: false,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png|mp4)$/i,
+            acceptFileTypes: /(\.|\/)(mp4|webm|3gp)$/i,
             //maxFileSize: 999000,
             // Enable image resizing, except for Android and Opera,
             // which actually support image resizing, but fail to
@@ -127,9 +319,9 @@
             previewMaxHeight: 100,
             previewCrop: true
         }).on('fileuploadadd', function (e, data) {
-            data.context = $('<div/>').appendTo('#files');
+            data.context = $('<div class="col-sm-6 videoClear"/>').appendTo('#files');
             $.each(data.files, function (index, file) {
-                var node = $('<p/>')
+                var node = $('<p class="m-0 p-0"/>')
                     .append($('<span/>').text(file.name));
                 if (!index) {
                     node
@@ -138,6 +330,8 @@
                 }
                 node.appendTo(data.context);
             });
+
+
         }).on('fileuploadprocessalways', function (e, data) {
             var index = data.index,
                 file = data.files[index],
@@ -178,6 +372,10 @@
                         .append(error);
                 }
             });
+
+            document.getElementById('processUpload').removeAttribute('hidden')
+
+
         }).on('fileuploadfail', function (e, data) {
             $.each(data.files, function (index) {
                 var error = $('<span class="text-danger"/>').text('File upload failed.');
@@ -189,5 +387,3 @@
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     });
 </script>
-</body>
-</html>

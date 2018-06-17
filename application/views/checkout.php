@@ -87,7 +87,7 @@ $gateway = new Braintree\Gateway([
 </section>
 
 
-<script src="https://js.braintreegateway.com/web/dropin/1.10.0/js/dropin.min.js"></script>
+<script src="<?php echo base_url()?>/js/dropin.min.js"></script>
 <script>
     var form = document.querySelector('#payment-form');
     var client_token = "<?php echo($gateway->ClientToken()->generate()); ?>";

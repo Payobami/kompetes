@@ -30,8 +30,8 @@ $gateway = new Braintree\Gateway([
 
                 <div class="notice-wrapper">
 
-                    <?php echo($gateway->ClientToken()->generate()); ?>
-                    
+                    <?php //echo($gateway->ClientToken()->generate()); ?>
+
                     <?php if(isset($_SESSION["errors"])) : ?>
                         <div class="show notice error notice-error">
                     <span class="notice-message">

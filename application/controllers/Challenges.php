@@ -268,23 +268,23 @@ class Challenges extends CI_Controller
 
                 $data['title'] = $data['chanllengex']->challenge_name;
 
-                if($data['chanllengex']->winner_selection == '100'){
+                if($data['chanllengex']->winner_selection == '30'){
                     $data['banner'] ="014-badge-7.png";
                 }
-                elseif($data['chanllengex']->winner_selection == '200'){
+                elseif($data['chanllengex']->winner_selection == '60'){
 
                     $data['banner'] ="015-badge-6.png";
                 }
-                elseif($data['chanllengex']->winner_selection == '300'){
+                elseif($data['chanllengex']->winner_selection == '100'){
 
                     $data['banner'] ="016-badge-5.png";
                 }
-                elseif($data['chanllengex']->winner_selection == '400'){
+                elseif($data['chanllengex']->winner_selection == '150'){
 
                     $data['banner'] ="017-medal-2.png";
                 }
 
-                elseif($data['chanllengex']->winner_selection == '500'){
+                elseif($data['chanllengex']->winner_selection == '200'){
 
                     $data['banner'] ="023-badges-1.png";
                 }
@@ -292,23 +292,23 @@ class Challenges extends CI_Controller
 
 
 
-                if($data['chanllengex']->people_choice == '100'){
+                if($data['chanllengex']->people_choice == '30'){
                     $data['choiceBanner'] ="014-badge-7.png";
                 }
-                elseif($data['chanllengex']->people_choice == '200'){
+                elseif($data['chanllengex']->people_choice == '60'){
 
                     $data['choiceBanner'] ="015-badge-6.png";
                 }
-                elseif($data['chanllengex']->people_choice == '300'){
+                elseif($data['chanllengex']->people_choice == '100'){
 
                     $data['choiceBanner'] ="016-badge-5.png";
                 }
-                elseif($data['chanllengex']->people_choice == '400'){
+                elseif($data['chanllengex']->people_choice == '150'){
 
                     $data['choiceBanner'] ="017-medal-2.png";
                 }
 
-                elseif($data['chanllengex']->people_choice == '500'){
+                elseif($data['chanllengex']->people_choice == '200'){
 
                     $data['choiceBanner'] ="023-badges-1.png";
                 }

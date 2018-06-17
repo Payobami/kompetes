@@ -46,7 +46,7 @@ $s2=ceil(($s1-time())/60/60/24);
         }
     </style>
     <?php if(isset($_SESSION['userLogginID']) AND $contest->entry_price !=='Free' AND $contest->entry_price > $creditUnit){?>
-        <div class="alert alert-danger bg-red-gradient no-border-radius text-white p-5 m-b-3 m-t-0 text-center"><a class="close" data-dismiss="alert">x</a> It seems you do not have sufficient credits to enter this contest.. Please subscribe for more credits. <a href="<?php echo base_url('upgrade')?>" target="_new" class="text-black"> click to subscribe</a> </div>
+        <div hidden class="alert alert-danger bg-red-gradient no-border-radius text-white p-5 m-b-3 m-t-0 text-center"><a class="close" data-dismiss="alert">x</a> It seems you do not have sufficient credits to enter this contest.. Please subscribe for more credits. <a href="<?php echo base_url('upgrade')?>" target="_new" class="text-black"> click to subscribe</a> </div>
     <?php } ?>
     <div class="contest-bg" style="">
         <div class="container-fluid">

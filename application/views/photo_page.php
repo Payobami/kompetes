@@ -470,7 +470,7 @@
                                     <textarea class="form-control no-border-radius" name="comment" rows="4" placeholder="Write your comment here not more than 200"></textarea>
 
                                     <?php if(isset($_SESSION['userLogginID'])){?>
-                                    <input type="submit" class="btn btn-primary no-border-radius" value="Post Comment">
+                                    <input type="submit" class="btn bg-black text-white no-border-radius" value="Post Comment">
                                     <?php }else{?>
 
                                         <a href="<?php echo base_url('login?redirect=photos/check/'.$select_photo->picture_id.'#comment')?>" class="btn btn-danger">Login to Comment </a>

@@ -368,13 +368,13 @@
 
                     ?>
                     <div class="row_contest" style="background: ">
-                    <a href="<?php echo base_url("contests/check/".$getContest['contest_id'])?>">
+                    <a class="text-black" href="<?php echo base_url("contests/check/".$getContest['contest_id'])?>">
                         <div class="contest_thumb_image">
                             <img src="<?php echo base_url('uploads/contests/'.$getContest['contest_picture'])?>" class="img-circle" width="35" height="35">
                         </div>
                         <div class="contest_info_row">
                             <h5 class="contest_heading" style="line-height: 19.7px;"><?php echo $getContest['contest_name']?> Contest</h5>
-                            <p class="m-t-5">
+                            <p class="m-t-5 text-black">
                                 <?php echo $getContest['contest_grand_price']?>
                                 <small class="pull-right m-t-30"><?php echo $d2 ?> Days left</small>
                             </p>
@@ -412,7 +412,7 @@
 
                         <div class="follow_row" style="background: #f2f2f2; border-bottom: 1px solid #d2d2d2" <?php if ($countFollowBack >=1){echo 'hidden';} ?>>
                             <img src="<?php if(empty($getMoreF['picture'])){ echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$getMoreF['picture']);}?>" width="30" height="30">
-                            <a href="<?php echo base_url('profile/check/'.$getMoreF['user_id']) ?>" target="_new"><?php echo $getMoreF['username']?></a>
+                            <a class="text-black" href="<?php echo base_url('profile/check/'.$getMoreF['user_id']) ?>" target="_new"><?php echo $getMoreF['username']?></a>
                             <span class="body-right right">
                             <?php if ($countFollowBack <=0){?>
 
@@ -456,7 +456,7 @@
 
 
                         <div class="ongoing_voting_row">
-                            <a href="<?php echo base_url("vote/info/".$votingList['contest_id'])?>">
+                            <a class="text-black" href="<?php echo base_url("vote/info/".$votingList['contest_id'])?>">
                                 <img src="<?php echo base_url('uploads/contests/'.$votingList['contest_picture'])?>" width="30" height="30">
                                 <?php echo $votingList['contest_name']?> contest Voting
                             </a>
@@ -467,7 +467,7 @@
                     </div>
 
 
-                    <div>
+                    <div hidden>
                         <div class=""  style="margin-bottom: -30px; margin-top: 40px">
                             <small class="">Invite more Friends</small>
                         </div>

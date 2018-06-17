@@ -204,7 +204,7 @@
                                             <th>No of Entry</th>
                                             <th>No of vote</th>
                                             <th>Closing Date</th>
-                                            <th class="action">Action</th>
+                                            <th class="action" hidden>Action</th>
                                         </tr>
                                         <thead>
                                         <tfoot>
@@ -214,7 +214,7 @@
                                             <th>No of Entry</th>
                                             <th>No of vote</th>
                                             <th>Closing Date</th>
-                                            <th class="action">Action</th>
+                                            <th class="action" hidden>Action</th>
                                         </tr>
                                         <tfoot>
                                         <tbody>
@@ -254,9 +254,9 @@
                                                     <td><?php if(empty($countVoteNo->vote)){echo 'No vote yet';}else{echo $countVoteNo->vote;} ?></td>
                                                     <td><?php echo $formattedCloseDate .' <span class="text-red"> ('. $d2 .' days left)</span>' ?></td>
 
-                                                    <td>
+                                                    <td hidden>
 
-                                                        <a href="<?php echo base_url('admin/vote_progress/'.$openContest['contest_challenge_id'])?>" class="btn btn-danger btn-xs f-s-11 no-border-radius">See Progress</a>
+                                                        <a href="<?php echo base_url('vote/info/'.$openContest['contest_challenge_id'])?>" class="btn btn-danger btn-xs f-s-11 no-border-radius">Checkout</a>
                                                     </td>
                                                 </tr>
 

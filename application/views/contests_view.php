@@ -290,11 +290,11 @@ $s2=ceil(($s1-time())/60/60/24);
                     <li><a href="<?php echo base_url('pages/privacy')?>">Privacy</a></li>
                     <li><a href="<?php echo base_url('pages/terms')?>">Terms</a></li>
                     <li><a href="<?php echo base_url('pages/support')?>">Support</a></li>
-                    <li style="max-width: 20px !important; margin-right: -35px;padding-left: 0"><a> <i class="fa fa-facebook m-r-5 m-l-5"></i></a></li>
-                    <li style="max-width: 20px !important;margin-right: -35px;padding-left: 0"><a><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
-                    <li style="width: 20px;margin-right: -35px;"><a><i class="fa fa-instagram m-r-5 m-l-5"></i></a></li>
-                    <li style="width: 40px;margin-right: -35px;"><a><i class="fa fa-google-plus m-r-5 m-l-5"></i></a></li>
-                    <li style=""><a>Artknews Magazine</a></li>
+                    <li style="max-width: 20px !important; margin-right: -35px;padding-left: 0"><a href="https://www.facebook.com/kompetes" target="_new"> <i class="fa fa-facebook m-r-5 m-l-5"></i></a></li>
+                    <li style="max-width: 20px !important;margin-right: -35px;padding-left: 0"><a href="https://twitter.com/kompetes" target="_new"><i class="fa fa-twitter m-r-5 m-l-5"></i></a></li>
+                    <li style="width: 20px;margin-right: -35px;"><a href="https://www.instagram.com/kompetes" target="_new"><i class="fa fa-instagram m-r-5 m-l-5"></i></a></li>
+                    <li style="width: 40px;margin-right: -35px;"><a href="https://www.pinterest.co.uk/artknews" target="_new"><i class="fa fa-pinterest-p m-r-5 m-l-5"></i></a></li>
+                    <li style=""><a href="https://www.artknews.co.uk/" target="_new">Artknews Magazine</a></li>
                 </ul>
             </div>
         </div>

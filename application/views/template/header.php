@@ -75,18 +75,18 @@
                             <ul class="dropdown-menu no-border-radius" style="margin-left: -155px; background: #FFF">
                                 <div class="notification_drop">
                                     <ul>
-                                        <li style="background: none">
-                                            <a href="#" style="color: #2c2c2c !important;">
-                                                Your notification appears here
-                                            </a>
-                                        </li>
+                                        <?php if($countNotification >= 1): ?>
+                                            <?php foreach($getNotifications as $notification):?>
 
-                                        <li style="background: none">
-                                            <a href="#" style="color: #2c2c2c !important;">
-                                                Your notification appears here
-                                            </a>
-                                        </li>
+                                                <li>
+                                                    <a href="<?php echo $notification['link']; ?>" style="color: #2c2c2c !important;">
+                                                        <?php echo $notification['message']; ?>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach ?>
+                                        <?php endif?>
                                     </ul>
+
                                 </div>
                             </ul>
                         </li>
@@ -148,7 +148,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
                 <li><a href="<?php echo base_url()?>image">Images</a></li>
-                <li><a href="<?php echo base_url('video')?>">Videos</a></li>
+                <!--<li hidden><a href="<?php /*echo base_url('video')*/?>">Videos</a></li>-->
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
 
             </ul>
@@ -174,17 +174,16 @@
                     <ul class="dropdown-menu" style="color: #000;background-color: #fff;">
                         <div class="notification_drop">
                             <ul>
+                                <?php if($countNotification >= 1): ?>
+                                    <?php foreach($getNotifications as $notification):?>
 
-
-                                <?php foreach($getNotifications as $notification):?>
-
-                                    <li>
-                                        <a href="<?php echo $notification['link']; ?>" style="color: #2c2c2c !important;">
-                                            <?php echo $notification['message']; ?>
-                                        </a>
-                                    </li>
-
-                                <?php endforeach ?>
+                                        <li>
+                                            <a href="<?php echo $notification['link']; ?>" style="color: #2c2c2c !important;">
+                                                <?php echo $notification['message']; ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach ?>
+                                <?php endif?>
                             </ul>
                         </div>
                     </ul>
@@ -241,7 +240,7 @@
                 <li class="active"><a href="<?php echo base_url()?>contests">Contests</a></li>
                 <li><a href="<?php echo base_url()?>image">Images</a></li>
                 <li><a href="<?php echo base_url('challenges')?>">Member Contest</a></li>
-                <li><a href="<?php echo base_url('video')?>">Videos</a></li>
+                <!--<li hidden><a href="<?php /*echo base_url('video')*/?>">Videos</a></li>-->
                 <li><a href="<?php echo base_url('vote')?>">Votes</a></li>
                 <li class="nav-active"><a href="<?php echo base_url('upload')?>">+ Upload</a></li>
                 <li><a href="<?php echo base_url("upgrade")?>"> Credit</a></li>

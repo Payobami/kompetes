@@ -1467,5 +1467,33 @@ class Admin extends CI_Controller
 
 
 
+    public function remove_challenge($id)
+    {
+
+        $data['success'] = "";
+        if (!isset($_SESSION['userLogginID'])) {
+
+            redirect(base_url('login'));
+        } else {
+
+            require_once('action/fetch_user.php');
+
+
+            if ($data['adminStatus'] !== '1') {
+
+                redirect(base_url('user/home'));
+
+            } else {
+                require_once('action/admin_info.php');
+                require_once('action/time_function.php');
+
+                $this->db->where('challenge_id', $id);
+                $this->db->delete('challenges');
+
+                redirect(base_url('admin/challenges?action=success'));
+
+            }
+        }
+    }
 
 }

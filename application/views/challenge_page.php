@@ -217,7 +217,7 @@ $s2=ceil(($s1-time())/60/60/24);
                                  <span>Entry fee: Free for Premium and Pro members</span>
                              </li>-->
 
-                            <li>
+                            <li hidden>
                                 <img src="https://use.fontawesome.com/releases/v5.0.13/svgs/solid/pound-sign.svg" style="width: 2em;" class="pull-left m-r-40">
                                 <span>Entry fee: <?php //if($contest->entry_price=='Free'){echo 'Free';}else{echo $contest->entry_price.' Points ';} ?> for Premium and Pro members</span>
                             </li>

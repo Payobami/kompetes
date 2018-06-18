@@ -38,8 +38,8 @@ session_start();
 
             //notify the person of the follower information
 
-            $message = $followerName . 'Started following you.. check <a href="profile/check/' . $followerID . '">' . $followingName . 's profile for more information</a>';
-            $link = "profile/check/" . $followingID;
+            $message = $followerName . ' Started following you.. check <a href="profile/check/' . $followerID . '">' . $followingName . 's profile for more information</a>';
+            $link =  base_url("profile/check/").$followingID;
             $user_id = $followerID;
             $status = 0;
             $remake = '';

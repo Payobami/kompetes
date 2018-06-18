@@ -4,6 +4,12 @@
     }
 </style>
 
+<script type="text/javascript">
+
+
+
+</script>
+
 <div class="main_body">
     <!-- add user modal start -->
     <!-- user content section -->
@@ -12,6 +18,7 @@
 
 
             <?php
+
 
             ?>
 
@@ -91,10 +98,18 @@
             <div class="theme_section">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
+
+
+
                         <div class="th_manage_user">
                             <h3 class="th_title">Challenges Lists</h3>
 
+                            <?php if(isset($_GET['action'])){
 
+
+                                echo "<div class='alert alert-danger text-white'><a class='close' data-dismiss='alert'>X</a> Member contest deleted successfully </div>";
+
+                            }?>
 
 
                             <div class="table-responsive">
@@ -103,8 +118,8 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Challenges Name</th>
-                                        <th>Grand Price</th>
-                                        <th>Entry Price</th>
+                                        <th>Grand Winner Price</th>
+                                        <th>People's Choice Price</th>
                                         <th>Submission Close Date</th>
                                         <th>Voting Start Date</th>
                                         <th>Status</th>
@@ -115,8 +130,8 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Challenges Name</th>
-                                        <th>Grand Price</th>
-                                        <th>Entry Price</th>
+                                        <th>Grand Winner Price</th>
+                                        <th>People's Choice Price</th>
                                         <th>Submission Close Date</th>
                                         <th>Voting Start Date</th>
                                         <th>Status</th>
@@ -153,8 +168,7 @@
                                             <td><?php echo $formattedCloseDate; ?> <span class="text-red"><?php if($d2 <=0){echo ' (0 day left)';}else{ echo ' ('.$d2.' days left)';} ?></span> </td>
                                             <td><?php if($e2 <= 0 && $d2 <=0){ echo '<div class="btn btn-danger f-s-12 btn-xs no-border-radius">Closed</div>';} elseif($e2>=1){ echo '<div class="btn btn-success f-s-12 btn-xs no-border-radius">Entry Open</div>';}elseif($d2>=1){echo '<div class="btn btn-warning btn-xs f-s-12 no-border-radius">Voting Open</div>'; } ?> </td>
                                             <td>
-                                                <a href="<?php //echo base_url('') ?>" class="btn btn-danger btn-xs f-s-12 no-border-radius">Suspend</a>
-                                                <a href="<?php //echo base_url('') ?>" class="btn btn-warning btn-xs f-s-12 no-border-radius">Edit</a>
+                                                <a href="<?php echo base_url('admin/remove_challenge/'.$challenge['challenge_id']) ?>" title="<?php echo $challenge['challenge_id']?>" class="btn btn-danger btn-xs f-s-12 no-border-radius">Suspend </a>
                                                 <a target="_blank" href="<?php echo base_url('challenges/check/'.$challenge['challenge_id']) ?>" class="btn btn-primary btn-xs f-s-12 no-border-radius">view</a>
                                             </td>
                                         </tr>

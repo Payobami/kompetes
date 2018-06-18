@@ -50,7 +50,7 @@
 
              <!-- carousel displaying here -->
 
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" hidden>
 
                 <div class="carousel-inner">
                     <div class="item active">
@@ -124,7 +124,7 @@
 
             <div class="col-sm-6">
 
-                <img src="img/video_frame_play.png" width="100%">
+                <img src="<?php echo base_url()?>img/video-play.jpg" class="img-thumbnail" width="100%">
 
             </div>
 
@@ -230,7 +230,7 @@
                     </div>
                     <div>
 
-                        <h3 style="color: #fff">Mobile app at Work...</h3>
+                        <h3 style="color: #fff">Mobile App Coming Soon...</h3>
                         <br>
                         <a href="<?php echo base_url('login')?>" class="" style="width: 250px;">
                             <img src="<?php echo base_url('img/android app logo.png')?>" width="290px">

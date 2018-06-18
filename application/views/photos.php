@@ -1,5 +1,24 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url()?>css/masonry.css"/>
 <section class="content" style="margin-top: 40px;padding: 0;">
+
+
+    <script type="text/javascript">
+
+        //var getLikes = document.getElementById("result").textContent;
+
+        var clicks = 0;
+        function onClick() {
+            var getLikes = document.getElementById("result").textContent;
+            var clicks = Number(getLikes);
+            //var clicks = document.getElementById("clicks").textContent;
+            clicks += 1;
+            document.getElementById("result").innerHTML = clicks;
+            document.getElementsByClassName("likex").style.background = "#f00";
+
+
+        }
+
+    </script>
     <style>
 
         @media only screen and (max-width: 650px){
@@ -43,12 +62,7 @@
                             <a href="<?php echo base_url('photos/cat/photography')?>" class="text-black f-s-22 m-l-20 f-bitter"> Photography</a>
 
                         </div>
-
-
-
-
                     </div>
-
                 </div>
 
 
@@ -56,7 +70,6 @@
                 <ul>
                     <!--<li class="label label-danger no-border-radius"><a href="<?php /*echo base_url('photos')*/?>"> Explore All</a> </li>
                     <li class="label label-warning no-border-radius"><a href="<?php /*echo base_url('video')*/?>"> Video </a> </li>-->
-
 
                     <li class="label bg-  hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/art')?>"> Art </a> </li>
                     <li class="label bg- hidden-xs no-border-radius"><a href="<?php echo base_url('photos/cat/photography')?>"> Photography </a> </li>
@@ -102,13 +115,26 @@
                         </a>
 
                         <div>
-                            <label class="award label bg-black">
-                               <a href="" class="text-white"> <i class="fa fa-thumbs-up"></i></a>
+                            <label class="award likex label bg-black" id="likex_<?php echo $photos['picture_id'] ?>" onclick="onClick()">
+                               <a href="javascript: void(0)" class="text-white" id="likex_<?php echo $photos['picture_id'] ?>" rel="<?php echo $photos['picture_id'] ?>"> <i class="fa fa-thumbs-up"></i></a>
+
+                                <?php
+
+                                $this->db->where("upload_id", $photos['picture_id']);
+                                $countLike = $this->db->count_all_results('upload_like');
+
+                                ?>
+
+
+                                <div id="result" class="showResult2">
+                                    <?php echo $countLike ?>
+                                </div>
+
                             </label>
 
                             <?php if(isset($this->session->userLogginID)):?>
-                                <label class="star label bg-black">
-                                    <a href="" class="text-white">
+                                <label id="fav_<?php echo $photos['picture_id'] ?>" class="fav fav_bg star label bg-black">
+                                    <a href="javascript: void(0)" class="text-white " id="fav__<?php echo $photos['picture_id'] ?>" rel="<?php echo $photos['picture_id'] ?>">
                                         <i class="fa fa-star"></i>
                                     </a>
                                 </label>
@@ -137,6 +163,8 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/functions.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>js/jquery.livequery.js"></script>
 
 <script src="<?php echo  base_url()?>js/jquery.masonry.js"></script>
 <script>
@@ -152,7 +180,44 @@
 
     });
 
+</script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+
+
+        $('.likex > a').livequery("click",function(e){
+
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('likex_','');
+
+            //$.post("<?php echo base_url()?>follow/following/"+getID, {
+            $.post("<?php echo base_url()?>ajax_link/like/"+getID, {
+
+            }, function(response){
+
+                $('#likex_'+getID).html($(response).fadeIn('slow'));
+            });
+        });
+
+
+    $('.fav > a').livequery("click",function(e){
+
+    var parent  = $(this).parent();
+    var getID   =  parent.attr('id').replace('fav_','');
+
+    //$.post("<?php echo base_url()?>follow/following/"+getID, {
+    $.post("<?php echo base_url()?>ajax_link/fav/"+getID, {
+
+    }, function(response){
+
+    $('#fav_'+getID).html($(response).fadeIn('slow'));
+    });
+
+    });
+});
 </script>
 </body>
 </html>

@@ -11,6 +11,10 @@
     $ownerInfo = $this->db->get("userz")->result();
     foreach($ownerInfo as $ownerInfo)
 
+        //count all result
+
+        $this->db->where("upload_id", $select_photo->picture_id);
+        $countLike = $this->db->count_all_results('upload_like');
 
 
 ?>
@@ -71,6 +75,32 @@
 
 </style>
 
+<script type="text/javascript">
+
+    //var getLikes = document.getElementById("result").textContent;
+
+    var clicks = 0;
+    function onClick() {
+        var getLikes = document.getElementById("result").textContent;
+        var clicks = Number(getLikes);
+        //var clicks = document.getElementById("clicks").textContent;
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+        document.getElementsByName('like').style.background="#f00";
+        document.getElementById("clicks").style.background = "#ff5e56";
+        document.getElementsByClassName("likex").style.background = "#f00";
+
+
+    }
+
+    function onFav(){
+
+
+
+
+    }
+</script>
+
 <section class="content" style="margin-top: 50px;padding: 0;">
 
         <div class="container-fluid">
@@ -80,9 +110,48 @@
                 <div class="col-sm-6 col-xs-5">
                     <div class="photo_share_row" style="margin-left: -20px">
                         <ul>
-                            <li><a href="" class="text-black"><i class="fa fa-star"></i></a></li>
-                            <li class="pull-right visible-xs" style="margin-right: -5px !important;"><a href="" class="text-black"><i class="fa fa-thumbs-up"></i></a></li>
-                            <li class="hidden-xs" style=""><a href="" class="text-black"><i class="fa fa-thumbs-up"></i></a></li>
+
+                            <?php
+                            if (isset($_SESSION['userLogginID'])) {
+
+                                $userIDx = $_SESSION['userLogginID'];
+
+                            } else {
+                                $userIDx = "";
+                            }
+
+                            $userIP = $_SERVER['SERVER_ADDR'];
+
+
+                            $this->db->where("upload_id = '$select_photo->picture_id' AND user_id ='$userIDx' OR user_ip='$userIP'");
+                            $countFav = $this->db->count_all_results('favourite_upload');
+
+                            if($countFav <=0 ){
+                            ?>
+
+                                <li class="fav fav_bg" id="fav_<?php echo $select_photo->picture_id ?>" onclick=""><a href="javascript: void(0)" onclick="onFav()" id="fav__<?php echo $select_photo->picture_id ?>" rel="<?php echo $select_photo->picture_id ?>" class="text-black"><i class="fa fa-star"></i></a>
+
+                                </li>
+                            <?php } else{?>
+
+                                <li class="fav bg-red fav_bg" id="" onclick=""><a href="javascript: void(0)" onclick="onFav()" id="" rel="<?php echo $select_photo->picture_id ?>" class="text-white"><i class="fa fa-star"></i></a></li>
+
+                            <?php }?>
+
+
+                            <li class="pull-right likex visible-xs" id="likex_<?php echo $select_photo->picture_id ?>" onclick="clickCounter()"  style="margin-right: -5px !important;"><a href="#" id="likex_<?php echo $select_photo->picture_id ?>" rel="<?php echo $select_photo->picture_id ?>"  class="text-black"><i class="fa fa-thumbs-up"></i></a>
+
+                                <div id="result" class="showResult">
+                                    <?php echo $countLike ?>
+
+                                </div>
+                            </li>
+                            <li class="hidden-xs likex" id="likex_<?php echo $select_photo->picture_id ?>" onclick="onClick()" style=""><a href="javascript: void(0)" onclick="clickCounter()" id="likex_<?php echo $select_photo->picture_id ?>" rel="<?php echo $select_photo->picture_id ?>" class="text-black"><i class="fa fa-thumbs-up"></i></a>
+
+                                <div id="clicks" class="showResult">
+                                    <?php echo $countLike ?>
+                                </div>
+                            </li>
                             <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-twitter"></i></a></li>
                             <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-facebook"></i></a></li>
                             <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-google-plus"></i></a></li>
@@ -99,7 +168,7 @@
                             <a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>"><img src="<?php if(empty($ownerInfo->picture)){echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$ownerInfo->picture);}?>" width="40" style="height: 40px;width: 40px" class="img-circle"></a>
                         </div>
                         <div class="right"style="float: right">
-                            <span class="userName "><a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>"><b><?php echo $ownerInfo->username ?></b></a></span>
+                            <span class="userName text-black"><a href="<?php echo base_url('profile/check/'.$ownerInfo->user_id)?>" class="text-black"><b><?php echo $ownerInfo->username ?></b></a></span>
                             <br>
                             <!--<a href="<?php /*echo base_url('follow/following/'.$ownerId) */?>"><label class="label label-default">Follow</label></a>-->
                             <div class="body-right " style="margin-left: -15px">
@@ -121,7 +190,7 @@
                                             <?php if($countFollo <=0){?>
 
 
-<!--                                            <span class="buttons" id="button_--><?php //echo $ownerInfo->user_id ?><!--"><a class="btn-follow" href="javascript:void(0)"></a></span>-->
+<!--                                          <span class="buttons" id="button_--><?php //echo $ownerInfo->user_id ?><!--"><a class="btn-follow" href="javascript:void(0)"></a></span>-->
                                                 <span class="buttons" id="button_<?php echo $ownerInfo->user_id.'-'. $ownerInfo->username.'-'.$_SESSION['userLogginID'].'-'.$username ?>">
                                                 <a class="btn follow" href="javascript: void(0)" id="<?php echo $ownerInfo->user_id ?>" rel="<?php echo $ownerInfo->user_id ?>">
                                                     <i class="fa fa-user-plus text-red"></i>
@@ -580,11 +649,27 @@
             var getID   =  parent.attr('id').replace('likex_','');
 
             //$.post("<?php echo base_url()?>follow/following/"+getID, {
-            $.post("<?php echo base_url()?>like.php?id="+getID, {
+            $.post("<?php echo base_url()?>ajax_link/like/"+getID, {
 
             }, function(response){
 
-                $('#button_'+getID).html($(response).fadeIn('slow'));
+                $('#likex_'+getID).html($(response).fadeIn('slow'));
+            });
+        });
+
+
+
+        $('.fav > a').livequery("click",function(e){
+
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('fav_','');
+
+            //$.post("<?php echo base_url()?>follow/following/"+getID, {
+            $.post("<?php echo base_url()?>ajax_link/fav/"+getID, {
+
+            }, function(response){
+
+                $('#fav_'+getID).html($(response).fadeIn('slow'));
             });
         });
     });

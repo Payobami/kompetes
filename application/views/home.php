@@ -201,7 +201,7 @@
                             <div class="photo_title" style="height: 60px;width: 100%; padding: 10px;background: #f3f3f3">
                                 <div class="logoPhoto" style="padding-top: 5px;background: #f3f3f3">
                                     <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
-                                    <span> Recommend for you by <a href=""> <?php echo $post['poster_name']?></a></span>
+                                    <span> Recommend for you by <a href="<?php echo base_url('profile/check/'.$post['poster_id'])?>" target="_new"> <?php echo $post['poster_name']?></a></span>
                                 </div>
                             </div>
                            <div class="likeRow">

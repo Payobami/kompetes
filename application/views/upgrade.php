@@ -153,7 +153,7 @@ $getCredit = $query->result_array();
 
 
 
-        <div class="col-sm-6 m-t-40 no-padding-xs text-left">
+        <div class="col-sm-6 m-t-40 no-padding-xs text-left" hidden>
             <div style="min-height: 300px; background: rgba(223,223,233, 0.7)">
                 <h3 class="text-center text-red f-bitter"> <img src="<?php echo base_url('img/icons/credit-card-red.png')?>">  Why Credits </h3>
 

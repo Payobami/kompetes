@@ -5,6 +5,7 @@
 
 <?php
 //get ownerInformation
+$userIP = $_SERVER['SERVER_ADDR'];
 
     $ownerId = $select_photo->user_id;
     $this->db->where("user_id='$ownerId'");
@@ -15,6 +16,12 @@
 
         $this->db->where("upload_id", $select_photo->picture_id);
         $countLike = $this->db->count_all_results('upload_like');
+
+        //count if user already like the photo
+
+        $this->db->where("upload_id= '$select_photo->picture_id' AND like_ip='$userIP' ");
+        $countUserLike = $this->db->count_all_results('upload_like');
+
 
 
 ?>
@@ -123,7 +130,8 @@
                             $userIP = $_SERVER['SERVER_ADDR'];
 
 
-                            $this->db->where("upload_id = '$select_photo->picture_id' AND user_id ='$userIDx' OR user_ip='$userIP'");
+                            $this->db->where("upload_id = '$select_photo->picture_id' AND user_id ='$userIDx'");
+                            $this->db->or_where("upload_id = '$select_photo->picture_id' AND user_ip='$userIP'");
                             $countFav = $this->db->count_all_results('favourite_upload');
 
                             if($countFav <=0 ){
@@ -137,6 +145,9 @@
                                 <li class="fav bg-red fav_bg" id="" onclick=""><a href="javascript: void(0)" onclick="onFav()" id="" rel="<?php echo $select_photo->picture_id ?>" class="text-white"><i class="fa fa-star"></i></a></li>
 
                             <?php }?>
+
+
+
 
 
                             <li class="pull-right likex visible-xs" id="likex_<?php echo $select_photo->picture_id ?>" onclick="clickCounter()"  style="margin-right: -5px !important;"><a href="#" id="likex_<?php echo $select_photo->picture_id ?>" rel="<?php echo $select_photo->picture_id ?>"  class="text-black"><i class="fa fa-thumbs-up"></i></a>

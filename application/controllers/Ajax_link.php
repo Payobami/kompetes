@@ -63,14 +63,23 @@ class Ajax_link extends CI_Controller{
             );
 
             $this->db->insert('upload_like', $insertLike);
-            echo '<a href="#" class="" style="width: 100%; padding: ; color: #fff;"><i class="fa fa-thumbs-up f-s-12"></i>'. $like_count  . ' </a>';
+            echo '<a href="#" class="" style="width: 100%; padding: ; color: #fff;"><i class="fa fa-thumbs-up"></i>'. $like_count  . ' </a>';
         }
 
         else{
 
-            $like_count = $like_count - 1;
+            //dislike the picture
 
-            echo '<a href="#" class="" style="width: 100%; padding:; color: #fff;"><i class="fa fa-thumbs-up f-s-12"></i>'. $like_count . ' </a>';
+            $like_count_minus = $like_count - 1;
+
+            $this->db->where("upload_id = '$id' AND like_ip ='$userIP'");
+            $this->db->delete('upload_like');
+
+
+
+
+
+            echo '<a href="#" class="" style="width: 100%; padding:; color: #fff;"><i class="fa fa-thumbs-up"></i>'. $like_count_minus . ' </a>';
 
         }
 

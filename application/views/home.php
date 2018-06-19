@@ -358,7 +358,10 @@
                                         <?php
 
                                             $userIDx = $_SESSION['userLogginID'];
-                                            $userIP = $_SERVER['SERVER_ADDR'];
+
+                                            require_once('template/user_ip.php');
+                                            $userIP = get_client_ip();
+
                                             $this->db->where("upload_id = '$postMediaID' AND user_id ='$userIDx'");
                                             $this->db->or_where("upload_id = '$postMediaID' AND user_ip='$userIP'");
                                             $countFav = $this->db->count_all_results('favourite_upload');

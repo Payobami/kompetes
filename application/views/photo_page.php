@@ -5,7 +5,9 @@
 
 <?php
 //get ownerInformation
-$userIP = $_SERVER['SERVER_ADDR'];
+
+    require_once('template/user_ip.php');
+    $userIP = get_client_ip();
 
     $ownerId = $select_photo->user_id;
     $this->db->where("user_id='$ownerId'");
@@ -13,7 +15,6 @@ $userIP = $_SERVER['SERVER_ADDR'];
     foreach($ownerInfo as $ownerInfo)
 
         //count all result
-
         $this->db->where("upload_id", $select_photo->picture_id);
         $countLike = $this->db->count_all_results('upload_like');
 
@@ -127,7 +128,9 @@ $userIP = $_SERVER['SERVER_ADDR'];
                                 $userIDx = "";
                             }
 
-                            $userIP = $_SERVER['SERVER_ADDR'];
+
+
+                            $userIP = get_client_ip();
 
 
                             $this->db->where("upload_id = '$select_photo->picture_id' AND user_id ='$userIDx'");

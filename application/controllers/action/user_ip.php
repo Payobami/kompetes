@@ -1,7 +1,10 @@
 <?php
-
-
-
+/**
+ * Created by PhpStorm.
+ * User: nestor
+ * Date: 19/06/2018
+ * Time: 1:38 PM
+ */
 
 function get_client_ip() {
     $ipaddress = '';
@@ -21,8 +24,3 @@ function get_client_ip() {
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
-
-
-$ipadd =  get_client_ip().'<br>';
-echo $ipadd .'<br>';
-//echo $_SERVER['SERVER_ADDR'];

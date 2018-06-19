@@ -31,7 +31,9 @@ class Ajax_link extends CI_Controller{
     public function like($id){
 
 
-        $userIP = $_SERVER['SERVER_ADDR'];
+        require_once('action/user_ip.php');
+
+        $userIP = get_client_ip();
 
         if (isset($this->session->userLogginID)) {
 
@@ -111,7 +113,10 @@ class Ajax_link extends CI_Controller{
                 $userID = "";
             }
 
-            $userIP = $_SERVER['SERVER_ADDR'];
+            
+            require_once('action/user_ip.php');
+
+            $userIP = get_client_ip();
 
             $insertFav = array(
 

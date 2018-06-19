@@ -41,6 +41,26 @@
 
 </style>
 
+<script type="text/javascript">
+
+    //var getLikes = document.getElementById("result").textContent;
+
+    var clicks = 0;
+    function onClick() {
+        var getLikes = document.getElementById("result").textContent;
+        var clicks = Number(getLikes);
+        //var clicks = document.getElementById("clicks").textContent;
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+        document.getElementsByName('like').style.background="#f00";
+        document.getElementById("clicks").style.background = "#ff5e56";
+        document.getElementsByClassName("likex").style.background = "#f00";
+
+
+    }
+
+</script>
+
 
 
 <section class="content" style="margin-top: 40px;padding: 0;">
@@ -49,10 +69,182 @@
         <div class="mobile-rec visible-xs">
             <ul>
                 <li class="active"><a>Following</a></li>
-                <li class="no-border"><a>Recommended</a></li>
+                <li class="no-border"><a href="#" data-toggle="modal" data-target="#recommended">Recommended</a></li>
             </ul>
         </div>
 
+
+        <!-- modal for the mobile recommended -->
+
+        <div class="modal fade" id="recommended" role="dialog">
+            <div class="modal-dialog m-l-0 m-r-0 m-b-0" style="margin-top: 3px;position: ">
+                <!-- Modal content-->
+                <div class="modal-content modal-lg no-border-radius" style="min-height: 1000px;">
+
+                    <div class="modal-body p-r-0">
+
+                        <div class="pull-right">
+                            <a class="" data-dismiss="modal">
+                                <label class="label bg-red">
+                                    Home
+                                </label>
+                            </a>
+                        </div>
+
+                        <div class="right_var p-r-10" id="" style="z-index: -1;">
+                            <div class="border-bottom" style="margin-bottom: -30px; margin-top: 55px;border-bottom: 1px solid #d2d2d2">
+
+                                <small>Open Contests</small>
+                            </div>
+                            <div class="divider-horizontal"></div>
+                            <?php foreach($getContestAvail as $getContest):?>
+                                <?php
+                                $timestampStart = strtotime($getContest['contest_start_date']);
+                                $formattedStartDate = date('F d', $timestampStart);
+
+                                //vote end
+                                $timestampClose = strtotime($getContest['contest_close_date']);
+                                $formattedCloseDate = date('F d, Y', $timestampClose);
+
+                                //remaining date
+                                $d1=strtotime($getContest['contest_start_date']);
+                                $d2=ceil(($d1-time())/60/60/24);
+
+                                ?>
+                                <div class="row_contest" style="background: ">
+                                    <a class="text-black" href="<?php echo base_url("contests/check/".$getContest['contest_id'])?>">
+                                        <div class="contest_thumb_image">
+                                            <img src="<?php echo base_url('uploads/contests/'.$getContest['contest_picture'])?>" class="img-circle" width="35" height="35">
+                                        </div>
+                                        <div class="contest_info_row">
+                                            <h5 class="contest_heading" style="line-height: 19.7px;"><?php echo $getContest['contest_name']?> Contest</h5>
+                                            <p class="m-t-5 text-black">
+                                                <?php echo $getContest['contest_grand_price']?>
+                                                <small class="pull-right m-t-30"><?php echo $d2 ?> Days left</small>
+                                            </p>
+
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a>
+                                </div>
+                            <?php endforeach ?>
+
+
+                            <div id="">
+
+                                <div>
+                                    <div class=""style="margin-bottom: -30px; margin-top: 40px;border-bottom: 1px solid #d2d2d2">
+
+                                        <small>Who to Follow</small>
+                                    </div>
+                                    <div class="divider-horizontal"></div>
+
+                                    <?php
+
+                                    $userIDD = $_SESSION['userLogginID'];
+                                    foreach($getMoreFollow as $getMoreF):
+
+                                        $userzID = $getMoreF['user_id'];
+
+                                        //check if the user is following already
+
+                                        $this->db->where("follower_id = '$userIDD' AND user_id ='$userzID'");
+                                        $countFollowBack = $this->db->count_all_results('followingx');
+
+                                        ?>
+
+
+                                        <div class="follow_row" style="background: #f2f2f2; border-bottom: 1px solid #d2d2d2" <?php if ($countFollowBack >=1){echo 'hidden';} ?>>
+                                            <img src="<?php if(empty($getMoreF['picture'])){ echo base_url('users_photo/avatar.png');}else{echo base_url('users_photo/'.$getMoreF['picture']);}?>" width="30" height="30">
+                                            <a class="text-black" href="<?php echo base_url('profile/check/'.$getMoreF['user_id']) ?>" target="_new"><?php echo $getMoreF['username']?></a>
+                                            <span class="body-right right">
+                            <?php if ($countFollowBack <=0){?>
+
+
+                                <span class="buttons" id="button_<?php echo $getMoreF['user_id'].'-'. $getMoreF['username'].'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                    <a class="btn follow" href="javascript: void(0)" id="<?php echo $getMoreF['user_id'] ?>" rel="<?php echo $getMoreF['user_id'] ?>">
+                                                        <i class="fa fa-user-plus text-red"></i>
+                                                        Follow
+                                                    </a>
+                                                </span>
+
+                            <?php } ?>
+
+                                                <?php if($countFollowBack >=1 ){?>
+
+                                                    <span class="buttons" id="button_<?php echo $getMoreF['user_id'].'-'. $getMoreF['username'].'-'.$_SESSION['userLogginID'].'-'.$username ?>">
+                                                    <a class="btn follow following" href="javascript: void(0)" id="<?php echo $getMoreF['user_id'] ?>" rel="<?php echo $getMoreF['user_id'] ?>">
+                                                        <i class="fa text-red"></i>
+                                                        Following
+                                                    </a>
+                                                </span>
+
+                                                <?php }?>
+                                 </span>
+
+                                        </div>
+                                    <?php endforeach ?>
+
+                                </div>
+
+
+                                <div>
+                                    <div class="" style="margin-bottom: -30px; margin-top: 40px;border-bottom: 1px solid #d2d2d2">
+
+                                        <small>Ongoing Voting</small>
+                                    </div>
+
+                                    <div class="divider-horizontal"></div>
+
+                                    <?php foreach ($getOngoingVoting as $votingList): ?>
+
+
+                                        <div class="ongoing_voting_row">
+                                            <a class="text-black" href="<?php echo base_url("vote/info/".$votingList['contest_id'])?>">
+                                                <img src="<?php echo base_url('uploads/contests/'.$votingList['contest_picture'])?>" width="30" height="30">
+                                                <?php echo $votingList['contest_name']?> contest Voting
+                                            </a>
+                                        </div>
+
+                                    <?php endforeach ?>
+
+                                </div>
+
+
+                                <div hidden>
+                                    <div class=""  style="margin-bottom: -30px; margin-top: 40px">
+                                        <small class="">Invite more Friends</small>
+                                    </div>
+
+                                    <div class="divider-horizontal"></div>
+
+                                    <div class="invite_row p-b-10 f-ubuntu">
+                                        <img src="<?php echo base_url()?>img/icons/Facebook.png" class="m-r-5">
+                                        Invite using Facebook
+                                    </div>
+
+
+                                    <div class="invite_row p-b-10 f-ubuntu">
+                                        <img src="<?php echo base_url()?>img/icons/Twitter.png" class="m-r-5">
+                                        Invite using Twitter
+                                    </div>
+
+                                    <div class="invite_row">
+                                        <img src="<?php echo base_url()?>img/icons/Google-+.png">
+                                        Invite using Google+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end of modal for recommended -->
 
         <div class="col-sm-7 no-padding-xs">
 
@@ -133,52 +325,7 @@
             <div class="photos_wall" style="min-height: 1700px;padding-top: 30px;padding-bottom: 100px;">
 
 
-               <?php if($countFollowing >=1):?>
-                    <?php foreach($getPost2 as $post2):?>
 
-
-                    <?php
-                    $postType = $post2['post_type'];
-                    $postMediaID = $post2['media_id'];
-
-                    if($postType =='contest'):
-
-
-                        $this->db->where("contest_id = '$postMediaID'");
-                        $getContestFile = $this->db->get("contests")->result();
-
-                        foreach($getContestFile as $getContest):
-
-                            ?>
-                            <!-- open contest -->
-                            <div class="photos_row" style="margin:0px !important !important;">
-                                <div class="photo_title" style="height: 60px;background: #fff;width: 100%; padding: 10px;">
-                                    <div class="logoPhoto" style="padding-top: 5px">
-                                        <img src="<?php echo base_url()?>img/logo.png" width="30" height="30">
-                                        <span> Recommend for you <a href="<?php echo base_url("contests/check/".$getContest->contest_id)?>"><?php echo $getContest->contest_name; ?> Contest</a></span>
-                                    </div>
-                                </div>
-
-                                <div class="photos_content photo_contest" style="">
-                                    <a href="<?php echo base_url("contests/check/".$getContest->contest_id)?>">
-                                        <img src="<?php echo base_url("uploads/contests/".$getContest->contest_picture)?>" width="100%" style="">
-                                    </a>
-
-                                    <div class="photo_contest_info" style="margin-bottom: 100px !important;">
-                                        <h2 class="text-center"><?php echo $getContest->contest_name; ?> Contest</h2>
-                                        <h6 class="text-center"><?php echo $getContest->contest_grand_price; ?></h6>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        <?php endforeach ?>
-                    <?php endif ?>
-
-                <?php endforeach ?>
-
-                <?php endif ?>
 
                 <?php foreach($getPost as $post):?>
 
@@ -207,8 +354,62 @@
                            <div class="likeRow">
                                 <div>
                                     <ul>
-                                        <li><a href="#war"><i class="fa fa-star fa-2x"></i></a></li>
-                                        <li><a href="#like"><i class="fa fa-thumbs-up fa-2x"></i></a></li>
+
+                                        <?php
+
+                                            $userIDx = $_SESSION['userLogginID'];
+                                            $userIP = $_SERVER['SERVER_ADDR'];
+                                            $this->db->where("upload_id = '$postMediaID' AND user_id ='$userIDx'");
+                                            $this->db->or_where("upload_id = '$postMediaID' AND user_ip='$userIP'");
+                                            $countFav = $this->db->count_all_results('favourite_upload');
+
+                                            //count like
+
+                                        $this->db->where("upload_id", $postMediaID);
+                                        $countLike = $this->db->count_all_results('upload_like');
+
+                                        if($countFav <=0 ){
+                                        ?>
+
+                                            <li class="fav2 fav_bg" id="fav_<?php echo $postMediaID ?>" onclick=""><a href="javascript: void(0)" id="fav__<?php echo $postMediaID ?>" rel="<?php echo $postMediaID?>"><i class="fa fa-star fa-2x"></i></a></li>
+
+                                        <?php }else{ ?>
+                                            <li class="fav2 fav_bg" id="" onclick=""><a href="javascript: void(0)" id="" rel=""><i class="fa fa-star text-red fa-2x"></i></a></li>
+                                        <?php }?>
+
+
+                                        <?php
+
+                                        //check if picture is already like by the user
+                                        $this->db->where("upload_id ='$postMediaID' AND user_id ='$userIDx'");
+                                        $this->db->or_where("upload_id ='$postMediaID' AND like_ip ='$userIP'");
+                                        $countuserLike = $this->db->count_all_results('upload_like');
+
+
+
+                                        if($countLike <=0){?>
+
+                                            <li  class="likex" id="likex_<?php echo $postMediaID ?>" onclick="onClick()" style=""><a href="javascript: void(0)" onclick="clickCounter()" id="likex_<?php echo $postMediaID ?>" rel="<?php echo $postMediaID ?>"><i class="fa fa-thumbs-up fa-2x"></i></a>
+
+                                            <div id="clicks" class="showResult text-center bg-purple">
+                                                <?php echo $countLike ?>
+                                            </div>
+
+                                        </li>
+
+                                        <?php }else{?>
+
+                                            <li  class="likex" id="likex_<?php echo $postMediaID ?>" onclick="onClick()" style=""><a href="javascript: void(0)" onclick="clickCounter()" id="likex_<?php echo $postMediaID ?>" rel="<?php echo $postMediaID ?>"><i class="fa fa-thumbs-down fa-2x text-red"></i></a>
+
+                                                <div id="clicks" class="showResult text-center bg-purple">
+                                                    <?php echo $countLike ?>
+                                                </div>
+
+                                            </li>
+
+
+
+                                        <?php }?>
                                     </ul>
                                 </div>
                            </div>
@@ -555,18 +756,33 @@
 
 
 
-
         $('.likex > a').livequery("click",function(e){
 
             var parent  = $(this).parent();
             var getID   =  parent.attr('id').replace('likex_','');
 
-
-            $.post("<?php echo base_url()?>like.php?id="+getID, {
+            //$.post("<?php echo base_url()?>follow/following/"+getID, {
+            $.post("<?php echo base_url()?>ajax_link/like/"+getID, {
 
             }, function(response){
 
-                $('#button_'+getID).html($(response).fadeIn('slow'));
+                $('#likex_'+getID).html($(response).fadeIn('slow'));
+            });
+        });
+
+
+
+        $('.fav2 > a').livequery("click",function(e){
+
+            var parent  = $(this).parent();
+            var getID   =  parent.attr('id').replace('fav_','');
+
+            //$.post("<?php echo base_url()?>follow/following/"+getID, {
+            $.post("<?php echo base_url()?>ajax_link/fav/"+getID, {
+
+            }, function(response){
+
+                $('#fav_'+getID).html($(response).fadeIn('slow'));
             });
         });
     });

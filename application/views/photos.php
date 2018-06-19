@@ -37,6 +37,7 @@
         .label :hover{
 
             background: #f00 !important;
+            color: #fff !important;
             padding: .2em .6em .3em;
             text-decoration: none;
             margin: -2px -10px -3px -14px;
@@ -115,22 +116,49 @@
                         </a>
 
                         <div>
-                            <label class="award likex label bg-black" id="likex_<?php echo $photos['picture_id'] ?>" onclick="onClick()">
-                               <a href="javascript: void(0)" class="text-white" id="likex_<?php echo $photos['picture_id'] ?>" rel="<?php echo $photos['picture_id'] ?>"> <i class="fa fa-thumbs-up"></i></a>
 
-                                <?php
+                            <?php
+                                require_once('template/user_ip.php');
+                                $userIP = get_client_ip();
+
+                                //count all likes
 
                                 $this->db->where("upload_id", $photos['picture_id']);
                                 $countLike = $this->db->count_all_results('upload_like');
 
-                                ?>
+                                $photoIDx = $photos['picture_id'];
+                                //check if a particular user already like
+                                $this->db->where("like_ip = '$userIP' AND upload_id ='$photoIDx'");
+                                $countUserLike =$this->db->count_all_results("upload_like");
+
+                            ?>
 
 
-                                <div id="result" class="showResult2">
-                                    <?php echo $countLike ?>
-                                </div>
 
-                            </label>
+                            <?php if($countUserLike <=0){?>
+
+                                <label class="award likex label bg-black" id="likex_<?php echo $photos['picture_id'] ?>" onclick="onClick()">
+                                    <a href="javascript: void(0)" class="text-white" id="likex_<?php echo $photos['picture_id'] ?>" rel="<?php echo $photos['picture_id'] ?>"> <i class="fa fa-thumbs-up"></i></a>
+
+
+                                    <div id="result" class="showResult2">
+                                        <?php echo $countLike ?>
+                                    </div>
+                                </label>
+
+                            <?php }else{?>
+
+                                <label class="award likex label bg-black" id="likex_<?php echo $photos['picture_id'] ?>" onclick="onClick()">
+                                    <a href="javascript: void(0)" class="text-white" id="likex_<?php echo $photos['picture_id'] ?>" rel="<?php echo $photos['picture_id'] ?>"> <i class="fa fa-thumbs-down text-red"></i></a>
+
+
+                                    <div id="result" class="showResult2">
+                                        <?php echo $countLike ?>
+                                    </div>
+                                </label>
+                            <?php } ?>
+
+
 
                             <?php if(isset($this->session->userLogginID)):?>
                                 <label id="fav_<?php echo $photos['picture_id'] ?>" class="fav fav_bg star label bg-black">

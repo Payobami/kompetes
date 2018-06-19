@@ -86,6 +86,7 @@ class User extends CI_Controller{
                     //get people to follow
                     $myFollowingID = $myFollowing['user_id'];
                     $this->db->where("user_id !='$myFollowingID' AND user_id !='$UserID'");
+                    $this->db->limit(10);
                     $data['getMoreFollow'] = $this->db->get("userz")->result_array();
 
 

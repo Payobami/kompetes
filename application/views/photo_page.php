@@ -26,23 +26,44 @@
 ?>
 
 
-<meta property="fb:app_id" content="206290706857314" />
+
 <meta name="description" content="Kompetes pushing your talent beyond its bounds,
 sparking new ideas, and driving creativity">
 
-<meta property="og:title" content="Check out this awesome picture from Kompetes.co.uk"/>
+<!--<meta property="og:title" content="Check out this awesome picture from Kompetes.co.uk"/>
 <meta property="og:site_name" content="Kompetes"/>
-<meta property="og:url" content="https://kompetes.co.uk/photo/check/<?php echo $select_photo->picture_id ?>"/>
+<meta property="og:url" content="https://kompetes.co.uk/photo/check/<?php /*echo $select_photo->picture_id */?>"/>
 <meta property="og:description" content="Kompetes pushing your talent beyond its bounds,
 sparking new ideas, and driving creativity"/>
-<meta property="og:image" content="<?php echo base_url('uploads/'.$select_photo->picture_name)?>" />
+<meta property="og:image" content="<?php /*echo base_url('uploads/'.$select_photo->picture_name)*/?>" />-->
 
-<meta name="twitter:card" content="">
-<meta name="twitter:site" content="@kompetes">
+
+
+<meta property="fb:app_id" content="206290706857314" />
+<meta property="og:site_name" content="Kompetes.co.uk" />
+<meta property="og:image" content="<?php echo base_url('uploads/'.$select_photo->picture_name)?>" />
+<meta property="og:description" content="Kompetes pushing your talent beyond its bounds,
+sparking new ideas, and driving creativity" />
+<meta property="og:url" content="<?php echo base_url('photos/check/'.$select_photo->picture_id) ?>" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Check out this awesome picture from Kompetes.co.uk"/>
+<meta property="og:image:width" content="453" />
+<meta property="og:image:height" content="680" />
+
+
+
+<meta name="twitter:card" content="Kompetes">
+<meta name="twitter:site" content="<?php echo base_url('photos/check/'.$select_photo->picture_id) ?>">
 <meta name="twitter:title" content="Check out this awesome picture from Kompetes.co.uk">
 <meta name="twitter:description" content="Kompetes pushing your talent beyond its bounds,
 sparking new ideas, and driving creativity">
 <meta name="twitter:image" content="<?php echo base_url('uploads/'.$select_photo->picture_name)?>">
+
+
+
+
+
+
 
 
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->

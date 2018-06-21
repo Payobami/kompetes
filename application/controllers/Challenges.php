@@ -516,7 +516,7 @@ class Challenges extends CI_Controller
                     $this->db->where("challenge_id='$id'");
                     $getChallenge = $this->db->get("challenges")->result();
 
-                    $data['success'] = "<div class='alert alert-success text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Entry Submitted Successfully!</div>";
+                    $data['success'] = "<div class='alert bg-black text-white no-border-radius'><a class='close' data-dismiss='alert'>x</a> Entry Submitted Successfully!</div>";
                     $data['title'] ='Entries ';
                     foreach($getChallenge as $data['getChallenge'])
                         //get entries
@@ -547,7 +547,8 @@ class Challenges extends CI_Controller
 
         else{
 
-            die("You are not allowed to access this page directly");
+            redirect(base_url('login?redirect=challenges/check/'.$id));
+            //die("You are not allowed to access this page directly");
         }
 
 

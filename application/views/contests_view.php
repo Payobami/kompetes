@@ -50,7 +50,7 @@ $s2=ceil(($s1-time())/60/60/24);
     <?php } ?>
     <div class="contest-bg" style="">
         <div class="container-fluid">
-            <h1 class="text-center" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $contest->contest_name ?> <br> Photo Contest</h1>
+            <h1 class="text-center" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $contest->contest_name ?> <br></h1>
             <h5 class="text-center text-white"><?php echo $contest->contest_grand_price ?> and more</h5>
         </div>
 
@@ -249,7 +249,7 @@ $s2=ceil(($s1-time())/60/60/24);
                             <li>
                                 <!--<i class="fas fa-pound-sign fa-3x text-black"></i>-->
                                 <img src="https://use.fontawesome.com/releases/v5.0.13/svgs/solid/pound-sign.svg" style="width: 2em;" class="pull-left m-r-40">
-                                <span class="pull-left m-l-20" style="">Entry fee: <?php if($contest->entry_price=='Free'){echo 'Free';}else{echo $contest->entry_price.' Credits ';} ?> for Premium and Pro members</span>
+                                <span class="pull-left m-l-20" style="">Entry fee: <?php if($contest->entry_price=='Free'){echo 'Free';}else{echo $contest->entry_price.' Credits ';} ?></span>
                             </li>
                         </ul>
                     </div>
@@ -270,7 +270,7 @@ $s2=ceil(($s1-time())/60/60/24);
     <div class="contest-foot">
 
         <h4 class="text-center text-white">Contest (<?php echo $contest->contest_name ?>) Description</h4>
-        <p class="text-center text-white" style="font-size: 20px"> <?php echo $contest->description ?> <a class="text-white" hidden href="">Learn more!</a> </p>
+        <p class="text-center text-white" style="font-size: 20px"> <?php echo $contest->description ?> </p>
 
     </div>
 
@@ -358,7 +358,7 @@ $s2=ceil(($s1-time())/60/60/24);
 
                 <?php }elseif(!isset($_SESSION['userLogginID'])){ ?>
 
-                    <h6 class="text-center">Please loggin</h6>
+                    <h6 class="text-center">Please login</h6>
 
                 <?php } ?>
             </div>

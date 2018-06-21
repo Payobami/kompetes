@@ -87,6 +87,7 @@ class Contests extends CI_Controller{
 
         $this->load->view('template/header', $data);
         $this->load->view('contests', $data);
+        $this->load->view('template/footer', $data);
     }
 
 
@@ -334,13 +335,13 @@ class Contests extends CI_Controller{
 
                         $insertNotification = array(
                             array(
-                                "message"=> "You have successfully enter the ". $getContest[0]['contest_name']. ' contest for Free',
+                                "message"=> "You have successfully enter the ". $getContest[0]->contest_name. ' contest for Free',
                                 "user_id"=> $userID,
                                 "link"=> base_url('contests/check/'.$id),
                                 'date'=> date('Y-m-d H:i:s'),
                             ),
                             array(
-                                "message"=> $data['username'] ." has successfully enter the ". $getContest[0]['contest_name']. ' contest for Free',
+                                "message"=> $data['username'] ." has successfully enter the ". $getContest[0]->contest_name. ' contest for Free',
                                 "user_id"=> 'Admin',
                                 "link"=> base_url('contests/check/'.$id),
                                 'date'=> date('Y-m-d H:i:s'),

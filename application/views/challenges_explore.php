@@ -139,32 +139,21 @@
                     <h5 class="f-ubuntu text-center">
                         No Contest Available for Now
                     </h5>
-
-
                 <?php endif ?>
-
-
-
             </div>
-
-
         </div>
-
     </div>
 
 
 
 
     <?php if($countChallenges >=1):?>
-
         <div class="text-center" style="margin-top: 120px;margin-bottom: 40px">
-            <a href="#" class="btn btn-default btn-lg" style="width: 270px;border: 3px solid #4bd26f;border-radius: 20px">Load more</a>
+            <a href="#" class="btn btn-default btn-lg" style="width: 270px;border: 3px solid #f00;border-radius: 20px">Load more</a>
         </div>
     <?php endif ?>
 
         </div>
-
-
     </div>
 
 

@@ -26,20 +26,23 @@
 ?>
 
 
+<meta property="fb:app_id" content="206290706857314" />
+<meta name="description" content="Kompetes pushing your talent beyond its bounds,
+sparking new ideas, and driving creativity">
 
-<meta name="description" content="Simple Social Network Sharing Plugin">
-
-<meta property="og:title" content="Demos - jsSocials"/>
-<meta property="og:site_name" content="jsSocials"/>
-<meta property="og:url" content="http://js-socials.com"/>
-<meta property="og:description" content="Simple Social Network Sharing Plugin"/>
+<meta property="og:title" content="Check out this awesome picture from Kompetes.co.uk"/>
+<meta property="og:site_name" content="Kompetes"/>
+<meta property="og:url" content="https://kompetes.co.uk/photo/check/<?php echo $select_photo->picture_id ?>"/>
+<meta property="og:description" content="Kompetes pushing your talent beyond its bounds,
+sparking new ideas, and driving creativity"/>
 <meta property="og:image" content="<?php echo base_url('uploads/'.$select_photo->picture_name)?>" />
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@artem_tabalin">
-<meta name="twitter:title" content="Demos - jsSocials">
-<meta name="twitter:description" content="Simple Social Network Sharing Plugin">
-<meta name="twitter:image" content="">
+<meta name="twitter:card" content="">
+<meta name="twitter:site" content="@kompetes">
+<meta name="twitter:title" content="Check out this awesome picture from Kompetes.co.uk">
+<meta name="twitter:description" content="Kompetes pushing your talent beyond its bounds,
+sparking new ideas, and driving creativity">
+<meta name="twitter:image" content="<?php echo base_url('uploads/'.$select_photo->picture_name)?>">
 
 
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->

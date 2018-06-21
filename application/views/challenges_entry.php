@@ -46,7 +46,7 @@ $s2=ceil(($s1-time())/60/60/24);
     <div class="contest-bg" style="height: 180px !important;">
 
         <div class="container-fluid text-center">
-            <h6 class="" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $getChallenge->challenge_name ?> Challenge</h6>
+            <h6 class="" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $getChallenge->challenge_name ?></h6>
             <!--<h5 class="text-center text-white">Share your best photos showing vegetable and fruit</h5>-->
 
 
@@ -122,14 +122,14 @@ $s2=ceil(($s1-time())/60/60/24);
                         <img src="<?php echo base_url("uploads/small_thumb/".str_replace('_medium','_small',$getEntry['picture_name'])); ?>">
                     </a>
 
-                    <div>
+                    <!--<div>
                         <label class="award label label-primary">
                             <i class="fa fa-thumbs-up"></i>
                         </label>
                         <label class="star label label-danger">
                             <i class="fa fa-star"></i>
                         </label>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 

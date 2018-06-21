@@ -48,7 +48,7 @@ $s2=ceil(($s1-time())/60/60/24);
     <div class="contest-bg" style="height: 180px !important;">
 
         <div class="container-fluid text-center">
-            <h6 class="" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $contest->contest_name ?> Photo Contest</h6>
+            <h6 class="" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $contest->contest_name ?></h6>
             <!--<h5 class="text-center text-white">Share your best photos showing vegetable and fruit</h5>-->
 
             <div class="text-center">
@@ -119,17 +119,17 @@ $s2=ceil(($s1-time())/60/60/24);
                         <img src="<?php echo base_url('uploads/medium_thumb/'.$contestEntry['picture_name'])?>">
                     </a>
 
-                    <div>
+                   <!-- <div>
                         <label class="award label label-default">
                             <i class="fa fa-thumbs-up"></i>
                         </label>
 
-                        <?php if(isset($_SESSION['userLogginID'])){?>
+                        <?php /*if(isset($_SESSION['userLogginID'])){*/?>
                         <label class="star label label-danger">
                             <i class="fa fa-star"></i>
                         </label>
-                        <?php }?>
-                    </div>
+                        <?php /*}*/?>
+                    </div>-->
                 </div>
             </div>
             <?php endforeach; }else{ ?>

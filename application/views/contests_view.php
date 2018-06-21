@@ -51,7 +51,7 @@ $s2=ceil(($s1-time())/60/60/24);
     <div class="contest-bg" style="">
         <div class="container-fluid">
             <h1 class="text-center" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $contest->contest_name ?> <br></h1>
-            <h5 class="text-center text-white"><?php echo $contest->contest_grand_price ?> and more</h5>
+            <h5 class="text-center text-white"><?php echo $contest->contest_grand_price ?></h5>
         </div>
 
         <div class="text-center">

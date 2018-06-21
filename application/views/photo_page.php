@@ -1,5 +1,3 @@
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/carousel_photo.css')?>">
 
 <?php foreach($getPhoto as $select_photo)?>
 
@@ -26,6 +24,28 @@
 
 
 ?>
+
+
+
+<meta name="description" content="Simple Social Network Sharing Plugin">
+
+<meta property="og:title" content="Demos - jsSocials"/>
+<meta property="og:site_name" content="jsSocials"/>
+<meta property="og:url" content="http://js-socials.com"/>
+<meta property="og:description" content="Simple Social Network Sharing Plugin"/>
+<meta property="og:image" content="<?php echo base_url('uploads/'.$select_photo->picture_name)?>" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@artem_tabalin">
+<meta name="twitter:title" content="Demos - jsSocials">
+<meta name="twitter:description" content="Simple Social Network Sharing Plugin">
+<meta name="twitter:image" content="">
+
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/carousel_photo.css')?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>bower_components/jssocials/dist/jssocials.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>bower_components/jssocials/dist/jssocials-theme-flat.css" />
 
 
 <style>
@@ -166,11 +186,16 @@
                                     <?php echo $countLike ?>
                                 </div>
                             </li>
-                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-twitter"></i></a></li>
-                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-facebook"></i></a></li>
-                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-pinterest"></i></a></li>
-                            <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-envelope"></i></a></li>
+                            <li class="visible-xs"><a href="" class="text-black"><i class="fa fa-share-alt"></i></a></li>
+
+                            <div id="share">
+                                <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-twitter"></i></a></li>
+                                <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-facebook"></i></a></li>
+                                <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-pinterest"></i></a></li>
+                                <li class="hidden-xs"><a href="" class="text-black"><i class="fa fa-envelope"></i></a></li>
+                            </div>
+
                         </ul>
                     </div>
                 </div>
@@ -632,11 +657,19 @@
 <!--<script type="text/javascript" src="--><?php //echo base_url()?><!--js/jquery-1.2.6.min.js"></script>-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src="<?php echo base_url()?>bower_components/jssocials/dist/jssocials.min.js"></script>
+
 
 <script type="text/javascript" src="<?php echo base_url()?>js/functions.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/jquery.livequery.js"></script>
 
 <script type="text/javascript">
+
+    $("#share").jsSocials({
+        shares: ["email", "twitter", "facebook", "googleplus", "pinterest", "whatsapp"]
+    });
+
+
     $(document).ready(function() {
 
         $('.buttons > a').livequery("click",function(e){

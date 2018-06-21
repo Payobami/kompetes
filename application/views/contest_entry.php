@@ -186,7 +186,7 @@ $s2=ceil(($s1-time())/60/60/24);
                 <a class="" data-dismiss="modal">X</a>
             </div>
             <div class="p-l-20" style="margin-top: -40px">
-                <p>Click the photo(s) you'd like to submit or <a href="<?php echo base_url('upload')?>" class="btn btn-xs btn-success">Upload</a> </p>
+                <p>Click the photo(s) you'd like to submit or <a href="<?php echo base_url('upload')?>" class="btn btn-xs bg-reg text-white">Upload</a> </p>
             </div>
 
             <div class="p-l-2-" style="min-height: 50px;background: #d5d5d5"></div>
@@ -244,9 +244,9 @@ $s2=ceil(($s1-time())/60/60/24);
                             <div class="pull-left">
                                 <div class="">
                                     <input type="hidden" name="entry_type" value="contest">
-                                    <input type="submit" value="Submit" class="btn btn-success btn-sm no-border-radius">Submit</input>
+                                    <input type="submit" value="Submit" class="btn bg-black btn-sm no-border-radius">Submit</input>
 
-                                    By entering this challenge you accept ViewBug's Terms of Use
+                                    By entering this challenge you accept Kompetes's Terms of Use
                                 </div>
                             </div>
 

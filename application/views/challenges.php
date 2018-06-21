@@ -92,7 +92,7 @@
             <?php if($countChallenges >= 1):?>
 
                 <div class="text-center" style="margin-top: 120px;margin-bottom: 40px">
-                    <a href="<?php echo base_url('challenges/explore/all')?>" class="btn btn-default btn-lg" style="width: 270px;border: 3px solid #4bd26f;border-radius: 20px">View all Member Contests</a>
+                    <a href="<?php echo base_url('challenges/explore/all')?>" class="btn btn-default btn-lg" style="width: 270px;border: 3px solid #f00;border-radius: 20px">View all Member Contests</a>
                 </div>
             <?php endif ?>
         </div>

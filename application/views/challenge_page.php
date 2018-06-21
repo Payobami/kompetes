@@ -51,7 +51,7 @@ $s2=ceil(($s1-time())/60/60/24);
     <div class="contest-bg" style="">
 
         <div class="container-fluid">
-            <h1 class="text-center" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $chanllengex->challenge_name?><br>  Photo Challenge</h1>
+            <h1 class="text-center" style="color: #fff; font-family: sans-serif;font-weight: 700;"> <?php echo $chanllengex->challenge_name?><br></h1>
             <h5 class="text-center text-white"><?php echo $chanllengex->description ?></h5>
         </div>
 
@@ -125,8 +125,8 @@ $s2=ceil(($s1-time())/60/60/24);
                     <h3 class="text-center text-white">Grand Winner </h3>
 
                     <ul>
-                        <li>Challenge Winner</li>
-                        <li><?php echo $chanllengex->winner_selection ?> Reward Points</li>
+                        <li>Contest Winner</li>
+                        <li><?php echo $chanllengex->winner_selection ?> Reward Credits</li>
                     </ul>
                 </div>
             </div>
@@ -141,13 +141,12 @@ $s2=ceil(($s1-time())/60/60/24);
                 <div class="contest-price text-center">
                     <h3 class="text-center text-white">People's Choice </h3>
                     <ul>
-                        <li>Challenge Winner</li>
-                        <li><?php echo $chanllengex->people_choice ?> Reward Points</li>
+                        <li>Contest Winner</li>
+                        <li><?php echo $chanllengex->people_choice ?> Reward Credits</li>
                     </ul>
                 </div>
             </div>
         </div>
-
     </div>
 
 
@@ -217,10 +216,10 @@ $s2=ceil(($s1-time())/60/60/24);
                                  <span>Entry fee: Free for Premium and Pro members</span>
                              </li>-->
 
-                            <li hidden>
+                            <!--<li hidden>
                                 <img src="https://use.fontawesome.com/releases/v5.0.13/svgs/solid/pound-sign.svg" style="width: 2em;" class="pull-left m-r-40">
-                                <span>Entry fee: <?php //if($contest->entry_price=='Free'){echo 'Free';}else{echo $contest->entry_price.' Points ';} ?> for Premium and Pro members</span>
-                            </li>
+                                <span>Entry fee: <?php /*//if($contest->entry_price=='Free'){echo 'Free';}else{echo $contest->entry_price.' Points ';} */?> for Premium and Pro members</span>
+                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -340,7 +339,7 @@ $s2=ceil(($s1-time())/60/60/24);
                                     <input type="hidden" name="entry_type" value="challenge">
                                     <input type="submit" value="Submit" class="btn bg-black text-white btn-sm no-border-radius">Submit</input>
 
-                                    By entering this challenge you accept ViewBug's Terms of Use
+                                    By entering this challenge you accept Kompetes's Terms of Use
                                 </div>
                             </div>
 

@@ -249,7 +249,7 @@ $s2=ceil(($s1-time())/60/60/24);
                                     <input type="hidden" name="entry_type" value="challenge">
                                     <input type="submit" value="Submit" class="btn btn-success btn-sm no-border-radius">Submit</input>
 
-                                    By entering this challenge you accept ViewBug's Terms of Use
+                                    By entering this challenge you accept Kompetes's Terms of Use
                                 </div>
                             </div>
 
